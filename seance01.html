@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+  <link rel="stylesheet" href="resources/css/default.css">
+  <link rel="stylesheet" href="resources/css/style.css">
+  <title>Cours Pensée Computationnelle</title>
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="aside_navbar"></div>
+    </nav>
+  </aside>
+
+  <main class="container my-3">
+    <h1>Rappel</h1>
+
+    <article>
+      <h2>Exercices</h2>
+
+      <section>
+        <h3>Résistance équivalente</h3>
+
+        <p>Ecrire un programme qui calcule et affiche la valeur de Req de trois résistances r1, r2 et r3 montées en
+          parallèle.</p>
+      </section>
+
+      <section>
+        <h3>Aire d'un carré</h3>
+
+        <p>Ecrire un programme qui calcule et affiche l'aire hachurée, entre un carré et un cercle, pour r et c données.
+          Sachant que : c > 0 et 0 &lt; c &le; r</p>
+      </section>
+
+      <section>
+        <h3>Conversion durée en secondes</h3>
+
+        <p>Ecrire un programme qui saisit une durée sous la forme "hh:mm:ss" puis affiche son équivalent en secondes.
+        </p>
+      </section>
+
+      <section>
+        <h3>Parité</h3>
+
+        <p>Ecrire un programme qui affiche la parité d'un nombre donné.</p>
+      </section>
+
+      <section>
+        <h3>Bissextile</h3>
+
+        <p>Une année est dite bissextile si :</p>
+        <ul>
+          <li>Elle est divisible par 4 et non divisible par 100</li>
+          <li>Elle est divisible par 400</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Le nom le plus long</h3>
+
+        <p>Ecrire un programme qui saisit les noms de deux personnes et affiche le plus long entre les deux.</p>
+      </section>
+    </article>
+
+    <article>
+      <h2>Correction</h2>
+
+      <section>
+        <h3>Résistance équivalente</h3>
+
+        <pre><code class="language-algorithm">Algorithme Ex1
+Début
+  Ecrire("Donner R1 ? ")
+  Lire(r1)
+  Ecrire("Donner R2 ? ")
+  Lire(r2)
+  Ecrire("Donner R3 ? ")
+  Lire(r3)
+  req &larr; 1 / (1/r1 + 1/r2 + 1/r3)
+  Ecrire("Req =", req)
+Fin</code></pre>
+
+        <div class="row justify-content-center">
+          <table class="table table-sm table-striped table-hover w-25">
+            <thead>
+              <tr>
+                <th>Objet</th>
+                <th>Type</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>r1</td>
+                <td>réel</td>
+              </tr>
+              <tr>
+                <td>r2</td>
+                <td>réel</td>
+              </tr>
+              <tr>
+                <td>r3</td>
+                <td>réel</td>
+              </tr>
+              <tr>
+                <td>req</td>
+                <td>réel</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h3>Aire d'un carré</h3>
+
+        <pre><code class="language-algorithm">Algorithme Ex2
+Début
+  Ecrire("Coté du carré ? ")
+  Lire(c)
+  Ecrire("Rayon du cercle ? ")
+  Lire(r)
+
+  a &larr; c * c - pi * r * r
+
+  Ecrire("Aire hachurée =", a)
+Fin</code></pre>
+
+        <div class="row justify-content-center">
+          <table class="table table-sm table-striped table-hover w-25">
+            <thead>
+              <tr>
+                <th>Objet</th>
+                <th>Type</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>c</td>
+                <td>réel</td>
+              </tr>
+              <tr>
+                <td>r</td>
+                <td>réel</td>
+              </tr>
+              <tr>
+                <td>a</td>
+                <td>réel</td>
+              </tr>
+              <tr>
+                <td>pi</td>
+                <td>3.1415</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h3>Conversion durée en secondes</h3>
+
+        <pre><code class="language-algorithm">Algorithme Ex3
+Début
+  Ecrire("Donner la durée hh:mm:ss ? ")
+  //                      01234567
+  Lire(d)
+  h &larr; sous_chaine(d, 0, 2)
+  m &larr; sous_chaine(d, 3, 5)
+  s &larr; sous_chaine(d, 6, 8)
+
+  ss &larr; h * 3600 + m * 60 + s
+
+  Ecrire("Durée (s) =", ss)
+Fin</code></pre>
+
+        <div class="row justify-content-center">
+          <table class="table table-sm table-striped table-hover w-25">
+            <thead>
+              <tr>
+                <th>Objet</th>
+                <th>Type</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>d</td>
+                <td>chaine</td>
+              </tr>
+              <tr>
+                <td>h, m, s, ss</td>
+                <td>entier</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h3>Parité</h3>
+
+        <pre><code class="language-algorithm">Algorithme Ex4
+Début
+  Ecrire("Donner un entier ? ")
+  Lire(n)
+  
+  Si n mod 2 = 0 Alors
+    Ecrire(n, "est pair")
+  Sinon
+    Ecrire(n, "est impair")
+  Fin si
+Fin</code></pre>
+
+        <div class="row justify-content-center">
+          <table class="table table-sm table-striped table-hover w-25">
+            <thead>
+              <tr>
+                <th>Objet</th>
+                <th>Type</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>n</td>
+                <td>entier</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h3>Bissextile</h3>
+
+        <pre><code class="language-algorithm">Algorithme Ex5
+Début
+  Ecrire("Donner une année ? ")
+  Lire(a)
+  
+  Si (a mod 4 = 0 et a mod 100 &ne; 0) ou (a mod 400 = 0) Alors
+    Ecrire(a, "est bissextile")
+  Sinon
+    Ecrire(a, "n'est pas bissextile")
+  Fin si
+Fin</code></pre>
+
+        <div class="row justify-content-center">
+          <table class="table table-sm table-striped table-hover w-25">
+            <thead>
+              <tr>
+                <th>Objet</th>
+                <th>Type</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>a</td>
+                <td>entier</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h3>Le nom le plus long</h3>
+
+        <pre><code class="language-algorithm">Algorithme Ex6
+Début
+  Ecrire("Nom de la 1ère personne ? ")
+  Lire(np1)
+  Ecrire("Nom de la 2ème personne ? ")
+  Lire(np2)
+
+  Si long(np1) > long(np2) Alors
+    Ecrire(np1, "est est plus long que", np2)
+  Sinon Si long(np1) &lt; long(np2) Alors
+    Ecrire(np2, "est est plus long que", np1)
+  Sinon
+    Ecrire(np2, "est de même longueur que", np1)
+  Fin si
+Fin</code></pre>
+
+        <div class="row justify-content-center">
+          <table class="table table-sm table-striped table-hover w-25">
+            <thead>
+              <tr>
+                <th>Objet</th>
+                <th>Type</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>np1, np2</td>
+                <td>chaine</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </article>
+  </main>
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée avec ♥ par Mohamed Anis MANI</div>
+    <div class="text-center small">Année scolaire : 2021/2022</div>
+  </footer>
+
+  <script src="resources/js/jquery.min.js"></script>
+  <script src="resources/js/bootstrap.bundle.min.js"></script>
+  <script src="resources/js/highlight.pack.js"></script>
+  <script src="resources/js/hljs.algorithm.js"></script>
+  <script src="resources/js/clipboard.min.js"></script>
+  <script src="resources/js/pages.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+
+    document.querySelectorAll('.language-algorithm,.language-python')
+      .forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'bd-clipboard d-print-none';
+        const btn = document.createElement('button');
+        btn.className = 'btn-clipboard';
+        btn.textContent = "📋";
+        btn.title = "Copier";
+        div.appendChild(btn);
+        item.parentElement.insertBefore(div, item);
+      });
+    new ClipboardJS('.btn-clipboard', {
+      target: (trigger) => {
+        return trigger.parentElement.nextElementSibling;
+      }
+    });
+  </script>
+</body>
+
+</html>

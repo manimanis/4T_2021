@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Table ASCII</title>
+  <style>
+    #table_ascii {
+      width: 100%;
+      border: 1px solid #000;
+      border-collapse: collapse;
+    }
+    #table_ascii td, #table_ascii th {
+      border: 1px solid #000;
+      padding: 3px;
+      text-align: center;
+    }
+    #table_ascii th:nth-child(even) {
+        border-right: 5px double;
+    }
+    #table_ascii td:nth-child(odd) {
+      font-size: small;
+      background-color: #eee;
+    }
+    #table_ascii td:nth-child(even) {
+      font-size: xx-large;
+      width: 8.5%;
+      border-right: 5px double;
+    }
+    h1 {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Table des caractères ASCII</h1>
+  <table id="table_ascii">
+    <thead>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Hello</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+    var table = document.getElementById('table_ascii');
+    var tbody = table.getElementsByTagName('tbody')[0];
+    var thead = table.getElementsByTagName('thead')[0];
+    var tr = '<tr>';
+    for (var j = 0; j < 8; j++) {
+      var codeDec = j * 16 + i;
+      var car = String.fromCharCode(codeDec);
+      tr += '<th>Code</td><th>Car.</th>';
+    }
+    tr += '</tr>\n';
+    thead.innerHTML = tr;
+    var body = '';
+    for (var i = 0; i < 16; i++) {
+      var tr = '<tr>';
+      for (var j = 0; j < 8; j++) {
+        var codeDec = j * 16 + i;
+        var car = String.fromCharCode(codeDec);
+        tr += '<td>' + codeDec + '</td><td>' + car + '</td>';
+      }
+      tr += '</tr>\n';
+      body += tr;
+    }
+    tbody.innerHTML = body;
+  </script>
+</body>
+
+</html>
