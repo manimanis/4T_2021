@@ -128,7 +128,7 @@
       </section>
 
       <section>
-        <h3>Exercice 3 (Bac 2013)</h3>
+        <h3 class="p-break">Exercice 3 (Bac 2013)</h3>
 
         <p>Soit la partie déclarative suivante d’un programme Pascal :</p>
 
@@ -232,7 +232,7 @@ Var mot3, mot4 : String; n, m : integer;</code></pre>
       </section>
 
       <section>
-        <h3>Exercice 5 (Bac 2011)</h3>
+        <h3 class="p-break">Exercice 5 (Bac 2011)</h3>
 
         <p><b>Répondre par Vrai si la proposition est correcte ou par faux sinon.</b></p>
 
@@ -328,65 +328,69 @@ Var mot3, mot4 : String; n, m : integer;</code></pre>
       <section>
         <h3>Exercice 7</h3>
 
-        <p>Soient les déclarations suivantes : </p>
-
-        <table class="table table-bordered table-sm table hover border-dark">
-          <thead>
-            <tr>
-              <th>Variable</th>
-              <th>Type</th>
-              <th>Valeur</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>x</td>
-              <td>real</td>
-              <td>2.2</td>
-            </tr>
-            <tr>
-              <td>y</td>
-              <td>real</td>
-              <td>0.2</td>
-            </tr>
-            <tr>
-              <td>n</td>
-              <td>integer</td>
-              <td>20</td>
-            </tr>
-            <tr>
-              <td>z</td>
-              <td>integer</td>
-              <td>-2</td>
-            </tr>
-            <tr>
-              <td>t</td>
-              <td>char</td>
-              <td>'n'</td>
-            </tr>
-            <tr>
-              <td>b</td>
-              <td>boolean</td>
-              <td>True</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <p>Soient les expressions suivantes :</p>
-        <pre><code class="language-delphi">N1 :=(X+Y)*(X-Y)/(X+Z) ; 
+        <div class="row">
+          <div class="col-6">
+            <p>Soient les déclarations suivantes : </p>
+            <table class="table table-bordered table-sm table hover border-dark">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Type</th>
+                  <th>Valeur</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>x</td>
+                  <td>real</td>
+                  <td>2.2</td>
+                </tr>
+                <tr>
+                  <td>y</td>
+                  <td>real</td>
+                  <td>0.2</td>
+                </tr>
+                <tr>
+                  <td>n</td>
+                  <td>integer</td>
+                  <td>20</td>
+                </tr>
+                <tr>
+                  <td>z</td>
+                  <td>integer</td>
+                  <td>-2</td>
+                </tr>
+                <tr>
+                  <td>t</td>
+                  <td>char</td>
+                  <td>'n'</td>
+                </tr>
+                <tr>
+                  <td>b</td>
+                  <td>boolean</td>
+                  <td>True</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-6">
+            <p>Soient les expressions suivantes :</p>
+            <pre><code class="language-delphi">N1 :=(X+Y)*(X-Y)/(X+Z) ; 
 N2 :=1.2*( N MOD Z ) ; 
 N3 :=N DIV Z + Z MOD N ; 
 N4 :=('a' > T ) XOR ( ORD('A') > N) ; 
 N5 :=N3 * Z DIV 4 * Z MOD N – N2 ; 
 N6 :=NOT((N1&lt;=12 ) OR (N3>=5) AND ( N2 &lt;>10)) AND B ; </code></pre>
+          </div>
+        </div>
 
         <p>En utilisant les valeurs des variables X, Y, Z, T et B, évaluer chacune des expressions et déterminer le type
           des variables Ni</p>
-        <p>ORD('A')=65. </p>
+        <p>On rappelle que : ORD('A')=65. </p>
       </section>
 
       <section>
-        <h3>Exercice 8</h3>
+        <h3 class="p-break">Exercice 8</h3>
 
         <p>Soient les variables h, m et s, de type entier, représentant les composantes h:m:s d'un événement.</p>
         <p><strong>Ecrire une expression booléenne qui permet d'évaluer la validité de ces trois variables.</strong></p>
@@ -463,15 +467,15 @@ c2 &larr; "Récurrent"</code></pre>
 
         <p>Soient les instructions suivantes :</p>
         <pre><code class="language-algorithm">T1[2] &larr; 5 
-T2[3] &larr; T1[2] + 2 
-T1[2] &larr; T1[2] DIV 2 
-T2[1] &larr; 2 * T1[2] 
-T2[2] &larr; T2[3] – T1[2]  
-T2[1] &larr; T1[2] + 2 * T2[1] 
-T1[1] &larr; T1[2] + 2 * T2[1]  
+T2[3] &larr; T1[2] + 2
+T1[2] &larr; T1[2] DIV 2
+T2[1] &larr; 2 * T1[2]
+T2[2] &larr; T2[3] - T1[2]
+T2[1] &larr; T1[2] + 2 * T2[1]
+T1[1] &larr; T1[2] + 2 * T2[1]
 T1[3] &larr; T1[2]</code></pre>
 
-        <p>Quel est le contenu de chaque élément des deux tableaux.</p>
+        <p class="p-break">Quel est le contenu de chaque élément des deux tableaux.</p>
         <div class="row">
           <div class="col-sm-6">
             <table class="table table-borderless table-sm table hover border-dark">
@@ -511,7 +515,7 @@ T1[3] &larr; T1[2]</code></pre>
     </article>
 
     <article>
-      <h2>Exercices - Nouveau régime</h2>
+      <h2 class="p-break">Exercices - Nouveau régime</h2>
 
       <section>
         <h3>Exercice 1 (Bac 2016 adapté)</h3>
@@ -616,7 +620,7 @@ T1[3] &larr; T1[2]</code></pre>
       </section>
 
       <section>
-        <h3>Exercice 3 (Bac 2013)</h3>
+        <h3 class="p-break">Exercice 3 (Bac 2013)</h3>
 
         <p>Soit la partie déclarative suivante d’un programme Pascal :</p>
 
@@ -726,7 +730,7 @@ m = 0</code></pre>
       </section>
 
       <section>
-        <h3>Exercice 5 (Bac 2011)</h3>
+        <h3 class="p-break">Exercice 5 (Bac 2011)</h3>
 
         <p><b>Répondre par Vrai si la proposition est correcte ou par faux sinon.</b></p>
 
@@ -822,57 +826,61 @@ m = 0</code></pre>
       <section>
         <h3>Exercice 7</h3>
 
-        <p>Soient les déclarations suivantes : </p>
-
-        <table class="table table-bordered table-sm table hover border-dark">
-          <thead>
-            <tr>
-              <th>Variable</th>
-              <th>Type</th>
-              <th>Valeur</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>x</td>
-              <td>float</td>
-              <td>2.2</td>
-            </tr>
-            <tr>
-              <td>y</td>
-              <td>float</td>
-              <td>0.2</td>
-            </tr>
-            <tr>
-              <td>n</td>
-              <td>int</td>
-              <td>20</td>
-            </tr>
-            <tr>
-              <td>z</td>
-              <td>int</td>
-              <td>-2</td>
-            </tr>
-            <tr>
-              <td>t</td>
-              <td>str</td>
-              <td>'n'</td>
-            </tr>
-            <tr>
-              <td>b</td>
-              <td>bool</td>
-              <td>True</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <p>Soient les expressions suivantes :</p>
-        <pre><code class="language-python">n1 = (x+y)*(x-y)/(x+z) 
-n2 = 1.2 * (n % z) 
-n3 = n // z + z % n
-n4 = ('a' > t ) ^ ( ord('A') > n)
-n5 = n3 * z // 4 * z % n – n2
-n6 := not((n1 &lt;= 12 ) or (n3 >= 5) and (n2 != 10)) and B</code></pre>
+        <div class="row">
+          <div class="col-6">
+            <p>Soient les déclarations suivantes : </p>
+            <table class="table table-bordered table-sm table hover border-dark">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Type</th>
+                  <th>Valeur</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>x</td>
+                  <td>float</td>
+                  <td>2.2</td>
+                </tr>
+                <tr>
+                  <td>y</td>
+                  <td>float</td>
+                  <td>0.2</td>
+                </tr>
+                <tr>
+                  <td>n</td>
+                  <td>int</td>
+                  <td>20</td>
+                </tr>
+                <tr>
+                  <td>z</td>
+                  <td>int</td>
+                  <td>-2</td>
+                </tr>
+                <tr>
+                  <td>t</td>
+                  <td>str</td>
+                  <td>'n'</td>
+                </tr>
+                <tr>
+                  <td>b</td>
+                  <td>bool</td>
+                  <td>True</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-6">
+            <p>Soient les expressions suivantes :</p>
+            <pre><code class="language-python">n1 = (x+y)*(x-y)/(x+z) 
+n2 = 1.2*(n%z) 
+n3 = n//z + z%n
+n4 = ('a'>t) ^ (ord('A')>n)
+n5 = n3*z//4*z%n – n2
+n6 = not((n1&lt;=12) or (n3>=5) and (n2!=10)) and b</code></pre>
+          </div>
+        </div>
 
         <p>En utilisant les valeurs des variables X, Y, Z, T et B, évaluer chacune des expressions et déterminer le type
           des variables ni.</p>
@@ -880,7 +888,7 @@ n6 := not((n1 &lt;= 12 ) or (n3 >= 5) and (n2 != 10)) and B</code></pre>
       </section>
 
       <section>
-        <h3>Exercice 8</h3>
+        <h3 class="p-break">Exercice 8</h3>
 
         <p>Soient les variables h, m et s, de type entier, représentant les composantes h:m:s d'un événement.</p>
         <p><strong>Ecrire une expression booléenne qui permet d'évaluer la validité de ces trois variables.</strong></p>
@@ -965,7 +973,7 @@ t2[0] &larr; t1[1] + 2 * t2[0]
 t1[0] &larr; t1[1] + 2 * t2[0]  
 t1[2] &larr; t1[1]</code></pre>
 
-        <p>Quel est le contenu de chaque élément des deux tableaux.</p>
+        <p class="p-break">Quel est le contenu de chaque élément des deux tableaux.</p>
         <div class="row">
           <div class="col-sm-6">
             <table class="table table-borderless table-sm table hover border-dark">
