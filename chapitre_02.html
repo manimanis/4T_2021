@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Structures conditionnelles</title>
+  <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+  <link rel="stylesheet" href="resources/css/default.css">
+  <link rel="stylesheet" href="resources/css/style.css">
+  <style type="text/css">
+    .center {
+      text-align: center;
+    }
+
+    .black_border {
+      text-align: center;
+      border: 1px #000 solid;
+    }
+
+    .surlignage {
+      background-color: #FF3300;
+      color: #FFFFFF;
+    }
+
+    input.fn-predefinies {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="aside_navbar"></div>
+    </nav>
+  </aside>
+
+  <main class="container my-3">
+    <h1>Structures conditionnelles</h1>
+
+    <article>
+      <h2>Forme réduite</h2>
+
+      <section>
+        <h3>Définition</h3>
+
+        <p>Une <strong>structure conditionnelle simple à forme réduite</strong> admet <u>un seul traitement</u> qui sera
+          exécuté uniquement <strong><u>si une condition est vraie</u></strong>.</p>
+
+        <figure>
+          <img src="resources/images/forme-simple-reduite.png" alt="Forme simple réduite">
+          <figcaption>Forme simple réduite</figcaption>
+        </figure>
+
+        <h4>Forme simple réduite</h4>
+        <div class="row">
+          <div class="col-sm-4">
+            <pre><code class="language-algorithm">Si condition Alors
+  // Traitements
+Fin Si</code></pre>
+          </div>
+          <div class="col-sm-4">
+            <pre><code class="language-delphi">if condition then begin
+  // Traitements
+end;</code></pre>
+          </div>
+          <div class="col-sm-4">
+            <pre><code class="language-python">if condition:
+  # Traitements
+  </code></pre>
+          </div>
+        </div>
+
+
+        <h4>Exemple</h4>
+        <div class="row">
+          <div class="col-sm-4">
+            <figure>
+              <img src="resources/images/porte-sortie.jpg" alt="Porte de sortie">
+              <figcaption>Exemple réel de si à forme simple réduite</figcaption>
+            </figure>
+          </div>
+          <div class="col-sm-8">
+            <div class="border border-dark p-2">
+              <p class="fs-4"><strong>Si</strong> <span class="text-danger">la porte est fermée</span>
+                <br><strong>alors</strong> <span class="text-success">l'ouvrir</span>.
+              </p>
+              <p class="fs-4">Sortir.</p>
+            </div>
+
+            <p>Dans cet exemple, si <u>la porte est initialement ouverte</u> <strong>il n'est pas nécessaire de
+                l'ouvrir</strong>.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Activité 1</h3>
+
+        <p>Ecrire un programme qui calcule et affiche <strong>la valeur absolue d'un entier</strong> donné <u>sans
+            utiliser</u> la fonction prédéfinie <u>abs</u>.</p>
+
+        <p><b>Indice :</b> Utiliser une structure simple réduite pour inverses x uniquement s'il est négatif.</p>
+
+        <p>On rappelle que :</p>
+        <ul>
+          <li>|x| = x, si x &ge; 0</li>
+          <li>|x| = -x, si x &lt; 0</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Activité 2</h3>
+
+        <p>Ecrire un programme qui saisit deux entiers <code>a</code> et <code>b</code> et les affiche en ordre
+          décroissant. <code>a</code> devra toujours contenir la valeur la plus grande et <code>b</code> la plus petite.
+        </p>
+
+        <p><b>Indice :</b> Utiliser une structure simple réduite pour permuter <code>a</code> et <code>b</code> s'il ne
+          sont pas dans l'ordre.</p>
+
+        <h4>Exemple</h4>
+        <div class="row">
+          <div class="col-sm-6">
+            <pre><code class="nohighlight shell python" data-text="Exemple d'exécution n°1">Donner a ? 25
+Donner b ? 13
+25 - 13</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <pre><code class="nohighlight shell python" data-text="Exemple d'exécution n°2">Donner a ? 8
+Donner b ? 17
+17 - 8</code></pre>
+          </div>
+        </div>
+      </section>
+    </article>
+
+    <article>
+      <h2>Forme alternative</h2>
+
+      <section>
+        <h3>Définition</h3>
+
+        <p>Une structure conditionnelle à forme alternative admet <u>deux traitements différents</u> :</p>
+
+        <ul>
+          <li>Le <u>premier traitement</u> est exécuté uniquement <b>si la condition est vraie</b>,</li>
+          <li>Le <u>second traitement</u> est exécuté uniquement <b>si la condition est fausse</b>.</li>
+        </ul>
+
+        <figure>
+          <img src="resources/images/forme-simple-alternative.png" alt="Forme simple alternative">
+          <figcaption>Forme simple alternative</figcaption>
+        </figure>
+
+        <h4>Forme simple alternative</h4>
+        <div class="row">
+          <div class="col-sm-4">
+            <pre><code class="language-algorithm">Si condition Alors
+  // Traitement
+  // si condition = vrai
+Sinon
+  // Traitement
+  // si condition = faux
+Fin Si</code></pre>
+          </div>
+          <div class="col-sm-4">
+            <pre><code class="language-delphi">if condition then begin
+  // Traitement
+  // if condition = true
+end else begin
+  // Traitement
+  // if condition = false
+end;</code></pre>
+          </div>
+          <div class="col-sm-4">
+            <pre><code class="language-python">if condition:
+  # Traitement
+  # if condition = True
+else:
+  # Traitement
+  # if condition = False
+  </code></pre>
+          </div>
+        </div>
+
+        <h4>Exemple</h4>
+        <div class="row">
+          <div class="col-sm-4">
+            <figure>
+              <img src="resources/images/two-directions.jpg" alt="Quel est le bon chemin">
+              <figcaption>Quel est le bon chemin</figcaption>
+            </figure>
+          </div>
+          <div class="col-sm-8">
+            <div class="border border-dark p-2">
+              <p class="fs-4"><strong>Si</strong> <span class="text-danger">je veux aller à tunis</span>
+                <br><strong>alors</strong> <span class="text-success">suivre le chemin qui est à gauche</span>
+                <br><strong>sinon</strong> <span class="text-success">suivre le chemin qui est à droite</span>.
+              </p>
+            </div>
+
+            <p>Dans cet exemple on doit <strong>choisir entre deux chemin</strong> <u>selon notre besoin</u>.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Activité 3</h3>
+
+        <p>Ecrire un programme qui demande à l'utilisateur de saisir les coordonnées de 2 vecteurs du plan u et v, puis
+          détermine et affiche si les deux vecteurs sont orthogonaux ou non.</p>
+
+        <figure>
+          <img src="resources/images/vecteur-du-plan.png" alt="Vecteurs du plan">
+          <figcaption>Les vecteurs AB et HC sont orthogonaux, Les vecteurs AB et AC ne sont pas orthogonaux.
+          </figcaption>
+        </figure>
+
+        <p>Coordonnées des points de l'exemple, A(-1, 1), B(2, 2), C(-3, 3), H()</p>
+
+        <p>On rappelle que le <strong>produit scalaire de deux vecteurs orthogonaux</strong> est <strong>nul</strong>.
+        </p>
+
+        <figure>
+          <img src="resources/images/u-vector.png" alt="vecteur u">
+          <img src="resources/images/v-vector.png" alt="vecteur v">
+          <img src="resources/images/scalar-product.png" alt="Produit scalaire">
+          <figcaption>Produit scalaire de deux vecteurs</figcaption>
+        </figure>
+      </section>
+    </article>
+  </main>
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée avec ♥ par Mohamed Anis MANI</div>
+    <div class="text-center small">Année scolaire : 2021/2022</div>
+  </footer>
+
+  <script src="resources/js/jquery.min.js"></script>
+  <script src="resources/js/bootstrap.bundle.min.js"></script>
+  <script src="resources/js/highlight.min.js"></script>
+  <script src="resources/js/hljs.algorithm.js"></script>
+  <script src="resources/js/clipboard.min.js"></script>
+  <script src="resources/js/pages.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+
+    document.querySelectorAll('.language-algorithm,.language-python,.language-delphi')
+      .forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'bd-clipboard d-print-none';
+        const btn = document.createElement('button');
+        btn.className = 'btn-clipboard';
+        btn.textContent = "📋";
+        btn.title = "Copier";
+        div.appendChild(btn);
+        item.parentElement.insertBefore(div, item);
+      });
+    new ClipboardJS('.btn-clipboard', {
+      target: (trigger) => {
+        return trigger.parentElement.nextElementSibling;
+      }
+    });
+  </script>
+
+  <script src="resources/js/funcs.js"></script>
+  <script src="resources/js/vue.min.js"></script>
+  <script>
+    const nfunc = new Vue({
+      el: '#numeric_func',
+      data: {
+        xAbs: 0,
+        resAbs: 0,
+        xSqrt: 0,
+        resSqrt: 0,
+        xSqr: 0,
+        resSqr: 0,
+        xTronc: 0,
+        resTronc: 0,
+        xRound: 0,
+        resRound: 0,
+        resAlea: 0,
+        xAlea2: 100,
+        resAlea2: 0,
+        xAlea3: 10,
+        yAlea3: 30,
+        resAlea3: 0,
+        xOdd: 0,
+        resOdd: 0
+      },
+      mounted: function () {
+        this.actualiser('abs');
+        this.actualiser('sqrt');
+        this.actualiser('sqr');
+        this.actualiser('tronc');
+        this.actualiser('round');
+        this.actualiser('alea');
+        this.actualiser('alea2');
+        this.actualiser('alea3');
+        this.actualiser('odd');
+      },
+      methods: {
+        actualiser: function (fnName) {
+          if (fnName == 'abs') {
+            this.xAbs = randomValue(-100, +100, 1);
+            this.resAbs = Math.abs(this.xAbs);
+          } else if (fnName == 'sqrt') {
+            this.xSqrt = randomValue(0, +100, 1);
+            this.resSqrt = Math.sqrt(this.xSqrt);
+          } else if (fnName == 'sqr') {
+            this.xSqr = randomValue(-100, +100, 1);
+            this.resSqr = this.xSqr * this.xSqr;
+          } else if (fnName == 'tronc') {
+            this.xTronc = randomValue(-100, +100);
+            this.resTronc = Math.trunc(this.xTronc);
+          } else if (fnName == 'round') {
+            this.xRound = randomValue(-100, +100);
+            this.resRound = Math.round(this.xRound);
+          } else if (fnName == 'alea') {
+            this.resAlea = Math.random();
+          } else if (fnName == 'alea2') {
+            // this.xAlea2 = randomValue(50, 100, 1);
+            this.resAlea2 = randomValue(0, this.xAlea2 - 1, 1);
+          } else if (fnName == 'alea3') {
+            this.resAlea3 = randomValue(this.xAlea3, this.yAlea3, 1);
+          } else if (fnName == 'odd') {
+            this.xOdd = randomValue(-100, 100, 1);
+            this.resOdd = (this.xOdd % 2 == 0) ? 'Vrai' : 'Faux';
+          }
+        }
+      }
+    });
+  </script>
+  <script>
+    const strfunc = new Vue({
+      el: '#str_func',
+      data: {
+        modeLong: "display",
+        xLong: "",
+        resLong: 0,
+        modePos: "display",
+        xPos1: "",
+        xPos2: "",
+        resPos: 0,
+        modeSousChaine: "display",
+        xSousChaine1: "",
+        xSousChaine2: 0,
+        xSousChaine3: 0,
+        resSousChaine: 0,
+        modeEfface: "display",
+        xEfface1: "",
+        xEfface2: 0,
+        xEfface3: 0,
+        resEfface: "",
+        modeInserer: "display",
+        xInserer1: "",
+        xInserer2: 0,
+        xInserer3: 0,
+        resInserer: "",
+        modeValeur: "display",
+        xValeur: "12",
+        resValeurX: 0,
+        resValeurE: 0,
+        modeConvCh: "display",
+        xConvCh: 0,
+        resConvCh: "0"
+      },
+      mounted: function () {
+        this.actualiser('long', "Bac 2022");
+        this.actualiser('pos', "02", "Bac 2022");
+        this.actualiser('sousChaine', "Baccar", 4, 3);
+        this.actualiser('Efface', "Baccar", 4, 3);
+        this.actualiser('Inserer', "Ka", "Libraiaie rim", 11);
+        this.actualiser('Valeur', "18.5");
+        this.actualiser('convCh', 15);
+      },
+      methods: {
+        actualiser: function (fnName, param1, param2, param3) {
+          fnName = fnName.toLowerCase();
+          if (fnName == 'long') {
+            this.xLong = param1 || this.xLong;
+            this.resLong = this.xLong.length;
+          } else if (fnName == 'pos') {
+            this.xPos1 = param1 || this.xPos1;
+            this.xPos2 = param2 || this.xPos2;
+            this.resPos = this.xPos2.indexOf(this.xPos1) + 1;
+          } else if (fnName == 'souschaine') {
+            this.xSousChaine1 = param1 || this.xSousChaine1;
+            this.xSousChaine2 = param2 || this.xSousChaine2;
+            this.xSousChaine3 = param3 || this.xSousChaine3;
+            this.resSousChaine = this.xSousChaine1.substr(this.xSousChaine2 - 1, this.xSousChaine3);
+          } else if (fnName == 'efface') {
+            this.xEfface1 = param1 || this.xEfface1;
+            this.xEfface2 = param2 || +this.xEfface2;
+            this.xEfface3 = param3 || +this.xEfface3;
+            this.resEfface = this.xEfface1.substring(0, this.xEfface2 - 1) + this.xEfface1.substring(this.xEfface2 + this.xEfface3 - 1);
+          } else if (fnName == 'inserer') {
+            this.xInserer1 = param1 || this.xInserer1;
+            this.xInserer2 = param2 || this.xInserer2;
+            this.xInserer3 = param3 || +this.xInserer3;
+            this.resInserer = this.xInserer2.substring(0, this.xInserer3 - 1) + this.xInserer1 + this.xInserer2.substring(this.xInserer3 - 1);
+          } else if (fnName == 'valeur') {
+            this.xValeur = param1 || this.xValeur;
+            this.resValeurX = 0;
+            this.resValeurE = isRealInt(this.xValeur) + 1;
+            if (this.resValeurE == 0) {
+              this.resValeurX = this.xValeur;
+            }
+          } else if (fnName == 'convch') {
+            this.xConvCh = param1 || +this.xConvCh;
+            this.resConvCh = this.xConvCh + "";
+          }
+        },
+        onModify: function (fnName) {
+          this['mode' + fnName[0].toUpperCase() + fnName.substr(1)] = 'modify';
+          this.$forceUpdate();
+        },
+        onCalc: function (fnName) {
+          this['mode' + fnName[0].toUpperCase() + fnName.substr(1)] = 'display';
+          this.actualiser(fnName);
+          this.$forceUpdate();
+        }
+      }
+    });
+  </script>
+  <script>
+    const strfunc2 = new Vue({
+      el: '#str_func2',
+      data: {
+        modeLong: "display",
+        xLong: "",
+        resLong: 0,
+        modePos: "display",
+        xPos1: "",
+        xPos2: "",
+        resPos: 0,
+        modeSousChaine: "display",
+        xSousChaine1: "",
+        xSousChaine2: 0,
+        xSousChaine3: 0,
+        resSousChaine: 0,
+        modeEfface: "display",
+        xEfface1: "",
+        xEfface2: 0,
+        xEfface3: 0,
+        resEfface: "",
+        modeInserer: "display",
+        xInserer1: "",
+        xInserer2: 0,
+        xInserer3: 0,
+        resInserer: "",
+        modeValeur: "display",
+        xValeur: "12",
+        resValeurX: 0,
+        resValeurE: 0,
+        modeConvCh: "display",
+        xConvCh: 0,
+        resConvCh: "0"
+      },
+      mounted: function () {
+        this.actualiser('long', "Bac 2022");
+        this.actualiser('pos', "02", "Bac 2022");
+        this.actualiser('sousChaine', "Baccar", 3, 6);
+        this.actualiser('Efface', "Baccar", 3, 6);
+        this.actualiser('Inserer', "Ka", "Libraiaie rim", 10);
+        this.actualiser('Valeur', "18.5");
+        this.actualiser('convCh', 15);
+      },
+      methods: {
+        actualiser: function (fnName, param1, param2, param3) {
+          fnName = fnName.toLowerCase();
+          if (fnName == 'long') {
+            this.xLong = param1 || this.xLong;
+            this.resLong = this.xLong.length;
+          } else if (fnName == 'pos') {
+            this.xPos1 = param1 || this.xPos1;
+            this.xPos2 = param2 || this.xPos2;
+            this.resPos = this.xPos2.indexOf(this.xPos1);
+          } else if (fnName == 'souschaine') {
+            this.xSousChaine1 = param1 || this.xSousChaine1;
+            this.xSousChaine2 = param2 || this.xSousChaine2;
+            this.xSousChaine3 = param3 || this.xSousChaine3;
+            this.resSousChaine = this.xSousChaine1.substring(this.xSousChaine2, this.xSousChaine3);
+          } else if (fnName == 'efface') {
+            this.xEfface1 = param1 || this.xEfface1;
+            this.xEfface2 = param2 || +this.xEfface2;
+            this.xEfface3 = param3 || +this.xEfface3;
+            this.resEfface = this.xEfface1.substring(0, this.xEfface2) + this.xEfface1.substring(this.xEfface3);
+          } else if (fnName == 'inserer') {
+            this.xInserer1 = param1 || this.xInserer1;
+            this.xInserer2 = param2 || this.xInserer2;
+            this.xInserer3 = param3 || +this.xInserer3;
+            this.resInserer = this.xInserer2.substring(0, this.xInserer3) + this.xInserer1 + this.xInserer2.substring(this.xInserer3);
+          } else if (fnName == 'valeur') {
+            this.xValeur = param1 || this.xValeur;
+            this.resValeurX = +this.xValeur;
+          } else if (fnName == 'convch') {
+            this.xConvCh = param1 || +this.xConvCh;
+            this.resConvCh = this.xConvCh + "";
+          }
+        },
+        onModify: function (fnName) {
+          this['mode' + fnName[0].toUpperCase() + fnName.substr(1)] = 'modify';
+          this.$forceUpdate();
+        },
+        onCalc: function (fnName) {
+          this['mode' + fnName[0].toUpperCase() + fnName.substr(1)] = 'display';
+          this.actualiser(fnName);
+          this.$forceUpdate();
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
