@@ -213,8 +213,39 @@ else:
       <section>
         <h3>Activité 3</h3>
 
+        <p>Ecrire un programme qui saisit la <strong>largeur</strong> et l'<strong>hauteur</strong> d'un quadrilatère
+          qui possède quatre angles droits, puis affiche s'il s'agit d'un <strong>carré</strong> ou d'un
+          <strong>rectangle</strong>.
+        </p>
+
+        <figure>
+          <img src="resources/images/rectangle.gif" alt="Rectangle ou Carré">
+          <figcaption>Rectangle ou Carré</figcaption>
+        </figure>
+
+      </section>
+
+      <section>
+        <h3>Activité 4</h3>
+
+        <p>Un des moyens, possibles, pour <strong>tester si deux vecteurs du plan sont orthogonaux</strong> est de
+          calculer leurs <strong>produit scalaire</strong>.</p>
+
+        <p>Si le <strong>produit scalaire des deux vecteurs</strong> est <strong>nul</strong> on peut conclure qu'ils
+          sont <strong>orthogonaux</strong>.</p>
+
+        <p>La formule qui permet de calculer produit scalaire de deux vecteurs dans le plan est la suivante :</p>
+        <figure>
+          <img src="resources/images/u-vector.png" alt="vecteur u">
+          <img src="resources/images/v-vector.png" alt="vecteur v">
+          <img src="resources/images/scalar-product.png" alt="Produit scalaire">
+          <figcaption>Produit scalaire de deux vecteurs</figcaption>
+        </figure>
+
         <p>Ecrire un programme qui demande à l'utilisateur de saisir les coordonnées de 2 vecteurs du plan u et v, puis
           détermine et affiche si les deux vecteurs sont orthogonaux ou non.</p>
+
+        <h4>Exemple</h4>
 
         <figure>
           <img src="resources/images/vecteur-du-plan.png" alt="Vecteurs du plan">
@@ -222,17 +253,78 @@ else:
           </figcaption>
         </figure>
 
-        <p>Coordonnées des points de l'exemple, A(-1, 1), B(2, 2), C(-3, 3), H()</p>
+        <p>Dans l'exemple les coordonnées des points sont A(-1, 1), B(2, 2), C(-3, 3), H(-2.2, 0.6)</p>
 
-        <p>On rappelle que le <strong>produit scalaire de deux vecteurs orthogonaux</strong> est <strong>nul</strong>.
-        </p>
+        <p>Le calcul arithmétique montre que les vecteurs AB et HC sont orthogonaux, et que AB et AC ne sont pas.</p>
+        <figure>
+          <img src="resources/images/produit-scalaire-calcul.png" alt="Calcul du produit scalaire">
+          <figcaption>Calcul du produit scalaire</figcaption>
+        </figure>
+      </section>
+    </article>
+
+    <article>
+      <h2>Forme généralisée</h2>
+
+      <section>
+        <h3>Définition</h3>
+
+        <p>Une <strong>structure conditionnelle</strong> simple <strong>à forme généralisée</strong> admet <u>plus de
+            deux traitements</u> différents qui seront exécutés en fonction de <u>plusieurs conditions</u>.</p>
 
         <figure>
-          <img src="resources/images/u-vector.png" alt="vecteur u">
-          <img src="resources/images/v-vector.png" alt="vecteur v">
-          <img src="resources/images/scalar-product.png" alt="Produit scalaire">
-          <figcaption>Produit scalaire de deux vecteurs</figcaption>
+          <img src="resources/images/img17.png" alt="Forme simple alternative">
+          <figcaption>Forme simple alternative</figcaption>
         </figure>
+
+        <h4>Forme simple généralisée</h4>
+        <div class="row">
+          <div class="col-sm-4">
+            <pre><code class="language-algorithm">Si condition1 Alors
+  // Traitement 1
+  // si condition1 = vrai
+Sinon Si condition2 Alors
+  // Traitement 2
+  // si condition2 = vrai
+Sinon Si condition3 Alors
+  // Traitement 3
+  // si condition3 = vrai
+Sinon
+  // Traitement 4
+  // si les conditions sont fausses
+Fin Si</code></pre>
+          </div>
+          <div class="col-sm-4">
+            <pre><code class="language-delphi">if condition1 then begin
+  // Traitement 1
+  // if condition1 = true
+end else if condition2 then begin
+// Traitement 2
+// if condition2 = true
+end else if condition3 then begin
+// Traitement 3
+// if condition = true
+end else begin
+  // Traitement 4
+  // if conditions are False
+end;</code></pre>
+          </div>
+          <div class="col-sm-4">
+            <pre><code class="language-python">if condition1:
+  # Traitement 1
+  # if condition1 = True
+elif condition2:
+  # Traitement 2
+  # if condition2 = True
+elif condition3:
+  # Traitement 3
+  # if condition3 = True
+else:
+  # Traitement 4
+  # if conditions ar False
+  </code></pre>
+          </div>
+        </div>
       </section>
     </article>
   </main>
