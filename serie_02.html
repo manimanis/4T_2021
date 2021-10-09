@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Structures conditionnelles</title>
+  <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+  <link rel="stylesheet" href="resources/css/default.css">
+  <link rel="stylesheet" href="resources/css/style.css">
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="aside_navbar"></div>
+    </nav>
+  </aside>
+
+  <main class="container my-3">
+    <h1>Les structures conditionnelles</h1>
+
+    <article>
+      <h2>Exercices</h2>
+
+      <section>
+        <h3>Exercice 1 - Racine carré</h3>
+
+        <p>Ecrire un programme qui permet de lire un réel <code>x</code>, puis d'afficher la racine carré de sa valeur
+          absolue, ne pas utiliser la fonction prédéfinie <strong>abs</strong>.</p>
+        <figure>
+          <img src="resources/images/exercice01-serie2.png" alt="racine(abs(x))">
+        </figure>
+        <p><strong>Utiliser une structure simple réduite.</strong></p>
+      </section>
+
+      <section>
+        <h3>Exercice 2 - Signe d'un nombre</h3>
+
+        <figure class="d-print-none">
+          <img src="resources/images/signe_nombre.png" alt="Signe d'un nombre">
+          <figcaption>Signe d'un nombre</figcaption>
+        </figure>
+
+        <p>Écrire un programme qui affiche si un nombre <code>x</code> donné est :</p>
+        <ul>
+          <li>positif, x &gt; 0</li>
+          <li>négatif, x &lt; 0</li>
+          <li>null, x = 0</li>
+        </ul>
+
+        <div class="d-print-none row">
+          <div class="col-sm-6">
+            <pre><code class="nohighlight shell python" data-text="Exemple 1">Donner un nombre ? 27
+27 est positif</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <pre><code class="nohighlight shell python" data-text="Exemple 2">Donner un nombre ? -6
+-6 est négatif</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Exercice 3 - Intersection de cercles</h3>
+
+        <p>Soient deux cercles du plan <strong>C1</strong> et <strong>C2</strong> de rayons respectifs <code>r1</code>
+          et <code>r2</code>, les centres des deux cercles sont à une distance <code>d</code> donnée.</p>
+
+        <p>Ces deux cercles :</p>
+        <ul>
+          <li><strong>se coupent en deux points</strong>, si <code>r1 + r2 &gt; d</code></li>
+          <li><strong>sont tangentes</strong>, si <code>r1 + r2 = d</code></li>
+          <li><strong>ne se coupent pas</strong>, si <code>r1 + r2 &lt; d</code></li>
+        </ul>
+
+        <figure>
+          <img src="resources/images/inter-cercles.png" alt="Intersection de deux cercles">
+          <figcaption>Intersection de deux cercles</figcaption>
+        </figure>
+
+        <p>On demande d'écrire un programme qui saisit les données mentionnés puis affiche si les deux cercles se
+          coupent.</p>
+
+        <div class="d-print-none row">
+          <div class="col-sm-6">
+            <pre><code class="nohighlight shell python" data-text="Exemple 1">Rayon de C1 ? 6
+Rayon de C2 ? 3
+Distance entre les centres ? 9
+Les deux cercles sont tangentes</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <pre><code class="nohighlight shell python" data-text="Exemple 2">DRayon de C1 ? 10
+Rayon de C2 ? 10
+Distance entre les centres ? 10
+Les cercles se coupent en deux points</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Exercice 4 - Jeu de trois dés</h3>
+
+        <figure class="d-print-none">
+          <img src="resources/images/jeu_3des.jpeg" alt="Jeu de trois dés">
+          <figcaption>Jeu de trois dés</figcaption>
+        </figure>
+
+        <p>Les combinaisons gagnantes dans un jeu de trois dés sont les suivantes :</p>
+        <ul>
+          <li>Trois nombres identiques, on gagne 300pts</li>
+          <li>Deux nombres identiques ou la somme des trois dés est égale à six, on gagne 200pts</li>
+          <li>Un six, on gagne 50 pts</li>
+          <li>Dans les autres cas, on gagne la somme des trois dés</li>
+        </ul>
+
+        <p>On demande d'écrire un programme qui :</p>
+        <ul>
+          <li>Simule le lancement de trois dés</li>
+          <li>Affiche la valeur de chaque dés, ainsi que la somme des trois dés</li>
+          <li>Calcule et affiche le nombre de points gagnés</li>
+        </ul>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <pre><code class="nohighlight shell python" data-text="Exemple 1">Dé1 : 6 - Dé2 : 3 - Dé3 : 4
+Somme : 13
+Vous gagnez 50 pts</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <pre><code class="nohighlight shell python" data-text="Exemple 2">Dé1 : 4 - Dé2 : 1 - Dé3 : 2
+Somme : 7
+Vous gagnez 7 pts</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Exercice 5 - Conversion de devise</h3>
+
+        <figure class="d-print-none">
+          <img src="resources/images/devises.webp" alt="Conversion de devise">
+          <figcaption>Conversion de devise</figcaption>
+        </figure>
+
+        <p>Le 26 Septembre 2021, vers 9h du matin, le taux de change est comme suit : 1€ = 1.17$ = 3.28 D.</p>
+        <p>Écrire un programme qui :</p>
+        <ul>
+          <li>Saisit le montant à convertir <code>mac</code>.</li>
+          <li>Saisit la devise initiale, <code>di</code> représentée par l'un des trois symboles :
+            <ul>
+              <li>$ : Pour le Dollar américain</li>
+              <li>€ : Pour l'Euro</li>
+              <li>D : Pour le Dinar Tunisien</li>
+            </ul>
+          </li>
+          <li>Saisit la devise requises, <code>dr</code> représentée par l'un des symboles cités.</li>
+          <li>Calcule la valeur de <code>mac</code> de la devise <code>di</code> dans la devise <code>dr</code></li>
+          <li>Affiche le change</li>
+        </ul>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <pre><code class="nohighlight shell python" data-text="Exemple 1">Montant ? 100
+Devise initiale ($/€/D) ? D
+Devise requise ($/€/D) ? $
+100 D = 35.67 $</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <pre><code class="nohighlight shell python" data-text="Exemple 2">VMontant ? 100
+Devise initiale ($/€/D) ? €
+Devise requise ($/€/D) ? $
+100 € = 117.0 $</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Exercice 6 - Vendeur de poissons</h3>
+
+        <figure class="d-print-none">
+          <img src="resources/images/vendeur-poissons.jpg" alt="Vendeur de poissons">
+          <figcaption>Vendeur de poissons</figcaption>
+        </figure>
+
+        <p>Un vendeur de poissons veut calculer le prix de vente de ses marchandises en fonction du prix d'achat.</p>
+        <p class="text-center"><code>Prix vente = Prix achat × (1 + gain / 100)</code></p>
+        <p>Sachant que :</p>
+        <ul>
+          <li>gain = 20%, si 0 ≤ Prix achat &lt; 15</li>
+          <li>gain = 25%, si 15 ≤ Prix achat &lt; 30</li>
+          <li>gain = 35%, si 30 ≤ Prix achat</li>
+        </ul>
+        <p>Ecrire l'algorithme d'un programme qui :</p>
+        <ul>
+          <li>Saisit le nom du produit, variable <code>np</code></li>
+          <li>Saisit le prix d'achat, variable <code>pa</code></li>
+          <li>Calcule le <strong>gain</strong> en fonction du prix d'achat, variable <code>g</code></li>
+          <li>Calcule le <strong>prix de vente</strong> en utilisant la formule ci-dessus, variable <code>pv</code></li>
+          <li>Affiche le prix de vente</li>
+        </ul>
+        <div class="row">
+          <div class="col-sm-6">
+            <pre><code class="nohighlight shell python" data-text="Exemple 1">Calcul du prix de vente
+==-==-==-==-==-==-==-==-==-==-==-==-==-==-==-
+Quel est le nom du produit ? Sardines
+Quel est le prix d'achat (DT) ? 5
+Gain : 20 %
+Prix de vente : 6.0 DT</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <pre><code class="nohighlight shell python" data-text="Exemple 2">Calcul du prix de vente
+==-==-==-==-==-==-==-==-==-==-==-==-==-==-==-
+Quel est le nom du produit ? Trilia
+Quel est le prix d'achat (DT) ? 20
+Gain : 25 %
+Prix de vente : 25.0 DT</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Exercice 7 - Garde enfant</h3>
+
+        <figure class="d-print-none">
+          <img src="resources/images/garde-enfants.jpeg" alt="Garde enfant">
+          <figcaption>Garde enfant</figcaption>
+        </figure>
+
+        <p>Pour les parents qui sortent le soir, une garde offre pour eux ses services pour les prix suivants :</p>
+        <ul>
+          <li>10DT par heure entre 18h et 20h</li>
+          <li>15DT par heure entre 20h et 23h</li>
+          <li>20DT par heure entre 23h et 03h</li>
+        </ul>
+
+        <figure class="d-print-none">
+          <img src="resources/images/garde-enfants-prix.png" alt="Prix de la garde enfant">
+          <figcaption>Prix de la garde enfant</figcaption>
+        </figure>
+
+        <p>On veut écrire un programme qui saisit l'heure d'arrivée d'un enfant dans la garde, puis l'heure de l'arrivée
+          de ses parents pour le récupérer afin d'afficher le montant à payer.</p>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <pre><code class="nohighlight shell python" data-text="Exemple 1">Heure d'arrivée ? 18
+Heure de départ ? 23
+Le montant à payer 65 DT</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <pre><code class="nohighlight shell python" data-text="Exemple 2">Heure d'arrivée ? 21
+Heure de départ ? 0
+Le montant à payer 50 DT</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Exercice 8 - Date du lendemain</h3>
+
+        <p>On veut écrire un programme qui saisit une date sous forme jj/mm/aaaa, calcule et affiche la date du
+          lendemain.</p>
+
+        <figure class="d-print-none">
+          <img src="resources/images/date-lendemain.png" alt="Date du lendemain">
+          <figcaption>Date du lendemain</figcaption>
+        </figure>
+
+        <p>On rappelle le nombre de jours des mois :</p>
+        <table class="table table-sm table-striped table-hover col-12">
+          <thead>
+            <tr>
+              <th>Janvier</th>
+              <th>Février</th>
+              <th>Mars</th>
+              <th>Avril</th>
+              <th>Mai</th>
+              <th>Juin</th>
+              <th>Juillet</th>
+              <th>Août</th>
+              <th>Septembre</th>
+              <th>Octobre</th>
+              <th>Novembre</th>
+              <th>Décembre</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>31</td>
+              <td>28</td>
+              <td>31</td>
+              <td>30</td>
+              <td>31</td>
+              <td>30</td>
+              <td>31</td>
+              <td>31</td>
+              <td>30</td>
+              <td>31</td>
+              <td>30</td>
+              <td>31</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <pre><code class="nohighlight shell python" data-text="Exemple 1">Entrer une date (jj/mm/aaaa) ? 31/12/2021
+Lendemain = 1 / 1 / 2022</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <pre><code class="nohighlight shell python" data-text="Exemple 2">Entrer une date (jj/mm/aaaa) ? 28/02/2021
+Lendemain = 1 / 3 / 2021</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Exercice 9 - Chiffre hexadécimal</h3>
+
+        <p>Ecrire un programme qui permet de saisir un entier <code>n</code> <u>entre 0 et 15</u> et de le
+          <strong>convertir en hexadécimal</strong>.
+        </p>
+
+        <figure>
+          <img src="resources/images/chiffre-hexadecimal.png" alt="Chiffres hexadécimaux">
+          <figcaption>Chiffres hexadécimaux</figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h3>Exercice 10 - Tiny calculator</h3>
+
+        <figure>
+          <img src="resources/images/calculette.jpg" alt="Tiny calculator">
+          <figcaption>Tiny calculator</figcaption>
+        </figure>
+
+        <p>Ecrire un programme calculatrice qui permet de saisir deux valeurs réelles <code>a</code> et <code>b</code>,
+          puis un opérateur arithmétique <code>op</code> (+, -, *, /) et affiche le résultat de l'opération.</p>
+
+        <p>Tester une éventuelle <b>division par zéro</b>.</p>
+      </section>
+
+      <section>
+        <h3>Exercice 11 - Bonhommes de neige</h3>
+
+        <figure class="d-print-none">
+          <img src="resources/images/homme-de-neige-ordre.jpg" alt="Bonhommes de neige">
+          <figcaption>Bonhommes de neige</figcaption>
+        </figure>
+
+        <p>Ecrire un programme qui saisit l'hauteur, en cm, des trois bonhommes de neige <code>a</code>, <code>b</code>
+          et <code>c</code> puis affiche s'ils sont <strong>ordonnés</strong> ou pas.
+        </p>
+
+        <p><strong>Attention les bonhommes de neige peuvent être ordonnés en ordre croissant ou en ordre
+            décroissant.</strong></p>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <pre><code class="nohighlight shell python" data-text="Exemple 1">Hauteur du Bonhomme 1 ? 3
+Hauteur du Bonhomme 2 ? 4
+Hauteur du Bonhomme 3 ? 5
+Les bonhommes sont ordonnées</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <pre><code class="nohighlight shell python" data-text="Exemple 2">Hauteur du Bonhomme 1 ? 3
+Hauteur du Bonhomme 2 ? 5
+Hauteur du Bonhomme 3 ? 4
+Les bonhommes ne sont pas ordonnées</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Exercice 12 - La meilleure moyenne</h3>
+
+        <figure class="d-print-none">
+          <img src="resources/images/meilleure-moyenne.png" alt="Meilleure moyenne">
+          <figcaption>La meilleure moyenne</figcaption>
+        </figure>
+
+        <p>Ecrire un programme qui saisit les notes et les noms de trois élèves. Puis, affiche <strong>le nom de
+            l'élève</strong> qui a obtenu <strong>la meilleure note</strong>.</p>
+        <p>On suppose que les notes sont distinctes deux à deux.</p>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <pre><code class="nohighlight shell python" data-text="Exemple 1">Elève 1 ? Eya
+Moyenne Eya ? 15.6
+Elève 2 ? Rayen
+Moyenne Rayen ? 16.0
+Elève 3 ? Amira
+Moyenne Amira ? 15.5
+L'élève Rayen a obtenu la meilleure moyenne</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <pre><code class="nohighlight shell python" data-text="Exemple 2">Elève 1 ? Sami
+Moyenne Sami ? 17.6
+Elève 2 ? Youssef
+Moyenne Youssef ? 13.0
+Elève 3 ? Abderrazek
+Moyenne Abderrazek ? 18.5
+L'élève Abderrazek a obtenu la meilleure moyenne</code></pre>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée avec ♥ par Mohamed Anis MANI</div>
+    <div class="text-center small">Année scolaire : 2021/2022</div>
+  </footer>
+
+  <script src="resources/js/jquery.min.js"></script>
+  <script src="resources/js/bootstrap.bundle.min.js"></script>
+  <script src="resources/js/highlight.min.js"></script>
+  <script src="resources/js/hljs.algorithm.js"></script>
+  <script src="resources/js/clipboard.min.js"></script>
+  <script src="resources/js/pages.js"></script>
+  <script src="resources/js/draggable.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+
+    document.querySelectorAll('.language-algorithm,.language-python,.language-delphi')
+      .forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'bd-clipboard d-print-none';
+        const btn = document.createElement('button');
+        btn.className = 'btn-clipboard';
+        btn.textContent = "📋";
+        btn.title = "Copier";
+        div.appendChild(btn);
+        item.parentElement.insertBefore(div, item);
+      });
+    new ClipboardJS('.btn-clipboard', {
+      target: (trigger) => {
+        return trigger.parentElement.nextElementSibling;
+      }
+    });
+  </script>
+
+  <script src="resources/js/funcs.js"></script>
+  <script src="resources/js/vue.min.js"></script>
+  <script>
+    const nfunc = new Vue({
+      el: '#numeric_func',
+      data: {
+        xAbs: 0,
+        resAbs: 0,
+        xSqrt: 0,
+        resSqrt: 0,
+        xSqr: 0,
+        resSqr: 0,
+        xTronc: 0,
+        resTronc: 0,
+        xRound: 0,
+        resRound: 0,
+        resAlea: 0,
+        xAlea2: 100,
+        resAlea2: 0,
+        xAlea3: 10,
+        yAlea3: 30,
+        resAlea3: 0,
+        xOdd: 0,
+        resOdd: 0
+      },
+      mounted: function () {
+        this.actualiser('abs');
+        this.actualiser('sqrt');
+        this.actualiser('sqr');
+        this.actualiser('tronc');
+        this.actualiser('round');
+        this.actualiser('alea');
+        this.actualiser('alea2');
+        this.actualiser('alea3');
+        this.actualiser('odd');
+      },
+      methods: {
+        actualiser: function (fnName) {
+          if (fnName == 'abs') {
+            this.xAbs = randomValue(-100, +100, 1);
+            this.resAbs = Math.abs(this.xAbs);
+          } else if (fnName == 'sqrt') {
+            this.xSqrt = randomValue(0, +100, 1);
+            this.resSqrt = Math.sqrt(this.xSqrt);
+          } else if (fnName == 'sqr') {
+            this.xSqr = randomValue(-100, +100, 1);
+            this.resSqr = this.xSqr * this.xSqr;
+          } else if (fnName == 'tronc') {
+            this.xTronc = randomValue(-100, +100);
+            this.resTronc = Math.trunc(this.xTronc);
+          } else if (fnName == 'round') {
+            this.xRound = randomValue(-100, +100);
+            this.resRound = Math.round(this.xRound);
+          } else if (fnName == 'alea') {
+            this.resAlea = Math.random();
+          } else if (fnName == 'alea2') {
+            // this.xAlea2 = randomValue(50, 100, 1);
+            this.resAlea2 = randomValue(0, this.xAlea2 - 1, 1);
+          } else if (fnName == 'alea3') {
+            this.resAlea3 = randomValue(this.xAlea3, this.yAlea3, 1);
+          } else if (fnName == 'odd') {
+            this.xOdd = randomValue(-100, 100, 1);
+            this.resOdd = (this.xOdd % 2 == 0) ? 'Vrai' : 'Faux';
+          }
+        }
+      }
+    });
+  </script>
+  <script>
+    const strfunc = new Vue({
+      el: '#str_func',
+      data: {
+        modeLong: "display",
+        xLong: "",
+        resLong: 0,
+        modePos: "display",
+        xPos1: "",
+        xPos2: "",
+        resPos: 0,
+        modeSousChaine: "display",
+        xSousChaine1: "",
+        xSousChaine2: 0,
+        xSousChaine3: 0,
+        resSousChaine: 0,
+        modeEfface: "display",
+        xEfface1: "",
+        xEfface2: 0,
+        xEfface3: 0,
+        resEfface: "",
+        modeInserer: "display",
+        xInserer1: "",
+        xInserer2: 0,
+        xInserer3: 0,
+        resInserer: "",
+        modeValeur: "display",
+        xValeur: "12",
+        resValeurX: 0,
+        resValeurE: 0,
+        modeConvCh: "display",
+        xConvCh: 0,
+        resConvCh: "0"
+      },
+      mounted: function () {
+        this.actualiser('long', "Bac 2022");
+        this.actualiser('pos', "02", "Bac 2022");
+        this.actualiser('sousChaine', "Baccar", 4, 3);
+        this.actualiser('Efface', "Baccar", 4, 3);
+        this.actualiser('Inserer', "Ka", "Libraiaie rim", 11);
+        this.actualiser('Valeur', "18.5");
+        this.actualiser('convCh', 15);
+      },
+      methods: {
+        actualiser: function (fnName, param1, param2, param3) {
+          fnName = fnName.toLowerCase();
+          if (fnName == 'long') {
+            this.xLong = param1 || this.xLong;
+            this.resLong = this.xLong.length;
+          } else if (fnName == 'pos') {
+            this.xPos1 = param1 || this.xPos1;
+            this.xPos2 = param2 || this.xPos2;
+            this.resPos = this.xPos2.indexOf(this.xPos1) + 1;
+          } else if (fnName == 'souschaine') {
+            this.xSousChaine1 = param1 || this.xSousChaine1;
+            this.xSousChaine2 = param2 || this.xSousChaine2;
+            this.xSousChaine3 = param3 || this.xSousChaine3;
+            this.resSousChaine = this.xSousChaine1.substr(this.xSousChaine2 - 1, this.xSousChaine3);
+          } else if (fnName == 'efface') {
+            this.xEfface1 = param1 || this.xEfface1;
+            this.xEfface2 = param2 || +this.xEfface2;
+            this.xEfface3 = param3 || +this.xEfface3;
+            this.resEfface = this.xEfface1.substring(0, this.xEfface2 - 1) + this.xEfface1.substring(this.xEfface2 + this.xEfface3 - 1);
+          } else if (fnName == 'inserer') {
+            this.xInserer1 = param1 || this.xInserer1;
+            this.xInserer2 = param2 || this.xInserer2;
+            this.xInserer3 = param3 || +this.xInserer3;
+            this.resInserer = this.xInserer2.substring(0, this.xInserer3 - 1) + this.xInserer1 + this.xInserer2.substring(this.xInserer3 - 1);
+          } else if (fnName == 'valeur') {
+            this.xValeur = param1 || this.xValeur;
+            this.resValeurX = 0;
+            this.resValeurE = isRealInt(this.xValeur) + 1;
+            if (this.resValeurE == 0) {
+              this.resValeurX = this.xValeur;
+            }
+          } else if (fnName == 'convch') {
+            this.xConvCh = param1 || +this.xConvCh;
+            this.resConvCh = this.xConvCh + "";
+          }
+        },
+        onModify: function (fnName) {
+          this['mode' + fnName[0].toUpperCase() + fnName.substr(1)] = 'modify';
+          this.$forceUpdate();
+        },
+        onCalc: function (fnName) {
+          this['mode' + fnName[0].toUpperCase() + fnName.substr(1)] = 'display';
+          this.actualiser(fnName);
+          this.$forceUpdate();
+        }
+      }
+    });
+  </script>
+  <script>
+    const strfunc2 = new Vue({
+      el: '#str_func2',
+      data: {
+        modeLong: "display",
+        xLong: "",
+        resLong: 0,
+        modePos: "display",
+        xPos1: "",
+        xPos2: "",
+        resPos: 0,
+        modeSousChaine: "display",
+        xSousChaine1: "",
+        xSousChaine2: 0,
+        xSousChaine3: 0,
+        resSousChaine: 0,
+        modeEfface: "display",
+        xEfface1: "",
+        xEfface2: 0,
+        xEfface3: 0,
+        resEfface: "",
+        modeInserer: "display",
+        xInserer1: "",
+        xInserer2: 0,
+        xInserer3: 0,
+        resInserer: "",
+        modeValeur: "display",
+        xValeur: "12",
+        resValeurX: 0,
+        resValeurE: 0,
+        modeConvCh: "display",
+        xConvCh: 0,
+        resConvCh: "0"
+      },
+      mounted: function () {
+        this.actualiser('long', "Bac 2022");
+        this.actualiser('pos', "02", "Bac 2022");
+        this.actualiser('sousChaine', "Baccar", 3, 6);
+        this.actualiser('Efface', "Baccar", 3, 6);
+        this.actualiser('Inserer', "Ka", "Libraiaie rim", 10);
+        this.actualiser('Valeur', "18.5");
+        this.actualiser('convCh', 15);
+      },
+      methods: {
+        actualiser: function (fnName, param1, param2, param3) {
+          fnName = fnName.toLowerCase();
+          if (fnName == 'long') {
+            this.xLong = param1 || this.xLong;
+            this.resLong = this.xLong.length;
+          } else if (fnName == 'pos') {
+            this.xPos1 = param1 || this.xPos1;
+            this.xPos2 = param2 || this.xPos2;
+            this.resPos = this.xPos2.indexOf(this.xPos1);
+          } else if (fnName == 'souschaine') {
+            this.xSousChaine1 = param1 || this.xSousChaine1;
+            this.xSousChaine2 = param2 || this.xSousChaine2;
+            this.xSousChaine3 = param3 || this.xSousChaine3;
+            this.resSousChaine = this.xSousChaine1.substring(this.xSousChaine2, this.xSousChaine3);
+          } else if (fnName == 'efface') {
+            this.xEfface1 = param1 || this.xEfface1;
+            this.xEfface2 = param2 || +this.xEfface2;
+            this.xEfface3 = param3 || +this.xEfface3;
+            this.resEfface = this.xEfface1.substring(0, this.xEfface2) + this.xEfface1.substring(this.xEfface3);
+          } else if (fnName == 'inserer') {
+            this.xInserer1 = param1 || this.xInserer1;
+            this.xInserer2 = param2 || this.xInserer2;
+            this.xInserer3 = param3 || +this.xInserer3;
+            this.resInserer = this.xInserer2.substring(0, this.xInserer3) + this.xInserer1 + this.xInserer2.substring(this.xInserer3);
+          } else if (fnName == 'valeur') {
+            this.xValeur = param1 || this.xValeur;
+            this.resValeurX = +this.xValeur;
+          } else if (fnName == 'convch') {
+            this.xConvCh = param1 || +this.xConvCh;
+            this.resConvCh = this.xConvCh + "";
+          }
+        },
+        onModify: function (fnName) {
+          this['mode' + fnName[0].toUpperCase() + fnName.substr(1)] = 'modify';
+          this.$forceUpdate();
+        },
+        onCalc: function (fnName) {
+          this['mode' + fnName[0].toUpperCase() + fnName.substr(1)] = 'display';
+          this.actualiser(fnName);
+          this.$forceUpdate();
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

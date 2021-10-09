@@ -325,6 +325,138 @@ else:
   </code></pre>
           </div>
         </div>
+
+        <h4>Exemple</h4>
+
+        <p>M Salim dans un restaurant, il veut commander une Pizza. <u>Il n'a que 8$ et il n'aime pas le poulet</u>.
+          <strong>Qu'est ce qu'il peut commander ?</strong>
+        </p>
+        <figure>
+          <img src="resources/images/pizza-menu.jpg" alt="Menu pizza">
+          <img src="resources/images/pizza-select.png" alt="Sélection pizza">
+          <figcaption>Sélection d'une Pizza à partir d'un menu</figcaption>
+        </figure>
+
+        <div class="border border-dark p-2">
+          <p class="fs-4"><strong>Si</strong> <span class="text-danger">j'ai 6$ ou plus</span> et <span
+              class="text-danger">j'aime le poulet</span>
+            <br><strong>alors</strong> <span class="text-success">commander <strong>Chicken Delight</strong></span>
+            <br><strong>sinon Si</strong> <span class="text-danger">j'ai 7$ ou plus</span> et <span
+              class="text-danger">j'aime le poulet</span>
+            <br><strong>alors</strong> <span class="text-success">commander <strong>Hawaiian Chicken</strong></span>
+            <br><strong>sinon Si</strong> <span class="text-danger">j'ai 8$ ou plus</span> et <span
+              class="text-danger">j'aime le thon</span>
+            <br><strong>alors</strong> <span class="text-success">commander <strong>Island Tuna</strong></span>
+            <br><strong>sinon Si</strong> <span class="text-danger">j'ai 9$ ou plus</span> et <span
+              class="text-danger">j'aime le boeuf</span>
+            <br><strong>alors</strong> <span class="text-success">commander <strong>Beef Pepperoni</strong></span>
+            <br><strong>sinon</strong> <span class="text-success">changer de restaurant</span>
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h3>Activité 5</h3>
+
+        <figure class="d-print-none">
+          <img src="resources/images/vous-etes-admis.jpg" alt="Vous êtes admis">
+          <figcaption>Vous êtes admis</figcaption>
+        </figure>
+
+        <p>Un élève est <u>admis</u> s'il obtient une moyenne supèrieure ou égale à 10, il est <u>refusé</u> s'il
+          obtient une
+          moyenne infèrieure à 9, sinon il est <u>contrôle</u>.</p>
+        <p>Ecrire un programme qui affiche l'appréciation d'un élève selon sa moyenne.</p>
+      </section>
+
+      <section>
+        <h3>Activité 6</h3>
+
+        <figure class="d-print-none">
+          <img src="resources/images/nature-triangle.jpg" alt="Nature d'un triangle">
+          <figcaption>Nature d'un triangle</figcaption>
+        </figure>
+
+        <p>Ecrire un programme qui détermine <strong>la nature d'un triangle</strong> à partir de la longueur de ses
+          cotés.</p>
+
+        <ul>
+          <li>Equilatéral, si <strong>AB=BC=AC</strong></li>
+          <li>Isocèle, si <strong>AB=AC</strong> <u>ou</u> <strong>AB=BC</strong> <u>ou</u> <strong>AC=BC</strong></li>
+          <li>Rectangle, si <strong>AB²+AC²=BC²</strong> <u>ou</u> <strong>AC²+BC²=AB²</strong> <u>ou</u>
+            <strong>BC²+AB²=AC²</strong>
+          </li>
+          <li>Quelconque, sinon</li>
+        </ul>
+      </section>
+    </article>
+
+    <article>
+      <h2>Structure à choix</h2>
+
+      <section>
+        <h3>Définition</h3>
+
+        <p>Une <strong>structure conditionnelle à choix</strong> est une version simplifiée de la <strong>structure
+            conditionnelle généralisée</strong>.</p>
+        <p>L'exécution d'un traitement dépend d'un <strong>sélecteur</strong> de type ordinal.</p>
+
+        <h4>Forme simple généralisée</h4>
+        <div class="row">
+          <div class="col-sm-4">
+            <pre><code class="language-algorithm">Selon var Faire
+  valeur1, valeur2:
+    // Traitement 1
+    // si condition1 = vrai
+  valeur3..valeur4:
+    // Traitement 2
+    // si condition2 = vrai
+Sinon
+  // Traitement 3
+  // si les conditions sont fausses
+Fin Si</code></pre>
+          </div>
+          <div class="col-sm-4">
+            <pre><code class="language-delphi">Case var of
+  valeur1, valeur2:
+    // Traitement 1
+    // si condition1 = vrai
+  valeur3..valeur4:
+    // Traitement 2
+    // si condition2 = vrai
+else
+  // Traitement 3
+  // si les conditions sont fausses
+end;</code></pre>
+          </div>
+          <div class="col-sm-4">
+            <pre><code class="language-python"># Pas d'équivalence
+if var in [valeur1, valeur2]:
+  # Traitement 1
+  # if condition1 = True
+elif var in range(valeur3..valeur4):
+  # Traitement 2
+  # if condition2 = True
+else:
+  # Traitement 3
+  # if condition3 = True
+
+</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Activité 7</h3>
+
+        <figure class="d-print-none">
+          <img src="resources/images/chiffres-lettres-symboles.webp" alt="Chiffres, lettres et symboles">
+          <figcaption>Chiffres, lettres et symboles</figcaption>
+        </figure>
+
+        <p>Ecrire un programme qui saisit un caractère puis détermine sa nature : Chiffre, Lettre miniscule, Lettre
+          majuscule ou Symbole. <strong>Utiliser une structure à choix.</strong></p>
+
       </section>
     </article>
   </main>
