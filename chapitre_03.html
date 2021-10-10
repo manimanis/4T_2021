@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Structures itératives</title>
+  <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+  <link rel="stylesheet" href="resources/css/default.css">
+  <link rel="stylesheet" href="resources/css/style.css">
+  <style type="text/css">
+    .center {
+      text-align: center;
+    }
+
+    .black_border {
+      text-align: center;
+      border: 1px #000 solid;
+    }
+
+    .surlignage {
+      background-color: #FF3300;
+      color: #FFFFFF;
+    }
+
+    input.fn-predefinies {
+      display: none;
+    }
+
+    /** exemple-for **/
+    .panneau {
+      display: flex;
+      background-color: #333;
+      width: 388px;
+      margin: 0 auto;
+    }
+
+    .panneau button {
+      width: 60px;
+      height: 32px;
+      border: 1px solid #333;
+      background-color: #888;
+      margin: 8px 4px;
+      border-radius: 4px;
+      background-color: #ffeaa3b7;
+    }
+
+    .panneau button:hover {
+      background-color: #ffeaa3;
+    }
+
+    .cercle {
+      border: 1px solid #333;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      margin: 8px 4px;
+      background-color: #888;
+    }
+
+    .cercle.allume {
+      background-color: red;
+      border-color: transparent;
+    }
+  </style>
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="aside_navbar"></div>
+    </nav>
+  </aside>
+
+  <main class="container my-3">
+    <h1>Structures itératives</h1>
+
+    <article>
+      <h2>Structure itérative complète</h2>
+
+      <section>
+        <h3>Exemple 1 - Arrivées dans un hôtel</h3>
+
+        <p>Dans un hôtel, à la récéption, le réceptioniste accueille les clients, enregistre leurs séjours et leurs
+          donne les clés de leurs chambres.</p>
+
+        <figure>
+          <img class="h2cm" src="resources/images/file-attente.png" alt="File d'attente">
+          <figcaption>Réception d'un hôtel, file d'attente</figcaption>
+        </figure>
+
+        <p>Dans le cas où il y a quatre clients qui viennent tout juste d'arriver. Le réceptioniste exécute les mêmes
+          tâches pour chacun d'eux.</p>
+        <p>La procédure de réception se déroule pour un client comme suit :</p>
+        <ul>
+          <li>Sourir</li>
+          <li>Souhaiter la bienvenue</li>
+          <li>Demander les pièces d'identités</li>
+          <li>Enregistrer les information du client</li>
+          <li>Affecter une chambre</li>
+          <li>Retourner les pièces d'identité</li>
+          <li>Donner la clé de la chambre</li>
+          <li>Indiquer le numéro de chambre</li>
+          <li>Appeler le porteur de bagages</li>
+          <li>Demander au porteur de bagages d'indiquer le chemin au client</li>
+          <li>Souhaiter la bienvenue</li>
+        </ul>
+        <p>D'où on peut écrire le pseudo-code (algorithme) suivant :</p>
+
+        <pre><code class="language-algorithm">Pour cpt de 1 à 4 Faire
+  // Exécuter la procédure de réception
+Fin Pour</code></pre>
+      </section>
+
+      <section>
+        <div id="exemple-for">
+          <h3>Exemple 2 - Panneau lumineux</h3>
+
+          <p>Soit le panneau lumineux suivant, cliquer sur le bouton [On] pour allumer les voyants lumineux:</p>
+
+          <div class="panneau">
+            <div class="cercle" v-for="lamp in lamps" v-bind:class="{'allume':lamp==1}"></div>
+            <button v-on:click="start()">{{counter == -1 ? "On" : "Off"}}</button>
+          </div>
+        </div>
+      </section>      
+
+      <section>
+        <h3>Définition</h3>
+
+        <p>Une structure itérative complète est utilisée pour <strong>répéter une suite d'instructions, un nombre fini
+            de fois connu à l'avance</strong>.</p>
+
+        <h4>Forme 1</h4>
+        <p>Compter de <strong>0</strong> à <strong>n-1</strong> par <strong>pas de 1</strong>, n &gt; 0.</p>
+        <div class="row">
+          <div class="col-sm-4">
+            <pre><code class="language-algorithm">Pour cpt de 0 à n-1 Faire
+  // Traitements
+Fin Pour</code></pre>
+          </div>
+          <div class="col-sm-4">
+            <pre><code class="language-delphi">for cpt:=0 to n-1 do begin
+  // Traitements
+end;</code></pre>
+          </div>
+          <div class="col-sm-4">
+            <pre><code class="language-python">for cpt in range(n):
+  # Traitements
+  </code></pre>
+          </div>
+        </div>
+        <h4>Forme 2</h4>
+        <p>Compter de <strong>d</strong> à <strong>f</strong> par <strong>pas de 1</strong>, f &gt; d.</p>
+        <div class="row">
+          <div class="col-sm-4">
+            <pre><code class="language-algorithm">Pour cpt de d à f Faire
+  // Traitements
+Fin Pour</code></pre>
+          </div>
+          <div class="col-sm-4">
+            <pre><code class="language-delphi">for cpt:=d to f do begin
+  // Traitements
+end;</code></pre>
+          </div>
+          <div class="col-sm-4">
+            <pre><code class="language-python">for cpt in range(d, f+1):
+  # Traitements
+  </code></pre>
+          </div>
+        </div>
+
+        <h4>Forme 3</h4>
+        <p>Décompter de <strong>d</strong> à <strong>f</strong> par <strong>pas de -1</strong>, f &lt; d.</p>
+        <div class="row">
+          <div class="col-sm-4">
+            <pre><code class="language-algorithm">Pour cpt de d à f [pas=-1] Faire
+  // Traitements
+Fin Pour</code></pre>
+          </div>
+          <div class="col-sm-4">
+            <pre><code class="language-delphi">for cpt:=d downto f do begin
+  // Traitements
+end;</code></pre>
+          </div>
+          <div class="col-sm-4">
+            <pre><code class="language-python">for cpt in range(d, f-1, -1):
+  # Traitements
+  </code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Activité 1</h3>
+
+        <p>Ecrire un programme qui permet d'afficher les 10 premiers multiples d'un nombre n donné.</p>
+
+        <figure>
+          <img src="resources/images/table-multiplication.png" alt="Table de multiplication">
+          <figcaption>Table de multiplication</figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h3>Solution</h3>
+
+        <div class="row">
+          <div class="col-sm-8">
+            <pre><code class="language-algorithm">Algorithme Table_Multiplication
+Début
+  Ecrire("Donner un nombre ? ")
+  Lire(n)
+
+  Pour i de 1 à 10 faire
+    Ecrire(n, "&times;", i, "=", n*i)
+  Fin Pour
+Fin</code></pre>
+          </div>
+          <div class="col-sm-4">
+            <table class="table table-sm table-bordered border-dark table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>Objet</th>
+                  <th>Type/Nature</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>n, i</td>
+                  <td>entier</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Activité 2</h3>
+
+        <p>Ecrire un programme qui affiche uniquement les consonnes majuscules.</p>
+        <div class="my-2 p-2 fs-1 text-center border border-secondary bg-light">
+          <script>
+            const voyelles = "OIYEAU";
+            for (let i = 0; i < 26; i++) {
+              const car = String.fromCharCode(65 + i);
+              if (voyelles.indexOf(car) == -1) {
+                document.write("<span class=\"text-success\">" + car + "</span>");
+              } else {
+                document.write("<span class=\"text-danger\">" + car + "</span>");
+              }
+            }
+          </script>
+        </div>
+        <p>Les lettres en <span class="text-danger">rouge</span> sont les voyelles, tandis que les lettres en <span
+            class="text-success">vert</span> sont les consonnes.</p>
+      </section>
+
+      <section>
+        <h3>Solution</h3>
+
+        <div class="row">
+          <div class="col-sm-8">
+            <pre><code class="language-algorithm">Algorithme Consonnes
+Début
+  Pour i de 0 à 25 faire
+    car &larr; chr(65 + i)
+    Si car &notin; ["A","E","I","O","U","Y"] Alors
+      Ecrire(car)
+    Fin Si
+  Fin Pour
+Fin</code></pre>
+          </div>
+          <div class="col-sm-4">
+            <table class="table table-sm table-bordered border-dark table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>Objet</th>
+                  <th>Type/Nature</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>i</td>
+                  <td>entier</td>
+                </tr>
+                <tr>
+                  <td>car</td>
+                  <td>caractère</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Activité 3</h3>
+
+        <p>Ecrire un programme qui saisit les <strong>noms</strong> des <strong>n</strong> employés d'une société, ainsi
+          que leurs anciennetés <strong>anc</strong>, puis affiche ceux et celles qui méritent une promotion.</p>
+        <p>Il suffit de dépasser six ans d'ancienneté pour mériter une promotion.</p>
+        <pre><code class="nohighlight shell python" data-text="Exemple"><script>
+          const noms = ["Amir", "Aziz", "Nour", "Rayen", "Abrar", "Amal"];
+          const anc = [3, 8, 1, 9, 4, 5];
+          document.write("Nombre d'employés ? " + anc.length + "\n")
+          for (let i = 0; i < anc.length; i++) {
+            document.write("Nom employé n°" + (i + 1) + " ? " + noms[i] + "\n");
+            document.write("Anciennté " + noms[i] + " ? " + anc[i] + "\n");
+          }
+          document.write("Les employés qui méritent une promotion sont :\n")
+          for (let i = 0; i < anc.length; i++) {
+            if (anc[i] >= 6) {
+              document.write("* " + noms[i] + " pour " + anc[i] + " ans de service\n");
+            }
+          }
+        </script></code></pre>
+      </section>
+
+      <section>
+        <h3>Solution</h3>
+
+        <h4>Nouveau régime</h4>
+        <div class="row">
+          <div class="col-sm-8">
+            <pre><code class="language-algorithm">Algorithme Promotion
+Début
+  Ecrire("Nombre d'employés ? ")
+  Lire(n)
+
+  Pour i de 0 à n-1 faire
+    Ecrire("Nom employé n°", i+1, " ?")
+    Lire(noms[i])
+    Ecrire("Anciennté ", noms[i], " ? ")
+    Lire(anc[i])
+  Fin Pour
+
+  Ecrire("Les employés qui méritent une promotion sont :")
+  Pour i de 0 à n-1 faire
+    Si anc[i] >= 6 Alors
+      Ecrire(noms[i], " pour ", anc[i], " ans de services")
+    Fin Si
+  Fin Pour
+Fin</code></pre>
+          </div>
+          <div class="col-sm-4">
+            <table class="table table-sm table-bordered border-dark table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>TDNT</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>tab_ch = tableau de 20 chaîne<br>
+                    tab_en = tableau de 20 entier</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table class="table table-sm table-bordered border-dark table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>Objet</th>
+                  <th>Type/Nature</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>n, i</td>
+                  <td>entier</td>
+                </tr>
+                <tr>
+                  <td>noms</td>
+                  <td>tab_ch</td>
+                </tr>
+                <tr>
+                  <td>anc</td>
+                  <td>tab_en</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </article>
+
+    <article>
+      <h2>Structure itérative à condition d'arrêt</h2>
+    </article>
+
+  </main>
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée avec ♥ par Mohamed Anis MANI</div>
+    <div class="text-center small">Année scolaire : 2021/2022</div>
+  </footer>
+
+  <script src="resources/js/jquery.min.js"></script>
+  <script src="resources/js/bootstrap.bundle.min.js"></script>
+  <script src="resources/js/highlight.min.js"></script>
+  <script src="resources/js/hljs.algorithm.js"></script>
+  <script src="resources/js/clipboard.min.js"></script>
+  <script src="resources/js/pages.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+
+    document.querySelectorAll('.language-algorithm,.language-python,.language-delphi')
+      .forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'bd-clipboard d-print-none';
+        const btn = document.createElement('button');
+        btn.className = 'btn-clipboard';
+        btn.textContent = "📋";
+        btn.title = "Copier";
+        div.appendChild(btn);
+        item.parentElement.insertBefore(div, item);
+      });
+    new ClipboardJS('.btn-clipboard', {
+      target: (trigger) => {
+        return trigger.parentElement.nextElementSibling;
+      }
+    });
+  </script>
+
+  <script src="resources/js/funcs.js"></script>
+  <script src="resources/js/vue.min.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#exemple-for',
+      data: {
+        counter: -1,
+        lamps: [0, 0, 0, 0, 0, 0, 0, 0]
+      },
+      methods: {
+        start: function () {
+          if (this.counter != -1) {
+            return;
+          }
+          this.counter = -1;
+          const callback = () => {
+            if (this.counter >= 0 && this.counter < this.lamps.length) {
+              this.lamps[this.counter] = 0;
+            }
+            if (this.counter + 1 < this.lamps.length) {
+              this.counter++;
+              this.lamps[this.counter] = 1;
+              setTimeout(callback, 300);
+            } else {
+              this.counter = -1;
+            }
+            this.$forceUpdate();
+          };
+          callback();
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
