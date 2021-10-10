@@ -117,17 +117,55 @@ Fin Pour</code></pre>
       </section>
 
       <section>
+        <h3>Exemple 2 - Panneau lumineux</h3>
+
+        <p>Soit le panneau lumineux suivant, cliquer sur le bouton [On] pour allumer les voyants lumineux:</p>
         <div id="exemple-for">
-          <h3>Exemple 2 - Panneau lumineux</h3>
-
-          <p>Soit le panneau lumineux suivant, cliquer sur le bouton [On] pour allumer les voyants lumineux:</p>
-
           <div class="panneau">
             <div class="cercle" v-for="lamp in lamps" v-bind:class="{'allume':lamp==1}"></div>
             <button v-on:click="start()">{{counter == -1 ? "On" : "Off"}}</button>
           </div>
         </div>
-      </section>      
+
+        <p>Ecrire un programme jeu de lumière qui permet d'allumer les voyants à tour de rôle.</p>
+        <p>On suppose que :</p>
+        <ul>
+          <li>Les voyants sont numérotés de 0 à 7</li>
+          <li>La fonction <strong>Allumer(i)</strong>, allume le voyant n°i</li>
+          <li>La fonction <strong>Eteindre(i)</strong>, éteint le voyant n°i</li>
+          <li>La fonction <strong>Attendre(t)</strong>, fait une pause de t millisecondes</li>
+        </ul>
+
+        <div id="solution-voyants" class="d-print-none">
+          <h4>Travail demandé</h4>
+          <p>Ordonner les instructions suivantes :</p>
+          <ol v-if="!is_correct && nbre_essais < 6">
+            <li class="my-1" v-for="operation, idx in operations">
+              <select v-model="selected[idx]">
+                <option v-for="operation, idx2 in operations" v-bind:value="idx2">{{operation}}</option>
+              </select>
+            </li>
+          </ol>
+          <div v-else>
+            <ol>
+              <li class="my-1" v-for="operation, idx in operations">{{operation}}</li>
+            </ol>
+          </div>
+          <div v-if="!is_correct" class="my-2"><button class="btn btn-primary" v-on:click="verifier()">{{nbre_essais < 5
+                ? "Vérifier" : "Corriger" }}</button>
+          </div>
+          <div class="my-2"><strong><em>Nombre d'essais : {{nbre_essais}}</em></strong></div>
+        </div>
+
+        <div class="d-none d-print-block">
+          <pre><code class="language-algorithm">Pour i de 0 à 7 Faire
+  Allumer(i)
+  Attendre(200)
+  Eteindre(i)
+Fin Pour</code></pre>
+        </div>
+
+      </section>
 
       <section>
         <h3>Définition</h3>
@@ -387,11 +425,77 @@ Fin</code></pre>
             </table>
           </div>
         </div>
+
+        <h4>Ancien régime</h4>
+        <div class="row">
+          <div class="col-sm-8">
+            <pre><code class="language-algorithm">Début Promotion
+  Ecrire("Nombre d'employés ? ")
+  Lire(n)
+
+  Pour i de 1 à n faire
+    Ecrire("Nom employé n° ", i, " ?")
+    Lire(noms[i])
+    Ecrire("Anciennté ", noms[i], " ? ")
+    Lire(anc[i])
+  Fin Pour
+
+  Ecrire("Les employés qui méritent une promotion sont :")
+  Pour i de 1 à n faire
+    Si anc[i] >= 6 Alors
+      Ecrire(noms[i], " pour ", anc[i], " ans de services")
+    Fin Si
+  Fin Pour
+Fin</code></pre>
+          </div>
+          <div class="col-sm-4">
+            <table class="table table-sm table-bordered border-dark table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>TDNT</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>tab_ch = tableau de 20 chaîne<br>
+                    tab_en = tableau de 20 entier</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table class="table table-sm table-bordered border-dark table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>Objet</th>
+                  <th>Type/Nature</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>n, i</td>
+                  <td>entier</td>
+                </tr>
+                <tr>
+                  <td>noms</td>
+                  <td>tab_ch</td>
+                </tr>
+                <tr>
+                  <td>anc</td>
+                  <td>tab_en</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </section>
     </article>
 
     <article>
       <h2>Structure itérative à condition d'arrêt</h2>
+
+      <section>
+        <h3></h3>
+      </section>
     </article>
 
   </main>
@@ -456,6 +560,52 @@ Fin</code></pre>
             this.$forceUpdate();
           };
           callback();
+        }
+      }
+    });
+
+    const operations = [
+      'Pour i de 0 à 7 Faire',
+      'Allumer(i)',
+      'Attendre(200)',
+      'Eteindre(i)',
+      'Fin Pour'
+    ];
+    const app2 = new Vue({
+      el: '#solution-voyants',
+      data: {
+        nbre_essais: 0,
+        operations: operations,
+        selected: operations.map(idx => -1),
+        is_correct: false
+      },
+      methods: {
+        verifier: function () {
+          for (let i = 0; i < this.selected.length; i++) {
+            if (this.selected[i] == -1) {
+              alert("Veuillez remplir tous les champs!");
+              return;
+            }
+          }
+
+          if (this.nbre_essais <= 5) {
+            this.nbre_essais++;
+            this.is_correct = false;
+            for (let i = 0; i < this.selected.length; i++) {
+              if (this.selected[i] != i) {
+                alert("Réponse incorrecte, ré-essayer!");
+                return;
+              }
+            }
+            this.is_correct = true;
+            alert("Bonne réponse, félicitations!")
+          } else {
+            for (let i = 0; i < this.selected.length; i++) {
+              this.selected = operations.map((op, idx) => idx);
+            }
+            this.is_correct = true;
+            this.$forceUpdate();
+          }
         }
       }
     });
