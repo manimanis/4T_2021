@@ -494,7 +494,138 @@ Fin</code></pre>
       <h2>Structure itérative à condition d'arrêt</h2>
 
       <section>
-        <h3></h3>
+        <h3>Exemple - L'échelle</h3>
+
+        <div>
+          <figure class="float-end">
+            <img class="h3cm" src="resources/images/echelle-en-aluminium-10-marches.jpg" alt="Echelle 10 marches">
+            <figcaption>Echelle 10 marches</figcaption>
+          </figure>
+
+          <p>En l'absence de ses parent, un enfant joue le jeu de l'échelle qui consiste à grimper une échelle de 10
+            marches.</p>
+
+          <p>L'enfant grimpe parfois une seule marche d'autres fois deux marches jusqu'à atteindre la dernière.</p>
+
+          <p>Combien de fois devra-t-il grimper pour atteindre le sommet ?</p>
+
+          <p>On demande d'écrire un programme pour simuler cette situation.</p>
+
+          <p class="text-danger">Attention, si l'enfant est dans l'avant dernière marche et qu'il décide de grimper,
+            encore, deux marches, il risque de tomber.</p>
+        </div>
+
+        <div id="jeu-echelle">
+          <h4>Travail demandé</h4>
+          <p>On donne l'algorithme suivant, et on demande de le terminer :</p>
+          <div class="row">
+            <div class="col-sm-8">
+              <pre><code class="language-algorithm">Algorithme Echelle
+Début
+  pos &larr; 0 // position actuelle
+  cpt &larr; 0 // compteur nbre de fois
+  ............... //(1)
+    // Sélectionner un nombre aléatoire 1 ou 2
+    nbm &larr; .............. //(2)
+    // Si l'enfant n'a pas atteint
+    // le sommet de l'échelle
+    Si ............... Alors //(3)
+      // Incrémenter :
+      // - le compteur du nbre de fois
+      // - la position actuelle
+      cpt &larr; ............... //(4)
+      pos &larr; ............... //(5)
+      Ecrire("Youssef a monté", nbm, "marches, il est à la position", pos)
+    Fin Si
+  ............... //(6)
+  Ecrire("Youssef a atteint le sommet de l'échelle en", cpt, "fois")
+Fin</code></pre>
+            </div>
+            <div class="col-sm-4">
+              <div class="d-print-none">
+                <div v-if="!winner">
+                  <ol>
+                    <li class="my-2" v-for="op, idx in operations">
+                      <select v-model="selected[idx]">
+                        <option v-for="op1, idx1 in operations" v-bind:value="op1.pos">{{op1.op}}</option>
+                      </select>
+                    </li>
+                  </ol>
+                  <div class="my-2">
+                    <button class="btn btn-primary" v-on:click="verifier()">Vérifier</button>
+                  </div>
+                </div>
+                <div v-else>
+                  <ol>
+                    <li class="my-2" v-for="op, idx in operations">{{op.op}}</li>
+                  </ol>
+                </div>
+              </div>
+              <div class="d-none d-print-block">
+                <ol>
+                  <li class="my-2" v-for="op, idx in operations">{{op.op}}</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-none d-print-block">
+          <div class="row">
+            <div class="col-sm-8">
+              <h4>Solution</h4>
+              <pre><code class="language-algorithm">Algorithme Echelle
+Début
+  pos &larr; 0
+  cpt &larr; 0
+  Répéter
+    nbm &larr; aléa(1, 2)
+    Si pos+nbm &le; 10 Alors
+      cpt &larr; cpt + 1
+      pos &larr; pos + nbm
+      Ecrire("Youssef a monté", nbm, "marches, il est à la position", pos)
+    Fin Si
+  Jusqu'à pos = 10
+  Ecrire("Youssef a atteint le sommet de l'échelle en", cpt, "fois")
+Fin</code></pre>
+            </div>
+            <div class="col-sm-4">
+              <table class="table table-sm table-bordered border-dark table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th>Objet</th>
+                    <th>Type/Nature</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>pos, cpt, nbm</td>
+                    <td>entier</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <section>
+        <h3>Exemple - Le jeu de l'oie</h3>
+
+        <figure>
+          <img src="resources/images/jeu-loie.jpg" alt="Jeu de l'oie">
+          <figcaption>Jeu de l'oie</figcaption>
+        </figure>
+
+        <p>Yassine joue contre l'ordinateur la version simplifiée du jeu de l'oie qui ne comporte aucun piège et qui est
+          sans bonus dans certaines cases.</p>
+        <p>Chaque joueur lance, à son tour, deux dés, et avance son pion du nombre tiré. Le premier qui atteint la case
+          n°63 est déclaré gagnant.</p>
+        <p>Le joueur n'avance pas si son pion dépasse la case n°63 s'il avance du nombre tiré.</p>
+
+        <p>On demande d'écrire un programme qui simule une partie contre l'ordinateur.</p>
       </section>
     </article>
 
@@ -605,6 +736,34 @@ Fin</code></pre>
             }
             this.is_correct = true;
             this.$forceUpdate();
+          }
+        }
+      }
+    });
+
+    const choix2 = [
+      { op: "Jusqu'à pos = 10", pos: 5 },
+      { op: "aléa(1, 2)", pos: 1 },
+      { op: "pos+nbm ≤ 10", pos: 2 },
+      { op: "répéter", pos: 0 },
+      { op: "pos + nbm", pos: 4 },
+      { op: "cpt + 1", pos: 3 },
+    ];
+    const app3 = new Vue({
+      el: '#jeu-echelle',
+      data: {
+        operations: choix2,
+        selected: choix2.map(c => -1),
+        winner: false
+      },
+      methods: {
+        verifier: function () {
+          const score = this.selected.reduce((pv, cv, idx) => pv + +(cv == idx), 0);
+          if (score == this.selected.length) {
+            alert("Félicitations, vous avez deviné!");
+            this.winner = true;
+          } else {
+            alert("Zut! C'est incorrect, réessayer.");
           }
         }
       }
