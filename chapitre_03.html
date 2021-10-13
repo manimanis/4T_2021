@@ -633,6 +633,42 @@ Fin</code></pre>
           </li>
           <li>L'ordinateur affiche un message de félicitations</li>
         </ol>
+
+        <style>
+          #simulation-jeu-devinette {
+            margin: 10px;
+            padding: 10px;
+            text-align: center;
+            background-color: cadetblue;
+            border-radius: 20px;
+            font-size: 20pt;
+          }
+
+          #simulation-jeu-devinette h4 {
+            font-size: 30pt;
+            color: #fff;
+          }
+
+          #simulation-jeu-devinette input { 
+            font-size: 70pt;
+            text-align: center;
+            width: 3em;
+            border: 1px solid transparent;
+            border-radius: 20px;
+          }
+        </style>
+        <div id="simulation-jeu-devinette" class="d-print-none">
+          <h4>Jeu de devinette</h4>
+
+          <p>J'ai choisi un nombre entre 0 et 99, et c'est à vous de le deviner.</p>
+
+          <p><input type="number" min="0" max="99" step="1" v-model="nombre"></p>
+
+          <div class="my-2">{{message}}</div>
+
+          <div class="text-center"><button class="btn btn-primary" v-on:click="verifier()">Vérifier</button></div>
+        </div>
+
         <div id="jeu-devinette">
           <h4>Travail demandé</h4>
           <p>On donne l'algorithme suivant, et on demande de le terminer :</p>
@@ -1068,6 +1104,36 @@ Fin</code></pre>
             this.winner = true;
           } else {
             alert("Zut! C'est incorrect, réessayer.");
+          }
+        }
+      }
+    });
+
+    const app5 = new Vue({
+      el: '#simulation-jeu-devinette',
+      data: {
+        nombre: 0,
+        secret: 0,
+        message: "",
+        iswinner: false
+      },
+      mounted: function () {
+        this.selectSecret();
+      },
+      methods: {
+        selectSecret: function () {
+          this.message = "Devine mon nombre";
+          this.secret = Math.floor(Math.random() * 100);
+          this.iswinner = false;
+        },
+        verifier: function () {
+          if (this.nombre == this.secret) {
+            this.iswinner = true;
+            this.message = "Félicitations, vous avez gagné!";
+          } else if (this.nombre > this.secret) {
+            this.message = "Plus petit que " + this.nombre + " !";
+          } else {
+            this.message = "Plus grand que " + this.nombre + " !";
           }
         }
       }
