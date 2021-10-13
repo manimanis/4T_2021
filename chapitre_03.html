@@ -494,7 +494,7 @@ Fin</code></pre>
       <h2>Structure itérative à condition d'arrêt</h2>
 
       <section>
-        <h3>Exemple - L'échelle</h3>
+        <h3>Exemple - Le jeu de l'échelle</h3>
 
         <div>
           <figure class="float-end">
@@ -505,14 +505,15 @@ Fin</code></pre>
           <p>En l'absence de ses parent, un enfant joue le jeu de l'échelle qui consiste à grimper une échelle de 10
             marches.</p>
 
-          <p>L'enfant grimpe parfois une seule marche d'autres fois deux marches jusqu'à atteindre la dernière.</p>
+          <p>L'enfant grimpe <u>parfois</u> <strong>une seule marche</strong> <u>d'autres fois</u> <strong>deux
+              marches</strong> jusqu'à atteindre la dernière.</p>
 
-          <p>Combien de fois devra-t-il grimper pour atteindre le sommet ?</p>
+          <p><strong>Combien de fois devra-t-il grimper pour atteindre le sommet ?</strong></p>
 
           <p>On demande d'écrire un programme pour simuler cette situation.</p>
 
-          <p class="text-danger">Attention, si l'enfant est dans l'avant dernière marche et qu'il décide de grimper,
-            encore, deux marches, il risque de tomber.</p>
+          <p class="text-danger"><strong>Attention :</strong> Si l'enfant est dans l'avant dernière marche et qu'il
+            décide de grimper, encore, deux marches, il risque de tomber.</p>
         </div>
 
         <div id="jeu-echelle">
@@ -606,12 +607,285 @@ Fin</code></pre>
               </table>
             </div>
           </div>
-
         </div>
-
       </section>
 
       <section>
+        <h3>Exemple - Devine mon nombre</h3>
+
+        <p>Dans le jeu devine mon nombre l'ordinateur <strong>choisit un nombre</strong> dans l'intervalle [0, 99] et
+          l'utilisateur <strong>doit le retrouver</strong>.</p>
+        <p><strong><em>Le nombre d'essais est illimité.</em></strong></p>
+
+        <p>Le jeu se déroule comme suit :</p>
+        <ol>
+          <li>L'ordinateur choisit un nombre au hasard <code>secret</code> dans l'intervalle [0, 99].</li>
+          <li>L'utilisateur fait un essai pour le deviner <code>nombre</code>.</li>
+          <li>L'ordinateur, vérifie :
+            <ul>
+              <li>Si <strong>nombre &lt; secret</strong>, l'ordinateur indique que le nombre à deviner est plus grand
+              </li>
+              <li>Si <strong>nombre > secret</strong>, l'ordinateur indique que le nombre à deviner est plus petit</li>
+            </ul>
+          </li>
+          <li>Si le <strong>nombre = secret</strong>, l'utilisateur a trouvé le bon nombre et le jeu s'arrête,
+            <strong>sinon</strong> on répète les étapes 2 et 3
+          </li>
+          <li>L'ordinateur affiche un message de félicitations</li>
+        </ol>
+        <div id="jeu-devinette">
+          <h4>Travail demandé</h4>
+          <p>On donne l'algorithme suivant, et on demande de le terminer :</p>
+          <div class="row">
+            <div class="col-sm-8">
+              <pre><code class="language-algorithm">Algorithme devinette
+Début
+  // choisir un nombre entre 0 et 99
+  secret &larr; ............... // (1)
+  ............... // (2)
+    // Essai de l'utilisateur
+    Ecrire("Devine mon nombre [0, 99] ? ")
+    Lire(nombre)
+
+    Si ............... Alors // (3)
+      Ecrire("Plus grand que", nombre)
+    Sinon Si ............... Alors // (4)
+      Ecrire("Plus petit que", nombre)
+    Fin Si
+  Jusqu'à ............... //(5)
+  Ecrire("Félicitations tu as gagné!")
+  Ecrire(...............) (6)
+Fin</code></pre>
+            </div>
+            <div class="col-sm-4">
+              <div class="d-print-none">
+                <div v-if="!winner">
+                  <ol>
+                    <li class="my-2" v-for="op, idx in operations">
+                      <select v-model="selected[idx]">
+                        <option v-for="op1, idx1 in operations" v-bind:value="op1.pos">{{op1.op}}</option>
+                      </select>
+                    </li>
+                  </ol>
+                  <div class="my-2">
+                    <button class="btn btn-primary" v-on:click="verifier()">Vérifier</button>
+                  </div>
+                </div>
+                <div v-else>
+                  <ol>
+                    <li class="my-2" v-for="op, idx in operations">{{op.op}}</li>
+                  </ol>
+                </div>
+              </div>
+              <div class="d-none d-print-block">
+                <ol>
+                  <li class="my-2" v-for="op, idx in operations">{{op.op}}</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-none d-print-block">
+          <div class="row">
+            <div class="col-sm-8">
+              <h4>Solution</h4>
+              <pre><code class="language-algorithm">Algorithme devinette
+Début
+  // choisir un nombre entre 0 et 99
+  secret &larr; aléa(0, 99)
+  Répéter
+    // Essai de l'utilisateur
+    Ecrire("Devine mon nombre [0, 99] ? ")
+    Lire(nombre)
+
+    Si nombre &lt; secret Alors 
+      Ecrire("Plus grand que", nombre)
+    Sinon Si nombre > secret Alors
+      Ecrire("Plus petit que", nombre)
+    Fin Si
+  Jusqu'à nombre = secret
+  Ecrire("Félicitations tu as gagné!")
+  Ecrire("Le nombre caché est", secret)
+Fin</code></pre>
+            </div>
+            <div class="col-sm-4">
+              <table class="table table-sm table-bordered border-dark table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th>Objet</th>
+                    <th>Type/Nature</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>nombre, secret</td>
+                    <td>entier</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Définition</h3>
+
+        <p>Une <b>structure à condition d'arrêt</b> est utilisée pour répéter une suite d'actions <u><b>jusqu'à</b></u>
+          ce qu'une <u><b>condition</b></u> soit vraie.</p>
+
+        <div class="row">
+          <div class="col-sm-4">
+            <pre><code class="language-algorithm">Répéter
+  // Traitements
+
+Jusqu'à condition</code></pre>
+          </div>
+          <div class="col-sm-4">
+            <pre><code class="language-delphi">repeat
+  // Traitements
+
+until condition;</code></pre>
+          </div>
+          <div class="col-sm-4">
+            <pre><code class="language-python">while True:
+  # Traitements
+  if condition:
+    break</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Activité 4</h3>
+
+        <figure class="d-print-none">
+          <img src="resources/images/you-you.jpg" alt="YouYou">
+          <figcaption>YouYou</figcaption>
+        </figure>
+
+        <p>Eya aime les "YouYou". Aujourd'hui, elle décide d'en préparer. Après avoir mélangé les ingrédients, elle
+          obtient <strong>qp</strong> grammes de pâte, <strong>qp&ge;200</strong>gr.</p>
+        <p>Sachant qu'une pièce de "YouYou" pèse, <strong>py</strong>, entre 60g et 90g, on veut calculer le nombre de
+          "YouYou", <strong>ny</strong>, que Eya obtiendra à la fin.</p>
+        <p><strong><em>Si la quantité de pâte est insuffisante, inférieure à 60gr, on ne peut pas fabriquer un
+              "YouYou".</em></strong></p>
+        <p>On demande écrire un programme pour simuler la situation.</p>
+
+        <pre><code class="nohighlight shell python" data-text="Exemple"><script>
+          let qp = Math.floor(Math.random() * 5 + 2) * 100;
+          document.write("Quantité de pâte en grammes ? " + qp + "\n")
+          let ny = 0;
+          do {
+            let py = Math.floor(Math.random() * 31) + 60;
+            py = qp >= py ? py : qp;
+            if (py >= 60) {
+              ny++;
+              document.write("Youyou " + ny + ", " + py + "gr\n");
+            } else {
+              document.write("Reste " + qp + "gr\n");
+            }
+            qp -= py;
+          } while (qp > 0);
+          document.write("Nombre de Youyou : " + ny + "\n")
+        </script></code></pre>
+      </section>
+
+      <section>
+        <h3>Solution</h3>
+
+        <h4>Nouveau régime</h4>
+        <div class="row">
+          <div class="col-sm-8">
+            <pre><code class="language-algorithm">Algorithme Youyou
+Début
+  Répéter
+    Ecrire("Quantité de pâte en grammes ? ")
+    Lire(qp) // qté de pâte
+  Jusqu'à qp > 100
+
+  ny &larr; 0 // nbre youyou
+  Répéter
+    py &larr; aléa(60, 90) // poids youyou
+    Si qp &lt; py Alors
+      py &larr; qp
+    Fin si
+    Si py &ge; 60 Alors
+      ny &larr; ny + 1
+      Ecrire("Youyou", ny, ",", py, "gr")
+    Sinon
+      Ecrire("Reste ", py, "gr\n")
+    Fin Si
+    qp &larr; qp - py
+  Jusqu'à qp = 0
+  Ecrire("Nombre de Youyou :", ny)
+Fin</code></pre>
+          </div>
+          <div class="col-sm-4">
+            <table class="table table-sm table-bordered border-dark table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>Objet</th>
+                  <th>Type/Nature</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>qp, ny, py</td>
+                  <td>entier</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <h4>Ancien régime</h4>
+        <div class="row">
+          <div class="col-sm-8">
+            <pre><code class="language-algorithm">Début Youyou
+  Répéter
+    Ecrire("Quantité de pâte en grammes ? ")
+    Lire(qp) // qté de pâte
+  Jusqu'à qp > 100
+
+  ny &larr; 0 // nbre youyou
+  Répéter
+    py &larr; aléa(31) + 60 // poids youyou
+    Si qp &lt; py Alors
+      py &larr; qp
+    Fin si
+    Si py &ge; 60 Alors
+      ny &larr; ny + 1
+      Ecrire("Youyou", ny, ",", py, "gr")
+    Sinon
+      Ecrire("Reste ", py, "gr\n")
+    Fin Si
+    qp &larr; qp - py
+  Jusqu'à qp = 0
+  Ecrire("Nombre de Youyou :", ny)
+Fin</code></pre>
+          </div>
+          <div class="col-sm-4">
+            <table class="table table-sm table-bordered border-dark table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>Objet</th>
+                  <th>Type/Nature</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>qp, ny, py</td>
+                  <td>entier</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="d-none">
         <h3>Exemple - Le jeu de l'oie</h3>
 
         <figure>
@@ -626,6 +900,8 @@ Fin</code></pre>
         <p>Le joueur n'avance pas si son pion dépasse la case n°63 s'il avance du nombre tiré.</p>
 
         <p>On demande d'écrire un programme qui simule une partie contre l'ordinateur.</p>
+
+
       </section>
     </article>
 
@@ -754,6 +1030,34 @@ Fin</code></pre>
       data: {
         operations: choix2,
         selected: choix2.map(c => -1),
+        winner: false
+      },
+      methods: {
+        verifier: function () {
+          const score = this.selected.reduce((pv, cv, idx) => pv + +(cv == idx), 0);
+          if (score == this.selected.length) {
+            alert("Félicitations, vous avez deviné!");
+            this.winner = true;
+          } else {
+            alert("Zut! C'est incorrect, réessayer.");
+          }
+        }
+      }
+    });
+
+    const choix3 = [
+      { op: "\"Le nombre caché est\", secret", pos: 5 },
+      { op: "aléa(0, 99)", pos: 0 },
+      { op: "nombre < secret", pos: 2 },
+      { op: "répéter", pos: 1 },
+      { op: "nombre = secret", pos: 4 },
+      { op: "nombre > secret", pos: 3 },
+    ];
+    const app4 = new Vue({
+      el: '#jeu-devinette',
+      data: {
+        operations: choix3,
+        selected: choix3.map(c => -1),
         winner: false
       },
       methods: {
