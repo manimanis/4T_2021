@@ -234,7 +234,7 @@ end;</code></pre>
       </section>
 
       <section>
-        <h3>Activité 1</h3>
+        <h3>Activité 1 - Table de multiplication</h3>
 
         <p>Ecrire un programme qui permet d'afficher les 10 premiers multiples d'un nombre n donné.</p>
 
@@ -279,7 +279,7 @@ Fin</code></pre>
       </section>
 
       <section>
-        <h3>Activité 2</h3>
+        <h3>Activité 2 - Consonnes</h3>
 
         <p>Ecrire un programme qui affiche uniquement les consonnes majuscules.</p>
         <div class="my-2 p-2 fs-1 text-center border border-secondary bg-light">
@@ -338,7 +338,7 @@ Fin</code></pre>
       </section>
 
       <section>
-        <h3>Activité 3</h3>
+        <h3>Activité 3 - Promotion des employés</h3>
 
         <p>Ecrire un programme qui saisit les <strong>noms</strong> des <strong>n</strong> employés d'une société, ainsi
           que leurs anciennetés <strong>anc</strong>, puis affiche ceux et celles qui méritent une promotion.</p>
@@ -649,7 +649,7 @@ Fin</code></pre>
             color: #fff;
           }
 
-          #simulation-jeu-devinette input { 
+          #simulation-jeu-devinette input {
             font-size: 70pt;
             text-align: center;
             width: 3em;
@@ -794,7 +794,61 @@ until condition;</code></pre>
       </section>
 
       <section>
-        <h3>Activité 4</h3>
+        <h3>Activité 4 - Les 4 saisons</h3>
+
+        <figure>
+          <img src="resources/images/roue-saisons.png" alt="Roue des saisons">
+          <figcaption>Roue des saisons</figcaption>
+        </figure>
+
+        <p>Ecrire un programme qui permet à l'utilisateur de saisir un mois &in; [1, 12]. Puis affiche la saison
+          correspondante.</p>
+      </section>
+
+      <section>
+        <h3>Solution</h3>
+
+        <div class="row">
+          <div class="col-sm-8">
+            <pre><code class="language-algorithm">Algorithme saisons
+Début
+  Répéter
+    Ecrire("Mois de l'année [1, 12] ? ")
+    Lire(mois) // qté de pâte
+  Jusqu'à 1 &le; mois &le; 12
+
+  Si 1 &le; mois &le; 3 Alors
+    Ecrire("Hiver")
+  Sinon Si 4 &le; mois &le; 6 Alors
+    Ecrire("Printemps")
+  Sinon Si 7 &le; mois &le; 9 Alors
+    Ecrire("Eté")
+  Sinon
+    Ecrire("Automne")
+  Fin Si
+Fin</code></pre>
+          </div>
+          <div class="col-sm-4">
+            <table class="table table-sm table-bordered border-dark table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>Objet</th>
+                  <th>Type/Nature</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>mois</td>
+                  <td>entier</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Activité 5 - Les Youyou</h3>
 
         <figure class="d-print-none">
           <img src="resources/images/you-you.jpg" alt="YouYou">
@@ -921,7 +975,7 @@ Fin</code></pre>
         </div>
       </section>
 
-      <section class="d-none">
+      <div class="d-none">
         <h3>Exemple - Le jeu de l'oie</h3>
 
         <figure>
@@ -938,9 +992,28 @@ Fin</code></pre>
         <p>On demande d'écrire un programme qui simule une partie contre l'ordinateur.</p>
 
 
-      </section>
+      </div>
     </article>
 
+    <article>
+      <h2>Structure itérative à condition de marche</h2>
+
+      <section>
+        <h3>Exemple - Entraienement</h3>
+
+        <p>Deux coureurs s'entrainent pour les jeux olympiques, il font le tour d'un terrain de longueur inconnue.</p>
+        <ul>
+          <li>Le premier fait un tour en 5 minutes</li>
+          <li>Le deuxième fait un tour en 4 minutes</li>
+        </ul>
+        <p>Sachant qu'ils ont commencé l'entraienement au même instant et à la même position, on veut déterminer après
+          combien de temps ils passeront tous les deux par le point de départ.</p>
+        <p><strong>Ecrire un programme qui saisit le temps nécessaire aux deux coureurs pour compléter un tour, puis
+            calcule et affiche après combien de temps ils se rencontrent de nouveau au point de départ.</strong></p>
+      </section>
+
+
+    </article>
   </main>
   <footer class="d-print-none bg-dark text-white p-2">
     <div class="text-center">Page créée avec ♥ par Mohamed Anis MANI</div>
