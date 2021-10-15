@@ -494,7 +494,7 @@ Fin</code></pre>
       <h2>Structure itérative à condition d'arrêt</h2>
 
       <section>
-        <h3>Exemple - Le jeu de l'échelle</h3>
+        <h3>Exemple 3 - Le jeu de l'échelle</h3>
 
         <div>
           <figure class="float-end">
@@ -611,7 +611,7 @@ Fin</code></pre>
       </section>
 
       <section>
-        <h3>Exemple - Devine mon nombre</h3>
+        <h3>Exemple 4 - Devine mon nombre</h3>
 
         <p>Dans le jeu devine mon nombre l'ordinateur <strong>choisit un nombre</strong> dans l'intervalle [0, 99] et
           l'utilisateur <strong>doit le retrouver</strong>.</p>
@@ -990,8 +990,6 @@ Fin</code></pre>
         <p>Le joueur n'avance pas si son pion dépasse la case n°63 s'il avance du nombre tiré.</p>
 
         <p>On demande d'écrire un programme qui simule une partie contre l'ordinateur.</p>
-
-
       </div>
     </article>
 
@@ -999,7 +997,56 @@ Fin</code></pre>
       <h2>Structure itérative à condition de marche</h2>
 
       <section>
-        <h3>Exemple - Entraienement</h3>
+        <h3>Exemple 5 - Remplissage de bouteilles</h3>
+
+        <p>Dans une usine de boissons gazeuses l'unité de remplissage des bouteilles est composée par une électrovanne
+          nommée <strong>E1</strong> et un capteur laser nommé <strong>c1</strong>.</p>
+        <p>A un instant donné, <strong>l'étape de remplissage</strong>, n°205 dans le GRAFCET, <strong>est
+            active</strong>. Dans cette étape, le remplissage se poursuit tant que la bouteille n'est pas encore
+          remplie, c-à-d <strong>tant que c1 = 1</strong>. Lorsque <strong>c1 = 0</strong>, cela signifie que le liquide
+          a atteint le niveau désiré, le remplissage s'arrête.
+        </p>
+
+        <figure>
+          <img src="resources/images/electrovanne.png" alt="Système de remplissage de bouteilles">
+          <figcaption>Système de remplissage de bouteilles</figcaption>
+        </figure>
+
+        <p>Pour plus d'efficacité l'usine est équipée par une série de 20 unités de remplissage comme celle décrite
+          précédemment. Toutes les unités fonctionnent simultannément.</p>
+
+        <p>Souvent les bouteilles qui passent sous une unité peuvent être déjà remplies par une autre unité, ces
+          bouteilles ne nécessitent pas d'être remplies.</p>
+
+        <p><b>On veut écrire un programme pour simuler le processus de remplissage.</b></p>
+
+        <div id="unite-remplissage">
+          <h4>Travail demandé</h4>
+          <p>Un ingénieur a écrit cet algorithme.</p>
+          <pre><code class="language-algorithm">Répéter
+  Activer(E1)
+Jusqu'à c1 = 0</code></pre>
+          <ol>
+            <li>Est-ce que cet algorithme est efficace ? Pourquoi ?</li>
+            <li>Comment le corriger ?</li>
+          </ol>
+        </div>
+
+        <div class="d-none d-print-block">
+          <h4>Solution</h4>
+          <pre><code class="language-algorithm">TantQue c1 = 1 Faire
+  Activer(E1)
+Fin TantQue</code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h3>Exemple 6 - Entraienement</h3>
+
+        <figure class="d-print-none">
+          <img src="resources/images/terrain-athletisme.gif" alt="Terrain d'athlétisme">
+          <figcaption>Terrain d'athlétisme</figcaption>
+        </figure>
 
         <p>Deux coureurs s'entrainent pour les jeux olympiques, il font le tour d'un terrain de longueur inconnue.</p>
         <ul>
@@ -1010,9 +1057,322 @@ Fin</code></pre>
           combien de temps ils passeront tous les deux par le point de départ.</p>
         <p><strong>Ecrire un programme qui saisit le temps nécessaire aux deux coureurs pour compléter un tour, puis
             calcule et affiche après combien de temps ils se rencontrent de nouveau au point de départ.</strong></p>
+
+        <div id="ex-entrainement">
+          <h4>Travail demandé</h4>
+          <p>On donne l'algorithme suivant, et on demande de le terminer :</p>
+          <div class="row">
+            <div class="col-sm-8">
+              <pre><code class="language-algorithm">Algorithme entrainement
+Début
+  Ecrire("Temps pour compléter un tour (joueur 1) ? ")
+  Lire(t1)
+  Ecrire("Temps pour compléter un tour (joueur 2) ? ")
+  Lire(t2)
+  // Nombre de tours effectués par le joueur 1
+  nt1 &larr; ............... //(1)
+  ............... //(2)
+    ............... //(3)
+  ............... //(4)
+  // Temps de rencontre
+  tr &larr; ............... //(5)
+  nt2 &larr; ............... //(6)
+  Ecrire("Rencontre après", tr, "mn au point de départ")
+  Ecrire("Joueur 1 a fait", nt1, "tours")
+  Ecrire("Joueur 2 a fait", nt2, "tours")
+Fin</code></pre>
+            </div>
+            <div class="col-sm-4">
+              <div class="d-print-none">
+                <div v-if="!winner">
+                  <ol>
+                    <li class="my-2" v-for="op, idx in operations">
+                      <select v-model="selected[idx]">
+                        <option v-for="op1, idx1 in operations" v-bind:value="op1.pos">{{op1.op}}</option>
+                      </select>
+                    </li>
+                  </ol>
+                  <div class="my-2">
+                    <button class="btn btn-primary" v-on:click="verifier()">Vérifier</button>
+                  </div>
+                </div>
+                <div v-else>
+                  <ol>
+                    <li class="my-2" v-for="op, idx in operations">{{op.op}}</li>
+                  </ol>
+                </div>
+              </div>
+              <div class="d-none d-print-block">
+                <ol>
+                  <li class="my-2" v-for="op, idx in operations">{{op.op}}</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-none d-print-block">
+          <div class="row">
+            <div class="col-sm-8">
+              <h4>Solution</h4>
+              <pre><code class="language-algorithm">Algorithme entrainement
+Début
+  Ecrire("Temps pour compléter un tour (joueur 1) ? ")
+  Lire(t1)
+  Ecrire("Temps pour compléter un tour (joueur 2) ? ")
+  Lire(t2)
+  // Nombre de tours effectués par le joueur 1
+  nt1 &larr; 1
+  TantQue (nt1 * t1 mod t2 &ne; 0) Faire
+    nt1 &larr; nt1 + 1
+  Fin TantQue
+  // Temps de rencontre
+  tr &larr; nt1 * t1
+  nt2 &larr; tr div t2
+  Ecrire("Rencontre après", tr, "mn au point de départ")
+  Ecrire("Joueur 1 a fait", nt1, "tours")
+  Ecrire("Joueur 2 a fait", nt2, "tours")
+Fin</code></pre>
+            </div>
+            <div class="col-sm-4">
+              <table class="table table-sm table-bordered border-dark table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th>Objet</th>
+                    <th>Type/Nature</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>t1, t2, nt1, nt2, tr</td>
+                    <td>entier</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </section>
 
+      <section>
+        <h3>Définition</h3>
 
+        <p>Une <b>structure itérative à condition de marche</b> est utilisée pour répéter une suite d'actions <u><b>tant
+              que</b></u>
+          une <u><b>condition</b></u> est vraie.</p>
+
+        <div class="row">
+          <div class="col-sm-4">
+            <pre><code class="language-algorithm">TantQue condition Faire
+  // Traitements
+Fin TantQue</code></pre>
+          </div>
+          <div class="col-sm-4">
+            <pre><code class="language-delphi">while condition do begin
+  // Traitements
+end;</code></pre>
+          </div>
+          <div class="col-sm-4">
+            <pre><code class="language-python">while condition:
+  # Traitements
+  </code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Activité 6 - Palinrome</h3>
+
+        <p>Un mot <strong>palindrome</strong> est un mot qui peut se lire de droite à gauche ou de gauche à droite.</p>
+        <p><strong>Exemples</strong> : <ins>EYE</ins>, <ins>ETE</ins>, <ins>RADAR</ins>, <ins>AZIZA</ins></p>
+        <p>Pour vérifier si un mot est palindrome on recommande la méthode suivante :</p>
+        <ul>
+          <li>Comparer le premier et le dernier caractère, s'il sont différents le mot n'est pas palindrome</li>
+          <li>Comparer le second et l'avant dernier caractère, s'il sont différents le mot n'est pas palindrome</li>
+          <li>Poursuivre la comparaison jusqu'à atteindre le milieu du mot.</li>
+          <li>Le mot est palindrome si toutes ses lettres ont été comparées deux à deux et elles sont égales.</li>
+        </ul>
+
+        <figure>
+          <img src="resources/images/palindrome.png" alt="Vérifier si un mot est palindrome">
+          <figcaption>Vérifier si un mot est palindrome</figcaption>
+        </figure>
+
+        <p><strong class="text-danger">Attention ancien régime :</strong> La numérotation commence à partir de 1 pour
+          les chaînes de caractères.</p>
+
+        <p>Ecrire un programme qui saisit un mot non vide <strong>mot</strong>, puis vérifie et affiche s'il est
+          palindrome.</p>
+      </section>
+
+      <section>
+        <h3>Solution</h3>
+
+        <h4>Nouveau régime</h4>
+        <div class="row">
+          <div class="col-sm-8">
+            <pre><code class="language-algorithm">Algorithme Palindrome
+Début
+  Répéter
+    Ecrire("Donner un mot non vide ? ")
+    Lire(mot)
+  Jusqu'à (mot &ne; "")
+  
+  i &larr; 0
+  j &larr; long(mot) - 1
+  pal &larr; Vrai
+  TantQue (j > i) et pal Faire
+    pal &larr; mot[j] = mot[i]
+    i &larr; i + 1
+    j &larr; j - 1
+  Fin TantQue
+  Si pal Alors
+    Ecrire(mot, "est palindrome")
+  Sinon
+    Ecrire(mot, "n'est pas palindrome")
+  Fin Si
+Fin</code></pre>
+          </div>
+          <div class="col-sm-4">
+            <table class="table table-sm table-bordered border-dark table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>Objet</th>
+                  <th>Type/Nature</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>mot</td>
+                  <td>chaine</td>
+                </tr>
+                <tr>
+                  <td>i, j</td>
+                  <td>entier</td>
+                </tr>
+                <tr>
+                  <td>pal</td>
+                  <td>booléen</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <h4>Ancien régime</h4>
+        <div class="row">
+          <div class="col-sm-8">
+            <pre><code class="language-algorithm">Début Palindrome
+  Répéter
+    Ecrire("Donner un mot non vide ? ")
+    Lire(mot)
+  Jusqu'à (mot &ne; "")
+  
+  i &larr; 1
+  j &larr; long(mot)
+  pal &larr; Vrai
+  TantQue (j > i) et pal Faire
+    pal &larr; mot[j] = mot[i]
+    i &larr; i + 1
+    j &larr; j - 1
+  Fin TantQue
+  Si pal Alors
+    Ecrire(mot, "est palindrome")
+  Sinon
+    Ecrire(mot, "n'est pas palindrome")
+  Fin Si
+Fin</code></pre>
+          </div>
+          <div class="col-sm-4">
+            <table class="table table-sm table-bordered border-dark table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>Objet</th>
+                  <th>Type/Nature</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>mot</td>
+                  <td>chaine</td>
+                </tr>
+                <tr>
+                  <td>i, j</td>
+                  <td>entier</td>
+                </tr>
+                <tr>
+                  <td>pal</td>
+                  <td>booléen</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Activité 7 - Pyramide de balles</h3>
+
+        <figure>
+          <img src="resources/images/pyramide-balles.jpg" alt="Pyramide de balles">
+          <figcaption>Pyramide de balles</figcaption>
+        </figure>
+
+        <ol>
+          <li>Combien y-a-t'il de balles dans l'image ci-dessus ?</li>
+          <li>Combien faut-t-il de balles pour ajouter un quatrième niveau ? Quel sera le nombre de balles à ce moment ?
+          </li>
+          <li>Combien faut-t-il de balles pour coonstruire une pyramide de n niveaux ?</li>
+          <li>Ecrire un programme qui saisit le nombre de balles disponibles, puis calcule et affiche l'hauteur de la
+            pyramide qu'on peut construire avec.</li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>Solution</h3>
+
+        <h4>Nouveau régime</h4>
+        <div class="row">
+          <div class="col-sm-8">
+            <pre><code class="language-algorithm">Algorithme Palindrome
+Début
+  Répéter
+    Ecrire("Donner le nombre de balles ? ")
+    Lire(nbre)
+  Jusqu'à (nbre &ge; 0)
+  hauteur &larr; 0
+  TantQue (nbre > (hauteur+1)*(hauteur+1)) Faire
+    hauteur &larr; hauteur + 1
+    nbre &larr; nbre - hauteur * hauteur
+  Fin TantQue
+  Ecrire("L'hauteur maximale de la pyramide :", hauteur)
+Fin</code></pre>
+          </div>
+          <div class="col-sm-4">
+            <table class="table table-sm table-bordered border-dark table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>Objet</th>
+                  <th>Type/Nature</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>mot</td>
+                  <td>chaine</td>
+                </tr>
+                <tr>
+                  <td>i, j</td>
+                  <td>entier</td>
+                </tr>
+                <tr>
+                  <td>pal</td>
+                  <td>booléen</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
     </article>
   </main>
   <footer class="d-print-none bg-dark text-white p-2">
@@ -1049,169 +1409,7 @@ Fin</code></pre>
 
   <script src="resources/js/funcs.js"></script>
   <script src="resources/js/vue.min.js"></script>
-  <script>
-    const app = new Vue({
-      el: '#exemple-for',
-      data: {
-        counter: -1,
-        lamps: [0, 0, 0, 0, 0, 0, 0, 0]
-      },
-      methods: {
-        start: function () {
-          if (this.counter != -1) {
-            return;
-          }
-          this.counter = -1;
-          const callback = () => {
-            if (this.counter >= 0 && this.counter < this.lamps.length) {
-              this.lamps[this.counter] = 0;
-            }
-            if (this.counter + 1 < this.lamps.length) {
-              this.counter++;
-              this.lamps[this.counter] = 1;
-              setTimeout(callback, 300);
-            } else {
-              this.counter = -1;
-            }
-            this.$forceUpdate();
-          };
-          callback();
-        }
-      }
-    });
-
-    const operations = [
-      'Pour i de 0 à 7 Faire',
-      'Allumer(i)',
-      'Attendre(200)',
-      'Eteindre(i)',
-      'Fin Pour'
-    ];
-    const app2 = new Vue({
-      el: '#solution-voyants',
-      data: {
-        nbre_essais: 0,
-        operations: operations,
-        selected: operations.map(idx => -1),
-        is_correct: false
-      },
-      methods: {
-        verifier: function () {
-          for (let i = 0; i < this.selected.length; i++) {
-            if (this.selected[i] == -1) {
-              alert("Veuillez remplir tous les champs!");
-              return;
-            }
-          }
-
-          if (this.nbre_essais <= 5) {
-            this.nbre_essais++;
-            this.is_correct = false;
-            for (let i = 0; i < this.selected.length; i++) {
-              if (this.selected[i] != i) {
-                alert("Réponse incorrecte, ré-essayer!");
-                return;
-              }
-            }
-            this.is_correct = true;
-            alert("Bonne réponse, félicitations!")
-          } else {
-            for (let i = 0; i < this.selected.length; i++) {
-              this.selected = operations.map((op, idx) => idx);
-            }
-            this.is_correct = true;
-            this.$forceUpdate();
-          }
-        }
-      }
-    });
-
-    const choix2 = [
-      { op: "Jusqu'à pos = 10", pos: 5 },
-      { op: "aléa(1, 2)", pos: 1 },
-      { op: "pos+nbm ≤ 10", pos: 2 },
-      { op: "répéter", pos: 0 },
-      { op: "pos + nbm", pos: 4 },
-      { op: "cpt + 1", pos: 3 },
-    ];
-    const app3 = new Vue({
-      el: '#jeu-echelle',
-      data: {
-        operations: choix2,
-        selected: choix2.map(c => -1),
-        winner: false
-      },
-      methods: {
-        verifier: function () {
-          const score = this.selected.reduce((pv, cv, idx) => pv + +(cv == idx), 0);
-          if (score == this.selected.length) {
-            alert("Félicitations, vous avez deviné!");
-            this.winner = true;
-          } else {
-            alert("Zut! C'est incorrect, réessayer.");
-          }
-        }
-      }
-    });
-
-    const choix3 = [
-      { op: "\"Le nombre caché est\", secret", pos: 5 },
-      { op: "aléa(0, 99)", pos: 0 },
-      { op: "nombre < secret", pos: 2 },
-      { op: "répéter", pos: 1 },
-      { op: "nombre = secret", pos: 4 },
-      { op: "nombre > secret", pos: 3 },
-    ];
-    const app4 = new Vue({
-      el: '#jeu-devinette',
-      data: {
-        operations: choix3,
-        selected: choix3.map(c => -1),
-        winner: false
-      },
-      methods: {
-        verifier: function () {
-          const score = this.selected.reduce((pv, cv, idx) => pv + +(cv == idx), 0);
-          if (score == this.selected.length) {
-            alert("Félicitations, vous avez deviné!");
-            this.winner = true;
-          } else {
-            alert("Zut! C'est incorrect, réessayer.");
-          }
-        }
-      }
-    });
-
-    const app5 = new Vue({
-      el: '#simulation-jeu-devinette',
-      data: {
-        nombre: 0,
-        secret: 0,
-        message: "",
-        iswinner: false
-      },
-      mounted: function () {
-        this.selectSecret();
-      },
-      methods: {
-        selectSecret: function () {
-          this.message = "Devine mon nombre";
-          this.secret = Math.floor(Math.random() * 100);
-          this.iswinner = false;
-        },
-        verifier: function () {
-          if (this.nombre == this.secret) {
-            this.iswinner = true;
-            this.message = "Félicitations, vous avez gagné!";
-          } else if (this.nombre > this.secret) {
-            this.message = "Plus petit que " + this.nombre + " !";
-          } else {
-            this.message = "Plus grand que " + this.nombre + " !";
-          }
-        }
-      }
-    });
-  </script>
+  <script src="resources/apps/chapitre03.js"></script>
 </body>
 
 </html>
