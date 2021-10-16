@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Structures Itératives</title>
+  <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+  <link rel="stylesheet" href="resources/css/default.css">
+  <link rel="stylesheet" href="resources/css/style.css">
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="aside_navbar"></div>
+    </nav>
+  </aside>
+
+  <main class="container my-3">
+    <h1>Les structures itératives</h1>
+
+    <article>
+      <h2>Exercices</h2>
+
+      <section>
+        <h3>Moyenne arithmétique</h3>
+
+        <p>Ecrire un programme qui calcule et affiche la moyenne de n entiers (2 ≤ n ≤ 10) saisis au clavier (sans
+          utiliser de tableau).</p>
+
+        <h4>Exemple</h4>
+        <div class="d-print-none border border-secondary bg-light p-2" id="moyenne-arithmetique">
+          <div class="my-1" v-if="step == -1">
+            <button class="btn btn-primary" v-on:click="nextStep()">Simulation</button>
+          </div>
+          <div v-if="step >= 0">
+            <div v-for="nval, idx in nvals" class="my-1">
+              Entrer un nombre [2, 10] ?
+              <input ref="nval" v-if="step == 0 && idx == nvals.length - 1" type="text" v-model="nvals[idx]"
+                v-on:keydown.enter="validate(idx)">
+              <span v-else>{{nval}}</span>
+            </div>
+          </div>
+          <div v-if="step >= 1">
+            <div v-for="ti, idx in t" class="my-1">
+              Valeur n°{{idx+1}} ?
+              <input ref="ti" v-if="step == 1 && idx == t.length - 1" type="text" v-model="t[idx]"
+                v-on:keydown.enter="validate(idx)">
+              <span v-else>{{ti}}</span>
+            </div>
+          </div>
+          <div class="my-1" v-if="step >= 2">
+            Moyenne arithmétique = {{moy}}
+          </div>
+          <div class="my-1" v-if="step >=2">
+            <button class="btn btn-secondary" v-on:click="reset()">Reset</button>
+          </div>
+        </div>
+        <div class="d-none d-print-block border border-secondary bg-light p-2">
+          <div class="my-1">
+            Entrer un nombre [2, 10] ? <span>4</span>
+          </div>
+          <div class="my-1">
+            Valeur n°1 ? <span>30</span>
+          </div>
+          <div class="my-1">
+            Valeur n°2 ? <span>26</span>
+          </div>
+          <div class="my-1">
+            Valeur n°3 ? <span>19</span>
+          </div>
+          <div class="my-1">
+            Valeur n°4 ? <span>5</span>
+          </div>
+          <div class="my-1">
+            Moyenne arithmétique = 20
+          </div>
+        </div>
+      </section>
+
+    </article>
+  </main>
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée avec ♥ par Mohamed Anis MANI</div>
+    <div class="text-center small">Année scolaire : 2021/2022</div>
+  </footer>
+
+  <script src="resources/js/jquery.min.js"></script>
+  <script src="resources/js/bootstrap.bundle.min.js"></script>
+  <script src="resources/js/highlight.min.js"></script>
+  <script src="resources/js/hljs.algorithm.js"></script>
+  <script src="resources/js/clipboard.min.js"></script>
+  <script src="resources/js/pages.js"></script>
+  <script src="resources/js/draggable.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+
+    document.querySelectorAll('.language-algorithm,.language-python,.language-delphi')
+      .forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'bd-clipboard d-print-none';
+        const btn = document.createElement('button');
+        btn.className = 'btn-clipboard';
+        btn.textContent = "📋";
+        btn.title = "Copier";
+        div.appendChild(btn);
+        item.parentElement.insertBefore(div, item);
+      });
+    new ClipboardJS('.btn-clipboard', {
+      target: (trigger) => {
+        return trigger.parentElement.nextElementSibling;
+      }
+    });
+  </script>
+  <script src="resources/js/vue.min.js"></script>
+  <script src="resources/apps/serie03.js"></script>
+</body>
+
+</html>
