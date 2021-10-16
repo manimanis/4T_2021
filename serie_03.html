@@ -34,7 +34,7 @@
           utiliser de tableau).</p>
 
         <h4>Exemple</h4>
-        <div class="d-print-none border border-secondary bg-light p-2" id="moyenne-arithmetique">
+        <div class="d-print-none border border-secondary bg-dark text-light p-2" id="moyenne-arithmetique">
           <div class="my-1" v-if="step == -1">
             <button class="btn btn-primary" v-on:click="nextStep()">Simulation</button>
           </div>
@@ -61,7 +61,7 @@
             <button class="btn btn-secondary" v-on:click="reset()">Reset</button>
           </div>
         </div>
-        <div class="d-none d-print-block border border-secondary bg-light p-2">
+        <div class="d-none d-print-block border border-secondary bg-dark text-light p-2">
           <div class="my-1">
             Entrer un nombre [2, 10] ? <span>4</span>
           </div>
@@ -83,6 +83,123 @@
         </div>
       </section>
 
+      <section>
+        <h3>Meilleure note</h3>
+
+        <p>Ecrire un programme qui saisit les notes des n élèves d'une classe (3 ≤ n ≤ 30) dans un tableau t, puis
+          calcule et affiche la note maximale de la classe.</p>
+
+        <h4>Exemple</h4>
+        <div class="d-print-none border border-secondary bg-dark text-light p-2" id="meilleure-note">
+          <div class="my-1" v-if="step == -1">
+            <button class="btn btn-primary" v-on:click="nextStep()">Simulation</button>
+          </div>
+          <div v-if="step >= 0">
+            <div v-for="nval, idx in nvals" class="my-1">
+              Nombre d'élèves [3, 30] ?
+              <input ref="nval" v-if="step == 0 && idx == nvals.length - 1" type="text" v-model="nvals[idx]"
+                v-on:keydown.enter="validate(idx)">
+              <span v-else>{{nval}}</span>
+            </div>
+          </div>
+          <div v-if="step >= 1">
+            <div v-for="tval, idx in tvals" class="my-1">
+              Valeur n°{{tidx[idx]+1}} ?
+              <input ref="tval" v-if="step == 1 && idx == tvals.length - 1" type="text" v-model="tvals[idx]"
+                v-on:keydown.enter="validate(idx)">
+              <span v-else>{{tval}}</span>
+            </div>
+          </div>
+          <div class="my-1" v-if="step >= 2">
+            La note maximale est {{max}}
+          </div>
+          <div class="my-1" v-if="step >=2">
+            <button class="btn btn-secondary" v-on:click="reset()">Reset</button>
+          </div>
+        </div>
+        <div id="meilleure-note" class="d-none d-print-block border border-secondary bg-dark text-light p-2">
+          <div class="my-1">Nombre d'élèves [3, 30] ? <span>6</span></div>
+          <div class="my-1">Valeur n°1 ? <span>4.75</span></div>
+          <div class="my-1">Valeur n°2 ? <span>17.25</span></div>
+          <div class="my-1">Valeur n°3 ? <span>7.25</span></div>
+          <div class="my-1">Valeur n°4 ? <span>17.5</span></div>
+          <div class="my-1">Valeur n°5 ? <span>4</span></div>
+          <div class="my-1">Valeur n°6 ? <span>3.75</span></div>
+          <div class="my-1">La note maximale est 17.5</div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Nombre premier</h3>
+
+        <p>Ecrire un programme qui lit un entier n (n ≥ 0), puis affiche s'il est premier ou non.</p>
+        <p>Un nombre est dit premier s'il est divisible uniquemeny par lui même et par 1.</p>
+
+        <h4>Exemple</h4>
+        <div class="d-print-none border border-secondary bg-dark text-light p-2" id="nombre-premier">
+          <div class="my-1" v-if="step == -1">
+            <button class="btn btn-primary" v-on:click="nextStep()">Simulation</button>
+          </div>
+          <div v-if="step >= 0">
+            <div v-for="nval, idx in nvals" class="my-1">
+              Donner un nombre n &ge; 0 ?
+              <input ref="nval" v-if="step == 0 && idx == nvals.length - 1" type="text" v-model="nvals[idx]"
+                v-on:keydown.enter="validate(idx)">
+              <span v-else>{{nval}}</span>
+            </div>
+          </div>
+          <div class="my-1" v-if="step >= 1">{{n}} {{premier ? "est premier" : "n'est pas premier"}}</div>
+          <div class="my-1" v-if="step >= 1">
+            <button class="btn btn-secondary" v-on:click="reset()">Reset</button>
+          </div>
+        </div>
+        <div id="nombre-premier" class="d-none d-print-block border border-secondary bg-dark text-light p-2">
+          <div class="my-1">Donner un nombre n ≥ 0 ? <span>71</span></div>
+          <div class="my-1">71 est premier</div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Chiffres</h3>
+
+        <p>Écrire un programme qui détermine quels sont les chiffres utilisés dans la représentation d'un nombre n (n >
+          0) donné.</p>
+
+        <h4>Exemple</h4>
+        <div class="d-print-none border border-secondary bg-dark text-light p-2" id="chiffres-nombre">
+          <div class="my-1" v-if="step == -1">
+            <button class="btn btn-primary" v-on:click="nextStep()">Simulation</button>
+          </div>
+          <div v-if="step >= 0">
+            <div v-for="nval, idx in nvals" class="my-1">
+              Donner un nombre n &gt; 0 ?
+              <input ref="nval" v-if="step == 0 && idx == nvals.length - 1" type="text" v-model="nvals[idx]"
+                v-on:keydown.enter="validate(idx)">
+              <span v-else>{{nval}}</span>
+            </div>
+          </div>
+          <div class="my-1" v-if="step >= 1">{{n}} est composé des chiffres {{chiffres}}</div>
+          <div class="my-1" v-if="step >= 1">
+            <button class="btn btn-secondary" v-on:click="reset()">Reset</button>
+          </div>
+        </div>
+        <div id="chiffres-nombre" class="d-none d-print-block border border-secondary bg-dark text-light p-2">
+          <div class="my-1">Donner un nombre n &gt; 0 ? <span>302257</span></div>
+          <div class="my-1">302257 est composé des chiffres 0, 2, 3, 5, 7</div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Conversion en base 16</h3>
+
+        <figure>
+          <img src="resources/images/conersion-base-16.png" alt="Conversion en base 16">
+          <figcaption>Conversion en base 16</figcaption>
+        </figure>
+
+        <p>Écrire un programme qui convertit un nombre n, 0 &le; n &le; 65535, de la base 10 à la base 16 et affiche le
+          résultat sur 4 chiffres.</p>
+      </section>
     </article>
   </main>
   <footer class="d-print-none bg-dark text-white p-2">
