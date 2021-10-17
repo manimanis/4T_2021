@@ -51,6 +51,46 @@ const moyenne1 = new Vue({
   }
 });
 
+const moyenne2 = new Vue({
+  el: "#moyenne-arithmetique-2",
+  data: {
+    t: [],
+    moy: 0.0,
+    step: -1
+  },
+  methods: {
+    setFocus: function (control) {
+      const ctrl = this.$refs[control][0];
+      ctrl.focus();
+      ctrl.select();
+    },
+    nextStep: function () {
+      if (this.step < 2) {
+        this.step++;
+      }
+      if (this.step == 0) {
+        this.t = [Math.floor(Math.random() * 50)];
+        Vue.nextTick(() => this.setFocus('ti'));
+      } else if (this.step == 1) {
+        this.moy = this.t.reduce((pv, cv) => pv + +cv, 0) / (this.t.length - 1);
+      }
+    },
+    validate: function (idx) {
+      if (this.step == 0) {
+        if (this.t[idx] > 0) {
+          this.t.push(Math.floor(Math.random() * 50));
+          Vue.nextTick(() => this.setFocus('ti'));
+        } else {
+          Vue.nextTick(() => this.nextStep());
+        }
+      }
+    },
+    reset: function () {
+      this.step = -1;
+    }
+  }
+});
+
 const maximum = new Vue({
   el: "#meilleure-note",
   data: {
@@ -209,10 +249,133 @@ const chiffresnombre = new Vue({
           this.n = "" + this.nvals[idx];
           Vue.nextTick(() => this.nextStep());
         } else {
-          this.nvals.push(Math.floor(Math.random() * 1000000));
+          this.nvals.push(Math.ceil(Math.random() * 1000000));
           Vue.nextTick(() => this.setFocus('nval'));
         }
       }
+    },
+    reset: function () {
+      this.step = -1;
+    }
+  }
+});
+
+const convertDecToBase = (n, base) => {
+  const digits = "0123456789ABCDEF";
+  let s = '';
+  while (n > 0) {
+    s = digits[n % base] + s;
+    n = Math.floor(n / base);
+  }
+  return s;
+};
+
+const conversionhexa = new Vue({
+  el: "#conversion-hexa",
+  data: {
+    n: 5,
+    nhexa: "",
+    nvals: [],
+    step: -1
+  },
+  methods: {
+    setFocus: function (control) {
+      const ctrl = this.$refs[control][0];
+      ctrl.focus();
+      ctrl.select();
+    },
+    nextStep: function () {
+      if (this.step < 2) {
+        this.step++;
+      }
+      if (this.step == 0) {
+        this.nvals = [Math.floor(Math.random() * 65536)];
+        Vue.nextTick(() => this.setFocus('nval'));
+      } else if (this.step == 1) {
+        this.nhexa = convertDecToBase(this.n, 16);
+        while (this.nhexa.length < 4) {
+          this.nhexa = '0' + this.nhexa;
+        }
+      }
+    },
+    validate: function (idx) {
+      if (this.step == 0) {
+        if (this.nvals[idx] >= 0 && this.nvals[idx] <= 65535) {
+          this.n = +this.nvals[idx];
+          Vue.nextTick(() => this.nextStep());
+        } else {
+          this.nvals.push(Math.floor(Math.random() * 65536));
+          Vue.nextTick(() => this.setFocus('nval'));
+        }
+      }
+    },
+    reset: function () {
+      this.step = -1;
+    }
+  }
+});
+
+const lettrescommunes = new Vue({
+  el: "#lettres-communes",
+  data: {
+    mot1: "",
+    mot2: "",
+    mots1: [],
+    mots2: [],
+    common: [],
+    spec1: [],
+    spec2: [],
+    step: -1
+  },
+  methods: {
+    setFocus: function (control) {
+      try {
+        const ctrl = this.$refs[control][0];
+      ctrl.focus();
+      ctrl.select();
+      } catch (e) {
+        console.log(control, e);
+      }
+    },
+    nextStep: function () {
+      if (this.step < 2) {
+        this.step++;
+      }
+      if (this.step == 0) {
+        this.mots1 = ["Sami"];
+        Vue.nextTick(() => this.setFocus('mot1'));
+      } else if (this.step == 1) {
+        this.mots2 = ["Sahbi"];
+        Vue.nextTick(() => this.setFocus('mot2'));
+      } else if (this.step == 2) {
+        let chars1 = this.mot1.toUpperCase().split('');
+        let chars2 = this.mot2.toUpperCase().split('');
+        this.common = chars1.filter(car => chars2.indexOf(car) != -1);
+        this.common = this.common.filter((car, idx) => this.common.indexOf(car) == idx);
+        this.spec1 = chars1.filter(car => this.common.indexOf(car) == -1);
+        this.spec1 = this.spec1.filter((car, idx) => this.spec1.indexOf(car) == idx);
+        this.spec2 = chars2.filter(car => this.common.indexOf(car) == -1);
+        this.spec2 = this.spec2.filter((car, idx) => this.spec2.indexOf(car) == idx);
+      }
+    },
+    validate: function (idx) {
+      if (this.step == 0) {
+        if (this.mots1[idx].length > 0) {
+          this.mot1 = this.mots1[idx];
+          Vue.nextTick(() => this.nextStep());
+        } else {
+          this.mots1.push("Sahbi");
+          Vue.nextTick(() => this.setFocus('mot1'));
+        }
+      } else if (this.step == 1) {
+        if (this.mots2[idx].length > 0) {
+          this.mot2 = this.mots2[idx];
+          Vue.nextTick(() => this.nextStep());
+        } else {
+          this.mots2.push("Sahbi");
+          Vue.nextTick(() => this.setFocus('mot2'));
+        }
+      } 
     },
     reset: function () {
       this.step = -1;
