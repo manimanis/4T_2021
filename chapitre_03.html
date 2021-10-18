@@ -370,14 +370,12 @@ Fin</code></pre>
 Début
   Ecrire("Nombre d'employés ? ")
   Lire(n)
-
   Pour i de 0 à n-1 faire
     Ecrire("Nom employé n°", i+1, " ?")
     Lire(noms[i])
     Ecrire("Anciennté ", noms[i], " ? ")
     Lire(anc[i])
   Fin Pour
-
   Ecrire("Les employés qui méritent une promotion sont :")
   Pour i de 0 à n-1 faire
     Si anc[i] >= 6 Alors
@@ -432,14 +430,12 @@ Fin</code></pre>
             <pre><code class="language-algorithm">Début Promotion
   Ecrire("Nombre d'employés ? ")
   Lire(n)
-
   Pour i de 1 à n faire
     Ecrire("Nom employé n° ", i, " ?")
     Lire(noms[i])
     Ecrire("Anciennté ", noms[i], " ? ")
     Lire(anc[i])
   Fin Pour
-
   Ecrire("Les employés qui méritent une promotion sont :")
   Pour i de 1 à n faire
     Si anc[i] >= 6 Alors
@@ -572,7 +568,7 @@ Fin</code></pre>
         </div>
 
         <div class="d-none d-print-block">
-          <div class="row">
+          <div class="p-break row">
             <div class="col-sm-8">
               <h4>Solution</h4>
               <pre><code class="language-algorithm">Algorithme Echelle
@@ -723,7 +719,7 @@ Fin</code></pre>
         </div>
 
         <div class="d-none d-print-block">
-          <div class="row">
+          <div class="p-break row">
             <div class="col-sm-8">
               <h4>Solution</h4>
               <pre><code class="language-algorithm">Algorithme devinette
@@ -796,13 +792,19 @@ until condition;</code></pre>
       <section>
         <h3>Activité 4 - Les 4 saisons</h3>
 
-        <figure>
-          <img src="resources/images/roue-saisons.png" alt="Roue des saisons">
+        <figure class="d-print-none">
+          <img class="h5cm" src="resources/images/roue-saisons.png" alt="Roue des saisons">
           <figcaption>Roue des saisons</figcaption>
         </figure>
 
         <p>Ecrire un programme qui permet à l'utilisateur de saisir un mois &in; [1, 12]. Puis affiche la saison
           correspondante.</p>
+        <ul>
+          <li>Hiver : Mois de Janvier à Mars</li>
+          <li>Printemps : Mois de Avril à Juin</li>
+          <li>Eté : Mois de Juillet à Septembre</li>
+          <li>Automne : Mois de Octobre à Décembre</li>
+        </ul>
       </section>
 
       <section>
@@ -816,7 +818,6 @@ Début
     Ecrire("Mois de l'année [1, 12] ? ")
     Lire(mois) // qté de pâte
   Jusqu'à 1 &le; mois &le; 12
-
   Si 1 &le; mois &le; 3 Alors
     Ecrire("Hiver")
   Sinon Si 4 &le; mois &le; 6 Alors
@@ -850,8 +851,8 @@ Fin</code></pre>
       <section>
         <h3>Activité 5 - Les Youyou</h3>
 
-        <figure class="d-print-none">
-          <img src="resources/images/you-you.jpg" alt="YouYou">
+        <figure>
+          <img class="h3cm" src="resources/images/you-you.jpg" alt="YouYou">
           <figcaption>YouYou</figcaption>
         </figure>
 
@@ -930,7 +931,7 @@ Fin</code></pre>
           </div>
         </div>
 
-        <h4>Ancien régime</h4>
+        <h4 class="p-break">Ancien régime</h4>
         <div class="row">
           <div class="col-sm-8">
             <pre><code class="language-algorithm">Début Youyou
@@ -1021,7 +1022,7 @@ Fin</code></pre>
         <p><b>On veut écrire un programme pour simuler le processus de remplissage.</b></p>
 
         <div id="unite-remplissage">
-          <h4>Travail demandé</h4>
+          <h4 class="p-break">Travail demandé</h4>
           <p>Un ingénieur a écrit cet algorithme.</p>
           <pre><code class="language-algorithm">Répéter
   Activer(E1)
@@ -1111,7 +1112,7 @@ Fin</code></pre>
           </div>
         </div>
         <div class="d-none d-print-block">
-          <div class="row">
+          <div class="row p-break">
             <div class="col-sm-8">
               <h4>Solution</h4>
               <pre><code class="language-algorithm">Algorithme entrainement
@@ -1193,7 +1194,7 @@ end;</code></pre>
         </ul>
 
         <figure>
-          <img src="resources/images/palindrome.png" alt="Vérifier si un mot est palindrome">
+          <img class="h3cm" src="resources/images/palindrome.png" alt="Vérifier si un mot est palindrome">
           <figcaption>Vérifier si un mot est palindrome</figcaption>
         </figure>
 
@@ -1205,7 +1206,7 @@ end;</code></pre>
       </section>
 
       <section>
-        <h3>Solution</h3>
+        <h3 class="p-break">Solution</h3>
 
         <h4>Nouveau régime</h4>
         <div class="row">
@@ -1310,10 +1311,10 @@ Fin</code></pre>
       </section>
 
       <section>
-        <h3>Activité 7 - Pyramide de balles</h3>
+        <h3 class="p-break">Activité 7 - Pyramide de balles</h3>
 
         <figure>
-          <img src="resources/images/pyramide-balles.jpg" alt="Pyramide de balles">
+          <img class="h3cm" src="resources/images/pyramide-balles.jpg" alt="Pyramide de balles">
           <figcaption>Pyramide de balles</figcaption>
         </figure>
 
