@@ -77,6 +77,7 @@ end;</code></pre>
         </div>
 
         <h4>Exemple</h4>
+        <p>Je suis dans une chambre et je veux en sortir. <strong>Donner l'algorithme correspondant</strong>.</p>
         <div class="row">
           <div class="col-sm-4">
             <figure>
@@ -101,10 +102,11 @@ end;</code></pre>
       <section>
         <h3>Activité 1</h3>
 
-        <p>Ecrire un programme qui calcule et affiche <strong>la valeur absolue d'un entier</strong> donné <u>sans
+        <p>Ecrire un programme qui calcule et affiche <strong>la valeur absolue d'un entier donné</strong>, <u>sans
             utiliser</u> la fonction prédéfinie <u>abs</u>.</p>
 
-        <p><b>Indice :</b> Utiliser une structure simple réduite pour inverses x uniquement s'il est négatif.</p>
+        <p><b>Indice :</b> Utiliser une <strong>structure simple réduite</strong> pour <ins>inverser x</ins> uniquement
+          s'il est négatif.</p>
 
         <p>On rappelle que :</p>
         <ul>
@@ -120,8 +122,9 @@ end;</code></pre>
           décroissant. <code>a</code> devra toujours contenir la valeur la plus grande et <code>b</code> la plus petite.
         </p>
 
-        <p><b>Indice :</b> Utiliser une structure simple réduite pour permuter <code>a</code> et <code>b</code> s'il ne
-          sont pas dans l'ordre.</p>
+        <p><b>Indice :</b> Utiliser une <strong>structure simple réduite</strong> pour permuter <code>a</code> et
+          <code>b</code> s'il ne sont pas dans l'ordre.
+        </p>
 
         <h4>Exemple</h4>
         <div class="row">
@@ -148,8 +151,8 @@ Donner b ? 17
         <p>Une structure conditionnelle à forme alternative admet <u>deux traitements différents</u> :</p>
 
         <ul>
-          <li>Le <u>premier traitement</u> est exécuté uniquement <b>si la condition est vraie</b>,</li>
-          <li>Le <u>second traitement</u> est exécuté uniquement <b>si la condition est fausse</b>.</li>
+          <li>Le <u>premier</u> est exécuté uniquement <b>si la condition est vraie</b>,</li>
+          <li>Le <u>second</u> est exécuté uniquement <b>si la condition est fausse</b>.</li>
         </ul>
 
         <figure>
@@ -189,6 +192,8 @@ else:
         </div>
 
         <h4>Exemple</h4>
+        <p>Je suis dans un rond point, quel chemin dois-je choisir ? <strong>Donner l'algorithme correspondant</strong>.
+        </p>
         <div class="row">
           <div class="col-sm-4">
             <figure>
@@ -204,7 +209,7 @@ else:
               </p>
             </div>
 
-            <p>Dans cet exemple on doit <strong>choisir entre deux chemin</strong> <u>selon notre besoin</u>.</p>
+            <p>Dans cet exemple il faut <strong>choisir entre deux chemin</strong> <u>selon le besoin</u>.</p>
           </div>
         </div>
       </section>
@@ -228,10 +233,8 @@ else:
         <h3>Activité 4</h3>
 
         <p>Un des moyens, possibles, pour <strong>tester si deux vecteurs du plan sont orthogonaux</strong> est de
-          calculer leurs <strong>produit scalaire</strong>.</p>
-
-        <p>Si le <strong>produit scalaire des deux vecteurs</strong> est <strong>nul</strong> on peut conclure qu'ils
-          sont <strong>orthogonaux</strong>.</p>
+          calculer leurs <strong>produit scalaire</strong>. Si le <strong>produit scalaire des deux vecteurs</strong>
+          est <strong>nul</strong> on peut conclure qu'ils sont <strong>orthogonaux</strong>.</p>
 
         <p>La formule qui permet de calculer produit scalaire de deux vecteurs dans le plan est la suivante :</p>
         <figure>
@@ -241,10 +244,20 @@ else:
           <figcaption>Produit scalaire de deux vecteurs</figcaption>
         </figure>
 
-        <p>Ecrire un programme qui demande à l'utilisateur de saisir les coordonnées de 2 vecteurs du plan u et v, puis
-          détermine et affiche si les deux vecteurs sont orthogonaux ou non.</p>
+        <p>Ecrire un programme qui demande à l'utilisateur de saisir les composantes de 2 vecteurs du plan u et v, puis
+          détermine et affiche s'ils sont orthogonaux ou non.</p>
 
         <h4>Exemple</h4>
+        <p>On veut déterminer dans l'exemple suivant si :</p>
+
+        <ul>
+          <li>Les vecteurs AB et HC sont orthogonaux</li>
+          <li>Les vecteurs AB et AC sont orthogonaux</li>
+        </ul>
+
+        <p>Graphiquement, <strong>AB</strong> et <strong>HC</strong> <ins>sont orthogonaux</ins>, alors que
+          <strong>AB</strong> et <strong>AC</strong> <ins>ne sont pas orthogonaux</ins>.
+        </p>
 
         <figure>
           <img src="resources/images/vecteur-du-plan.png" alt="Vecteurs du plan">
@@ -252,13 +265,14 @@ else:
           </figcaption>
         </figure>
 
-        <p>Dans l'exemple les coordonnées des points sont A(-1, 1), B(2, 2), C(-3, 3), H(-2.2, 0.6)</p>
+        <p>On donne les coordonnées des points : A(-1, 1), B(2, 2), C(-3, 3), H(-2.2, 0.6)</p>
 
-        <p>Le calcul arithmétique montre que les vecteurs AB et HC sont orthogonaux, et que AB et AC ne sont pas.</p>
         <figure>
           <img class="h5cm" src="resources/images/produit-scalaire-calcul.png" alt="Calcul du produit scalaire">
           <figcaption>Calcul du produit scalaire</figcaption>
         </figure>
+
+        <p>Le calcul arithmétique montre que les vecteurs AB et HC sont orthogonaux, et que AB et AC ne sont pas.</p>
       </section>
     </article>
 
@@ -327,7 +341,7 @@ else:
 
         <h4>Exemple</h4>
 
-        <p>M Salim dans un restaurant, il veut commander une Pizza. <u>Il n'a que 8$ et il n'aime pas le poulet</u>.
+        <p>M Salim est dans un restaurant, il veut commander une Pizza. <u>Il n'a que 8$ et il n'aime pas le poulet</u>.
           <strong>Qu'est ce qu'il peut commander ?</strong>
         </p>
         <figure>
@@ -337,12 +351,12 @@ else:
         </figure>
 
         <div class="border border-dark p-2">
-          <p class="fs-5"><strong>Si</strong> <span class="text-danger">j'ai 6$ ou plus</span> et <span
-              class="text-danger">j'aime le poulet</span>
-            <br><strong>alors</strong> <span class="text-success">commander <strong>Chicken Delight</strong></span>
-            <br><strong>sinon Si</strong> <span class="text-danger">j'ai 7$ ou plus</span> et <span
+          <p class="fs-5"><strong>Si</strong> <span class="text-danger">j'ai 7$ ou plus</span> et <span
               class="text-danger">j'aime le poulet</span>
             <br><strong>alors</strong> <span class="text-success">commander <strong>Hawaiian Chicken</strong></span>
+            <br><strong>sinon Si</strong> <span class="text-danger">j'ai 6$ ou plus</span> et <span
+              class="text-danger">j'aime le poulet</span>
+            <br><strong>alors</strong> <span class="text-success">commander <strong>Chicken Delight</strong></span>
             <br><strong>sinon Si</strong> <span class="text-danger">j'ai 8$ ou plus</span> et <span
               class="text-danger">j'aime le thon</span>
             <br><strong>alors</strong> <span class="text-success">commander <strong>Island Tuna</strong></span>
@@ -365,7 +379,7 @@ else:
         <p>Un élève est <u>admis</u> s'il obtient une moyenne supèrieure ou égale à 10, il est <u>refusé</u> s'il
           obtient une
           moyenne infèrieure à 9, sinon il est <u>contrôle</u>.</p>
-        <p>Ecrire un programme qui affiche l'appréciation d'un élève selon sa moyenne.</p>
+        <p><strong>Ecrire un programme qui affiche l'appréciation d'un élève selon sa moyenne.</strong></p>
       </section>
 
       <section>

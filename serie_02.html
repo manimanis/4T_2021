@@ -73,13 +73,17 @@
 
         <p>Ces deux cercles :</p>
         <ul>
-          <li><strong>se coupent en deux points</strong>, si <code>r1 + r2 &gt; d</code></li>
-          <li><strong>sont tangentes</strong>, si <code>r1 + r2 = d</code></li>
-          <li><strong>ne se coupent pas</strong>, si <code>r1 + r2 &lt; d</code></li>
+          <li>sont <strong>confondus</strong>, si <code>d=0</code> et <code>r1 = r2</code></li>
+          <li>sont <strong>disjoints intérieurement</strong>, si <code>d=0</code> et <code>r1 &ne; r2</code></li>
+          <li>sont <strong>disjoints intérieurement</strong>, si <code>0 &lt; d &lt; |r1 - r2|</code></li>
+          <li>sont <strong>tangents intérieurement</strong>, si <code>d = |r1 - r2|</code></li>
+          <li>sont <strong>sécants</strong>, si <code>|r1 - r2| &lt; d &lt; r1 + r2</code></li>
+          <li>sont <strong>tangents extérieurement</strong>, si <code>d = r1 + r2</code></li>
+          <li>sont <strong>disjoints extérieurement</strong>, si <code>d &gt; r1 + r2</code></li>
         </ul>
 
         <figure>
-          <img src="resources/images/inter-cercles.png" alt="Intersection de deux cercles">
+          <img class="h10cm" src="resources/images/inter-cercles.png" alt="Intersection de deux cercles">
           <figcaption>Intersection de deux cercles</figcaption>
         </figure>
 
@@ -125,7 +129,7 @@ Les cercles se coupent en deux points</code></pre>
           <li>Calcule et affiche le nombre de points gagnés</li>
         </ul>
 
-        <div class="row p-break">
+        <div class="row">
           <div class="col-sm-6">
             <pre><code class="nohighlight shell python" data-text="Exemple 1">Dé1 : 6 - Dé2 : 3 - Dé3 : 4
 Somme : 13
@@ -159,8 +163,10 @@ Vous gagnez 7 pts</code></pre>
             </ul>
           </li>
           <li>Saisit la devise requises, <code>dr</code> représentée par l'un des symboles cités.</li>
-          <li>Calcule la valeur de <code>mac</code> de la devise <code>di</code> dans la devise <code>dr</code></li>
-          <li>Affiche le change</li>
+          <li>Calcule la valeur <code>mc</code> de <code>mac</code> de la devise <code>di</code> dans la devise
+            <code>dr</code>
+          </li>
+          <li>Affiche le change <code>mc</code></li>
         </ul>
 
         <div class="row">
@@ -203,7 +209,7 @@ Devise requise ($/€/D) ? $
           <li>Calcule le <strong>prix de vente</strong> en utilisant la formule ci-dessus, variable <code>pv</code></li>
           <li>Affiche le prix de vente</li>
         </ul>
-        <div class="row">
+        <div class="row p-break">
           <div class="col-sm-6">
             <pre><code class="nohighlight shell python" data-text="Exemple 1">Calcul du prix de vente
 ==-==-==-==-==-==-==-==-==-==-==-==-==-==-==-
@@ -224,7 +230,7 @@ Prix de vente : 25.0 DT</code></pre>
       </section>
 
       <section>
-        <h3 class="p-break">Exercice 7 - Garde enfant</h3>
+        <h3>Exercice 7 - Garde enfant</h3>
 
         <figure class="d-print-none">
           <img src="resources/images/garde-enfants.jpeg" alt="Garde enfant">
