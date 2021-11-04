@@ -88,6 +88,7 @@ const app3 = new Vue({
   data: {
     operations: choix2,
     selected: choix2.map(c => -1),
+    opordered: choix2.map((op, idx) => choix2.find(op => op.pos == idx)),
     winner: false
   },
   methods: {
@@ -116,6 +117,7 @@ const app4 = new Vue({
   data: {
     operations: choix3,
     selected: choix3.map(c => -1),
+    opordered: choix3.map((op, idx) => choix3.find(op => op.pos == idx)),
     winner: false
   },
   methods: {
@@ -175,6 +177,7 @@ const app6 = new Vue({
   data: {
     operations: choix6,
     selected: choix6.map(c => -1),
+    opordered: choix6.map((op, idx) => choix6.find(op => op.pos == idx)),
     winner: false
   },
   methods: {
