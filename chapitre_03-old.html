@@ -80,136 +80,95 @@
     <h1>Structures itératives</h1>
 
     <article>
-      <h2>Structure itératives</h2>
+      <h2>Structure itérative complète</h2>
 
       <section>
-        <h3>Calculateur du loyer 1</h3>
+        <h3>Exemple 1 - Arrivées dans un hôtel</h3>
 
-        <p>M Souheil vient de louer une maison. Le loyer a été fixé à 400DT par mois. Une augmentation annuelle de 8% a
-          été prévue à la fin de chaque année.</p>
-        <p>On demande de :</p>
-        <ol>
-          <li>Calculer le loyer après un an ? Après deux ans ? Et dans trois ans ?
-            <p>Remplir le tableau suivant :</p>
-            <table class="table table-sm table-bordered border-dark table-striped table-hover w-50">
-              <thead>
-                <tr>
-                  <th>Année</th>
-                  <th>Loyer</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>0</td>
-                  <td>400DT</td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>400 &times; (1+8/100) = 432 DT</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>?</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>?</td>
-                </tr>
-              </tbody>
-            </table>
-          </li>
-          <li>Calculer le loyer de l'année <strong>n</strong> en fonction du loyer de l'année <strong>n-1</strong>, on
-            suppose une augmentation annuelle de <strong>p</strong>%, le loyer initial étant égal à <strong>l0</strong>.
-          </li>
-          <li>Ecrire l'algorithme d'un programme qui permet de calculer et d'afficher le montant du loyer pour toutes
-            les années allant de l'année 0 à la <strong>n</strong><sup>ème</sup> année.</li>
-        </ol>
+        <p>Dans un hôtel, à la récéption, le réceptioniste accueille les clients, enregistre leurs séjours et leurs
+          donne les clés de leurs chambres.</p>
+
+        <figure>
+          <img class="h2cm" src="resources/images/file-attente.png" alt="File d'attente">
+          <figcaption>Réception d'un hôtel, file d'attente</figcaption>
+        </figure>
+
+        <p>Dans le cas où il y a quatre clients qui viennent tout juste d'arriver. Le réceptioniste exécute les mêmes
+          tâches pour chacun d'eux.</p>
+        <p>La procédure de réception se déroule pour un client comme suit :</p>
+        <ul>
+          <li>Sourir</li>
+          <li>Souhaiter la bienvenue</li>
+          <li>Demander les pièces d'identités</li>
+          <li>Enregistrer les information du client</li>
+          <li>Affecter une chambre</li>
+          <li>Retourner les pièces d'identité</li>
+          <li>Donner la clé de la chambre</li>
+          <li>Indiquer le numéro de chambre</li>
+          <li>Appeler le porteur de bagages</li>
+          <li>Demander au porteur de bagages d'indiquer le chemin au client</li>
+          <li>Souhaiter la bienvenue</li>
+        </ul>
+        <p>D'où on peut écrire le pseudo-code (algorithme) suivant :</p>
+
+        <pre><code class="language-algorithm">Pour cpt de 1 à 4 Faire
+  // Exécuter la procédure de réception
+Fin Pour</code></pre>
       </section>
 
       <section>
-        <h3>Calculateur du loyer 1 - Correction</h3>
+        <h3>Exemple 2 - Panneau lumineux</h3>
 
-        <ol>
-          <li>Calculer le loyer après un an ? Après deux ans ? Et dans trois ans ?
-            <p>Remplir le tableau suivant :</p>
-            <table class="table table-sm table-bordered border-dark table-striped table-hover w-50">
-              <thead>
-                <tr>
-                  <th>Année</th>
-                  <th>Loyer</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>0</td>
-                  <td>400DT</td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>400 &times; (1+8/100) = 432 DT</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td><span class="text-danger">432 &times; (1+8/100) = 466.560 DT</span></td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td><span class="text-danger">466.560 &times; (1+8/100) = 503.884 DT</span></td>
-                </tr>
-              </tbody>
-            </table>
-          </li>
-          <li>Calculer le loyer de l'année <strong>n</strong> en fonction du loyer de l'année <strong>n-1</strong>, on
-            suppose une augmentation annuelle de <strong>p</strong>%, le loyer initial étant égal à <strong>l0</strong>.
-            <ul class="text-danger">
-              <li>loyer<sub>0</sub> = l0</li>
-              <li>loyer<sub>n</sub> = loyer<sub>n-1</sub> &times (1 + p / 100)</li>
-            </ul>
-          </li>
-          <li>Ecrire l'algorithme d'un programme qui permet de calculer et d'afficher le montant du loyer pour toutes
-            les années allant de l'année 0 à la <strong>n</strong><sup>ème</sup> année.
-            <div class="row">
-              <div class="col-sm-8">
-                <pre><code class="language-algorithm">Algorithme calcul_loyer_1
-Début
-  Ecrire("Donner le loyer initial ? "); Lire(l0)
-  Ecrire("Donner le taux d'intérêt annuel ? "); Lire(p)
-  Ecrire("Donner le nombre d'années ? "); Lire(n)
+        <p>Soit le panneau lumineux suivant, cliquer sur le bouton [On] pour allumer les voyants lumineux:</p>
+        <div id="exemple-for">
+          <div class="panneau">
+            <div class="cercle" v-for="lamp in lamps" v-bind:class="{'allume':lamp==1}"></div>
+            <button v-on:click="start()">{{counter == -1 ? "On" : "Off"}}</button>
+          </div>
+        </div>
 
-  l &larr; l0
-  Pour i de 0 à n Faire
-    Ecrire("Année :", i, " - Loyer :", l, "DT")
-    l &larr; l * (1 + p / 100)
-  Fin Pour
-Fin</code></pre>
-              </div>
-              <div class="col-sm-4">
-                <table class="table table-sm table-bordered border-dark table-striped table-hover">
-                  <thead>
-                    <tr>
-                      <th>Objet</th>
-                      <th>Type/Nature</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>l0, l, p</td>
-                      <td>Réel</td>
-                    </tr>
-                    <tr>
-                      <td>i, n</td>
-                      <td>Entier</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </li>
-        </ol>
+        <p>Ecrire un programme jeu de lumière qui permet d'allumer les voyants à tour de rôle.</p>
+        <p>On suppose que :</p>
+        <ul>
+          <li>Les voyants sont numérotés de 0 à 7</li>
+          <li>La fonction <strong>Allumer(i)</strong>, allume le voyant n°i</li>
+          <li>La fonction <strong>Eteindre(i)</strong>, éteint le voyant n°i</li>
+          <li>La fonction <strong>Attendre(t)</strong>, fait une pause de t millisecondes</li>
+        </ul>
+
+        <div id="solution-voyants" class="d-print-none">
+          <h4>Travail demandé</h4>
+          <p>Ordonner les instructions suivantes :</p>
+          <ol v-if="!is_correct && nbre_essais < 6">
+            <li class="my-1" v-for="operation, idx in operations">
+              <select v-model="selected[idx]">
+                <option v-for="operation, idx2 in operations" v-bind:value="idx2">{{operation}}</option>
+              </select>
+            </li>
+          </ol>
+          <div v-else>
+            <ol>
+              <li class="my-1" v-for="operation, idx in operations">{{operation}}</li>
+            </ol>
+          </div>
+          <div v-if="!is_correct" class="my-2"><button class="btn btn-primary" v-on:click="verifier()">{{nbre_essais < 5
+                ? "Vérifier" : "Corriger" }}</button>
+          </div>
+          <div class="my-2"><strong><em>Nombre d'essais : {{nbre_essais}}</em></strong></div>
+        </div>
+
+        <div class="d-none d-print-block">
+          <pre><code class="language-algorithm">Pour i de 0 à 7 Faire
+  Allumer(i)
+  Attendre(200)
+  Eteindre(i)
+Fin Pour</code></pre>
+        </div>
+
       </section>
 
       <section>
-        <h3 class="p-break">Structure itérative complète</h3>
+        <h3>Définition</h3>
 
         <p>Une structure itérative complète est utilisée pour <strong>répéter une suite d'instructions, un nombre fini
             de fois connu à l'avance</strong>.</p>
@@ -275,288 +234,6 @@ end;</code></pre>
       </section>
 
       <section>
-        <h3>Calculateur de loyer 2</h3>
-
-        <p>Maintenant, M Souheil veut savoir combien il lui faut d'années pour payer plus que le double de son loyer
-          initial.</p>
-        <div class="row">
-          <div class="col-sm-6">
-            <pre><code class="nohighlight shell python" data-text="Exemple 1"><script>
-              let l0 = 400, p = 8;
-              let l = l0, a = 0;
-              document.writeln("Loyer initial : " + l0 + " DT - Intérêt annuel : " + p + " %")
-              while (l < 2 * l0) {
-                document.writeln("Année : ", a, " - Loyer : ", l.toFixed(3), " DT");
-                a++;
-                l = l * (1 + p / 100);
-              }
-              document.writeln("Année : ", a, " - Loyer : ", l.toFixed(3), " DT");
-            </script></code></pre>
-          </div>
-          <div class="col-sm-6">
-            <pre><code class="nohighlight shell python" data-text="Exemple 2"><script>
-              l0 = 500, p = 20;
-              l = l0, a = 0;
-              document.writeln("Loyer initial : " + l0 + " DT - Intérêt annuel : " + p + " %")
-              while (l < 2 * l0) {
-                document.writeln("Année : ", a, " - Loyer : ", l.toFixed(3), " DT");
-                a++;
-                l = l * (1 + p / 100);
-              }
-              document.writeln("Année : ", a, " - Loyer : ", l.toFixed(3), " DT");
-            </script></code></pre>
-          </div>
-          <ol>
-            <li>Calculer combien d'années il lui faudra pour dépasser le double du loyer initial dans les conditions
-              suivantes :
-              <ul>
-                <li>Loyer initial : 600DT</li>
-                <li>Intérêt annuel : 35%</li>
-              </ul>
-
-              <table class="table table-sm table-bordered border-dark table-striped table-hover w-50">
-                <thead>
-                  <tr>
-                    <th>Année</th>
-                    <th>Loyer</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>0</td>
-                    <td>600DT</td>
-                  </tr>
-                  <tr>
-                    <td>1</td>
-                    <td>600 &times; (1+35/100) = 810 DT</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>?</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>?</td>
-                  </tr>
-                </tbody>
-              </table>
-            </li>
-            <li>Ecrire l'algorithme d'un programme qui étant donné le loyer initial <strong>l0</strong> et le taux
-              d'intérêt annuel <strong>p</strong> calcule et affiche le nombre d'années nécessaires pour que le loyer
-              dépasse le double du loyer initial.</li>
-          </ol>
-        </div>
-      </section>
-
-      <section>
-        <h3 class="p-break">Calculateur du loyer 2 - Correction</h3>
-
-        <ol>
-          <li>Calculer combien d'années il lui faudra pour dépasser le double du loyer initial dans les conditions
-            suivantes :
-            <ul>
-              <li>Loyer initial : 600DT</li>
-              <li>Intérêt annuel : 35%</li>
-            </ul>
-
-            <table class="table table-sm table-bordered border-dark table-striped table-hover w-50">
-              <thead>
-                <tr>
-                  <th>Année</th>
-                  <th>Loyer</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>0</td>
-                  <td>600DT</td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>600 &times; (1+35/100) = 810 DT</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td><span class="text-danger">810 &times (1+35/100) = 1093.5</span></td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td><span class="text-danger">1093.5 &times (1+35/100) = 1476.225</span></td>
-                </tr>
-              </tbody>
-            </table>
-          </li>
-          <li>Ecrire l'algorithme d'un programme qui étant donné le loyer initial <strong>l0</strong> et le taux
-            d'intérêt annuel <strong>p</strong> calcule et affiche le nombre d'années nécessaires pour que le loyer
-            dépasse le double du loyer initial.
-
-            <h4>Solution 1</h4>
-            <div class="row">
-              <div class="col-sm-8">
-                <pre><code class="language-algorithm">Algorithme calcul_loyer_2
-Début
-  Ecrire("Donner le loyer initial ? "); Lire(l0)
-  Ecrire("Donner le taux d'intérêt annuel ? "); Lire(p)
-
-  l &larr; l0
-  a &larr; 0
-  TantQue (l &le; 2*l0) Faire
-    Ecrire("Année :", a, " - Loyer :", l, "DT")
-    a &larr; a + 1
-    l &larr; l * (1 + p / 100)
-  Fin TantQue
-Fin</code></pre>
-              </div>
-              <div class="col-sm-4">
-                <table class="table table-sm table-bordered border-dark table-striped table-hover">
-                  <thead>
-                    <tr>
-                      <th>Objet</th>
-                      <th>Type/Nature</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>l0, l, p</td>
-                      <td>Réel</td>
-                    </tr>
-                    <tr>
-                      <td>a</td>
-                      <td>Entier</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            <h4>Solution 2</h4>
-            <div class="row">
-              <div class="col-sm-8">
-                <pre><code class="language-algorithm">Algorithme calcul_loyer_2
-Début
-  Ecrire("Donner le loyer initial ? "); Lire(l0)
-  Ecrire("Donner le taux d'intérêt annuel ? "); Lire(p)
-
-  l &larr; l0
-  a &larr; 0
-  Répéter
-    Ecrire("Année :", a, " - Loyer :", l, "DT")
-    a &larr; a + 1
-    l &larr; l * (1 + p / 100)
-  Jusqu'à (l > 2*l0)
-Fin</code></pre>
-              </div>
-              <div class="col-sm-4">
-                <table class="table table-sm table-bordered border-dark table-striped table-hover">
-                  <thead>
-                    <tr>
-                      <th>Objet</th>
-                      <th>Type/Nature</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>l0, l, p</td>
-                      <td>Réel</td>
-                    </tr>
-                    <tr>
-                      <td>a</td>
-                      <td>Entier</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </li>
-        </ol>
-      </section>
-
-      <section>
-        <h3 class="p-break">Structure itérative à condition d'arrêt</h3>
-
-        <p>Une <b>structure à condition d'arrêt</b> est utilisée pour répéter une suite d'actions <u><b>jusqu'à</b></u>
-          ce qu'une <u><b>condition</b></u> soit vraie.</p>
-
-        <div class="row">
-          <div class="col-sm-4">
-            <pre><code class="language-algorithm">Répéter
-  // Traitements
-
-Jusqu'à condition</code></pre>
-          </div>
-          <div class="col-sm-4">
-            <pre><code class="language-delphi">repeat
-  // Traitements
-
-until condition;</code></pre>
-          </div>
-          <div class="col-sm-4">
-            <pre><code class="language-python">while True:
-  # Traitements
-  if condition:
-    break</code></pre>
-          </div>
-        </div>
-
-        <p>Il <strong>n'existe pas une implémentation directe de <em><u>répéter ... jusqu'à
-                (condition)</u></em></strong> en Python pour celà ou pourra l'implémenter comme suit :</p>
-        <div class="row">
-          <div class="col-sm-4">
-            <pre><code class="language-python"># méthode 1
-n = 0
-while not (n > 0):
-  n = int(input("Donner n > 0 ?"))
- </code></pre>
-          </div>
-          <div class="col-sm-4">
-            <pre><code class="language-python"># méthode 2
-n = int(input("Donner n > 0 ? "))
-while not (n > 0):
-  n = int(input("Donner n > 0 ?"))
- </code></pre>
-          </div>
-          <div class="col-sm-4">
-            <pre><code class="language-python"># méthode 1
-while True:
-  n = int(input("Donner n > 0 ?"))
-  if (n > 0):
-    break</code></pre>
-          </div>
-        </div>
-        <p class="text-danger"><strong>Utilisez la méthode qui vous convient le plus.</strong></p>
-      </section>
-
-      <section>
-        <h3>Structure itérative à condition de marche</h3>
-
-        <p>Une <b>structure itérative à condition de marche</b> est utilisée pour répéter une suite d'actions <u><b>tant
-              que</b></u>
-          une <u><b>condition</b></u> est vraie.</p>
-
-        <div class="row">
-          <div class="col-sm-4">
-            <pre><code class="language-algorithm">TantQue condition Faire
-  // Traitements
-Fin TantQue</code></pre>
-          </div>
-          <div class="col-sm-4">
-            <pre><code class="language-delphi">while condition do begin
-  // Traitements
-end;</code></pre>
-          </div>
-          <div class="col-sm-4">
-            <pre><code class="language-python">while condition:
-  # Traitements
-  </code></pre>
-          </div>
-        </div>
-      </section>
-    </article>
-
-    <article>
-      <h2>Structure itérative complète</h2>
-
-      <section>
         <h3>Activité 1 - Table de multiplication</h3>
 
         <p>Ecrire un programme qui permet d'afficher les 10 premiers multiples d'un nombre n donné.</p>
@@ -602,7 +279,7 @@ Fin</code></pre>
       </section>
 
       <section>
-        <h3 class="p-break">Activité 2 - Consonnes</h3>
+        <h3>Activité 2 - Consonnes</h3>
 
         <p>Ecrire un programme qui affiche uniquement les consonnes majuscules.</p>
         <div class="my-2 p-2 fs-1 text-center border border-secondary bg-light">
@@ -667,8 +344,8 @@ Fin</code></pre>
           que leurs anciennetés <strong>anc</strong>, puis affiche ceux et celles qui méritent une promotion.</p>
         <p>Il suffit de dépasser six ans d'ancienneté pour mériter une promotion.</p>
         <pre><code class="nohighlight shell python" data-text="Exemple"><script>
-          const noms = ["Amir", "Aziz", "Nour", "Rayen", "Abrar"];
-          const anc = [3, 8, 1, 9, 4];
+          const noms = ["Amir", "Aziz", "Nour", "Rayen", "Abrar", "Amal"];
+          const anc = [3, 8, 1, 9, 4, 5];
           document.write("Nombre d'employés ? " + anc.length + "\n")
           for (let i = 0; i < anc.length; i++) {
             document.write("Nom employé n°" + (i + 1) + " ? " + noms[i] + "\n");
@@ -747,7 +424,7 @@ Fin</code></pre>
           </div>
         </div>
 
-        <h4 class="p-break">Ancien régime</h4>
+        <h4>Ancien régime</h4>
         <div class="row">
           <div class="col-sm-8">
             <pre><code class="language-algorithm">Début Promotion
@@ -1085,6 +762,34 @@ Fin</code></pre>
       </section>
 
       <section>
+        <h3>Définition</h3>
+
+        <p>Une <b>structure à condition d'arrêt</b> est utilisée pour répéter une suite d'actions <u><b>jusqu'à</b></u>
+          ce qu'une <u><b>condition</b></u> soit vraie.</p>
+
+        <div class="row">
+          <div class="col-sm-4">
+            <pre><code class="language-algorithm">Répéter
+  // Traitements
+
+Jusqu'à condition</code></pre>
+          </div>
+          <div class="col-sm-4">
+            <pre><code class="language-delphi">repeat
+  // Traitements
+
+until condition;</code></pre>
+          </div>
+          <div class="col-sm-4">
+            <pre><code class="language-python">while True:
+  # Traitements
+  if condition:
+    break</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section>
         <h3>Activité 4 - Les 4 saisons</h3>
 
         <figure class="d-print-none">
@@ -1160,7 +865,7 @@ Fin</code></pre>
         <p>On demande écrire un programme pour simuler la situation.</p>
 
         <pre><code class="nohighlight shell python" data-text="Exemple"><script>
-          let qp = Math.floor(Math.random() * 2 + 2) * 100;
+          let qp = Math.floor(Math.random() * 5 + 2) * 100;
           document.write("Quantité de pâte en grammes ? " + qp + "\n")
           let ny = 0;
           do {
@@ -1226,7 +931,7 @@ Fin</code></pre>
           </div>
         </div>
 
-        <h4>Ancien régime</h4>
+        <h4 class="p-break">Ancien régime</h4>
         <div class="row">
           <div class="col-sm-8">
             <pre><code class="language-algorithm">Début Youyou
@@ -1290,7 +995,7 @@ Fin</code></pre>
     </article>
 
     <article>
-      <h2 class="p-break">Structure itérative à condition de marche</h2>
+      <h2>Structure itérative à condition de marche</h2>
 
       <section>
         <h3>Exemple 5 - Remplissage de bouteilles</h3>
@@ -1317,7 +1022,7 @@ Fin</code></pre>
         <p><b>On veut écrire un programme pour simuler le processus de remplissage.</b></p>
 
         <div id="unite-remplissage">
-          <h4>Travail demandé</h4>
+          <h4 class="p-break">Travail demandé</h4>
           <p>Un ingénieur a écrit cet algorithme.</p>
           <pre><code class="language-algorithm">Répéter
   Activer(E1)
@@ -1355,7 +1060,7 @@ Fin TantQue</code></pre>
             calcule et affiche après combien de temps ils se rencontrent de nouveau au point de départ.</strong></p>
 
         <div id="ex-entrainement">
-          <h4 class="p-break">Travail demandé</h4>
+          <h4>Travail demandé</h4>
           <p>On donne l'algorithme suivant, et on demande de le terminer :</p>
           <div class="row">
             <div class="col-sm-8">
@@ -1407,7 +1112,7 @@ Fin</code></pre>
           </div>
         </div>
         <div class="d-none d-print-block">
-          <div class="row">
+          <div class="row p-break">
             <div class="col-sm-8">
               <h4>Solution</h4>
               <pre><code class="language-algorithm">Algorithme entrainement
@@ -1450,6 +1155,32 @@ Fin</code></pre>
       </section>
 
       <section>
+        <h3>Définition</h3>
+
+        <p>Une <b>structure itérative à condition de marche</b> est utilisée pour répéter une suite d'actions <u><b>tant
+              que</b></u>
+          une <u><b>condition</b></u> est vraie.</p>
+
+        <div class="row">
+          <div class="col-sm-4">
+            <pre><code class="language-algorithm">TantQue condition Faire
+  // Traitements
+Fin TantQue</code></pre>
+          </div>
+          <div class="col-sm-4">
+            <pre><code class="language-delphi">while condition do begin
+  // Traitements
+end;</code></pre>
+          </div>
+          <div class="col-sm-4">
+            <pre><code class="language-python">while condition:
+  # Traitements
+  </code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section>
         <h3>Activité 6 - Palinrome</h3>
 
         <p>Un mot <strong>palindrome</strong> est un mot qui peut se lire de droite à gauche ou de gauche à droite.</p>
@@ -1475,7 +1206,7 @@ Fin</code></pre>
       </section>
 
       <section>
-        <h3>Solution</h3>
+        <h3 class="p-break">Solution</h3>
 
         <h4>Nouveau régime</h4>
         <div class="row">
