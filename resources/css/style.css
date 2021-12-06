@@ -85,6 +85,7 @@ blockquote::before {
   margin: inherit;
 }
 
+
 /*** switch start ***/
 
 .switch {
@@ -94,6 +95,7 @@ blockquote::before {
   height: 24px;
 }
 
+
 /* Hide default HTML checkbox */
 
 .switch input {
@@ -101,6 +103,7 @@ blockquote::before {
   width: 0;
   height: 0;
 }
+
 
 /* The slider */
 
@@ -142,6 +145,7 @@ input:checked+.slider:before {
   transform: translateX(26px);
 }
 
+
 /* Rounded sliders */
 
 .slider.round {
@@ -152,9 +156,12 @@ input:checked+.slider:before {
   border-radius: 50%;
 }
 
+
 /*** switch end ***/
 
-.language-algorithm::before, .language-python::before, .language-delphi::before {
+.language-algorithm::before,
+.language-python::before,
+.language-delphi::before {
   display: block;
   font-family: sans-serif;
   font-size: 0.7rem;
@@ -178,7 +185,7 @@ input:checked+.slider:before {
   content: "Pascal";
 }
 
-pre > code.shell.python.nohighlight {
+pre>code.shell.python.nohighlight {
   display: block;
   background-color: #333;
   color: #eee;
@@ -186,12 +193,12 @@ pre > code.shell.python.nohighlight {
 }
 
 .shell.python::before {
-	display: block;
-	content: attr(data-text);
-	font-weight: bold;
-	font-style: italic;
-	text-decoration: underline;
-	text-align: center;
+  display: block;
+  content: attr(data-text);
+  font-weight: bold;
+  font-style: italic;
+  text-decoration: underline;
+  text-align: center;
 }
 
 .bd-clipboard {
@@ -208,6 +215,7 @@ pre > code.shell.python.nohighlight {
   color: var(--bs-light);
   margin: -6px;
 }
+
 
 /****Tables****/
 
@@ -287,16 +295,21 @@ table.col-20 td {
   width: calc(100% / 20);
 }
 
+
 /****Tables end****/
 
 .list-group-item pre {
   margin: initial;
 }
+
 @media print {
-  body { 
+  body {
     font-size: 10pt;
   }
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     font-size: initial !important;
   }
   .row .col-sm-6 {
@@ -318,49 +331,55 @@ table.col-20 td {
   figure {
     page-break-inside: avoid;
   }
-  figure img.h1cm {
+  img.h0_5cm {
+    max-height: 0.5cm !important;
+  }
+  img.h1cm {
     max-height: 1cm !important;
   }
-  figure img.h2cm {
+  img.h1_5cm {
+    max-height: 1.5cm !important;
+  }
+  img.h2cm {
     max-height: 2cm !important;
   }
-  figure img.h3cm {
+  img.h3cm {
     max-height: 3cm !important;
   }
-  figure img.h4cm {
+  img.h4cm {
     max-height: 4cm !important;
   }
-  figure img.h5cm {
+  img.h5cm {
     max-height: 5cm !important;
   }
-  figure img.h6cm {
+  img.h6cm {
     max-height: 6cm !important;
   }
-  figure img.h7cm {
+  img.h7cm {
     max-height: 7cm !important;
   }
-  figure img.h8cm {
+  img.h8cm {
     max-height: 8cm !important;
   }
-  figure img.h9cm {
+  img.h9cm {
     max-height: 9cm !important;
   }
-  figure img.h10cm {
+  img.h10cm {
     max-height: 10cm !important;
   }
-  figure img.h11cm {
+  img.h11cm {
     max-height: 11cm !important;
   }
-  figure img.h12cm {
+  img.h12cm {
     max-height: 12cm !important;
   }
-  figure img.h13cm {
+  img.h13cm {
     max-height: 13cm !important;
   }
-  figure img.h14cm {
+  img.h14cm {
     max-height: 14cm !important;
   }
-  figure img.h15cm {
+  img.h15cm {
     max-height: 15cm !important;
   }
   @page {
@@ -369,7 +388,8 @@ table.col-20 td {
     @top-right {
       content: "Page " counter(page) " of " counter(pages);
     }
-  }/*
+  }
+  /*
   table th, table td {
     border: thin solid #000;
   }*/

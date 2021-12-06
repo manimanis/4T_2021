@@ -36,17 +36,21 @@
 
         <h4>Théorème</h4>
         <p>Soient <strong>a</strong> un entier et <strong>b</strong> un entier naturel non nul. Alors <img
-            src="resources/chapitre_04/images/fraction-a-b.svg" alt="a/b"> est irréductible si et seulement si
+            src="resources/chapitre_04/images/fraction-a-b.svg" alt="a/b" class="h1cm"> est irréductible si et
+          seulement si
           <strong>a</strong> et <strong>b</strong> sont premiers entre eux.
         </p>
 
         <h5>Exemple</h5>
-        <p>La fraction <img src="resources/chapitre_04/images/fraction-12-20.svg" alt="12/20"> n'est pas irréductible
+        <p>La fraction <img src="resources/chapitre_04/images/fraction-12-20.svg" alt="12/20" class="h1cm"> n'est pas
+          irréductible
           car 12 et 20 sont des multiples de 4 : <img src="resources/chapitre_04/images/fraction-12-20-01.svg"
-            alt="12/20"> (simplification par 4).
-          On peut aussi écrire <img src="resources/chapitre_04/images/fraction-12-20-02.svg" alt="12/20">.</p>
+            alt="12/20" class="h1cm"> (simplification par 4).
+          On peut aussi écrire <img src="resources/chapitre_04/images/fraction-12-20-02.svg" alt="12/20" class="h1cm">.
+        </p>
 
-        <p>La fraction <img src="resources/chapitre_04/images/fraction-3-5.svg" alt="3/5"> est irréductible car 1 est le
+        <p>La fraction <img src="resources/chapitre_04/images/fraction-3-5.svg" alt="3/5" class="h1cm"> est
+          irréductible car 1 est le
           seul entier positif qui divise à la fois 3 et 5.</p>
 
         <h4>Méthode de simplification</h4>
@@ -55,9 +59,11 @@
             plus grand commun diviseur</strong>. D'après le lemme de Gauss, cette forme réduite est unique.</p>
 
         <h5>Exemple</h5>
-        <p>Pour réduire la fraction <img src="resources/chapitre_04/images/fraction-42-390.svg" alt="42/390">, on
-          calcule <img src="resources/chapitre_04/images/pgcd-42-390.svg" alt="PGCD(42, 390)=6"> puis on simplifie par 6
-          : <img src="resources/chapitre_04/images/fraction-42-390-01.svg" alt="42/390=7/65">.</p>
+        <p>Pour réduire la fraction <img src="resources/chapitre_04/images/fraction-42-390.svg" alt="42/390"
+            class="h1cm">, on
+          calcule <img src="resources/chapitre_04/images/pgcd-42-390.svg" alt="PGCD(42, 390)=6" class="h1cm"> puis on
+          simplifie par 6
+          : <img src="resources/chapitre_04/images/fraction-42-390-01.svg" alt="42/390=7/65" class="h1cm">.</p>
       </section>
 
       <section>
@@ -65,7 +71,7 @@
 
         <p>On souhaite écrire un programme qui calcule la somme de deux fractions :</p>
         <figure>
-          <img src="resources/chapitre_04/images/fraction-somme.svg" alt="p1/q1+p2/q2=ps/qs">
+          <img src="resources/chapitre_04/images/fraction-somme.svg" alt="p1/q1+p2/q2=ps/qs" class="h1_5cm">
           <figcaption>Somme de deux fractions avec : p1, p2, ps &in; &zopf; et q1, q2, qs &in; &zopf;<sup>*</sup>
           </figcaption>
         </figure>
@@ -82,6 +88,7 @@ Début
   simplifier_fraction(p1, q1)
   simplifier_fraction(p2, q2)
   // Calculer la somme des deux fractions
+  // Puis la simplifier
   somme_fraction(p1, q1, p2, q2, ps, qs)
   // Afficher le résultat
   Ecrire(p1, "/", q1, "+", p2, "/", q2, "=", ps, "/", qs)
@@ -134,7 +141,7 @@ Fin</code></pre>
           <strong>fonction</strong> renvoie une valeur une fois son exécution est terminée.
         </p>
         <figure>
-          <img src="resources/chapitre_04/images/fonction-procedure.png"
+          <img src="resources/chapitre_04/images/fonction-procedure.png" class="h4cm"
             alt="Différence entre une procédure et une fonction">
           <figcaption>Différence entre une procédure et une fonction</figcaption>
         </figure>
@@ -143,7 +150,8 @@ Fin</code></pre>
         <p>La plupart des langages de programmation sont livrés avec un ensemble de sous-programmes intégrés, mais
           permettent, aussi, au programmeur d'écrire leurs propres sous-programmes personnalisés.</p>
         <figure>
-          <img src="resources/chapitre_04/images/decomposition-modulaire.png" alt="Décomposition modulaire">
+          <img src="resources/chapitre_04/images/decomposition-modulaire.png" class="h7cm"
+            alt="Décomposition modulaire">
           <figcaption>Décomposition modulaire du problème de la somme des deux fractions</figcaption>
         </figure>
       </section>
@@ -174,7 +182,7 @@ Sinon
   Ecrire(n, "n'est pas premier")
 Fin Si</code></pre>
           </li>
-          <li>Dans une structure itérative :
+          <li class="p-break">Dans une structure itérative :
             <div class="row">
               <div class="col-sm-6">
                 <pre><code class="language-algorithm">// f(x) est une fonction qui admet un extrémum
@@ -233,7 +241,7 @@ dc &larr; pgcd(a, pgcd(b, c))</code></pre>
   // Traitements
   //
   <strong>Retourner</strong> résultat
-Fin nom_fonction</code></pre>
+Fin</code></pre>
           </div>
           <div class="col-sm-6">
             <pre><code class="language-python">def NomFonction(p<sub>1</sub>, p<sub>2</sub>, ..., p<sub>n</sub>):
@@ -269,8 +277,143 @@ saisir(n)
 remplir_tab(t, n)
 // Echanger le contenu de deux variables
 permuter(a, b)</code></pre>
-        <p>La procédure utilise les paramètres passés par valeur pour réaliser son traitement. Et, elle est capable de
-          modifier la valeur des paramètres transmis par variable, directement, chez l'appelant.</p>
+        <p>Une <strong>procédure</strong> utilise les paramètres passés par valeur pour réaliser ses traitements. Elle
+          peut, aussi, <ins>modifier la valeur des paramètres transmis par variable</ins>, directement, chez l'appelant.
+        </p>
+
+        <h4>Vocabulaire & Syntaxe</h4>
+        <div class="row">
+          <div class="col-sm-6">
+            <pre><code class="language-algorithm">Procédure NomProcédure(p<sub>1</sub>: type<sub>1</sub>, p<sub>2</sub>: type<sub>2</sub>, ..., p<sub>n</sub>: type<sub>n</sub>)</sub>
+  //
+  // Traitements
+  //
+Fin</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <pre><code class="language-python">def NomProcedure(p<sub>1</sub>, ..., p<sub>n</sub>):
+    #
+    # Traitements
+    #
+  </code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Solution</h3>
+        <h4>Procédure saisie_fraction</h4>
+        <div class="row">
+          <div class="col-sm-6">
+            <pre><code class="language-algorithm">procédure saisie_fraction(@num, @denom: entier)
+Début
+  Ecrire("Numérateur ? "); Lire(num)
+  Répéter
+    Ecrire("Dénominateur &ne; 0 ? "); Lire(denom)
+  Jusqu'à denom &ne; 0
+Fin</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <pre><code class="language-python">def saisie_fraction():
+    p = int(input("Numérateur ? "))
+    q = 0
+    while not (q != 0):
+        q = int(input("Dénominateur ≠ 0 ? "))
+    return p, q</code></pre>
+          </div>
+        </div>
+
+        <h4>Procédure simplifier_fraction</h4>
+        <div class="row">
+          <div class="col-sm-6">
+            <pre><code class="language-algorithm">procédure simplifier_fraction(@num, @denom: entier)
+Début
+  dc &larr; pgcd(num, denom)
+  num &larr; num div dc
+  denom &larr; denom div dc
+Fin</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <pre><code class="language-python">def simplifier_fraction(p, q):
+    dc = pgcd(p, q)
+    p = p // dc
+    q = q // dc
+    return p, q</code></pre>
+          </div>
+        </div>
+
+        <h4>Procédure somme_fraction</h4>
+        <div class="row">
+          <div class="col-sm-6">
+            <pre><code class="language-algorithm">procédure simplifier_fraction(p1, q1, p2, q2: entier; 
+                              @num, @denom: entier)
+Début
+  num &larr; p1 * q2 + p2 * q1
+  denom &larr; q1 * q2
+  simplifier_fraction(num, denom)
+Fin</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <pre><code class="language-python">def somme_fraction(p1, q1, p2, q2):
+    p = p1 * q2 + p2 * q1
+    q = q1 * q2
+    return simplifier_fraction(p, q)</code></pre>
+          </div>
+        </div>
+
+        <h4>Fonction pgcd</h4>
+        <div class="row">
+          <div class="col-sm-6">
+            <pre><code class="language-algorithm">Fonction pgcd(a, b: entier):entier
+Début
+  TantQue b &ne; 0 Faire
+    r &larr; a mod b
+    a &larr; b
+    b &larr; r
+  Fin TantQue
+  retourner a
+Fin</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <pre><code class="language-python">def pgcd(a, b):
+    while b != 0:
+        r = a % b
+        a = b
+        b = r
+    return a</code></pre>
+          </div>
+        </div>
+
+        <h4 class="p-break">Programme Principal</h4>
+        <div class="row">
+          <div class="col-sm-6">
+            <pre><code class="language-algorithm">Algorithme Somme_Fraction
+Début
+  // Saisie des deux fractions
+  saisie_fraction(p1, q1)
+  saisie_fraction(p2, q2)
+  // Simplifier les deux fractions
+  simplifier_fraction(p1, q1)
+  simplifier_fraction(p2, q2)
+  // Calculer la somme des deux fractions
+  // Puis la simplifier
+  somme_fraction(p1, q1, p2, q2, ps, qs)
+  // Afficher le résultat
+  Ecrire(p1, "/", q1, "+", p2, "/", q2, "=", ps, "/", qs)
+Fin</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <pre><code class="language-python"># PP
+p1, q1 = saisie_fraction()
+p2, q2 = saisie_fraction()
+
+p1, q1 = simplifier_fraction(p1, q1)
+p2, q2 = simplifier_fraction(p2, q2)
+ps, qs = somme_fraction(p1, q1, p2, q2)
+
+print(p1, "/", q1, "+", p2, "/", q2, "=", ps, "/", qs)</code></pre>
+          </div>
+        </div>
       </section>
     </article>
   </main>
