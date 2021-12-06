@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sous-programmes</title>
+  <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+  <link rel="stylesheet" href="resources/css/default.css">
+  <link rel="stylesheet" href="resources/css/style.css">
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="aside_navbar"></div>
+    </nav>
+  </aside>
+
+  <main class="container my-3">
+    <h1>Sous-programmes</h1>
+
+    <article>
+      <h2>Sous-programmes</h2>
+
+      <section>
+        <h3>Fraction irréductible</h3>
+
+        <p>En mathématiques, une <strong>fraction est irréductible</strong> s'il n'existe pas de fraction égale ayant
+          des termes plus petits. Autrement dit, une fraction irréductible <strong><u>ne peut pas être
+              simplifiée</u></strong>.</p>
+
+        <h4>Théorème</h4>
+        <p>Soient <strong>a</strong> un entier et <strong>b</strong> un entier naturel non nul. Alors <img
+            src="resources/chapitre_04/images/fraction-a-b.svg" alt="a/b"> est irréductible si et seulement si
+          <strong>a</strong> et <strong>b</strong> sont premiers entre eux.
+        </p>
+
+        <h5>Exemple</h5>
+        <p>La fraction <img src="resources/chapitre_04/images/fraction-12-20.svg" alt="12/20"> n'est pas irréductible
+          car 12 et 20 sont des multiples de 4 : <img src="resources/chapitre_04/images/fraction-12-20-01.svg"
+            alt="12/20"> (simplification par 4).
+          On peut aussi écrire <img src="resources/chapitre_04/images/fraction-12-20-02.svg" alt="12/20">.</p>
+
+        <p>La fraction <img src="resources/chapitre_04/images/fraction-3-5.svg" alt="3/5"> est irréductible car 1 est le
+          seul entier positif qui divise à la fois 3 et 5.</p>
+
+        <h4>Méthode de simplification</h4>
+
+        <p>Pour réduire directement une fraction, il suffit de <strong>diviser le numérateur et le dénominateur par leur
+            plus grand commun diviseur</strong>. D'après le lemme de Gauss, cette forme réduite est unique.</p>
+
+        <h5>Exemple</h5>
+        <p>Pour réduire la fraction <img src="resources/chapitre_04/images/fraction-42-390.svg" alt="42/390">, on
+          calcule <img src="resources/chapitre_04/images/pgcd-42-390.svg" alt="PGCD(42, 390)=6"> puis on simplifie par 6
+          : <img src="resources/chapitre_04/images/fraction-42-390-01.svg" alt="42/390=7/65">.</p>
+      </section>
+
+      <section>
+        <h3>Problème</h3>
+
+        <p>On souhaite écrire un programme qui calcule la somme de deux fractions :</p>
+        <figure>
+          <img src="resources/chapitre_04/images/fraction-somme.svg" alt="p1/q1+p2/q2=ps/qs">
+          <figcaption>Somme de deux fractions avec : p1, p2, ps &in; &zopf; et q1, q2, qs &in; &zopf;<sup>*</sup>
+          </figcaption>
+        </figure>
+
+        <p>Pour résoudre ce problème on propose l'algorithme suivant :</p>
+        <div class="row">
+          <div class="col-sm-8">
+            <pre><code class="language-algorithm">Algorithme Somme_Fraction
+Début
+  // Saisie des deux fractions
+  saisie_fraction(p1, q1)
+  saisie_fraction(p2, q2)
+  // Simplifier les deux fractions
+  simplifier_fraction(p1, q1)
+  simplifier_fraction(p2, q2)
+  // Calculer la somme des deux fractions
+  somme_fraction(p1, q1, p2, q2, ps, qs)
+  // Afficher le résultat
+  Ecrire(p1, "/", q1, "+", p2, "/", q2, "=", ps, "/", qs)
+Fin</code></pre>
+          </div>
+          <div class="col-sm-4">
+            <table class="table table-sm table-bordered border-dark table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>Objet</th>
+                  <th>Type/Nature</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>p1, q1, p2, q2, ps, qs</td>
+                  <td>entier</td>
+                </tr>
+                <tr>
+                  <td>saisie_fraction<br>simplifier<br>somme_fraction</td>
+                  <td>procédure</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <p>Ce programme qui semble, au début, compliqué est devenu assez simple grâce à la <strong>décomposition
+            modulaire</strong>.</p>
+      </section>
+
+      <section>
+        <h3>Décomposition modulaire</h3>
+
+        <p>L'<strong>analyse modulaire</strong>, appelée également <strong>décomposition modulaire</strong>, consiste à
+          <ins>diviser un problème en sous problèmes de difficultés moindres</ins>.
+        </p>
+
+        <p>En algorithmique, les <strong>sous problèmes</strong> correspondent à des <strong>sous-programmes</strong>.
+        </p>
+
+        <h4>Sous-programme</h4>
+
+        <p>Un <strong>sous-programme</strong> est une <ins>section de code nommée</ins> <strong><em>qui peut être
+              appelée</em></strong> en écrivant le nom du sous-programme dans une instruction du programme.</p>
+        <p>Les <strong>sous-programmes</strong> sont également appelés <strong>procédures</strong> ou
+          <strong>fonctions</strong>.
+        </p>
+        <p>Une <strong>procédure</strong> exécute simplement un ensemble d'instructions, tandis qu'une
+          <strong>fonction</strong> renvoie une valeur une fois son exécution est terminée.
+        </p>
+        <figure>
+          <img src="resources/chapitre_04/images/fonction-procedure.png"
+            alt="Différence entre une procédure et une fonction">
+          <figcaption>Différence entre une procédure et une fonction</figcaption>
+        </figure>
+        <p>L'écriture de <strong>sous-programmes</strong> <ins>rend le code plus lisible et réutilisable</ins>, car le
+          code est subdivisé en des sections plus petites.</p>
+        <p>La plupart des langages de programmation sont livrés avec un ensemble de sous-programmes intégrés, mais
+          permettent, aussi, au programmeur d'écrire leurs propres sous-programmes personnalisés.</p>
+        <figure>
+          <img src="resources/chapitre_04/images/decomposition-modulaire.png" alt="Décomposition modulaire">
+          <figcaption>Décomposition modulaire du problème de la somme des deux fractions</figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h3>Fonction</h3>
+
+        <h4>Définition</h4>
+        <p>Une <strong>fonction</strong> est un sous-programme <strong>qui retourne <ins>à son appelant</ins> un seul
+            résultat</strong> <em>en fonction de ses paramètres</em>.</p>
+        <p>Une <strong>fonction</strong> peut avoir zéro ou plusieurs paramètres. Ces <strong>paramètres</strong> sont
+          <strong><em>souvent transmis par valeur</em></strong>.
+        </p>
+
+        <h4>Appel</h4>
+        <p>Comme une <strong>fonction renvoie toujours une valeur</strong>, son appel peut se faire de différentes
+          manières :</p>
+        <ul>
+          <li>Dans une affectation :
+            <pre><code class="language-algorithm">// pgcd(a, b) renvoie le PGCD des deux valeurs
+dc &larr; pgcd(a, b)</code></pre>
+          </li>
+          <li>Dans une structure conditionnelle :
+            <pre><code class="language-algorithm">// Afficher si un nombre est premier
+Si premier(n) Alors
+  Ecrire(n, "est premier")
+Sinon
+  Ecrire(n, "n'est pas premier")
+Fin Si</code></pre>
+          </li>
+          <li>Dans une structure itérative :
+            <div class="row">
+              <div class="col-sm-6">
+                <pre><code class="language-algorithm">// f(x) est une fonction qui admet un extrémum
+// en x0 &in; [0, +&infin;[
+// Recherche de l'extrémum de f(x)
+x0 &larr; 0
+TantQue (f(x0+pas) > f(x0)) Faire
+  x0 &larr; x0 + pas
+Fin TantQue</code></pre>
+              </div>
+              <div class="col-sm-6">
+                <pre><code class="language-algorithm">// Saisir une chaine alphabétique
+// est_alphabetique(ch) : retrourne Si 
+// Si ch[i] &in; ["A", "Z"] &Union; ["a", "z"] 
+Répéter
+  Ecrire("Une chaine alphabétique ? ")
+  Lire(ch)
+Jusqu'à est_alphabetique(ch)</code></pre>
+              </div>
+              <div class="col-sm-12">
+                <pre><code class="language-algorithm">// Saisie d'un de valeurs distinctes
+// entre les indices n1 et n2
+// Les fonctions :
+// - min(a, b) : renvoie le minimum entre a et b
+// - max(a, b) : renvoie le maximum entre a et b
+// - existe(v, t, n) : recherche l'existence de v dans les n premières cases de t
+Pour i de min(n1, n2) à max(n1, n2)-1 Faire
+  Répéter
+    Ecrire("t[", i, "] ? ")
+    Lire(t[i])
+  Jusqu'à (non existe(t[i], t, i-1))
+Fin TantQue</code></pre>
+              </div>
+            </div>
+          </li>
+          <li>Comme paramètre d'un autre sous-programme :
+            <div class="row">
+              <div class="col-sm-6">
+                <pre><code class="language-algorithm">// somme_carre(a, b) renvoie a² + b²
+Ecrire(somme_carre(a, b))</code></pre>
+              </div>
+              <div class="col-sm-6">
+                <pre><code class="language-algorithm">// calculer PGCD de a, b et c
+dc &larr; pgcd(a, pgcd(b, c))</code></pre>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+        <h4>Vocabulaire et Syntaxe</h4>
+        <div class="row">
+          <div class="col-sm-6">
+            <pre><code class="language-algorithm">Fonction NomFonction(p<sub>1</sub>: type<sub>1</sub>, p<sub>2</sub>: type<sub>2</sub>, ..., 
+                     p<sub>n</sub>: type<sub>n</sub>):type<sub>résultat</sub>
+  //
+  // Traitements
+  //
+  <strong>Retourner</strong> résultat
+Fin nom_fonction</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <pre><code class="language-python">def NomFonction(p<sub>1</sub>, p<sub>2</sub>, ..., p<sub>n</sub>):
+    
+    #
+    # Traitements
+    #
+    <strong>return</strong> résultat
+  </code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Procédure</h3>
+
+        <h4>Définition</h4>
+        <p>Une <strong>procédure</strong> est un sous-programme <strong>qui ne retourne pas, directement, de résultats
+            <ins>à son appelant</ins></strong>.</p>
+        <p>Une <strong>procédure</strong> peut avoir zéro ou plusieurs paramètres. Ces <strong>paramètres</strong>
+          peuvent être, selon le besoin, <strong><em>transmis par valeur ou par variable</em></strong>.
+        </p>
+        <p>En algorithmique, le <strong>mode de passage par variable</strong> <em>est utilisé pour renvoyer,
+            indirectement, un ou plusieurs résultats à l'appelant</em>. On dit qu'<strong>elle possède un effet de
+            bord</strong>.</p>
+
+        <h4>Appel</h4>
+        <p>Comme une <strong>procédure ne renvoie aucune valeur</strong>, son appel se fait toujours de la même
+          façon :</p>
+        <pre><code class="language-algorithm">// Saisir une valeur dans n
+saisir(n)
+// Remplir le tableau t par n valeurs distinctes
+remplir_tab(t, n)
+// Echanger le contenu de deux variables
+permuter(a, b)</code></pre>
+        <p>La procédure utilise les paramètres passés par valeur pour réaliser son traitement. Et, elle est capable de
+          modifier la valeur des paramètres transmis par variable, directement, chez l'appelant.</p>
+      </section>
+    </article>
+  </main>
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée avec ♥ par Mohamed Anis MANI</div>
+    <div class="text-center small">Année scolaire : 2021/2022</div>
+  </footer>
+
+  <script src="resources/js/jquery.min.js"></script>
+  <script src="resources/js/bootstrap.bundle.min.js"></script>
+  <script src="resources/js/highlight.min.js"></script>
+  <script src="resources/js/hljs.algorithm.js"></script>
+  <script src="resources/js/clipboard.min.js"></script>
+  <script src="resources/js/pages.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+
+    document.querySelectorAll('.language-algorithm,.language-python,.language-delphi')
+      .forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'bd-clipboard d-print-none';
+        const btn = document.createElement('button');
+        btn.className = 'btn-clipboard';
+        btn.textContent = "📋";
+        btn.title = "Copier";
+        div.appendChild(btn);
+        item.parentElement.insertBefore(div, item);
+      });
+    new ClipboardJS('.btn-clipboard', {
+      target: (trigger) => {
+        return trigger.parentElement.nextElementSibling;
+      }
+    });
+  </script>
+
+  <script src="resources/js/funcs.js"></script>
+  <script src="resources/js/vue.min.js"></script>
+  <script src="resources/apps/chapitre03.js"></script>
+</body>
+
+</html>
