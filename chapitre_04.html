@@ -195,7 +195,7 @@ Fin TantQue</code></pre>
               </div>
               <div class="col-sm-6">
                 <pre><code class="language-algorithm">// Saisir une chaine alphabétique
-// est_alphabetique(ch) : retrourne Si 
+// est_alphabetique(ch) : retrourne Vrai
 // Si ch[i] &in; ["A", "Z"] &Union; ["a", "z"] 
 Répéter
   Ecrire("Une chaine alphabétique ? ")
@@ -203,7 +203,7 @@ Répéter
 Jusqu'à est_alphabetique(ch)</code></pre>
               </div>
               <div class="col-sm-12">
-                <pre><code class="language-algorithm">// Saisie d'un de valeurs distinctes
+                <pre><code class="language-algorithm">// Saisie d'un tableau de valeurs distinctes
 // entre les indices n1 et n2
 // Les fonctions :
 // - min(a, b) : renvoie le minimum entre a et b
@@ -235,6 +235,7 @@ dc &larr; pgcd(a, pgcd(b, c))</code></pre>
         <h4>Vocabulaire et Syntaxe</h4>
         <div class="row">
           <div class="col-sm-6">
+            <p>Une fonction s'écrit comme suit en algorithmique :</p>
             <pre><code class="language-algorithm">Fonction NomFonction(p<sub>1</sub>: type<sub>1</sub>, p<sub>2</sub>: type<sub>2</sub>, ..., 
                      p<sub>n</sub>: type<sub>n</sub>):type<sub>résultat</sub>
   //
@@ -244,6 +245,7 @@ dc &larr; pgcd(a, pgcd(b, c))</code></pre>
 Fin</code></pre>
           </div>
           <div class="col-sm-6">
+            <p>Son équivalent en Python s'écrit comme suit :</p>
             <pre><code class="language-python">def NomFonction(p<sub>1</sub>, p<sub>2</sub>, ..., p<sub>n</sub>):
     
     #
@@ -262,11 +264,12 @@ Fin</code></pre>
         <p>Une <strong>procédure</strong> est un sous-programme <strong>qui ne retourne pas, directement, de résultats
             <ins>à son appelant</ins></strong>.</p>
         <p>Une <strong>procédure</strong> peut avoir zéro ou plusieurs paramètres. Ces <strong>paramètres</strong>
-          peuvent être, selon le besoin, <strong><em>transmis par valeur ou par variable</em></strong>.
+          peuvent être, selon le besoin, <strong><em>transmis par <ins>valeur</ins></em></strong> ou
+          <strong><em>transmis par <ins>variable</ins></em></strong>.
         </p>
         <p>En algorithmique, le <strong>mode de passage par variable</strong> <em>est utilisé pour renvoyer,
-            indirectement, un ou plusieurs résultats à l'appelant</em>. On dit qu'<strong>elle possède un effet de
-            bord</strong>.</p>
+            indirectement, un ou plusieurs résultats à l'appelant</em>. Lorsqu'une procédure renvoie des résultats à
+          travers ses paramètres, on dit qu'<strong>elle possède un effet de bord</strong>.</p>
 
         <h4>Appel</h4>
         <p>Comme une <strong>procédure ne renvoie aucune valeur</strong>, son appel se fait toujours de la même
@@ -284,6 +287,7 @@ permuter(a, b)</code></pre>
         <h4>Vocabulaire & Syntaxe</h4>
         <div class="row">
           <div class="col-sm-6">
+            <p>Une fonction s'écrit comme suit en algorithmique :</p>
             <pre><code class="language-algorithm">Procédure NomProcédure(p<sub>1</sub>: type<sub>1</sub>, p<sub>2</sub>: type<sub>2</sub>, ..., p<sub>n</sub>: type<sub>n</sub>)</sub>
   //
   // Traitements
@@ -291,6 +295,7 @@ permuter(a, b)</code></pre>
 Fin</code></pre>
           </div>
           <div class="col-sm-6">
+            <p>En Python, il n'y a pas d'équivalent pour une procédure. On utilise pour celà une fonction :</p>
             <pre><code class="language-python">def NomProcedure(p<sub>1</sub>, ..., p<sub>n</sub>):
     #
     # Traitements
@@ -302,7 +307,23 @@ Fin</code></pre>
 
       <section>
         <h3>Solution</h3>
+
+        <h4>Problème</h4>
+        <p>On souhaite écrire un programme qui calcule la somme de deux fractions :</p>
+        <figure>
+          <img src="resources/chapitre_04/images/fraction-somme.svg" alt="p1/q1+p2/q2=ps/qs" class="h1_5cm">
+          <figcaption>Somme de deux fractions avec : p1, p2, ps &in; &zopf; et q1, q2, qs &in; &zopf;<sup>*</sup>
+          </figcaption>
+        </figure>
+
+        <h4>Solution</h4>
+        <p>Nous avons déjà donné l'algorithme du programme principal qui fait appel à un ensemble de sous-programmes que
+          nous allons détailler ici.</p>
+
         <h4>Procédure saisie_fraction</h4>
+        <p>La procédure <strong>saisie_fraction</strong> permet à l'utilisateur d'introduire deux entiers qui
+          représentent une fraction. Le dénominateur ne doit pas être null.</p>
+
         <div class="row">
           <div class="col-sm-6">
             <pre><code class="language-algorithm">procédure saisie_fraction(@num, @denom: entier)
@@ -324,6 +345,8 @@ Fin</code></pre>
         </div>
 
         <h4>Procédure simplifier_fraction</h4>
+        <p>La procédure <strong>simplifier_fraction</strong> utilise la méthode exposée au début de ce cours pour
+          retrouver la fraction irreductible correspondant à la fraction saisie par l'utilisateur.</p>
         <div class="row">
           <div class="col-sm-6">
             <pre><code class="language-algorithm">procédure simplifier_fraction(@num, @denom: entier)
@@ -343,6 +366,8 @@ Fin</code></pre>
         </div>
 
         <h4>Procédure somme_fraction</h4>
+        <p>La procédure <strong>somme_fraction</strong> calcule la fraction irreductible correspondant à la somme de
+          deux fractions.</p>
         <div class="row">
           <div class="col-sm-6">
             <pre><code class="language-algorithm">procédure simplifier_fraction(p1, q1, p2, q2: entier; 
@@ -362,6 +387,8 @@ Fin</code></pre>
         </div>
 
         <h4>Fonction pgcd</h4>
+        <p>La méthode de simplification exposée dans ce cours nécessite le calcul du PGCD du numérateur et du
+          dénominateur de la fraction à simplifier. C'est la fonction de <strong>pgcd</strong>.</p>
         <div class="row">
           <div class="col-sm-6">
             <pre><code class="language-algorithm">Fonction pgcd(a, b: entier):entier
@@ -385,6 +412,9 @@ Fin</code></pre>
         </div>
 
         <h4 class="p-break">Programme Principal</h4>
+        <p>Le programme principal est la partie la plus importante d'un programme car elle fait appel aux différents
+          sous-programmes qui ont été déclaré précédemment. Une <strong>fonction</strong> ou une
+          <strong>procédure</strong> doivent être appelés pour résoudre un problème quelconque.</p>
         <div class="row">
           <div class="col-sm-6">
             <pre><code class="language-algorithm">Algorithme Somme_Fraction
