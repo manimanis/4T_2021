@@ -28,113 +28,6 @@
       <h2>Sous-programmes</h2>
 
       <section>
-        <h3>Problème</h3>
-
-        <p>Najla, Douja et Zohra ont fait leurs lessives aujourd’hui. Or, Najla fait sa lessive tous les 3 jours, Douja
-          tous les 4 jours et Zohra tous les 6 jours.</p>
-        <figure>
-          <img src="resources/chapitre_04/images/lessive.webp" alt="Lessive" class="h5cm">
-          <figcaption>Lessive</figcaption>
-        </figure>
-
-        <h4>Questions</h4>
-        <ol>
-          <li>Combien passera-t-il de temps avant que les trois femmes ne refassent leurs lessives le même jour ?</li>
-          <li>En supposant que :
-            <ul>
-              <li><strong>Najla</strong> fait la lessive tous les <code>a</code> jours. Avec <code>a &gt; 0</code></li>
-              <li><strong>Douja</strong> fait la lessive tous les <code>b</code> jours. Avec <code>b &gt; 0</code></li>
-              <li><strong>Zohra</strong> fait la lessive tous les <code>c</code> jours. Avec <code>c &gt; 0</code></li>
-            </ul>
-            Déterminer quand les trois femmes referons leurs lessives le même jour ?
-          </li>
-          <li>Ecrire l'algorithme d'un programme pour résoudre ce problème.</li>
-        </ol>
-      </section>
-
-      <section>
-        <h3>Solution</h3>
-
-        <ol>
-          <li>On pourra déterminer graphiquement le temps requis pour voir les trois femmes faire leurs lessives le même
-            jour. Et ce en utilisant l'échelle temporelle suivante :
-            <figure>
-              <img src="resources/chapitre_04/images/jours-lessive.png" alt="Jours de lessive">
-              <figcaption>Jours de lessive</figcaption>
-            </figure>
-            On en déduit qu'il faudra attendre <strong>12 jours</strong>.
-          </li>
-          <li>On remarque que le temps requis pour voir les trois femmes faire leurs lessives dans une même journée peut
-            être calculé en utilisant la formule suivante :
-            <p class="text-center"><strong>ppcm(3, 4, 6) = ppcm(3, ppcm(4, 6)) = 12</strong></p>
-            <p>Plus généralement le <strong>temps requis pour voir les femmes faire leurs lessives la même
-                journée</strong> est :</p>
-            <p class="text-center"><strong>temps = ppcm(a, b, c) = ppcm(a, ppcm(b, c))</strong></p>
-            <p>PPCM = Plus Petit Commun Multiple, c'est le plus petit nombre qui est multiple des trois nombres
-              <strong>a</strong>, <strong>b</strong> et <strong>c</strong>.
-            </p>
-          </li>
-          <li>Pour résoudre cet exercice il nous faudra calculer le <strong>ppcm</strong> de deux nombres. Une manière
-            de faire est donnée dans l'algorithme suivant :
-            <pre><code class="language-algorithm">ppcm &larr; a
-TantQue ppcm mod b &ne; 0 Faire
-  ppcm &larr; ppcm + a
-Fin TantQue</code></pre>
-
-            <p>L'algorithme du programme peut être écrit comme suit :</p>
-            <div class="row">
-              <div class="col-sm-8">
-                <pre><code class="language-algorithm">Algorithme lessive
-Début
-  Répéter
-    Ecrire("Temps de lessive 1 ? ") ; Lire(a)
-  Jusqu'à a &gt; 0
-  Répéter
-    Ecrire("Temps de lessive 2 ? ") ; Lire(b)
-  Jusqu'à b &gt; 0
-  Répéter
-    Ecrire("Temps de lessive 3 ? ") ; Lire(c)
-  Jusqu'à c &gt; 0
-
-  temps &larr; a
-  TantQue temps mod b &ne; 0 Faire
-    temps &larr; temps + a
-  Fin TantQue
-  TantQue temps mod c &ne; 0 Faire
-    temps &larr; temps + a
-  Fin TantQue
-
-  Ecrire("Il faut", temps, "jours avant que les trois femmes ne refassent leurs lessives")
-Fin</code></pre>
-              </div>
-              <div class="col-sm-4">
-                <table class="table table-sm table-bordered border-dark table-striped table-hover">
-                  <thead>
-                    <tr>
-                      <th>Objet</th>
-                      <th>Type/Nature</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>a, b, c, temps</td>
-                      <td>entier</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </li>
-        </ol>
-
-        <h4>Travail demandé</h4>
-        <ol>
-          <li>Identifier les blocs d'instructions qui se répètent.</li>
-          <li>Comment éviter de les répéter ?</li>
-        </ol>
-      </section>
-
-      <section>
         <h3>Fraction irréductible</h3>
 
         <p>En mathématiques, une <strong>fraction est irréductible</strong> s'il n'existe pas de fraction égale ayant
@@ -521,8 +414,7 @@ Fin</code></pre>
         <h4 class="p-break">Programme Principal</h4>
         <p>Le programme principal est la partie la plus importante d'un programme car elle fait appel aux différents
           sous-programmes qui ont été déclaré précédemment. Une <strong>fonction</strong> ou une
-          <strong>procédure</strong> doivent être appelés pour résoudre un problème quelconque.
-        </p>
+          <strong>procédure</strong> doivent être appelés pour résoudre un problème quelconque.</p>
         <div class="row">
           <div class="col-sm-6">
             <pre><code class="language-algorithm">Algorithme Somme_Fraction
