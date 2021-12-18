@@ -68,10 +68,11 @@
           </li>
           <li>On remarque que le temps requis pour voir les trois femmes faire leurs lessives dans une même journée peut
             être calculé en utilisant la formule suivante :
-            <p class="text-center"><strong>ppcm(3, 4, 6) = ppcm(3, ppcm(4, 6)) = 12</strong></p>
+            <p class="text-center"><strong>ppcm(3, 4, 6) = ppcm(3, ppcm(4, 6)) = ppcm(ppcm(3, 4), 6)= 12</strong></p>
             <p>Plus généralement le <strong>temps requis pour voir les femmes faire leurs lessives la même
                 journée</strong> est :</p>
-            <p class="text-center"><strong>temps = ppcm(a, b, c) = ppcm(a, ppcm(b, c))</strong></p>
+            <p class="text-center"><strong>temps = ppcm(a, b, c) = ppcm(ppcm(a, b), c) = ppcm(a, ppcm(b, c))</strong>
+            </p>
             <p>PPCM = Plus Petit Commun Multiple, c'est le plus petit nombre qui est multiple des trois nombres
               <strong>a</strong>, <strong>b</strong> et <strong>c</strong>.
             </p>
@@ -363,6 +364,70 @@ Fin</code></pre>
   </code></pre>
           </div>
         </div>
+      </section>
+
+      <section>
+        <h3>Paramètres et Mode de passage</h3>
+
+        <p>Un <strong>sous-programme</strong> défini réellement un <strong><ins>ensemble de traitements effectués sur
+              des données</ins></strong>. Ces <strong>données</strong> doivent être <ins>passées au sous-programme</ins>
+          dans <em><strong>ses paramètres</strong></em>.</p>
+
+        <h4>Types de paramètres</h4>
+
+        <p>On distingue deux types de paramètres :</p>
+        <ul>
+          <li><b>Les paramètres formels&nbsp;:</b> utilisés lors de <u>la définition</u> d'un sous-programme.</li>
+          <li><b>Les paramètres effectifs&nbsp;:</b> utilisés lors de l'utilisation (<u>l'appel</u>) d'un
+            sous-programme.</li>
+        </ul>
+
+        <p>Dans la figure ci-dessous, les paramètres <strong>a</strong>, <strong>b</strong> et <strong>c</strong> qui
+          figurent dans la <span class="bg-dark text-light">définition du sous-programme</span> <strong>somme</strong>
+          sont appelés des paramètres <strong><ins>formels</ins></strong>
+        </p>
+
+        <p>Les paramètres <strong>x</strong>, <strong>y</strong> et <strong>z</strong> utilisés dans le programme
+          principal qui <span class="bg-dark text-light">appelle le sous-programme</span> <strong>somme</strong>
+          sont dits <strong><ins>effectifs</ins></strong> ou <strong><ins>réels</ins></strong>.</p>
+
+        <figure>
+          <img src="resources/chapitre_04/images/types-parametres.png" alt="Types de paramètres">
+          <figcaption>Les types de paramètres</figcaption>
+        </figure>
+
+        <h4>Modes de passage des paramètres</h4>
+
+        <p>Il existent deux modes de passage des paramètres&nbsp;: <u>par variable</u> ou <u>par valeur</u>.</p>
+
+        <h5>Passage par valeur</h5>
+
+        <p>Lors d'un <b>passage par valeur</b>, <u>la valeur de l'expression passée en paramètre est copiée dans une
+            variable locale</u>. C'est cette variable qui est utilisée pour faire les traitements dans le sous-programme
+          appelé.
+        </p>
+
+        <p>Dans la figure suivante, la valeur de <strong>y</strong> est copiée dans le paramètre <strong>x</strong> de
+          la fonction lors de l'appel de cette dernière.</p>
+
+        <figure>
+          <img src="resources/chapitre_04/images/passage-par-valeur.png" alt="Passage par valeur">
+          <figcaption>Passage par valeur</figcaption>
+        </figure>
+
+        <h5>Passage par variable</h5>
+
+        <p>Dans la figure suivante, l'adresse de la variable <strong>y</strong> est transmise à la procédure
+          <strong>saisie</strong> sous le nom de <strong>x</strong>. Tout changement de la valeur de <strong>x</strong>
+          dans la procédure à pour effet le changement de la valeur de <strong>y</strong>.
+        </p>
+        <p><strong>x</strong> et <strong>y</strong> sont deux noms différents de la même variable. La variable
+          <strong>y</strong> dans le sous-programme est appelée <strong>x</strong>.
+        </p>
+        <figure>
+          <img src="resources/chapitre_04/images/passage-par-variable.png" alt="Passage par variable">
+          <figcaption>Passage par variable</figcaption>
+        </figure>
       </section>
 
       <section>
