@@ -132,7 +132,7 @@ Fin</code></pre>
       </section>
 
       <section>
-        <h3>Améliortation de la solution</h3>
+        <h3>Amélioration de la solution</h3>
 
         <p>On remarque que la solution précédente <strong>n'est pas très claire</strong>, <strong>trop longue</strong>,
           et qu'elle <strong>contient des duplications</strong> (des répétitions).</p>
@@ -431,6 +431,60 @@ Fin</code></pre>
       </section>
 
       <section>
+        <h3>Portée des variables</h3>
+
+        <p>Toute <strong>variable</strong> a <ins>une durée de vie bornée</ins> <strong>au bloc</strong> où elle est
+          déclarée. Ce bloc définit <strong>la portée</strong> de la variable.</p>
+
+        <p>Les <strong>variables globales</strong> sont déclarées dans le <u>programme principal</u>. Elles sont
+          utilisables dans tout le programme.</p>
+        <p>Les <strong>variables locales</strong> sont déclarées dans un <u>sous-programme</u>. Elles ont une portée
+          limitée et elles ne sont utilisables qu'à l'intérieur de celui-ci.</p>
+
+        <p>La fonction <strong>existe</strong> dans l'exemple suivant utilise les <u>variables globales</u>
+          <strong>t</strong> et <strong>n</strong> qui sont déclarées dans le programme principal.
+          <strong>trouve</strong> et <strong>i</strong> sont des <u>variables locales</u> car elles sont visibles
+          uniquement à l'intérieur du sous-programme.
+        </p>
+        <figure>
+          <img src="resources/chapitre_04/images/variables-globales-locales.png"
+            alt="Variables globales et Variables locales">
+          <figcaption>Variables globales et Variables locales</figcaption>
+        </figure>
+        <p>L'exemple précédent est <span class="text-danger"><strong><ins>à éviter</ins></strong></span> car il
+          contre-dit l'esprit de la modularité. <strong>Il est conseillé <u>vivement</u> d'éviter les variables
+            globales</strong>.</p>
+        <div class="row">
+          <div class="col-sm-6">
+            <pre><code class="language-algorithm">// A éviter
+// Dépend des variables du PP
+Fonction existe(v:entier):booléen
+  trouve &larr; Faux
+  i &larr; 0
+  TantQue (i&lt;n) et (non trouve) Faire
+    trouve &larr; t[i] = v
+    i &larr; i + 1
+  Fin TantQue
+  Retourner trouve
+Fin</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <pre><code class="language-algorithm">// Meilleure écriture
+// Indépendant du PP
+Fonction existe(v:entier;t:tab;n:entier):booléen
+  trouve &larr; Faux
+  i &larr; 0
+  TantQue (i&lt;n) et (non trouve) Faire
+    trouve &larr; t[i] = v
+    i &larr; i + 1
+  Fin TantQue
+  Retourner trouve
+Fin</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section>
         <h3>Solution complète du problème de lessive</h3>
 
         <h4>Problème</h4>
@@ -615,9 +669,10 @@ print("Les femmes referont leurs lessives dans", temps, "jours")</code></pre>
 
         <h4>Problème</h4>
 
-        <p>On souhaite écrire un <strong>programme modulaire</strong> qui calcule la somme de deux fractions :</p>
+        <p>On souhaite écrire l'algorithme d'un <strong>programme modulaire</strong> qui calcule la somme de deux
+          fractions :</p>
         <figure>
-          <img src="resources/chapitre_04/images/fraction-somme.svg" alt="p1/q1+p2/q2=ps/qs" class="h1_5cm">
+          <img src="resources/chapitre_04/images/fraction-somme.png" alt="p1/q1+p2/q2=ps/qs" class="h1_5cm">
           <figcaption>Somme de deux fractions avec : p1, p2, ps &in; &zopf; et q1, q2, qs &in; &zopf;<sup>*</sup>
           </figcaption>
         </figure>
