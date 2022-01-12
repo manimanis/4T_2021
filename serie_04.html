@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Structures Itératives</title>
+  <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+  <link rel="stylesheet" href="resources/css/default.css">
+  <link rel="stylesheet" href="resources/css/style.css">
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="aside_navbar"></div>
+    </nav>
+  </aside>
+
+  <main class="container my-3">
+    <h1>Les structures itératives</h1>
+
+    <article>
+      <h2>Exercices</h2>
+
+      <section>
+        <h3>Tir à l'arc - Bac TP 2019</h3>
+
+        <p>Le jeu de tir à l’arc consiste à tirer des flèches en utilisant un arc vers un endroit cible.</p>
+        <p>Un club de tir à l’arc organise une compétition entre ses joueurs. Cette compétition consiste à donner à
+          chaque joueur trois essais de tir.</p>
+        <p>A chaque tir, le joueur gagne de 0 à 10 points selon l’endroit touché par la flèche sur une cible composée de
+          10 cercles concentriques comme l’illustre la figure ci-contre.</p>
+        <figure><img src="" alt=""></figure>
+        <p>Après le 3ème essai, un score est calculé pour chaque joueur représentant la somme des résultats de ses trois
+          essais, et ce pour classer les joueurs.</p>
+        <p>On se propose d’écrire un programme permettant :</p>
+        <ul>
+          <li>de remplir un tableau A par N noms de joueurs participant à cette compétition (avec 2 ≤ N ≤ 20),</li>
+          <li>de calculer le score de chaque joueur sachant que le résultat d’un essai est un entier positif inférieur
+            ou égal à 10,</li>
+          <li>d’afficher la liste des joueurs ainsi que les scores correspondants en commençant par le meilleur.</li>
+        </ul>
+        <p><strong>Exemple :</strong> Pour N = 4 et le tableau A suivant : </p>
+        <p>En considérant que les résultats des trois essais ainsi que les scores calculés des quatre joueurs sont les
+          suivants :</p>
+        <p>La liste des joueurs affichée sera la suivante :</p>
+        <ul>
+          <li>Imen LOUIZ avec un score de 28 </li>
+          <li>Mohamed ABIDI avec un score de 27</li>
+          <li>Fatma AYADI avec un score de 27</li>
+          <li>Anis OMRI avec un score de 23</li>
+        </ul>
+        <p>Ci-après, un algorithme du programme principal dans lequel des modifications seront apportées pour répondre
+          aux besoins cités ci-dessus :</p>
+
+        <pre><code class="algorithm">Algorithme TirArc
+Début
+  // Séquence 1
+  Répéter
+    Ecrire ("Donner le nombre de joueurs : "); Lire (N)
+  Jusqu'à (N dans [2..20])
+  // Séquence 2
+  Pour i de 1 à N faire
+    Répéter 
+      Ecrire ("Donner le nom du joueur n°", i," : "), Lire (A[i])
+    Jusqu'à (alpha (A[i]))
+  Fin pour
+  // Séquence 3
+  Score (A, N)
+Fin</code></pre>
+
+        <p>Travail demandé :</p>
+        <ol>
+          <li>Implémenter l’algorithme TirArc en Python et ajouter les déclarations nécessaires puis enregistrer le
+            programme, dans votre dossier de travail, sous le nom "TirArc0".<br>
+            <strong>NB :</strong> Il est recommandé de limiter la taille des éléments du tableau A à 30 caractères.
+          </li>
+          <li>Dans votre dossier de travail, créer une deuxième copie de ce programme et l’enregistrer sous le
+            nom "TirArc1".<br>
+            Dans ce fichier :<br>
+            <ol type="a">
+              <li>Transformer la séquence 2 en un module et apporter les modifications nécessaires dans le
+                programme principal.</li>
+              <li>Développer la fonction Alpha qui permet de vérifier si le nom d’un joueur est une suite de
+                30 lettres au maximum et pouvant contenir des espaces.</li>
+              <li>Développer le module Score permettant :
+                <ul>
+                  <li>de saisir les résultats des trois essais de chaque joueur et de calculer son score,</li>
+                  <li>d’afficher la liste des joueurs ainsi que leurs scores selon un ordre décroissant des
+                    scores.</li>
+                </ul>
+              </li>
+            </ol>
+          </li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>Plagiarisme - Bac TP 2019</h3>
+
+        <p>Le plagiat est une mauvaise pratique qui consiste à copier ou s'inspirer fortement d'une œuvre sans citer son
+          auteur et en faisant passer cette œuvre pour la sienne.</p>
+        <p>On suppose qu’un texte est plagié lorsque le nombre de mots communs dépasse la moitié du nombre de mots du
+          texte d’origine.</p>
+        <h1>Exemple</h1>
+        <p><strong>Texte à tester :</strong> "ENTRE DEUX VERSIONS DU MEME DOCUMENT CE LOGICIEL PERMET DE CHERCHER LE
+          NOMBRE DE MOTS IDENTIQUES."</p>
+        <p><strong>Texte d’origine :</strong> "CE PROGRAMME PERMET DE TROUVER LE NOMBRE DE MOTS IDENTIQUES DANS DEUX
+          VERSIONS DU MEME TEXTE.""</p>
+        <p>Les mots communs aux deux textes sont : </p>
+        <p class="text-center">DEUX – VERSIONS – DU – MEME – CE – PERMET – DE – LE – NOMBRE – DE – MOTS – IDENTIQUES</p>
+        <p>Le texte testé est plagié. En effet, le nombre de mots communs aux deux textes est égal à 12, dépassant ainsi
+          la moitié du nombre de mots du texte d’origine qui est 16.</p>
+        <p>On se propose d’écrire un programme qui permet de saisir deux textes T1 et T2 ayant un même nombre de mots,
+          de vérifier si T2 est plagiat de T1 selon le principe décrit précédemment et d’afficher un message
+          correspondant.</p>
+        <p>Ci-après, un algorithme du programme principal dans lequel des modifications seront apportées pour répondre
+          aux besoins cités ci-dessus, avec Nbc désigne le nombre de mots communs à T1 et T2 :</p>
+        <pre><code class="algorithm">Algorithme Plagiat
+Début
+  // Séquence 1
+  Répéter
+    Lire (T1)
+    Lire (T2)
+  Jusqu’à (Nbmots (T1) = Nbmots (T2))
+  // Séquence 2
+  Nbc &larr; Commun (T1,T2)
+Fin</code></pre>
+        <h4>Travail demandé</h4>
+        <ol>
+          <li>Implémenter l’algorithme Plagiat en Python et ajouter les déclarations nécessaires
+            puis enregistrer le programme, dans votre dossier de travail, sous le nom "Plagiat0".</li>
+          <li>Dans votre dossier de travail, créer une deuxième copie de ce programme et l’enregistrer sous le
+            nom "Plagiat1".<br>
+            Dans ce fichier :<br>
+            <ol type="a">
+              <li>Développer un module intitulé Saisir qui permet de saisir une chaîne commençant
+                obligatoirement par une lettre, composée au maximum de 200 caractères, se terminant par
+                un point et ne pouvant contenir que des lettres majuscules et des espaces. Puis, apporter les
+                modifications nécessaires dans le programme principal.<br>
+                Ce module permet aussi d’enlever les espaces superflus (garder un seul espace entre deux
+                mots consécutifs et ne garder aucun espace avant le point de fin de texte).</li>
+              <li>Développer le module Nbmots qui permet de déterminer le nombre de mots dans un texte.</li>
+              <li> Développer le module Commun, qui permet de déterminer le nombre de mots communs
+                dans deux textes donnés.</li>
+              <li>Apporter les modifications nécessaires au programme afin de vérifier si le texte testé est
+                plagié et d’afficher le message correspondant.</li>
+            </ol>
+          </li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>Fildélité - Bac TP 2019</h3>
+        <p>Un gérant d’une salle de sport veut récompenser les adhérents fidèles en leur offrant un bonus sous 
+forme d’heures d’entraînement gratuites, calculé à partir de leurs numéros d’abonnement.</p>
+<p>Le bonus est calculé en fonction de l’ancienneté de l’adhérent, exprimée en nombre de mois par rapport
+à la date du jour. En effet, une heure supplémentaire est offerte pour chaque mois d’ancienneté, sachant 
+que le bonus ne sera pris en considération que si l’ancienneté dépasse 5 ans.</p>
+<p>Un numéro d’abonnement est formé de 10 caractères dont le premier est une lettre majuscule indiquant 
+la catégorie de l’adhérent (A : Adulte, J : Junior, E : Enfant) suivi de 9 chiffres répartis comme suit :</p>
+<ol>
+  <li>Les 4 premiers chiffres représentent l’année d’adhésion qui doit être comprise entre 2000 et 2019.</li>
+  <li>Les 2 suivants représentent le mois d’adhésion dont la valeur doit être comprise entre 1 et 12. </li>
+  <li>Les 3 derniers chiffres représentent le numéro d’adhésion qu’on suppose distinct pour tous les 
+adhérents.</li>
+</ol> 
+<h4>Exemple</h4>
+<p>Pour le numéro d’abonnement E201403080, l’adhérent est un enfant dont l’année d’adhésion est 2014, 
+le mois d’adhésion est 03 (mars) et son numéro d’adhésion est 080. Le bonus accordé à cet adhérent est 
+de 62 heures. En effet, son ancienneté est égale à cinq ans et deux mois par rapport à la date 
+d’aujourd’hui (28/05/2019), en nombre de mois elle est égale à 62 (12*5 + 2). </p>
+<p>On se propose d’écrire un programme qui permet :</p>
+<ul>
+  <li>de saisir un entier N représentant le nombre d’adhérents de cette salle (avec 5 ≤ N ≤ 30),</li>
+  <li>de remplir un tableau TA par les N numéros d’abonnements de ces adhérents en respectant le 
+format décrit précédemment,</li>
+  <li>d’afficher les numéros d’abonnements des adhérents ayant une ancienneté supérieure à 5 ans et 
+appartenant à une catégorie donnée ainsi que leurs bonus correspondants sachant que la date du 
+jour à considérer est 28/05/2019.</li>
+</ul>
+<p>Ci-après, un algorithme du programme principal dans lequel des modifications seront apportées pour 
+répondre aux besoins cités ci-dessus :</p>
+<pre><code class="algorithm">Algorithme Fidelite
+Début
+  // Séquence 1
+  Répéter
+    Ecrire ("Donner le nombre des adhérents :"); Lire (N)
+  Jusqu’à (N dans [5..30])
+  // Séquence 2
+  Remplir (TA, N)
+  Bonus (TA, N)
+Fin</code></pre>
+
+      </section>
+    </article>
+  </main>
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée avec ♥ par Mohamed Anis MANI</div>
+    <div class="text-center small">Année scolaire : 2021/2022</div>
+  </footer>
+
+  <script src="resources/js/jquery.min.js"></script>
+  <script src="resources/js/bootstrap.bundle.min.js"></script>
+  <script src="resources/js/highlight.min.js"></script>
+  <script src="resources/js/hljs.algorithm.js"></script>
+  <script src="resources/js/clipboard.min.js"></script>
+  <script src="resources/js/pages.js"></script>
+  <script src="resources/js/draggable.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+
+    document.querySelectorAll('.language-algorithm,.language-python,.language-delphi')
+      .forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'bd-clipboard d-print-none';
+        const btn = document.createElement('button');
+        btn.className = 'btn-clipboard';
+        btn.textContent = "📋";
+        btn.title = "Copier";
+        div.appendChild(btn);
+        item.parentElement.insertBefore(div, item);
+      });
+    new ClipboardJS('.btn-clipboard', {
+      target: (trigger) => {
+        return trigger.parentElement.nextElementSibling;
+      }
+    });
+  </script>
+  <script src="resources/js/vue.min.js"></script>
+  <script src="resources/apps/serie03.js"></script>
+</body>
+
+</html>
