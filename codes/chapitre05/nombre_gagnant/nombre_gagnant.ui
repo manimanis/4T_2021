@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>531</width>
+    <height>216</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Jour de Chance</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0" colspan="2">
+     <widget class="QLabel" name="lbl_societe">
+      <property name="styleSheet">
+       <string notr="true">font: 75 28pt &quot;Ubuntu Condensed&quot;;
+color: rgb(92, 53, 102);</string>
+      </property>
+      <property name="text">
+       <string>Société Commerciale Tunisienne</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="lbl_tel">
+      <property name="text">
+       <string>Votre numéro de Téléphone</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0" colspan="2">
+     <widget class="QPushButton" name="btn_jouer">
+      <property name="styleSheet">
+       <string notr="true">font: 75 18pt &quot;Ubuntu Condensed&quot;;
+color: rgb(206, 92, 0);</string>
+      </property>
+      <property name="text">
+       <string>Jouer</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="txt_tel"/>
+    </item>
+    <item row="4" column="0">
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="3" column="0" colspan="2">
+     <widget class="QLabel" name="lbl_msg">
+      <property name="styleSheet">
+       <string notr="true">font: 20pt &quot;Ubuntu&quot;;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

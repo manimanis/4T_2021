@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>378</width>
+    <height>236</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Calcul du prix de vente</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="1">
+     <widget class="QLabel" name="lbl_profit">
+      <property name="text">
+       <string>Profit %</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0" colspan="3">
+     <widget class="QPushButton" name="btn_calc">
+      <property name="styleSheet">
+       <string notr="true">font: 20pt &quot;Ubuntu&quot;;
+color: rgb(164, 0, 0);
+font-weight: bold;
+padding: 20px 15px;</string>
+      </property>
+      <property name="text">
+       <string>Calculer le prix de vente</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="txt_profit">
+      <property name="text">
+       <string>20</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="2">
+     <widget class="QLabel" name="lbl_tva">
+      <property name="text">
+       <string>TVA %</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="lbl_pa">
+      <property name="text">
+       <string>Prix Achat HT</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLineEdit" name="txt_pa">
+      <property name="text">
+       <string>25</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="2">
+     <widget class="QLineEdit" name="txt_tva">
+      <property name="text">
+       <string>19</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="3" column="0" colspan="3">
+     <widget class="QLabel" name="lbl_pv">
+      <property name="text">
+       <string>Prix de vente</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0" colspan="3">
+     <widget class="QLineEdit" name="txt_pv">
+      <property name="styleSheet">
+       <string notr="true">font: 24pt &quot;Ubuntu&quot;;</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
