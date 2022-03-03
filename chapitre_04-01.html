@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sous-programmes</title>
+  <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+  <link rel="stylesheet" href="resources/css/default.css">
+  <link rel="stylesheet" href="resources/css/style.css">
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="aside_navbar"></div>
+    </nav>
+  </aside>
+
+  <main class="container my-3">
+    <h1>Sous-programmes (suite)</h1>
+
+    <article>
+      <h2>Sous-programmes</h2>
+
+      <section>
+        <h3>Activité 1</h3>
+
+        <p>Soit le programme suivant :</p>
+        <pre><code class="algorithm">Algorithme Prog
+Début
+  Ecrire("Donner x ? "); Lire(x)
+  y &larr; 3 * x * x - 5 * x + 7 // étape 2
+  Ecrire(y)
+Fin</code></pre>
+        <ol type="a">
+          <li>Transformer l'étape 2 de l'algorithme précédent en une fonction.</li>
+          <li>Transformer l'étape 2 de l'algorithmeen une procédure.</li>
+          <li>Ecrire l'algorithme d'un programme qui affiche le tableau de valeurs de cette fonction dans un intervalle
+            [a, b]. Le tableau contient n valeurs, 1 &le; n &le; 20.</li>
+          <li>Implémenter l'algorithme.</li>
+        </ol>
+      </section>
+    </article>
+
+    <article>
+      <h2>Ancien Régime</h2>
+
+      <section>
+        <h3>Question A</h3>
+        <p>Transformer l'étape 2 de l'algorithme précédent en une fonction.</p>
+
+        <pre><code class="algorithm">// Fonction
+def fn f(a : réel):réel
+  f &larr; 3 * a * a - 5 * a + 7
+Fin
+
+// Programme Principal
+Début PP
+  Ecrire("Donner x ? "); Lire(x)
+  y &larr; f(x)
+  Ecrire(y)
+Fin</code></pre>
+        <h4>Explication</h4>
+        <ul>
+          <li>La fonction accepte un paramètre de type réel et retourne un résultat de type réel.</li>
+          <li><code>a</code> est un <strong>paramètre formel</strong> qui est défini uniquement à l'intérieur de la
+            fonction.</li>
+          <li><code>x</code> est un <strong>paramètre effectif</strong> qui indique la valeur passée réellement à la
+            fonction. <code>x</code> est la valeur entrée par l'utilisateur et <code>y</code> est l'image de
+            <code>x</code>.
+          </li>
+          <li>Lors de l'appel <code>f(x)</code> on copie la valeur de <code>x</code> dans la variable <code>a</code> de
+            la fonction. On calcule l'image de <code>a</code> et on retrourne le résultat dans le <strong>nom de la
+              fonction</strong>.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3 class="p-break">Question B</h3>
+        <p>Transformer l'étape 2 de l'algorithme en procédure.</p>
+
+        <pre><code class="algorithm">// Procédure
+def proc f(a : réel; var b : réel)
+  b &larr; 3 * a * a - 5 * a + 7
+Fin
+
+// Programme Principal
+Début PP
+  Ecrire("Donner x ? "); Lire(x)
+  f(x, y)
+  Ecrire(y)
+Fin</code></pre>
+        <h4>Explication</h4>
+        <ul>
+          <li>La procédure accepte deux paramètres, le premier paramètre représente le réel dont on veut calculer
+            l'image, le deuxième paramètre représente le résultat de la fonction réelle f.</li>
+          <li><code>a</code> et <code>b</code> sont des <strong>paramètres formels</strong> qui sont définis uniquement
+            à l'intérieur de la procédure.</li>
+          <li><code>a</code> est un paramètre passé par valeur, c-à-d qu'il s'agit d'une copie de <code>x</code>.</li>
+          <li><code>a</code> est passé par valeur car la procédure ne vas pas opérer aucun changement sur sa valeur.
+          </li>
+          <li><code>b</code> est un paramètre passé par variable, c-à-d, les changements opérés sur la variables
+            <code>b</code> dans la procédure sont propagés à la variable <code>y</code> du programme principal.
+          </li>
+          <li><code>x</code> et <code>y</code> sont des <strong>paramètres effectifs</strong> qui indiquent les valeurs
+            réelles passées à la procédure. <code>x</code> est la valeur entrée par l'utilisateur et <code>y</code> est
+            l'image de <code>x</code>.
+          </li>
+          <li>Lors de l'appel <code>f(x, y)</code> on copie la valeur de <code>x</code> dans la variable <code>a</code>
+            et on indique que <code>b</code> est le surnom de <code>y</code>, c-à-d <code>b</code> et <code>y</code>
+            sont deux noms d'un même objet. On calcule l'image de <code>a</code> et on retrourne le résultat dans le
+            <strong>la variable b qui n'est autre que <code>y</code></strong>.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Question C</h3>
+
+        <p>Ecrire l'algorithme d'un programme qui affiche le tableau de valeurs de cette fonction dans un intervalle
+          [a, b]. Le tableau contient n valeurs, 2 &le; n &le; 20.</p>
+
+        <div class="row">
+          <div class="col-8">
+            <pre><code class="algorithm">Début PP
+  SaisirIntervalle(a, b)
+  Saisir(n)
+  RemplirTableaux(a, b, n, tx, ty)
+  AfficherPoints(n, tx, ty)
+Fin
+
+Def Proc SaisirIntervalle(var a, b : réel)
+  Ecrire("Donner a ? "); Lire(a)
+  Répéter
+    Ecrire("Donner b > ", a, " ? "); Lire(b)
+  Jusqu'à a &lt; b
+Fin
+
+Def Proc Saisir(var n : entier)
+  Répéter
+    Ecrire("Donner n > 1 ? "); Lire(n)
+  Jusqu'à (2 &le; n &le; 20)
+Fin
+
+Def proc RemplirTableaux(a, b: réel; n: entier; var tx, ty: tab)
+  pas &larr; (b - a) / (n - 1)
+  Pour i de 0 à n-1 Faire
+    tx[i+1] &larr; a + pas * i
+    ty[i+1] &larr; f(tx[i+1])
+  Fin Pour
+Fin
+
+Def Proc AfficherPoints(n : entier; tx, ty : tab)
+  Pour i de 1 à n Faire
+    Ecrire("f(",tx[i],") = ", ty[i])
+  Fin Pour
+Fin</code></pre>
+          </div>
+          <div class="col-4">
+            <h5>PP</h5>
+            T.D.N.T
+            <table class="table table-sm table-bordered border-dark table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>TDNT</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>tab = tableau de 20 réel</td>
+                </tr>
+              </tbody>
+            </table>
+            T.D.O.G
+            <table class="table table-sm table-bordered border-dark table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>Objet</th>
+                  <th>Type/Nature</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>a, b<br>n<br>tx, ty</td>
+                  <td>réel<br>entier<br>tab</td>
+                </tr>
+                <tr>
+                  <td>SaisirIntervalle<br>Saisir<br>RemplirTableaux<br>AfficherPoints</td>
+                  <td>Procédure</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h5>RemplirTableaux</h5>
+            T.D.O.L
+            <table class="table table-sm table-bordered border-dark table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>Objet</th>
+                  <th>Type/Nature</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>pas<br>i</td>
+                  <td>réel<br>entier</td>
+                </tr>
+                <tr>
+                  <td>f</td>
+                  <td>Fonction</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h5>AfficherPoints</h5>
+            T.D.O.L
+            <table class="table table-sm table-bordered border-dark table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>Objet</th>
+                  <th>Type/Nature</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>i</td>
+                  <td>entier</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+    </article>
+
+    <article>
+      <h2>Nouveau Régime</h2>
+
+      <section>
+        <h3>Question A</h3>
+        <p>Transformer l'étape 2 de l'algorithme précédent en une fonction.</p>
+
+        <pre><code class="algorithm">// Fonction
+Fonction f(a : réel):réel
+  Retourner 3 * a * a - 5 * a + 7
+Fin
+
+// Programme Principal
+Début PP
+  Ecrire("Donner x ? "); Lire(x)
+  y &larr; f(x)
+  Ecrire(y)
+Fin</code></pre>
+        <h4>Explication</h4>
+        <ul>
+          <li>La fonction accepte un paramètre de type réel et retourne un résultat de type réel.</li>
+          <li><code>a</code> est un <strong>paramètre formel</strong> qui est défini uniquement à l'intérieur de la
+            fonction.</li>
+          <li><code>x</code> est un <strong>paramètre effectif</strong> qui indique la valeur passée réellement à la
+            fonction. <code>x</code> est la valeur entrée par l'utilisateur et <code>y</code> est l'image de
+            <code>x</code>.
+          </li>
+          <li>Lors de l'appel <code>f(x)</code> on copie la valeur de <code>x</code> dans la variable <code>a</code> de
+            la fonction. On calcule l'image de <code>a</code> et on retrourne le résultat à l'aide de
+            <strong>Retourner</strong>.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Question B</h3>
+        <p>Transformer l'étape 2 de l'algorithme en procédure.</p>
+
+        <pre><code class="algorithm">// Procédure
+procédure f(a : réel; @b : réel)
+  b &larr; 3 * a * a - 5 * a + 7
+Fin
+
+// Programme Principal
+Début PP
+  Ecrire("Donner x ? "); Lire(x)
+  f(x, y)
+  Ecrire(y)
+Fin</code></pre>
+        <h4>Explication</h4>
+        <ul>
+          <li>La procédure accepte deux paramètres, le premier paramètre représente le réel dont on veut calculer
+            l'image, le deuxième paramètre représente le résultat de la fonction réelle f.</li>
+          <li><code>a</code> et <code>b</code> sont des <strong>paramètres formels</strong> qui sont définis uniquement
+            à l'intérieur de la procédure.</li>
+          <li><code>a</code> est un paramètre passé par valeur, c-à-d qu'il s'agit d'une copie de <code>x</code>.</li>
+          <li><code>a</code> est passé par valeur car la procédure ne vas pas opérer aucun changement sur sa valeur.
+          </li>
+          <li><code>b</code> est un paramètre passé par variable, c-à-d, les changements opérés sur la variables
+            <code>b</code> dans la procédure sont propagés à la variable <code>y</code> du programme principal.
+          </li>
+          <li><code>x</code> et <code>y</code> sont des <strong>paramètres effectifs</strong> qui indiquent les valeurs
+            réelles passées à la procédure. <code>x</code> est la valeur entrée par l'utilisateur et <code>y</code> est
+            l'image de <code>x</code>.
+          </li>
+          <li>Lors de l'appel <code>f(x, y)</code> on copie la valeur de <code>x</code> dans la variable <code>a</code>
+            et on indique que <code>b</code> est le surnom de <code>y</code>, c-à-d <code>b</code> et <code>y</code>
+            sont deux noms d'un même objet. On calcule l'image de <code>a</code> et on retrourne le résultat dans le
+            <strong>la variable b qui n'est autre que <code>y</code></strong>.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Question C</h3>
+
+        <p>Ecrire l'algorithme d'un programme qui affiche le tableau de valeurs de cette fonction dans un intervalle
+          [a, b]. Le tableau contient n valeurs, 2 &le; n &le; 20.</p>
+
+        <div class="row">
+          <div class="col-8">
+            <pre><code class="algorithm">// Programme Principal
+Algorithme tableau_valeurs
+Début
+  SaisirIntervalle(a, b)
+  Saisir(n)
+  RemplirTableaux(a, b, n, tx, ty)
+  AfficherPoints(n, tx, ty)
+Fin
+
+Procédure SaisirIntervalle(@a, @b : réel)
+  Ecrire("Donner a ? "); Lire(a)
+  Répéter
+    Ecrire("Donner b > ", a, " ? "); Lire(b)
+  Jusqu'à a &lt; b
+Fin
+
+Procédure Saisir(@n : entier)
+  Répéter
+    Ecrire("Donner n > 1 ? "); Lire(n)
+  Jusqu'à (2 &le; n &le; 20)
+Fin
+
+Procédure RemplirTableaux(a, b: réel; n: entier; @tx, @ty: tab)
+  pas &larr; (b - a) / (n - 1)
+  Pour i de 0 à n-1 Faire
+    tx[i] &larr; a + pas * i
+    ty[i] &larr; f(tx[i])
+  Fin Pour
+Fin
+
+Procédure AfficherPoints(n : entier; tx, ty : tab)
+  Pour i de 0 à n-1 Faire
+    Ecrire("f(",tx[i],") = ", ty[i])
+  Fin Pour
+Fin</code></pre>
+          </div>
+          <div class="col-4">
+            <h5>PP</h5>
+            T.D.N.T
+            <table class="table table-sm table-bordered border-dark table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>TDNT</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>tab = tableau de 20 réel</td>
+                </tr>
+              </tbody>
+            </table>
+            T.D.O.G
+            <table class="table table-sm table-bordered border-dark table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>Objet</th>
+                  <th>Type/Nature</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>a, b<br>n<br>tx, ty</td>
+                  <td>réel<br>entier<br>tab</td>
+                </tr>
+                <tr>
+                  <td>SaisirIntervalle<br>Saisir<br>RemplirTableaux<br>AfficherPoints</td>
+                  <td>Procédure</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h5>RemplirTableaux</h5>
+            T.D.O.L
+            <table class="table table-sm table-bordered border-dark table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>Objet</th>
+                  <th>Type/Nature</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>pas<br>i</td>
+                  <td>réel<br>entier</td>
+                </tr>
+                <tr>
+                  <td>f</td>
+                  <td>Fonction</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h5>AfficherPoints</h5>
+            T.D.O.L
+            <table class="table table-sm table-bordered border-dark table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>Objet</th>
+                  <th>Type/Nature</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>i</td>
+                  <td>entier</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+    </article>
+  </main>
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée avec ♥ par Mohamed Anis MANI</div>
+    <div class="text-center small">Année scolaire : 2021/2022</div>
+  </footer>
+
+  <script src="resources/js/jquery.min.js"></script>
+  <script src="resources/js/bootstrap.bundle.min.js"></script>
+  <script src="resources/js/highlight.min.js"></script>
+  <script src="resources/js/hljs.algorithm.js"></script>
+  <script src="resources/js/clipboard.min.js"></script>
+  <script src="resources/js/pages.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+
+    document.querySelectorAll('.language-algorithm,.language-python,.language-delphi')
+      .forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'bd-clipboard d-print-none';
+        const btn = document.createElement('button');
+        btn.className = 'btn-clipboard';
+        btn.textContent = "📋";
+        btn.title = "Copier";
+        div.appendChild(btn);
+        item.parentElement.insertBefore(div, item);
+      });
+    new ClipboardJS('.btn-clipboard', {
+      target: (trigger) => {
+        return trigger.parentElement.nextElementSibling;
+      }
+    });
+  </script>
+
+  <script src="resources/js/funcs.js"></script>
+  <script src="resources/js/vue.min.js"></script>
+  <script src="resources/apps/chapitre03.js"></script>
+</body>
+
+</html>
