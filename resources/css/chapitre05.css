@@ -1,0 +1,46 @@
+.algo {
+  width: 700px;
+  margin: 0 auto;
+  border: 2px darkgreen solid;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.algo .boxes {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 32px;
+}
+
+.algo .box {
+	border: 5px solid black;
+	border-top: 1px solid black;
+	width: calc(10% - 4px);
+	margin: 5px 2px;
+	position: relative;
+	text-align: center;
+	padding: 15px 0;
+  font-size: 13pt;
+  cursor: pointer;
+}
+
+.algo .box::after {
+	content: attr(data-index);
+	display: block;
+	width: 100%;
+	text-align: center;
+	font-size: 10pt;
+	position: absolute;
+	bottom: -28px;
+}
+
+.algo .box.opened::before {
+	content: attr(data-open);
+	display: block;
+	font-size: 8pt;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background-color: #333;
+	color: #fff;
+}

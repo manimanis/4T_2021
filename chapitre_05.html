@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algorithmes Avancés</title>
+  <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+  <link rel="stylesheet" href="resources/css/default.css">
+  <link rel="stylesheet" href="resources/css/style.css">
+  <link rel="stylesheet" href="resources/css/chapitre05.css">
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="aside_navbar"></div>
+    </nav>
+  </aside>
+
+  <main class="container my-3">
+    <h1>Algorithmes Avancés</h1>
+
+    <article>
+      <h2>Algorithmes de recherche</h2>
+
+      <section>
+        <h3>Recherche Séquentielle</h3>
+
+        <h4>Utilisation</h4>
+        <p>La <strong>recherche séquentielle</strong> est utilisée pour rechercher une valeur dans un tableau non trié.
+        </p>
+
+        <h4>Principe</h4>
+        <p>Parcourir le tableau, dans l'ordre, de la première valeur jusqu'à trouver la valeur recherchée ou parcourir
+          tout le tableau.</p>
+        <p>Si la valeur est retrouvée on retourne son indice dans le tableau ou on peut aussi retourner un booléen pour
+          vérifier l'existence de l'élément.</p>
+
+        <h4>Simulation</h4>
+        <div id="rech-seq" class="algo">
+          <div class="boxes">
+            <div class="box" v-for="item, idx in arr" v-bind:data-index="idx" v-bind:class="{'bg-dark': idx >= current}"
+              v-on:click="handleClick(idx)">
+              <span v-if="idx < current"
+                v-bind:class="{'text-danger': value1 !== item, 'text-success': value1 === item}">{{item}}</span>
+              <span v-if="idx >= current">&nbsp;</span>
+            </div>
+          </div>
+          <div>Chercher dans quelle boîte se cache le nombre {{value1}}.</div>
+          <div v-if="!message">Vous devez cliquer sur la boîte numéro {{current}} pour découvrir son contenu.</div>
+          <div>{{message}}</div>
+          <div class="text-center my-2">
+            <button class="btn btn-primary" v-on:click="resetExistant()">Valeur existante</button>
+            <button class="btn btn-primary" v-on:click="resetInexistant()">Valeur inexistante</button>
+          </div>
+        </div>
+
+        <h4>Travail demandé</h4>
+        <p><strong>Ecrire l'algorithme d'une fonction qui recherche <strong>l'existence</strong> d'une valeur
+            <code>v</code> dans un tableau <code>t</code> de <code>n</code> éléments.</strong></p>
+
+        <div class="d-none d-print-block">
+          <h4>Solution - Nouveau régime</h4>
+          <div class="row">
+            <div class="col-8">
+              <pre><code class="algorithm">Fonction existe(v: entier; t: tab; n: entier):booléen
+Début
+  i &larr; 0
+  trouve &larr; Faux
+  TantQue (non trouve) et (i &lt; n) Faire
+    trouve &larr; t[i] = v
+    i &larr; i + 1
+  Fin TantQue
+  Retourner trouve
+Fin</code></pre>
+            </div>
+            <div class="col-4">
+              T.D.O.L
+              <table class="table table-sm table-bordered border-dark table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th>Objet</th>
+                    <th>Type/Nature</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>i<br>trouve</td>
+                    <td>entier<br>booléen</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-none d-print-block">
+          <h4>Solution - Ancien régime</h4>
+          <div class="row">
+            <div class="col-8">
+              <pre><code class="algorithm">DEF FN existe(v: entier; t: tab; n: entier):booléen
+Début
+  i &larr; 1
+  trouve &larr; Faux
+  TantQue (non trouve) et (i &le; n) Faire
+    trouve &larr; t[i] = v
+    i &larr; i + 1
+  Fin TantQue
+  existe &larr; trouve
+Fin</code></pre>
+            </div>
+            <div class="col-4">
+              T.D.O.L
+              <table class="table table-sm table-bordered border-dark table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th>Objet</th>
+                    <th>Type/Nature</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>i<br>trouve</td>
+                    <td>entier<br>booléen</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Recherche Dichotomique</h3>
+
+        <h4>Utilisation</h4>
+        <p>La <strong>Rechercher dichotomique</strong> est utilisée pour retrouver une valeur dans un tableau trié.</p>
+
+        <h4>Principe</h4>
+        <p>On suppose que la variable <strong>d</strong> indique l'indice du premier élément du tableau, que
+          <code>f</code> indique l'indice du dernier élément du tableau et que le tableau <strong>est trié en ordre
+            croissant</strong>.
+        </p>
+
+        <ol>
+          <li>Calculer l'indice <code>m</code> de l'élément qui se trouve au centre de l'intervalle <code>[d, f]</code>
+            : m ⟵ (d + f) div 2</li>
+          <li>Si <code>t[m] = v</code> &rArr; Valeur trouvée à l'indice m</li>
+          <li>Si <code>t[m] &lt; v</code> &rArr; Rechercher dans la partie droite du tableau, d ⟵ m + 1</li>
+          <li>Si <code>t[m] &gt; v</code> &rArr; Rechercher dans la partie gauche du tableau, f ⟵ m - 1</li>
+        </ol>
+
+        <h4>Simulation</h4>
+        <div id="rech-dicho" class="algo">
+          <div class="boxes">
+            <div class="box" v-for="item, idx in arr" v-bind:data-index="idx" v-bind:data-open="open[idx]"
+              v-bind:class="{'bg-dark': open[idx] == 0, 'opened': open[idx] != 0}" v-on:click="handleClick(idx)">
+              <span v-if="open[idx]"
+                v-bind:class="{'text-danger': value1 !== item, 'text-success': value1 === item}">{{item}}</span>
+              <span v-if="!open[idx]">&nbsp;</span>
+            </div>
+          </div>
+          <div>Chercher dans quelle boîte se cache le nombre {{value1}}.</div>
+          <div v-if="!message">Vous devez cliquer sur la boîte numéro {{current}} pour découvrir son contenu.</div>
+          <div>{{message}}</div>
+          <div class="text-center my-2">
+            <button class="btn btn-primary" v-on:click="resetExistant()">Valeur existante</button>
+            <button class="btn btn-primary" v-on:click="resetInexistant()">Valeur inexistante</button>
+          </div>
+        </div>
+
+        <h4>Travail demandé</h4>
+        <p><strong>Ecrire l'algorithme d'une fonction qui recherche <strong>l'existence</strong> d'une valeur
+            <code>v</code> dans un tableau <code>t</code> de <code>n</code> éléments.</strong></p>
+
+        <div class="d-none d-print-block">
+          <h4>Solution - Nouveau régime</h4>
+          <div class="row">
+            <div class="col-8">
+              <pre><code class="algorithm">Fonction existe(v: entier; t: tab; n: entier):booléen
+Début
+  d &larr; 0
+  f &larr; n-1
+  TantQue f &ge; d Faire
+    m &larr; (d + f) div 2
+    Si t[m] = v Alors Retourner Vrai
+    Sinon Si t[m] &lt; v Alors d &larr; m + 1
+    Sinon f &larr; m - 1
+    Fin Si 
+  Fin TantQue
+  Retourner Faux
+Fin</code></pre>
+            </div>
+            <div class="col-4">
+              T.D.O.L
+              <table class="table table-sm table-bordered border-dark table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th>Objet</th>
+                    <th>Type/Nature</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>d, f, m</td>
+                    <td>entier</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-none d-print-block">
+          <h4>Solution - Ancien régime</h4>
+          <div class="row">
+            <div class="col-8">
+              <pre><code class="algorithm">DEF FN existe(v: entier; t: tab; n: entier):booléen
+Début
+  d &larr; 0
+  f &larr; n-1
+  trouve &larr; Faux
+  TantQue (non trouve) and (f &ge; d) Faire
+    m &larr; (d + f) div 2
+    Si t[m] = v Alors trouve &larr; Vrai
+    Sinon Si t[m] &lt; v Alors d &larr; m + 1
+    Sinon f &larr; m - 1
+    Fin Si 
+  Fin TantQue
+  existe &larr; trouve
+Fin</code></pre>
+            </div>
+            <div class="col-4">
+              T.D.O.L
+              <table class="table table-sm table-bordered border-dark table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th>Objet</th>
+                    <th>Type/Nature</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>d, f, m<br>trouve</td>
+                    <td>entier<br>booléen</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+
+    <article>
+      <h2>Algorithmes de tri</h2>
+
+      <section>
+        <h3>Tri par sélection</h3>
+
+        <div id="tri-selection" class="algo">
+          <div class="boxes">
+            <div class="box" v-for="item, idx in arr" v-bind:data-index="idx" v-bind:data-open="open[idx] ? 'trié' : ''"
+              v-bind:class="{'bg-dark': !(open[idx] || idx == i || idx == j), 'opened': (open[idx] || idx == i || idx == j)}">
+              <span v-if="open[idx] || idx == i || idx == j"
+                v-bind:class="{'text-danger': idx === i, 'text-success': idx === j}">{{item}}</span>
+              <span v-else>&nbsp;</span>
+            </div>
+          </div>
+          <div v-if="!sorted">
+            <span>Quel est l'élément qui doit être placé dans la <span class="text-danger">case d'indice {{i}}</span>
+              ?</span><br>
+            <span class="text-success">arr[{{j}}]</span> &lt; <span class="text-danger">arr[{{i}}]</span> &rArr;
+            <span class="p-2 mx-2" v-bind:class="{'bg-dark text-warning': arr[j] < arr[i]}">{{arr[j] < arr[i]}}</span>
+                <button class="btn btn-warning" v-if="arr[j] < arr[i]" v-on:click="performSwap()">
+                  Permuter</button>
+                <button class="btn btn-secondary" v-if="!this.sorted && arr[j] >= arr[i]"
+                  v-on:click="nextIteration()">Continuer</button>
+          </div>
+          <div>{{message}}</div>
+          <div class="text-center my-2">
+            <button class="btn btn-primary" v-if="sorted" v-on:click="resetSort()">Nouveau tri</button>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Tri à bulles</h3>
+
+        <div id="tri-bulles" class="algo">
+          <div class="boxes">
+            <div class="box" v-for="item, idx in arr" v-bind:data-index="idx" v-bind:data-open="open[idx] ? 'trié' : ''"
+              v-bind:class="{'bg-dark': !(open[idx] || idx == (j-1) || idx == j), 'opened': (open[idx] || idx == (j-1) || idx == j)}">
+              <span v-if="open[idx] || idx == (j-1) || idx == j"
+                v-bind:class="{'text-danger': idx === (j-1), 'text-success': idx === j}">{{item}}</span>
+              <span v-else>&nbsp;</span>
+            </div>
+          </div>
+          <div v-if="!sorted">
+            <span>Quel est l'élément qui doit être placé dans la <span class="text-danger">case d'indice {{arr.length -
+                1 - i}}</span>
+              ?</span><br>
+            <span class="text-success">arr[{{j}}]</span> &lt; <span class="text-danger">arr[{{j-1}}]</span> &rArr;
+            <span class="p-2 mx-2" v-bind:class="{'bg-dark text-warning': arr[j] < arr[j-1]}">{{arr[j] <
+                arr[j-1]}}</span>
+                <button class="btn btn-warning" v-if="arr[j] < arr[j-1]" v-on:click="performSwap()">
+                  Permuter</button>
+                <button class="btn btn-secondary" v-if="!this.sorted && arr[j] >= arr[j-1]"
+                  v-on:click="nextIteration()">Continuer</button>
+          </div>
+          <div>{{message}}</div>
+          <div class="text-center my-2">
+            <button class="btn btn-primary" v-if="sorted" v-on:click="resetSort()">Nouveau tri</button>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée avec ♥ par Mohamed Anis MANI</div>
+    <div class="text-center small">Année scolaire : 2021/2022</div>
+  </footer>
+
+  <script src="resources/js/jquery.min.js"></script>
+  <script src="resources/js/bootstrap.bundle.min.js"></script>
+  <script src="resources/js/highlight.min.js"></script>
+  <script src="resources/js/hljs.algorithm.js"></script>
+  <script src="resources/js/clipboard.min.js"></script>
+  <script src="resources/js/pages.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+
+    document.querySelectorAll('.language-algorithm,.language-python,.language-delphi')
+      .forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'bd-clipboard d-print-none';
+        const btn = document.createElement('button');
+        btn.className = 'btn-clipboard';
+        btn.textContent = "📋";
+        btn.title = "Copier";
+        div.appendChild(btn);
+        item.parentElement.insertBefore(div, item);
+      });
+    new ClipboardJS('.btn-clipboard', {
+      target: (trigger) => {
+        return trigger.parentElement.nextElementSibling;
+      }
+    });
+  </script>
+  <script src="resources/js/funcs.js"></script>
+  <script src="resources/js/vue.min.js"></script>
+  <script src="resources/apps/chapitre05.js"></script>
+</body>
+
+</html>
