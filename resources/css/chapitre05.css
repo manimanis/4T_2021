@@ -1,15 +1,15 @@
 .algo {
-  width: 700px;
-  margin: 0 auto;
-  border: 2px darkgreen solid;
-  border-radius: 15px;
-  padding: 20px;
+	width: 700px;
+	margin: 0 auto;
+	border: 2px darkgreen solid;
+	border-radius: 15px;
+	padding: 8px;
 }
 
 .algo .boxes {
-  display: flex;
-  flex-direction: row;
-  padding-bottom: 32px;
+	display: flex;
+	flex-direction: row;
+	padding-bottom: 32px;
 }
 
 .algo .box {
@@ -19,9 +19,9 @@
 	margin: 5px 2px;
 	position: relative;
 	text-align: center;
-	padding: 15px 0;
-  font-size: 13pt;
-  cursor: pointer;
+	padding: 5px 0;
+	font-size: 13pt;
+	cursor: pointer;
 }
 
 .algo .box::after {

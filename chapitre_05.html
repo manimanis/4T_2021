@@ -54,7 +54,7 @@
           <div>Chercher dans quelle boîte se cache le nombre {{value1}}.</div>
           <div v-if="!message">Vous devez cliquer sur la boîte numéro {{current}} pour découvrir son contenu.</div>
           <div>{{message}}</div>
-          <div class="text-center my-2">
+          <div class="text-center my-2 d-print-none">
             <button class="btn btn-primary" v-on:click="resetExistant()">Valeur existante</button>
             <button class="btn btn-primary" v-on:click="resetInexistant()">Valeur inexistante</button>
           </div>
@@ -168,7 +168,7 @@ Fin</code></pre>
           <div>Chercher dans quelle boîte se cache le nombre {{value1}}.</div>
           <div v-if="!message">Vous devez cliquer sur la boîte numéro {{current}} pour découvrir son contenu.</div>
           <div>{{message}}</div>
-          <div class="text-center my-2">
+          <div class="text-center my-2 d-print-none">
             <button class="btn btn-primary" v-on:click="resetExistant()">Valeur existante</button>
             <button class="btn btn-primary" v-on:click="resetInexistant()">Valeur inexistante</button>
           </div>
@@ -184,14 +184,12 @@ Fin</code></pre>
             <div class="col-8">
               <pre><code class="algorithm">Fonction existe(v: entier; t: tab; n: entier):booléen
 Début
-  d &larr; 0
-  f &larr; n-1
+  d &larr; 0 ; f &larr; n-1
   TantQue f &ge; d Faire
     m &larr; (d + f) div 2
     Si t[m] = v Alors Retourner Vrai
     Sinon Si t[m] &lt; v Alors d &larr; m + 1
-    Sinon f &larr; m - 1
-    Fin Si 
+    Sinon f &larr; m - 1 Fin Si 
   Fin TantQue
   Retourner Faux
 Fin</code></pre>
@@ -222,15 +220,12 @@ Fin</code></pre>
             <div class="col-8">
               <pre><code class="algorithm">DEF FN existe(v: entier; t: tab; n: entier):booléen
 Début
-  d &larr; 0
-  f &larr; n-1
-  trouve &larr; Faux
+  d &larr; 0 ; f &larr; n-1 ; trouve &larr; Faux
   TantQue (non trouve) and (f &ge; d) Faire
     m &larr; (d + f) div 2
     Si t[m] = v Alors trouve &larr; Vrai
     Sinon Si t[m] &lt; v Alors d &larr; m + 1
-    Sinon f &larr; m - 1
-    Fin Si 
+    Sinon f &larr; m - 1 Fin Si 
   Fin TantQue
   existe &larr; trouve
 Fin</code></pre>
@@ -263,59 +258,247 @@ Fin</code></pre>
       <section>
         <h3>Tri par sélection</h3>
 
-        <div id="tri-selection" class="algo">
-          <div class="boxes">
-            <div class="box" v-for="item, idx in arr" v-bind:data-index="idx" v-bind:data-open="open[idx] ? 'trié' : ''"
-              v-bind:class="{'bg-dark': !(open[idx] || idx == i || idx == j), 'opened': (open[idx] || idx == i || idx == j)}">
-              <span v-if="open[idx] || idx == i || idx == j"
-                v-bind:class="{'text-danger': idx === i, 'text-success': idx === j}">{{item}}</span>
-              <span v-else>&nbsp;</span>
+        <h4>Utilisation</h4>
+        <p>Ordonner les éléments d'un tableau en ordre croissant ou décroissant.</p>
+
+        <h4>Principe</h4>
+        <ol>
+          <li>Pour chaque élément d'indice <code>i</code> allant de 0 à n-2</li>
+          <li>Pour chaque élément d'indice <code>j</code> allant de i+1 à n-1</li>
+          <li>Si t[j] &lt; t[i] &rArr; permuter(t[i], t[j])</li>
+        </ol>
+        <div class="d-print-none">
+          <h4>Simulation</h4>
+          <div id="tri-selection" class="algo">
+            <div class="boxes">
+              <div class="box" v-for="item, idx in arr" v-bind:data-index="idx"
+                v-bind:data-open="open[idx] ? 'trié' : ''"
+                v-bind:class="{'bg-dark': !(open[idx] || idx == i || idx == j), 'opened': (open[idx] || idx == i || idx == j)}">
+                <span v-if="open[idx] || idx == i || idx == j"
+                  v-bind:class="{'text-danger': idx === i, 'text-success': idx === j}">{{item}}</span>
+                <span v-else>&nbsp;</span>
+              </div>
+            </div>
+            <div v-if="!sorted">
+              <span>Quel est l'élément qui doit être placé dans la <span class="text-danger">case d'indice {{i}}</span>
+                ?</span><br>
+              <span class="text-success">arr[{{j}}]</span> &lt; <span class="text-danger">arr[{{i}}]</span> &rArr;
+              <span class="p-2 mx-2" v-bind:class="{'bg-dark text-warning': arr[j] < arr[i]}">{{arr[j] < arr[i]}}</span>
+                  <button class="btn btn-warning" v-if="arr[j] < arr[i]" v-on:click="performSwap()">
+                    Permuter</button>
+                  <button class="btn btn-secondary" v-if="!this.sorted && arr[j] >= arr[i]"
+                    v-on:click="nextIteration()">Continuer</button>
+            </div>
+            <div>{{message}}</div>
+            <div class="text-center my-2 d-print-none">
+              <button class="btn btn-primary" v-if="sorted" v-on:click="resetSort()">Nouveau tri</button>
             </div>
           </div>
-          <div v-if="!sorted">
-            <span>Quel est l'élément qui doit être placé dans la <span class="text-danger">case d'indice {{i}}</span>
-              ?</span><br>
-            <span class="text-success">arr[{{j}}]</span> &lt; <span class="text-danger">arr[{{i}}]</span> &rArr;
-            <span class="p-2 mx-2" v-bind:class="{'bg-dark text-warning': arr[j] < arr[i]}">{{arr[j] < arr[i]}}</span>
-                <button class="btn btn-warning" v-if="arr[j] < arr[i]" v-on:click="performSwap()">
-                  Permuter</button>
-                <button class="btn btn-secondary" v-if="!this.sorted && arr[j] >= arr[i]"
-                  v-on:click="nextIteration()">Continuer</button>
+        </div>
+
+
+        <h4>Travail demandé</h4>
+        <p>Ecrire l'algorithme de la procédure <code>TriSelection(n, t)</code> qui ordonne les éléments de
+          <code>t</code> en ordre décroissant.
+        </p>
+
+        <div class="d-none d-print-block">
+          <h4>Solution - Nouveau régime</h4>
+          <div class="row">
+            <div class="col-8">
+              <pre><code class="algorithm">Procédure TriSelection(n: entier; @t: tab)
+Début
+  Pour i de 0 à n-2 faire
+    Pour j de i+1 à n-1 faire
+      Si t[j] &lt; t[i] Alors
+        aux &larr; t[j]
+        t[j] &larr; t[i]
+        t[i] &larr; aux
+      Fin Si
+    Fin Pour
+  Fin Pour
+Fin</code></pre>
+            </div>
+            <div class="col-4">
+              T.D.O.L
+              <table class="table table-sm table-bordered border-dark table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th>Objet</th>
+                    <th>Type/Nature</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>i, j, aux</td>
+                    <td>entier</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
-          <div>{{message}}</div>
-          <div class="text-center my-2">
-            <button class="btn btn-primary" v-if="sorted" v-on:click="resetSort()">Nouveau tri</button>
+        </div>
+
+        <div class="d-none d-print-block">
+          <h4>Solution - Ancien régime</h4>
+          <div class="row">
+            <div class="col-8">
+              <pre><code class="algorithm">Procédure TriSelection(n: entier; var t: tab)
+Début
+  Pour i de 1 à n-1 faire
+    Pour j de i+1 à n faire
+      Si t[j] &lt; t[i] Alors
+        aux &larr; t[j]
+        t[j] &larr; t[i]
+        t[i] &larr; aux
+      Fin Si
+    Fin Pour
+  Fin Pour
+Fin</code></pre>
+            </div>
+            <div class="col-4">
+              T.D.O.L
+              <table class="table table-sm table-bordered border-dark table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th>Objet</th>
+                    <th>Type/Nature</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>i, j, aux</td>
+                    <td>entier</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </section>
 
       <section>
-        <h3>Tri à bulles</h3>
+        <h3 class="p-break">Tri à bulles</h3>
 
-        <div id="tri-bulles" class="algo">
-          <div class="boxes">
-            <div class="box" v-for="item, idx in arr" v-bind:data-index="idx" v-bind:data-open="open[idx] ? 'trié' : ''"
-              v-bind:class="{'bg-dark': !(open[idx] || idx == (j-1) || idx == j), 'opened': (open[idx] || idx == (j-1) || idx == j)}">
-              <span v-if="open[idx] || idx == (j-1) || idx == j"
-                v-bind:class="{'text-danger': idx === (j-1), 'text-success': idx === j}">{{item}}</span>
-              <span v-else>&nbsp;</span>
+        <h4>Utilisation</h4>
+        <p>Ordonner les éléments d'un tableau en ordre croissant ou décroissant.</p>
+
+        <h4>Principe</h4>
+        <ol>
+          <li>Pour chaque élément d'indice <code>i</code> allant de 0 à n-2</li>
+          <li>Pour chaque élément d'indice <code>j</code> allant de 1 à n-1</li>
+          <li>Si t[j] &lt; t[j-1] &rArr; permuter(t[j], t[j-1])</li>
+        </ol>
+
+        <div class="d-print-none">
+          <h4>Simulation</h4>
+          <div id="tri-bulles" class="algo">
+            <div class="boxes">
+              <div class="box" v-for="item, idx in arr" v-bind:data-index="idx"
+                v-bind:data-open="open[idx] ? 'trié' : ''"
+                v-bind:class="{'bg-dark': !(open[idx] || idx == (j-1) || idx == j), 'opened': (open[idx] || idx == (j-1) || idx == j)}">
+                <span v-if="open[idx] || idx == (j-1) || idx == j"
+                  v-bind:class="{'text-danger': idx === (j-1), 'text-success': idx === j}">{{item}}</span>
+                <span v-else>&nbsp;</span>
+              </div>
+            </div>
+            <div v-if="!sorted">
+              <span>Quel est l'élément qui doit être placé dans la <span class="text-danger">case d'indice {{arr.length
+                  -
+                  1 - i}}</span>
+                ?</span><br>
+              <span class="text-success">arr[{{j}}]</span> &lt; <span class="text-danger">arr[{{j-1}}]</span> &rArr;
+              <span class="p-2 mx-2" v-bind:class="{'bg-dark text-warning': arr[j] < arr[j-1]}">{{arr[j] <
+                  arr[j-1]}}</span>
+                  <button class="btn btn-warning" v-if="arr[j] < arr[j-1]" v-on:click="performSwap()">
+                    Permuter</button>
+                  <button class="btn btn-secondary" v-if="!this.sorted && arr[j] >= arr[j-1]"
+                    v-on:click="nextIteration()">Continuer</button>
+            </div>
+            <div>{{message}}</div>
+            <div class="text-center my-2 d-print-none">
+              <button class="btn btn-primary" v-if="sorted" v-on:click="resetSort()">Nouveau tri</button>
             </div>
           </div>
-          <div v-if="!sorted">
-            <span>Quel est l'élément qui doit être placé dans la <span class="text-danger">case d'indice {{arr.length -
-                1 - i}}</span>
-              ?</span><br>
-            <span class="text-success">arr[{{j}}]</span> &lt; <span class="text-danger">arr[{{j-1}}]</span> &rArr;
-            <span class="p-2 mx-2" v-bind:class="{'bg-dark text-warning': arr[j] < arr[j-1]}">{{arr[j] <
-                arr[j-1]}}</span>
-                <button class="btn btn-warning" v-if="arr[j] < arr[j-1]" v-on:click="performSwap()">
-                  Permuter</button>
-                <button class="btn btn-secondary" v-if="!this.sorted && arr[j] >= arr[j-1]"
-                  v-on:click="nextIteration()">Continuer</button>
+        </div>
+
+
+        <h4>Travail demandé</h4>
+        <p>Ecrire l'algorithme de la procédure <code>TriBulles(n, t)</code> qui ordonne les éléments de
+          <code>t</code> en ordre décroissant.
+        </p>
+
+        <div class="d-none d-print-block">
+          <h4>Solution - Nouveau régime</h4>
+          <div class="row">
+            <div class="col-8">
+              <pre><code class="algorithm">Procédure TriBilles(n: entier; @t: tab)
+Début
+  Pour i de 0 à n-2 faire
+    Pour j de 1 à n-1 faire
+      Si t[j] &lt; t[j-1] Alors
+        aux &larr; t[j]
+        t[j] &larr; t[j-1]
+        t[j-1] &larr; aux
+      Fin Si
+    Fin Pour
+  Fin Pour
+Fin</code></pre>
+            </div>
+            <div class="col-4">
+              T.D.O.L
+              <table class="table table-sm table-bordered border-dark table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th>Objet</th>
+                    <th>Type/Nature</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>i, j, aux</td>
+                    <td>entier</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
-          <div>{{message}}</div>
-          <div class="text-center my-2">
-            <button class="btn btn-primary" v-if="sorted" v-on:click="resetSort()">Nouveau tri</button>
+        </div>
+
+        <div class="d-none d-print-block">
+          <h4>Solution - Ancien régime</h4>
+          <div class="row">
+            <div class="col-8">
+              <pre><code class="algorithm">Procédure TriBulles(n: entier; var t: tab)
+Début
+  Pour i de 1 à n-1 faire
+    Pour j de 2 à n faire
+      Si t[j] &lt; t[j-1] Alors
+        aux &larr; t[j]
+        t[j] &larr; t[j-1]
+        t[j-1] &larr; aux
+      Fin Si
+    Fin Pour
+  Fin Pour
+Fin</code></pre>
+            </div>
+            <div class="col-4">
+              T.D.O.L
+              <table class="table table-sm table-bordered border-dark table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th>Objet</th>
+                    <th>Type/Nature</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>i, j, aux</td>
+                    <td>entier</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </section>
@@ -335,22 +518,22 @@ Fin</code></pre>
   <script>
     hljs.initHighlightingOnLoad();
 
-    document.querySelectorAll('.language-algorithm,.language-python,.language-delphi')
-      .forEach(item => {
-        const div = document.createElement('div');
-        div.className = 'bd-clipboard d-print-none';
-        const btn = document.createElement('button');
-        btn.className = 'btn-clipboard';
-        btn.textContent = "📋";
-        btn.title = "Copier";
-        div.appendChild(btn);
-        item.parentElement.insertBefore(div, item);
-      });
-    new ClipboardJS('.btn-clipboard', {
-      target: (trigger) => {
-        return trigger.parentElement.nextElementSibling;
-      }
-    });
+    // document.querySelectorAll('.language-algorithm,.language-python,.language-delphi')
+    //   .forEach(item => {
+    //     const div = document.createElement('div');
+    //     div.className = 'bd-clipboard d-print-none';
+    //     const btn = document.createElement('button');
+    //     btn.className = 'btn-clipboard';
+    //     btn.textContent = "📋";
+    //     btn.title = "Copier";
+    //     div.appendChild(btn);
+    //     item.parentElement.insertBefore(div, item);
+    //   });
+    // new ClipboardJS('.btn-clipboard', {
+    //   target: (trigger) => {
+    //     return trigger.parentElement.nextElementSibling;
+    //   }
+    // });
   </script>
   <script src="resources/js/funcs.js"></script>
   <script src="resources/js/vue.min.js"></script>
