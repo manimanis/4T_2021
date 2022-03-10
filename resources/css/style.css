@@ -295,6 +295,9 @@ table.col-20 td {
   width: calc(100% / 20);
 }
 
+.table {
+  margin-bottom: 0.5em;
+}
 
 /****Tables end****/
 

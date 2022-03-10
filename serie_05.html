@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Les algorithmes avancés</title>
+  <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+  <link rel="stylesheet" href="resources/css/default.css">
+  <link rel="stylesheet" href="resources/css/style.css">
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="aside_navbar"></div>
+    </nav>
+  </aside>
+
+  <main class="container my-3">
+    <h1>Les algorithmes avancés</h1>
+
+    <article>
+      <h2>Exercices</h2>
+
+      <section>
+        <h3>Fiches patients</h3>
+        <p>Un médecin veut rechercher les fiches de ses patients en connaissant leurs noms.</p>
+        <p>Les noms des patients sont enregistrés dans un tableau <code>noms</code> non ordonné.</p>
+        <h4>Travail demandé</h4>
+        <p>Ecrire un programme qui :</p>
+        <ol>
+          <li>Saisit le nombre de patients <code>np</code>, 3 &le; np &le; 100.</li>
+          <li>Saisit les noms des patients dans un tableau <code>noms</code>, les <strong>noms doivent être distincts
+              deux à deux</strong>.</li>
+          <li>Saisit le nom du patient à rechercher <code>nom_patient</code>.</li>
+          <li>Cherche et puis affiche le numéro de sa fiche.</li>
+          <li>L'utilisateur peut décider de faire une nouvelle recherche ou d'arrêter le programme en tapant :
+            <strong>fin</strong>
+          </li>
+        </ol>
+        <pre class="d-print-none"><code class="nohighlight shell python">Entrer le nombre de patients [3, 100] ? 15
+Nom patient 1 ? Ahmed
+Nom patient 2 ? Yassine
+Nom patient 3 ? Olfa
+Nom patient 4 ? Amel
+Nom patient 5 ? Ikram
+Nom patient 6 ? Sami
+Nom patient 7 ? Ahmed
+Ahmed existe déjà!
+Nom patient 7 ? Youssef
+Nom patient 8 ? Fadwa
+Nom patient 9 ? olfa
+olfa existe déjà!
+Nom patient 9 ? Eya
+Nom patient 10 ? Amira
+Nom patient 11 ? Aymen
+Nom patient 12 ? Karim
+Nom patient 13 ? Sahbi
+Nom patient 14 ? Adem
+Nom patient 15 ? Aymen
+Aymen existe déjà!
+Nom patient 15 ? olfa
+olfa existe déjà!
+Nom patient 15 ? Eya
+Eya existe déjà!
+Nom patient 15 ? Ayoub
+Nom patient à rechercher ? Sami
+'Sami' possède la fiche n°6
+Nom patient à rechercher ? Fadwa
+'Fadwa' possède la fiche n°8
+Nom patient à rechercher ? Samia
+'Samia' n'est pas notre patient!
+Nom patient à rechercher ? Youssef
+'Youssef' possède la fiche n°7
+Nom patient à rechercher ? fin
+'fin' n'est pas notre patient!</code></pre>
+      </section>
+
+      <section>
+        <h3>Bac Théorique 2016</h3>
+        <p>Un bateau en détresse a lancé un appel de secours (SOS). Pour le sauver le commandant de la garde côte a
+          besoin de localiser le(s) bateau(x) proche(s) de celui-ci. En s'appuyant sur leurs coordonées (x, y) fournis
+          par le radar du commandant (comme illustré dans la figure ci-dessous), la localisation des bateaux se fait par
+          le calcul des distances qui les séparent du bateau en détresse.</p>
+        <figure class="d-print-none">
+          <img src="resources/chapitre_05/images/sos-bateaux.png" alt="Radar des bateaux" class="h8cm">
+          <figcaption>Radar des bateaux</figcaption>
+        </figure>
+        <p>Pour aider le commandant de la garde côte, on se propose d'écrire un programme sui :</p>
+        <ul>
+          <li>Saisit les coordonnées du bateau en détresse (<code>Xd</code>, <code>Yd</code>).</li>
+          <li>Saisit les coordonnées de <code>n</code> autres bateaux dans deux tableaux <code>Tx</code> et
+            <code>Ty</code>, avec 1 &le; n &le; 50, <code>Tx</code> contient les abcisses et <code>Ty</code> contient
+            les ordonnées.<br>
+            <strong>Il est a noter que deux bateaux ne peuvent pas avoir les mêmes coordonnées.</strong>
+          </li>
+          <li>Remplit un tableau <code>Td</code> par les distances qui séparent les différents bateaux du bateau en
+            détresse.<br>
+            <strong>NB : La distance d(AB) qui sépare deux points A et B de coordonées respectives (Xa, Ya) et (Xb, Yb)
+              est calculée comme suit</strong>
+            <img src="resources/chapitre_05/images/distance_ab.PNG" alt="Distance entre deux points du plan"
+              class="h1cm">
+          </li>
+          <li>Affiche les coordonnées (X, Y) des bateaux du plus proches au plus loin du bateau en détresse.</li>
+        </ul>
+        <h4>Exemple</h4>
+        <p>Pour les coordonnées du bateau en détresse (Xd, yd) = (500, 300), le nombre de bateaux <code>n = 5</code> et
+          les deux tableaux Tx et Ty suivants :</p>
+        <div class="mx-auto w-50">
+          <table class="table table-borderless table-sm border-dark col-6">
+            <tbody>
+              <tr>
+                <td class="text-center">Tx</td>
+                <td class="text-center border border-dark">1000</td>
+                <td class="text-center border border-dark">500</td>
+                <td class="text-center border border-dark">100.25</td>
+                <td class="text-center border border-dark">-350</td>
+                <td class="text-center border border-dark">1200</td>
+              </tr>
+              <tr>
+                <td class="text-center"><small>&nbsp;</small></td>
+                <td class="text-center"><small>0</small></td>
+                <td class="text-center"><small>1</small></td>
+                <td class="text-center"><small>2</small></td>
+                <td class="text-center"><small>3</small></td>
+                <td class="text-center"><small>4</small></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="mx-auto w-50">
+          <table class="table table-borderless table-sm border-dark col-6">
+            <tbody>
+              <tr>
+                <td class="text-center">Ty</td>
+                <td class="text-center border border-dark">-300</td>
+                <td class="text-center border border-dark">400</td>
+                <td class="text-center border border-dark">-90</td>
+                <td class="text-center border border-dark">75</td>
+                <td class="text-center border border-dark">358.14</td>
+              </tr>
+              <tr>
+                <td class="text-center"><small>&nbsp;</small></td>
+                <td class="text-center"><small>0</small></td>
+                <td class="text-center"><small>1</small></td>
+                <td class="text-center"><small>2</small></td>
+                <td class="text-center"><small>3</small></td>
+                <td class="text-center"><small>4</small></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Le calcul des distances donne le tableau <code>Td</code> suivant :</p>
+        <div class="mx-auto w-50">
+          <table class="table table-borderless table-sm border-dark col-6">
+            <tbody>
+              <tr>
+                <td class="text-center">Td</td>
+                <td class="text-center border border-dark">781.02</td>
+                <td class="text-center border border-dark">100</td>
+                <td class="text-center border border-dark">558.48</td>
+                <td class="text-center border border-dark">879.28</td>
+                <td class="text-center border border-dark">702.41</td>
+              </tr>
+              <tr>
+                <td class="text-center"><small>&nbsp;</small></td>
+                <td class="text-center"><small>0</small></td>
+                <td class="text-center"><small>1</small></td>
+                <td class="text-center"><small>2</small></td>
+                <td class="text-center"><small>3</small></td>
+                <td class="text-center"><small>4</small></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Le programme afficheles coordonnées (X, Y) des bateaux, comme suit :<br>
+          (1000, -300) - (500, 400) - (100.25, -90) - (-350, 75) - (1200, 358.14)
+        </p>
+        <h4>Travail demandé</h4>
+        <ol>
+          <li>Analyser le problème en le décomposant en modules.</li>
+          <li>Analyser chacun des modules envisagés.</li>
+        </ol>
+      </section>
+    </article>
+  </main>
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée avec ♥ par Mohamed Anis MANI</div>
+    <div class="text-center small">Année scolaire : 2021/2022</div>
+  </footer>
+
+  <script src="resources/js/jquery.min.js"></script>
+  <script src="resources/js/bootstrap.bundle.min.js"></script>
+  <script src="resources/js/highlight.min.js"></script>
+  <script src="resources/js/hljs.algorithm.js"></script>
+  <script src="resources/js/clipboard.min.js"></script>
+  <script src="resources/js/pages.js"></script>
+  <script src="resources/js/draggable.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+
+    document.querySelectorAll('.language-algorithm,.language-python,.language-delphi')
+      .forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'bd-clipboard d-print-none';
+        const btn = document.createElement('button');
+        btn.className = 'btn-clipboard';
+        btn.textContent = "📋";
+        btn.title = "Copier";
+        div.appendChild(btn);
+        item.parentElement.insertBefore(div, item);
+      });
+    new ClipboardJS('.btn-clipboard', {
+      target: (trigger) => {
+        return trigger.parentElement.nextElementSibling;
+      }
+    });
+  </script>
+  <script src="resources/js/vue.min.js"></script>
+  <script src="resources/apps/serie03.js"></script>
+</body>
+
+</html>
