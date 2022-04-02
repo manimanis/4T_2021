@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="Lazarus SynEdit Html Exporter">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>fiches_patients</title>
+</head>
+<body text="black" bgcolor="#3D3D3D"><pre><code><font  size=3 face="Courier New"><font color="black"><b>program </b>fiches_patients<font color="red">;
+</font><b>type
+  </b>tab <font color="red">= </font><b>array </b><font color="red">[</font><font color="navy">1</font><font color="red">..</font><font color="navy">100</font><font color="red">] </font><b>of string</b><font color="red">;
+
+</font><b>Function </b>Recherche<font color="red">(</font>t<font color="red">:</font>tab<font color="red">;</font>n<font color="red">:</font>integer<font color="red">;</font>v<font color="red">:</font><b>string</b><font color="red">):</font>integer<font color="red">;
+</font><b>Var
+  </b>i<font color="red">, </font>p<font color="red">: </font>integer<font color="red">;
+</font><b>Begin
+  </b>p <font color="red">:= </font><font color="navy">0</font><font color="red">; </font>i <font color="red">:= </font><font color="navy">1</font><font color="red">;
+  </font><b>While </b><font color="red">(</font>i <font color="red">&lt;= </font>n<font color="red">) </font><b>and </b><font color="red">(</font>p <font color="red">= </font><font color="navy">0</font><font color="red">) </font><b>Do
+  Begin
+    if </b>t<font color="red">[</font>i<font color="red">] = </font>v <b>then </b>p <font color="red">:= </font>i <b>else </b>i <font color="red">:= </font>i <font color="red">+ </font><font color="navy">1</font><font color="red">;
+  </font><b>End</b><font color="red">;
+  </font>Recherche <font color="red">:= </font>p<font color="red">;
+</font><b>End</b><font color="red">;
+
+</font><b>Procedure </b>Remplir<font color="red">(</font><b>var </b>t<font color="red">:</font>tab<font color="red">; </font><b>var </b>n<font color="red">:</font>integer<font color="red">);
+</font><b>Var
+  </b>i<font color="red">: </font>integer<font color="red">;
+</font><b>Begin
+  Repeat
+    </b>Write<font color="red">(</font><font color="blue">'Donner le Nbre de Patients ? '</font><font color="red">);
+    </font>Readln<font color="red">(</font>n<font color="red">);
+  </font><b>until </b><font color="red">(</font><font color="navy">3 </font><font color="red">&lt;= </font>n<font color="red">) </font><b>and </b><font color="red">(</font>n <font color="red">&lt;= </font><font color="navy">100</font><font color="red">);
+  </font><b>for </b>i <font color="red">:= </font><font color="navy">1 </font><b>to </b>n <b>do
+    Repeat
+      </b>Write<font color="red">(</font><font color="blue">'Patient n°'</font><font color="red">, </font>i<font color="red">, </font><font color="blue">' ? '</font><font color="red">);
+      </font>Readln<font color="red">(</font>t<font color="red">[</font>i<font color="red">]);
+    </font><b>Until </b>Recherche<font color="red">(</font>t<font color="red">, </font>i<font color="red">-</font><font color="navy">1</font><font color="red">, </font>t<font color="red">[</font>i<font color="red">]) = </font><font color="navy">0</font><font color="red">;
+</font><b>End</b><font color="red">;
+
+</font><b>var
+  </b>noms<font color="red">: </font>tab<font color="red">;
+  </font>nom_patient<font color="red">: </font><b>string</b><font color="red">;
+  </font>np<font color="red">, </font>nf<font color="red">: </font>integer<font color="red">;
+</font><b>begin
+  </b>Remplir<font color="red">(</font>noms<font color="red">, </font>np<font color="red">);
+  </font><b>Repeat
+    </b>Write<font color="red">(</font><font color="blue">'Patient à rechercher ? '</font><font color="red">);
+    </font>Readln<font color="red">(</font>nom_patient<font color="red">);
+    </font>nf <font color="red">:= </font>Recherche<font color="red">(</font>noms<font color="red">, </font>np<font color="red">, </font>nom_patient<font color="red">);
+    </font><b>if </b>nf <font color="red">= </font><font color="navy">0 </font><b>Then
+      </b>Writeln<font color="red">(</font><font color="blue">'Le patient est introuvable'</font><font color="red">)
+    </font><b>else
+      </b>Writeln<font color="red">(</font><font color="blue">'Fiche n°'</font><font color="red">, </font>nf<font color="red">);
+  </font><b>Until </b>Upcase<font color="red">(</font>nom_patient<font color="red">) = </font><font color="blue">'FIN'</font><font color="red">;
+  </font>Readln<font color="red">;
+</font><b>end</b><font color="red">.
+
+</font></font>
+</code></pre>
+</body>
+</html>

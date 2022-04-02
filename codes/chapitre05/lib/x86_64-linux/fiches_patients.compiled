@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Compiler Value="/usr/bin/fpc" Date="1574718682"/>
+  <Params Value=" -MObjFPC -Scghi -Cg -O1 -g -gl -l -vewnhibq -Fi/mnt/CE3C92843C9266ED/Cours2022/4T/codes/chapitre05/lib/x86_64-linux -Fu/mnt/CE3C92843C9266ED/Cours2022/4T/codes/chapitre05/ -FU/mnt/CE3C92843C9266ED/Cours2022/4T/codes/chapitre05/lib/x86_64-linux/ -FE/mnt/CE3C92843C9266ED/Cours2022/4T/codes/chapitre05/ -o/mnt/CE3C92843C9266ED/Cours2022/4T/codes/chapitre05/fiches_patients fiches_patients.pas"/>
+</CONFIG>
