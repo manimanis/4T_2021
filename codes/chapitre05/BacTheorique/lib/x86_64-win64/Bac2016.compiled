@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Compiler Value="C:\lazarus\fpc\3.2.2\bin\x86_64-win64\fpc.exe" Date="1411537227"/>
+  <Params Value=" -MObjFPC -Scghi -O1 -gw2 -godwarfsets -gl -l -vewnhibq -FiC:\xampp\htdocs\4T_2021\codes\chapitre05\BacTheorique\lib\x86_64-win64 -FuC:\xampp\htdocs\4T_2021\codes\chapitre05\BacTheorique\ -FUC:\xampp\htdocs\4T_2021\codes\chapitre05\BacTheorique\lib\x86_64-win64\ -FEC:\xampp\htdocs\4T_2021\codes\chapitre05\BacTheorique\ -oC:\xampp\htdocs\4T_2021\codes\chapitre05\BacTheorique\Bac2016.exe Bac2016.pas"/>
+</CONFIG>
