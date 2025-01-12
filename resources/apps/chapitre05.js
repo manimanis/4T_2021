@@ -270,3 +270,83 @@ const app4 = new Vue({
     }
   }
 });
+
+const app5 = new Vue({
+  el: "#tri-insert",
+  data: {
+    arr: [],
+    open: [],
+    message: "",
+    item: 0,
+    i: 1,
+    j: 0,
+    sorted: false,
+    positionned: false
+  },
+  mounted: function () {
+    this.resetSort();
+    do {
+      this.selectItem();
+      do {
+        this.searchPosition();
+      } while (!this.positionned);
+      this.placer();
+      this.nextIteration();
+    } while (!this.sorted);
+  },
+  methods: {
+    initArray: function () {
+      this.arr = [];
+      this.open = [];
+      for (let i = 0; i < 10; i++) {
+        this.arr.push(randint(100, 999));
+        this.open.push(i < 200);
+      }
+    },
+    resetSort: function () {
+      this.initArray();
+      this.i = 1;
+      this.j = 0;
+      this.sorted = false;
+      this.message = "";
+      this.$forceUpdate();
+    },
+    selectItem: function () {
+      this.item = this.arr[this.i];
+      this.j = this.i - 1;
+      this.positionned = false;
+      this.$forceUpdate();
+    },
+    searchPosition: function () {
+      if (this.j >= 0 && this.arr[this.j] > this.item) {
+        this.decaler(this.j, this.j + 1);
+        this.j--;
+      }
+      this.positionned = (this.j == -1) || (this.arr[this.j] <= this.item);
+      this.$forceUpdate();
+    },
+    decaler: function (i, j) {
+      this.arr[j] = this.arr[i];
+    },
+    placer: function () {
+      this.arr[this.j + 1] = this.item;
+    },
+    nextIteration: function () {
+      this.i++;
+      if (this.i >= this.arr.length) {
+        this.sorted = true;
+        this.message = "Le tableau est maintenant trié.";
+      } else {
+        this.open[this.i] = true;
+      }
+    },
+    performIteration: function() {
+      this.selectItem();
+      do {
+        this.searchPosition();
+      } while (!this.positionned);
+      this.placer();
+      this.nextIteration();
+    }
+  }
+});
