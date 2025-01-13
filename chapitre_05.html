@@ -258,7 +258,8 @@ Fin</code></pre>
       <section>
         <h3>Tri par sélection</h3>
 
-        <img src="resources/chapitre_05/images/tri_selection.svg" width="516" alt="Tri par sélection" class="h3cm" align="right">
+        <img src="resources/chapitre_05/images/tri_selection.svg" width="516" alt="Tri par sélection" class="h3cm"
+          align="right">
 
         <h4>Utilisation</h4>
         <p>Ordonner les éléments d'un tableau en ordre croissant ou décroissant.</p>
@@ -382,7 +383,8 @@ Fin</code></pre>
       <section>
         <h3 class="p-break">Tri à bulles</h3>
 
-        <img src="resources/chapitre_05/images/tri_bulles.svg" width="516" alt="Tri à bulles" class="h3cm" align="right">
+        <img src="resources/chapitre_05/images/tri_bulles.svg" width="516" alt="Tri à bulles" class="h3cm"
+          align="right">
 
         <h4>Utilisation</h4>
         <p>Ordonner les éléments d'un tableau en ordre croissant ou décroissant.</p>
@@ -527,42 +529,46 @@ Fin</code></pre>
           <div id="tri-insert" class="algo">
             <div class="boxes">
               <div class="box" v-for="elem, idx in arr" v-bind:data-index="idx"
-                v-bind:data-open="idx < i ? 'trié' : ''"
-                v-bind:class="{'bg-dark': !(open[idx] || idx == (j-1) || idx == j), 'opened': (open[idx] || idx == (j-1) || idx == j)}">
-                <span v-if="open[idx] || idx == (j-1) || idx == j"
-                  v-bind:class="{'text-danger': idx == i, 'text-success': idx < i}">{{elem}}</span>
+                v-bind:data-open="idx <= sortedToIndex ? 'trié' : ''"
+                v-bind:class="{'bg-dark': idx > i, 'opened': idx <= i}">
+                <span v-bind:class="{'text-danger': idx >= j && idx <= i && step > 1 && step < 5}">{{(idx == i && [1, 2, 3].includes(step) && item == arr[i]) ? "" : elem}}</span>
                 <span v-else>&nbsp;</span>
               </div>
             </div>
-            <div v-if="!sorted">
-              <span>Où faut-il placer l'élément <span class="text-danger">{{arr[i]}}</span>
-                ?</span><br>
-              <span class="text-success">arr[{{j}}]</span> &lt; <span class="text-danger">arr[{{j-1}}]</span> &rArr;
-              <span class="p-2 mx-2" v-bind:class="{'bg-dark text-warning': arr[j] < arr[j-1]}">{{arr[j] <
-                  arr[j-1]}}</span>
-                  <button class="btn btn-warning" v-if="arr[j] < arr[j-1]" v-on:click="performSwap()">
-                    Permuter</button>
-                  <button class="btn btn-secondary" v-if="!this.sorted"
-                    v-on:click="performIteration()">Continuer</button>
+            <div class="boxes" v-if="showItem">
+              <div class="box" v-for="elem, idx in arr" data-index="elem"
+                v-bind:class="{'invisible': idx != i, 'visible': idx == i}">
+                <span>{{item}}</span>
+              </div>
             </div>
-            <div>{{message}}</div>
-            <div class="text-center my-2 d-print-none">
-              <button class="btn btn-primary" v-if="sorted" v-on:click="resetSort()">Nouveau tri</button>
+            <div v-if="!sorted">
+              <ol>
+                <li v-if="step >= 0">On veut placer l'élément <span class="text-danger">{{item}}</span> dans la partie
+                  triée.</li>
+                <li v-if="step >= 1">On fait sortir l'élément <span class="text-danger">{{item}}</span> du tableau.</li>
+                <li v-if="step >= 2">
+                  {{item}} &lt; {{arr[j]}} ? {{item < arr[j] ? "Oui" : "Non" }} </li>
+                <li v-if="step == 3">
+                  Décaler l'élément {{numberShifted}} de la position {{numberShiftedToPosition-1}} à la position
+                  {{numberShiftedToPosition}}.
+                </li>
+                <li v-if="step >= 4">Remettre l'élément {{item}} à la position {{j + 1}}</li>
+              </ol>
+              <div><button class="btn btn-secondary" v-on:click="nextStep()">Continuer</button></div>
             </div>
           </div>
-        </div>
 
 
-        <h4>Travail demandé</h4>
-        <p>Ecrire l'algorithme de la procédure <code>TriInsertion(n, t)</code> qui ordonne les éléments de
-          <code>t</code> en ordre décroissant.
-        </p>
+          <h4>Travail demandé</h4>
+          <p>Ecrire l'algorithme de la procédure <code>TriInsertion(n, t)</code> qui ordonne les éléments de
+            <code>t</code> en ordre décroissant.
+          </p>
 
-        <div class="d-none d-print-block">
-          <h4>Solution - Nouveau régime</h4>
-          <div class="row">
-            <div class="col-8">
-              <pre><code class="algorithm">Procédure TriInsertion(n: entier; @t: tab)
+          <div class="d-none d-print-block">
+            <h4>Solution - Nouveau régime</h4>
+            <div class="row">
+              <div class="col-8">
+                <pre><code class="algorithm">Procédure TriInsertion(n: entier; @t: tab)
 Début
   Pour i de 1 à n-1 faire
     pi &larr; i - 1
@@ -574,54 +580,54 @@ Début
     t[pi + 1] = k
   Fin Pour
 Fin</code></pre>
+              </div>
+              <div class="col-4">
+                T.D.O.L
+                <table class="table table-sm table-bordered border-dark table-striped table-hover">
+                  <thead>
+                    <tr>
+                      <th>Objet</th>
+                      <th>Type/Nature</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>i, j, aux</td>
+                      <td>entier</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
-            <div class="col-4">
-              T.D.O.L
-              <table class="table table-sm table-bordered border-dark table-striped table-hover">
-                <thead>
-                  <tr>
-                    <th>Objet</th>
-                    <th>Type/Nature</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>i, j, aux</td>
-                    <td>entier</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
 
-          <div class="row">
-            <div class="col-8">
-              <pre><code class="algorithm">Procédure Décaler(@t: tab, deb: entier, fin: entier)
+            <div class="row">
+              <div class="col-8">
+                <pre><code class="algorithm">Procédure Décaler(@t: tab, deb: entier, fin: entier)
 Début
   Pour i de fin à deb faire [pas=-1]
     t[i+1] &larr; t[i]
   Fin Pour
 Fin</code></pre>
-            </div>
-            <div class="col-4">
-              T.D.O.L
-              <table class="table table-sm table-bordered border-dark table-striped table-hover">
-                <thead>
-                  <tr>
-                    <th>Objet</th>
-                    <th>Type/Nature</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>i, j, aux</td>
-                    <td>entier</td>
-                  </tr>
-                </tbody>
-              </table>
+              </div>
+              <div class="col-4">
+                T.D.O.L
+                <table class="table table-sm table-bordered border-dark table-striped table-hover">
+                  <thead>
+                    <tr>
+                      <th>Objet</th>
+                      <th>Type/Nature</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>i, j, aux</td>
+                      <td>entier</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
-        </div>
       </section>
     </article>
   </main>

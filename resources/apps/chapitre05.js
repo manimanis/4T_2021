@@ -275,78 +275,78 @@ const app5 = new Vue({
   el: "#tri-insert",
   data: {
     arr: [],
-    open: [],
-    message: "",
-    item: 0,
-    i: 1,
-    j: 0,
     sorted: false,
-    positionned: false
+    message: "",
+    sortedToIndex: -1,
+    showItem: false,
+    positionned: false,
+    item: null,
+    i: -1,
+    j: -1,
+    step: -1,
+    numberShifted: -1,
+    numberShiftedToPosition: -1
   },
   mounted: function () {
     this.resetSort();
-    do {
-      this.selectItem();
-      do {
-        this.searchPosition();
-      } while (!this.positionned);
-      this.placer();
-      this.nextIteration();
-    } while (!this.sorted);
   },
   methods: {
     initArray: function () {
       this.arr = [];
-      this.open = [];
       for (let i = 0; i < 10; i++) {
         this.arr.push(randint(100, 999));
-        this.open.push(i < 200);
       }
     },
     resetSort: function () {
       this.initArray();
-      this.i = 1;
-      this.j = 0;
       this.sorted = false;
       this.message = "";
-      this.$forceUpdate();
+      this.selectItem(1);
     },
-    selectItem: function () {
+    selectItem: function (idx) {
+      this.i = idx;
       this.item = this.arr[this.i];
-      this.j = this.i - 1;
+      this.sortedToIndex = this.i - 1;
+      this.step = 0;
       this.positionned = false;
-      this.$forceUpdate();
     },
-    searchPosition: function () {
-      if (this.j >= 0 && this.arr[this.j] > this.item) {
-        this.decaler(this.j, this.j + 1);
+    nextStep: function () {
+      if (this.step == 0) {
+        this.showItem = true;
+        this.step = 1;
+      } else if (this.step == 1) {
+        this.j = this.i - 1;
+        this.step = 2;
+      } else if (this.step == 2) {
+        if (this.j >= 0 && this.arr[this.j] > this.item) {
+          this.numberShifted = this.arr[this.j];
+          this.numberShiftedToPosition = this.j + 1;
+          this.step = 3;
+        } else {
+          this.positionned = true;
+          this.step = 4;
+        }
+        // this.positionned = (this.j < 0) || (this.arr[this.j] < this.item);
+        // if (this.positionned) {
+        //   this.step = 3;
+        // }
+      } else if (this.step == 3) {
+        this.arr[this.j + 1] = this.arr[this.j];
         this.j--;
+        if (this.j >= 0) {
+          this.step = 2;
+        } else {
+          this.positionned = true;
+          this.step = 4;
+        }
+      } else if (this.step == 4) {
+        this.arr[this.j + 1] = this.item;
+        this.showItem = false;
+        this.step = 5;
+      } else if (this.step == 5) {
+        this.selectItem(this.i + 1);
       }
-      this.positionned = (this.j == -1) || (this.arr[this.j] <= this.item);
       this.$forceUpdate();
-    },
-    decaler: function (i, j) {
-      this.arr[j] = this.arr[i];
-    },
-    placer: function () {
-      this.arr[this.j + 1] = this.item;
-    },
-    nextIteration: function () {
-      this.i++;
-      if (this.i >= this.arr.length) {
-        this.sorted = true;
-        this.message = "Le tableau est maintenant trié.";
-      } else {
-        this.open[this.i] = true;
-      }
-    },
-    performIteration: function() {
-      this.selectItem();
-      do {
-        this.searchPosition();
-      } while (!this.positionned);
-      this.placer();
-      this.nextIteration();
     }
   }
 });

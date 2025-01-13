@@ -19,7 +19,7 @@
 	margin: 5px 2px;
 	position: relative;
 	text-align: center;
-	padding: 5px 0;
+	padding: 18px 0 5px;
 	font-size: 13pt;
 	cursor: pointer;
 }
@@ -43,4 +43,9 @@
 	top: 0;
 	background-color: #333;
 	color: #fff;
+	width: 100%;
+}
+
+.algo .box[data-open="trié"] {
+	background-color: #e8e8ff;
 }
