@@ -304,41 +304,41 @@ const app5 = new Vue({
       this.selectItem(1);
     },
     selectItem: function (idx) {
-      this.i = idx;
-      this.item = this.arr[this.i];
-      this.sortedToIndex = this.i - 1;
-      this.step = 0;
-      this.positionned = false;
+      if (idx < this.arr.length) {
+        this.i = idx;
+        this.j = idx - 1;
+        this.item = this.arr[this.i];
+        this.sortedToIndex = this.i - 1;
+        this.step = 0;
+        this.positionned = false;
+      } else {
+        this.sorted = true;
+      }
+    },
+    sortAll: function () {
+      do {
+        this.nextStep();
+      } while (!this.sorted);
     },
     nextStep: function () {
       if (this.step == 0) {
         this.showItem = true;
         this.step = 1;
       } else if (this.step == 1) {
-        this.j = this.i - 1;
         this.step = 2;
       } else if (this.step == 2) {
-        if (this.j >= 0 && this.arr[this.j] > this.item) {
+        this.positionned = this.j < 0 || this.arr[this.j] <= this.item;
+        if (this.positionned) {
+          this.step = 4;
+        } else {
           this.numberShifted = this.arr[this.j];
           this.numberShiftedToPosition = this.j + 1;
           this.step = 3;
-        } else {
-          this.positionned = true;
-          this.step = 4;
         }
-        // this.positionned = (this.j < 0) || (this.arr[this.j] < this.item);
-        // if (this.positionned) {
-        //   this.step = 3;
-        // }
       } else if (this.step == 3) {
         this.arr[this.j + 1] = this.arr[this.j];
         this.j--;
-        if (this.j >= 0) {
-          this.step = 2;
-        } else {
-          this.positionned = true;
-          this.step = 4;
-        }
+        this.step = 2;
       } else if (this.step == 4) {
         this.arr[this.j + 1] = this.item;
         this.showItem = false;

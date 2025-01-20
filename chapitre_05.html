@@ -527,34 +527,58 @@ Fin</code></pre>
         <div class="d-print-none">
           <h4>Simulation</h4>
           <div id="tri-insert" class="algo">
+            <div v-if="!sorted">
+              <button class="btn btn-secondary" v-on:click="nextStep()">Continuer</button>
+              <button class="btn btn-secondary" v-on:click="sortAll()">Trier</button>
+            </div>
+            <div v-if="sorted">
+              <button class="btn btn-primary" v-on:click="resetSort()">Nouveau tri</button>
+            </div>
+
+            <div class="my-2" v-if="!sorted">
+              <p v-if="step >= 0">On veut placer l'élément <span class="text-danger">{{item}}</span> dans la partie
+                triée.</p>
+              <ol>
+                <li v-if="step >= 1">Sortir l'élément <code>arr[{{i}}] = {{item}}</code> du tableau :
+                  <code>elem &larr; arr[{{i}}]</code>.
+                </li>
+                <li v-if="step >= 2 && j < 0">Tous les éléments sont supérieurs à <code>elem</code> ? <span
+                    class="text-success"><strong>Oui</strong></span></li>
+                <li v-if="step >= 2 && j >= 0">Comparer <code>elem</code> à l'élément <code>arr[{{j}}]</code> :
+                  {{item}} &lt; {{arr[j]}} ? <span
+                    v-bind:class="{'text-success': item < arr[j], 'text-danger': item >= arr[j]}"><strong>{{item <
+                        arr[j] ? "Oui" : "Non" }}</strong></span></li>
+                <li v-if="step == 3">
+                  Décaler l'élément <code>{{numberShifted}}</code> de la position
+                  <code>{{numberShiftedToPosition-1}}</code> à la position
+                  <code>{{numberShiftedToPosition}}</code> : <code>arr[{{j+1}}] &larr; arr[{{j}}]</code>.
+                </li>
+                <li v-if="step >= 4">Remettre l'élément <code>elem</code> dans la position {{j+1}} :
+                  <code>arr[{{j+1}}] &larr; {{item}}</code>
+                </li>
+              </ol>
+
+            </div>
+
             <div class="boxes">
               <div class="box" v-for="elem, idx in arr" v-bind:data-index="idx"
-                v-bind:data-open="idx <= sortedToIndex ? 'trié' : ''"
+                v-bind:data-open="(idx <= sortedToIndex || (step == 5 && idx <= i)) ? 'trié' : ''"
                 v-bind:class="{'bg-dark': idx > i, 'opened': idx <= i}">
-                <span v-bind:class="{'text-danger': idx >= j && idx <= i && step > 1 && step < 5}">{{(idx == i && [1, 2, 3].includes(step) && item == arr[i]) ? "" : elem}}</span>
-                <span v-else>&nbsp;</span>
+                <span v-if="step == 0" v-bind:class="{'text-danger': idx == i}">{{(idx <= i) ? elem : "" }}</span>
+                    <span v-if="step == 1">{{(idx < i) ? elem : "" }}</span>
+                        <span v-if="step == 2 || step == 3 || step == 4" v-bind:class="{'text-success': idx >= j}">{{(j
+                          == i-1 && idx < i) || (j < i-1 && idx <=i && idx !=j+1) ? elem : "" }}</span>
+
+
+                            <span v-if="step > 4">{{elem}}</span>
               </div>
+
             </div>
             <div class="boxes" v-if="showItem">
               <div class="box" v-for="elem, idx in arr" data-index="elem"
                 v-bind:class="{'invisible': idx != i, 'visible': idx == i}">
                 <span>{{item}}</span>
               </div>
-            </div>
-            <div v-if="!sorted">
-              <ol>
-                <li v-if="step >= 0">On veut placer l'élément <span class="text-danger">{{item}}</span> dans la partie
-                  triée.</li>
-                <li v-if="step >= 1">On fait sortir l'élément <span class="text-danger">{{item}}</span> du tableau.</li>
-                <li v-if="step >= 2">
-                  {{item}} &lt; {{arr[j]}} ? {{item < arr[j] ? "Oui" : "Non" }} </li>
-                <li v-if="step == 3">
-                  Décaler l'élément {{numberShifted}} de la position {{numberShiftedToPosition-1}} à la position
-                  {{numberShiftedToPosition}}.
-                </li>
-                <li v-if="step >= 4">Remettre l'élément {{item}} à la position {{j + 1}}</li>
-              </ol>
-              <div><button class="btn btn-secondary" v-on:click="nextStep()">Continuer</button></div>
             </div>
           </div>
 
