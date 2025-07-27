@@ -587,23 +587,28 @@ Fin</code></pre>
 
           <div id="tri-insert" class="algo">
             <p>Step : {{step}}</p>
-            <p>Le tableau <code>t</code> à trier.</p>
-            <table class="table-boxes" v-if="step == -1">
-              <tr>
-                <td v-for="elem, idx in arr0" class="box">{{elem}}</td>
-              </tr>
-              <tr>
-                <td v-for="elem, idx in arr0" class="index">{{idx}}</td>
-              </tr>
-            </table>
+            <div v-if="step == -1">
+              <p>Le tableau <code>t</code> à trier.</p>
+              <table class="table-boxes">
+                <tr>
+                  <td v-for="elem, idx in arr0" class="box">{{elem}}</td>
+                </tr>
+                <tr>
+                  <td v-for="elem, idx in arr0" class="index">{{idx}}</td>
+                </tr>
+              </table>
+            </div>
 
-            <div v-if="step >= 0 && step <= 1">
-              <p>Placer l'élément <code>t[i] = {{arr[i]}}</code> dans la partie triée.</p>
+            <div v-if="step >= 0 && step <= 2">
+              <p>On veut placer l'élément <code>t[i] = {{arr[i]}}</code> dans la partie triée.</p>
               <p v-if="step >= 1">
-                <span class="box opened box-i" data-open="t[i]">{{arr[i]}}</span> &lt; 
+                Vérifier si l'élémet
+                <span class="box opened box-i" data-open="t[i]">{{arr[i]}}</span> &lt;
                 <span class="box opened box-j" data-open="t[i-1]">{{arr[i-1]}}</span> ?
-                {{arr[i] < arr[i-1]}}
+                {{arr[i] < arr[i-1]}} &rArr;
+                <strong>{{arr[i] < arr[i-1] ? "non trié" : "trié" }}</strong>
               </p>
+              <p v-if="step >= 2">Chercher</p>
               <table class="table-boxes">
                 <tr>
                   <td v-for="elem, idx in arr0" class="box"

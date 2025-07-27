@@ -437,11 +437,7 @@ const app6 = new Vue({
       }
     },
     nextStep: function () {
-      if (this.step == -1) {
-        this.sorted = false;
-        this.i = 1;
-        this.step++;
-      } else if (this.step == 0) {
+      if (this.step < 2) {
         this.step++;
       }
       // 0: On veut placer l'élément t[i] (491) dans la partie triée du tableau
