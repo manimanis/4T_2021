@@ -1,27 +1,27 @@
 .algo {
-	width: 700px;
-	margin: 0 auto;
-	border: 2px darkgreen solid;
-	border-radius: 15px;
-	padding: 8px;
+  width: 700px;
+  margin: 0 auto;
+  border: 2px darkgreen solid;
+  border-radius: 15px;
+  padding: 8px;
 }
 
 .algo .boxes {
-	display: flex;
-	flex-direction: row;
-	padding-bottom: 32px;
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 32px;
 }
 
 .algo .box {
-	border: 5px solid black;
-	border-top: 1px solid black;
-	width: calc(10% - 4px);
-	margin: 5px 2px;
-	position: relative;
-	text-align: center;
-	padding: 18px 0 5px;
-	font-size: 13pt;
-	cursor: pointer;
+  border: 5px solid black;
+  border-top: 1px solid black;
+  width: calc(10% - 4px);
+  margin: 5px 2px;
+  position: relative;
+  text-align: center;
+  padding: 18px 0 5px;
+  font-size: 13pt;
+  cursor: pointer;
 }
 
 .algo .box::after {
@@ -32,20 +32,34 @@
 	font-size: 10pt;
 	position: absolute;
 	bottom: -28px;
+	color: initial;
+	font-weight: initial;
 }
 
 .algo .box.opened::before {
-	content: attr(data-open);
-	display: block;
-	font-size: 8pt;
-	position: absolute;
-	left: 0;
-	top: 0;
-	background-color: #333;
-	color: #fff;
-	width: 100%;
+  content: attr(data-open);
+  display: block;
+  font-size: 8pt;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #333;
+  color: #fff;
+  width: 100%;
 }
 
 .algo .box[data-open="trié"] {
-	background-color: #e8e8ff;
+	background-color: #c0c0ff;
+}
+
+.algo .box.box-i {
+	background-color: blue;
+	color: yellow;
+	font-weight: bold;
+}
+
+.algo .box.box-j {
+	background-color: aqua;
+	color: black;
+	font-weight: bold;
 }

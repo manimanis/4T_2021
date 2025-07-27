@@ -153,6 +153,7 @@ const app3 = new Vue({
   data: {
     arr: [],
     open: [],
+    sortedIdx: [],
     message: "",
     i: 0,
     j: 0,
@@ -169,9 +170,11 @@ const app3 = new Vue({
     initArray: function () {
       this.arr = [];
       this.open = [];
+      this.sortedIdx = [];
       for (let i = 0; i < 10; i++) {
         this.arr.push(randint(100, 999));
         this.open.push(false);
+        this.sortedIdx.push(false);
       }
     },
     resetSort: function () {
@@ -180,6 +183,8 @@ const app3 = new Vue({
       this.j = 1;
       this.sorted = false;
       this.message = "";
+      this.open[this.i] = true;
+      this.open[this.j] = true;
     },
     performSwap: function () {
       if (this.arr[this.j] < this.arr[this.i]) {
@@ -194,16 +199,35 @@ const app3 = new Vue({
       this.$forceUpdate();
     },
     nextIteration: function () {
+      this.open[this.j] = false;
       this.j++;
+      this.open[this.j] = true;
       if (this.j >= this.arr.length) {
-        this.open[this.i] = true;
+        this.sortedIdx[this.i] = true;
         this.i++;
+        this.open[this.i] = true;
         if (this.i == this.arr.length - 1) {
           this.sorted = true;
+          this.sortedIdx[this.i] = true;
           this.message = "Le tableau est maintenant trié.";
+          this.i++;
         }
         this.j = this.i + 1;
+        if (this.j < this.arr.length) {
+          this.open[this.j] = true;
+        }
       }
+      this.$forceUpdate();
+    },
+    getDataOpen: function (idx) {
+      if (this.sortedIdx[idx]) {
+        return "trié";
+      } else if (idx == this.i) {
+        return "t[i]";
+      } else if (idx == this.j) {
+        return "t[j]";
+      }
+      return "";
     }
   }
 });
@@ -212,7 +236,7 @@ const app4 = new Vue({
   el: "#tri-bulles",
   data: {
     arr: [],
-    open: [],
+    sortedIdx: [],
     message: "",
     i: 0,
     j: 0,
@@ -228,10 +252,10 @@ const app4 = new Vue({
   methods: {
     initArray: function () {
       this.arr = [];
-      this.open = [];
+      this.sortedIdx = [];
       for (let i = 0; i < 10; i++) {
         this.arr.push(randint(100, 999));
-        this.open.push(false);
+        this.sortedIdx.push(false);
       }
     },
     resetSort: function () {
@@ -257,22 +281,34 @@ const app4 = new Vue({
       this.j++;
       if (this.j >= this.arr.length - this.i) {
         this.i++;
-        this.open[this.arr.length - this.i] = true;
+        this.sortedIdx[this.arr.length - this.i] = true;
         this.j = 1;
         if (this.i == this.arr.length - 1) {
           this.sorted = true;
           this.message = "Le tableau est maintenant trié.";
-          this.open[0] = true;
+          this.sortedIdx[0] = true;
           this.i = -1;
           this.j = -1;
         }
+      }
+    },
+    isOpen: function (idx) {
+      return this.sortedIdx[idx] || idx == this.j || idx == this.j - 1;
+    },
+    getDataOpen: function (idx) {
+      if (this.sortedIdx[idx]) {
+        return "trié";
+      } else if (idx == this.j) {
+        return "i+1";
+      } else if (idx == this.j - 1) {
+        return "i";
       }
     }
   }
 });
 
 const app5 = new Vue({
-  el: "#tri-insert",
+  el: "#tri-insert-old",
   data: {
     arr: [],
     sorted: false,
@@ -347,6 +383,94 @@ const app5 = new Vue({
         this.selectItem(this.i + 1);
       }
       this.$forceUpdate();
+    }
+  }
+});
+
+const app6 = new Vue({
+  el: "#tri-insert",
+  data: {
+    copyArr: [],
+    arr: [],
+    sortedIdx: [],
+    i: 0,
+    j: -1,
+    k: -1,
+    sorted: false,
+    step: 0
+  },
+  mounted: function () {
+    this.resetSort();
+  },
+  methods: {
+    initArray: function () {
+      this.arr = [];
+      this.copyArr = [];
+      for (let i = 0; i < 10; i++) {
+        this.arr.push(randint(100, 999));
+        this.sortedIdx.push(false);
+      }
+      this.sortedIdx[0] = true;
+      this.step = 0;
+    },
+    resetSort: function () {
+      this.initArray();
+      this.sorted = false;
+      this.i = 1;
+      this.message = "";
+      // this.selectItem(1);
+    },
+    makeCopy: function () {
+      this.copyArr = [];
+      for (let i = 0; i < this.j; i++) {
+        this.copyArr[i] = this.arr[i];
+      }
+      for (let i = this.j, k = i + 1; i < this.i; i++, k++) {
+        this.copyArr[i + 1] = this.arr[i];
+      }
+      for (let i = this.i+1; i < this.arr.length; i++) {
+        this.copyArr[i] = this.arr[i];
+      }
+    },
+    nextStep: function () {
+      if (this.step == 0) {
+        this.j = this.i - 1;
+        while (this.j >= 0 && this.arr[this.j] > this.arr[this.i]) {
+          this.j--;
+        }
+        this.j++;
+        this.step = (this.j != this.i) ? 1 : 2;
+        if (this.j != this.i) {
+          this.makeCopy();
+        }
+      } else if (this.step == 1) {
+        this.copyArr[this.j] = this.arr[this.i];
+        this.arr = this.copyArr;
+        this.step = 2;
+      } else if (this.step == 2) {
+        this.sortedIdx[this.i] = true;
+        this.i++;
+        this.step = 0;
+      }
+    },
+    isOpen: function (idx) {
+      return this.sortedIdx[idx] || idx == this.i || idx == this.j;
+    },
+    getDataOpen: function (idx) {
+      if (this.sortedIdx[idx]) {
+        return 'trié';
+      } else if (idx == this.i) {
+        return 't[i]';
+      } else if (idx == this.j) {
+        return 'j';
+      }
+    },
+    getDataOpenCopy: function (idx) {
+      if (idx == this.j) {
+        return 't[p]';
+      } else if (idx <= this.i) {
+        return 'trié';
+      }
     }
   }
 });

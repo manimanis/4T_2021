@@ -265,27 +265,29 @@ Fin</code></pre>
         <p>Ordonner les éléments d'un tableau en ordre croissant ou décroissant.</p>
 
         <h4>Principe</h4>
-        <ol>
-          <li>Pour chaque élément d'indice <code>i</code> allant de 0 à n-2</li>
-          <li>Pour chaque élément d'indice <code>j</code> allant de i+1 à n-1</li>
-          <li>Si t[j] &lt; t[i] &rArr; permuter(t[i], t[j])</li>
-        </ol>
+        <ul>
+          <li><strong>Sélectionner l'élément le plus petit</strong> de la <strong><em>partie non triée</em></strong>.
+          </li>
+          <li><strong>Placer</strong> cet élément <strong>à la fin</strong> de la <strong><em>partie
+                triée</em></strong>.</li>
+          <li><strong>Répéter ce processus</strong> jusqu'à ce que tout le tableau soit trié.</li>
+        </ul>
         <div class="d-print-none">
           <h4>Simulation</h4>
           <div id="tri-selection" class="algo">
+            <div class="my-1"><strong>n</strong> = {{this.arr.length}}</div>
             <div class="boxes">
-              <div class="box" v-for="item, idx in arr" v-bind:data-index="idx"
-                v-bind:data-open="open[idx] ? 'trié' : ''"
-                v-bind:class="{'bg-dark': !(open[idx] || idx == i || idx == j), 'opened': (open[idx] || idx == i || idx == j)}">
-                <span v-if="open[idx] || idx == i || idx == j"
-                  v-bind:class="{'text-danger': idx === i, 'text-success': idx === j}">{{item}}</span>
+              <div class="box" v-for="item, idx in arr" v-bind:data-index="idx" v-bind:data-open="getDataOpen(idx)"
+                v-bind:class="{'box-i': idx == i, 'box-j': idx == j, 'bg-dark': !(open[idx] || sortedIdx[idx]), 'opened': open[idx] || sortedIdx[idx]}">
+                <span v-if="open[idx] || sortedIdx[idx]">{{item}}</span>
                 <span v-else>&nbsp;</span>
               </div>
             </div>
             <div v-if="!sorted">
-              <span>Quel est l'élément qui doit être placé dans la <span class="text-danger">case d'indice {{i}}</span>
-                ?</span><br>
-              <span class="text-success">arr[{{j}}]</span> &lt; <span class="text-danger">arr[{{i}}]</span> &rArr;
+              <p>Quel est l'élément qui doit être placé dans la <span class="text-danger">case d'indice {{i}}</span>
+                ?</p>
+              <span class="box box-j opened" data-open="t[j]">{{arr[j]}}</span> &lt;
+              <span class="box box-i opened" data-open="t[i]">{{arr[i]}}</span> &rArr;
               <span class="p-2 mx-2" v-bind:class="{'bg-dark text-warning': arr[j] < arr[i]}">{{arr[j] < arr[i]}}</span>
                   <button class="btn btn-warning" v-if="arr[j] < arr[i]" v-on:click="performSwap()">
                     Permuter</button>
@@ -390,30 +392,32 @@ Fin</code></pre>
         <p>Ordonner les éléments d'un tableau en ordre croissant ou décroissant.</p>
 
         <h4>Principe</h4>
-        <ol>
-          <li>Pour chaque élément d'indice <code>i</code> allant de 0 à n-2</li>
-          <li>Pour chaque élément d'indice <code>j</code> allant de 1 à n-1</li>
-          <li>Si t[j] &lt; t[j-1] &rArr; permuter(t[j], t[j-1])</li>
-        </ol>
+        <ul>
+          <li><strong>Parcourir le tableau</strong> tout en <strong>comparant chaque paire d'éléments
+              adjacents</strong>.
+            <ul>
+              <li><strong>Echanger</strong>, si l'élément de gauche est plus grand que celui de droite.</li>
+            </ul>
+          </li>
+          <li><strong>Répéter ce processus</strong> jusqu'à ce que tout le tableau soit trié, ou aucun échange n'a été
+            effectué.</li>
+        </ul>
 
         <div class="d-print-none">
           <h4>Simulation</h4>
           <div id="tri-bulles" class="algo">
             <div class="boxes">
-              <div class="box" v-for="item, idx in arr" v-bind:data-index="idx"
-                v-bind:data-open="open[idx] ? 'trié' : ''"
-                v-bind:class="{'bg-dark': !(open[idx] || idx == (j-1) || idx == j), 'opened': (open[idx] || idx == (j-1) || idx == j)}">
-                <span v-if="open[idx] || idx == (j-1) || idx == j"
-                  v-bind:class="{'text-danger': idx === (j-1), 'text-success': idx === j}">{{item}}</span>
+              <div class="box" v-for="item, idx in arr" v-bind:data-index="idx" v-bind:data-open="getDataOpen(idx)"
+                v-bind:class="{'box-i': idx == j-1, 'box-j': idx == j, 'bg-dark': !isOpen(idx), 'opened': isOpen(idx)}">
+                <span v-if="isOpen(idx)">{{item}}</span>
                 <span v-else>&nbsp;</span>
               </div>
             </div>
             <div v-if="!sorted">
-              <span>Quel est l'élément qui doit être placé dans la <span class="text-danger">case d'indice {{arr.length
-                  -
-                  1 - i}}</span>
-                ?</span><br>
-              <span class="text-success">arr[{{j}}]</span> &lt; <span class="text-danger">arr[{{j-1}}]</span> &rArr;
+              <p>Quel est l'élément qui doit être placé dans la <span class="text-danger">case d'indice {{arr.length
+                  - 1 - i}} ?</span></p>
+              <span class="box box-j opened" data-open="t[i+1]">{{arr[j]}}</span> &lt;
+              <span class="box box-i opened" data-open="t[i]">{{arr[j-1]}}</span> &rArr;
               <span class="p-2 mx-2" v-bind:class="{'bg-dark text-warning': arr[j] < arr[j-1]}">{{arr[j] <
                   arr[j-1]}}</span>
                   <button class="btn btn-warning" v-if="arr[j] < arr[j-1]" v-on:click="performSwap()">
@@ -526,7 +530,7 @@ Fin</code></pre>
 
         <div class="d-print-none">
           <h4>Simulation</h4>
-          <div id="tri-insert" class="algo">
+          <div id="tri-insert-old" class="algo">
             <div v-if="!sorted">
               <button class="btn btn-secondary" v-on:click="nextStep()">Continuer</button>
               <button class="btn btn-secondary" v-on:click="sortAll()">Trier</button>
@@ -534,7 +538,6 @@ Fin</code></pre>
             <div v-if="sorted">
               <button class="btn btn-primary" v-on:click="resetSort()">Nouveau tri</button>
             </div>
-
             <div class="my-2" v-if="!sorted">
               <p v-if="step >= 0">On veut placer l'élément <span class="text-danger">{{item}}</span> dans la partie
                 triée.</p>
@@ -579,6 +582,40 @@ Fin</code></pre>
                 v-bind:class="{'invisible': idx != i, 'visible': idx == i}">
                 <span>{{item}}</span>
               </div>
+            </div>
+          </div>
+
+          <div id="tri-insert" class="algo">
+            <div class="my-2" v-if="!sorted">
+              <p v-if="step >= 0">On veut placer l'élément <span class="text-danger">{{arr[i]}}</span> dans la partie
+                triée.</p>
+              <div v-if="step >= 1">
+                <p v-if="i == j"><span class="box box-i opened" data-open="t[i]">{{arr[i]}}</span> >= <span
+                    class="box box-j opened" data-open="t[i-1]">{{arr[i-1]}}</span> : L'élément <strong>t[{{i}}] =
+                    {{arr[i]}}</strong> est déjà
+                  trié.
+                </p>
+                <p v-else></p>
+              </div>
+            </div>
+            <div class="boxes">
+              <div class="box" v-for="elem, idx in arr" v-bind:data-index="idx" v-bind:data-open="getDataOpen(idx)"
+                v-bind:class="{'box-i': idx == i, 'bg-dark': !isOpen(idx), 'opened': isOpen(idx)}">
+                <span v-if="isOpen(idx)">{{elem}}</span>
+                <span v-else>&nbsp;</span>
+              </div>
+            </div>
+
+            <div class="boxes">
+              <div class="box opened" v-for="elem, idx in copyArr" v-bind:data-index="idx" v-bind:data-open="getDataOpenCopy(idx)"
+              v-bind:class="{'box-j': idx == j, 'bg-dark': idx > i}">
+                <span>{{elem}}</span>
+              </div>
+            </div>
+
+            <div class="my-2" v-if="!sorted">
+
+              <button v-on:click="nextStep()">Continuer</button>
             </div>
           </div>
 
