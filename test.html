@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Structures de données</title>
+  <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+  <link rel="stylesheet" href="resources/css/default.css">
+  <link rel="stylesheet" href="resources/css/style.css">
+  <style type="text/css">
+    .center {
+      text-align: center;
+    }
+
+    .black_border {
+      text-align: center;
+      border: 1px #000 solid;
+    }
+
+    .surlignage {
+      background-color: #FF3300;
+      color: #FFFFFF;
+    }
+
+    input.fn-predefinies {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="aside_navbar"></div>
+    </nav>
+  </aside>
+
+  <main class="container my-3">
+    <pre class="python"><code>PI = 3.1415 # La constante PI
+l = float(input("Largeur ? "))  # Largeur du rectangle
+h = float(input("Hauteur ? "))  # Hauteur du rectangle
+a = l * h                       # Aire
+r = int(input("Rayon du cercle ? "))
+ac = PI * r * r   # Aire du cercle
+pc = 2 * PI * r   # Périmètre du cercle</code></pre>
+
+<pre class="algorithm"><code>// affectation avec une constante
+nom &larr; "Sami" // chaîne
+age &larr; 17 // entier
+hauteur &larr; 1.87 // réel
+poids &larr; 87.0 // réel
+majeur &larr; age >= 18 // expression booléenne
+bmi &larr; poids / (hauteur * hauteur) // expression arithmétique</code></pre>
+<pre class="python"><code>nom = "Sami" # str
+age = 17  # int
+hauetur = 1.87 # float
+majeur = False # bool</code></pre>
+
+<pre class="algorithm"><code>procédure remplir_tab(@t: tab; n: entier)
+Début
+  Pour i de 0 à n-1 Faire
+    Ecrire("t[",i,"]"); Lire(t[i])
+  Fin Pour
+Fin</code></pre>
+
+<pre class="algorithm"><code>def remplir_tab(n):
+    t = [0]*n
+    for i in range(n):
+        t[i] = int(input(f"t[{i}] ?"))
+    
+    return t</code></pre>
+
+
+    <pre class="python"><code>def carre(x):
+    y = x * x
+a = 15
+carre(x)
+print(f"{a}²={y}")</code></pre>
+<pre class="python"><code>def carre(x):
+  global y
+  y = x * x
+a = 15
+carre(a)
+print(f"{a}²={y}")</code></pre>
+
+<pre class="python"><code>x = 10
+def hello(prenom):
+  x = 42
+  print("Bonjour", prenom)
+  print("x =", x)
+hello("abdou")
+print(f"x = {x}")</code></pre>
+  </main>
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée avec ♥ par Mohamed Anis MANI</div>
+    <div class="text-center small">Année scolaire : 2021/2022</div>
+  </footer>
+
+  <script src="resources/js/jquery.min.js"></script>
+  <script src="resources/js/bootstrap.bundle.min.js"></script>
+  <script src="resources/js/highlight.min.js"></script>
+  <script src="resources/js/hljs.algorithm.js"></script>
+  <script src="resources/js/clipboard.min.js"></script>
+  <script src="resources/js/pages.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+
+    document.querySelectorAll('.language-algorithm,.language-python,.language-delphi')
+      .forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'bd-clipboard d-print-none';
+        const btn = document.createElement('button');
+        btn.className = 'btn-clipboard';
+        btn.textContent = "📋";
+        btn.title = "Copier";
+        div.appendChild(btn);
+        item.parentElement.insertBefore(div, item);
+      });
+    new ClipboardJS('.btn-clipboard', {
+      target: (trigger) => {
+        return trigger.parentElement.nextElementSibling;
+      }
+    });
+  </script>
+
+  <script src="resources/js/funcs.js"></script>
+  <script src="resources/js/vue.min.js"></script>
+  <script>
+    const nfunc = new Vue({
+      el: '#numeric_func',
+      data: {
+        xAbs: 0,
+        resAbs: 0,
+        xSqrt: 0,
+        resSqrt: 0,
+        xSqr: 0,
+        resSqr: 0,
+        xTronc: 0,
+        resTronc: 0,
+        xRound: 0,
+        resRound: 0,
+        resAlea: 0,
+        xAlea2: 100,
+        resAlea2: 0,
+        xAlea3: 10,
+        yAlea3: 30,
+        resAlea3: 0,
+        xOdd: 0,
+        resOdd: 0
+      },
+      mounted: function () {
+        this.actualiser('abs');
+        this.actualiser('sqrt');
+        this.actualiser('sqr');
+        this.actualiser('tronc');
+        this.actualiser('round');
+        this.actualiser('alea');
+        this.actualiser('alea2');
+        this.actualiser('alea3');
+        this.actualiser('odd');
+      },
+      methods: {
+        actualiser: function (fnName) {
+          if (fnName == 'abs') {
+            this.xAbs = randomValue(-100, +100, 1);
+            this.resAbs = Math.abs(this.xAbs);
+          } else if (fnName == 'sqrt') {
+            this.xSqrt = randomValue(0, +100, 1);
+            this.resSqrt = Math.sqrt(this.xSqrt);
+          } else if (fnName == 'sqr') {
+            this.xSqr = randomValue(-100, +100, 1);
+            this.resSqr = this.xSqr * this.xSqr;
+          } else if (fnName == 'tronc') {
+            this.xTronc = randomValue(-100, +100);
+            this.resTronc = Math.trunc(this.xTronc);
+          } else if (fnName == 'round') {
+            this.xRound = randomValue(-100, +100);
+            this.resRound = Math.round(this.xRound);
+          } else if (fnName == 'alea') {
+            this.resAlea = Math.random();
+          } else if (fnName == 'alea2') {
+            // this.xAlea2 = randomValue(50, 100, 1);
+            this.resAlea2 = randomValue(0, this.xAlea2 - 1, 1);
+          } else if (fnName == 'alea3') {
+            this.resAlea3 = randomValue(this.xAlea3, this.yAlea3, 1);
+          } else if (fnName == 'odd') {
+            this.xOdd = randomValue(-100, 100, 1);
+            this.resOdd = (this.xOdd % 2 == 0) ? 'Vrai' : 'Faux';
+          }
+        }
+      }
+    });
+  </script>
+  <script>
+    const strfunc = new Vue({
+      el: '#str_func',
+      data: {
+        modeLong: "display",
+        xLong: "",
+        resLong: 0,
+        modePos: "display",
+        xPos1: "",
+        xPos2: "",
+        resPos: 0,
+        modeSousChaine: "display",
+        xSousChaine1: "",
+        xSousChaine2: 0,
+        xSousChaine3: 0,
+        resSousChaine: 0,
+        modeEfface: "display",
+        xEfface1: "",
+        xEfface2: 0,
+        xEfface3: 0,
+        resEfface: "",
+        modeInserer: "display",
+        xInserer1: "",
+        xInserer2: 0,
+        xInserer3: 0,
+        resInserer: "",
+        modeValeur: "display",
+        xValeur: "12",
+        resValeurX: 0,
+        resValeurE: 0,
+        modeConvCh: "display",
+        xConvCh: 0,
+        resConvCh: "0"
+      },
+      mounted: function () {
+        this.actualiser('long', "Bac 2022");
+        this.actualiser('pos', "02", "Bac 2022");
+        this.actualiser('sousChaine', "Baccar", 4, 3);
+        this.actualiser('Efface', "Baccar", 4, 3);
+        this.actualiser('Inserer', "Ka", "Libraiaie rim", 11);
+        this.actualiser('Valeur', "18.5");
+        this.actualiser('convCh', 15);
+      },
+      methods: {
+        actualiser: function (fnName, param1, param2, param3) {
+          fnName = fnName.toLowerCase();
+          if (fnName == 'long') {
+            this.xLong = param1 || this.xLong;
+            this.resLong = this.xLong.length;
+          } else if (fnName == 'pos') {
+            this.xPos1 = param1 || this.xPos1;
+            this.xPos2 = param2 || this.xPos2;
+            this.resPos = this.xPos2.indexOf(this.xPos1) + 1;
+          } else if (fnName == 'souschaine') {
+            this.xSousChaine1 = param1 || this.xSousChaine1;
+            this.xSousChaine2 = param2 || this.xSousChaine2;
+            this.xSousChaine3 = param3 || this.xSousChaine3;
+            this.resSousChaine = this.xSousChaine1.substr(this.xSousChaine2 - 1, this.xSousChaine3);
+          } else if (fnName == 'efface') {
+            this.xEfface1 = param1 || this.xEfface1;
+            this.xEfface2 = param2 || +this.xEfface2;
+            this.xEfface3 = param3 || +this.xEfface3;
+            this.resEfface = this.xEfface1.substring(0, this.xEfface2 - 1) + this.xEfface1.substring(this.xEfface2 + this.xEfface3 - 1);
+          } else if (fnName == 'inserer') {
+            this.xInserer1 = param1 || this.xInserer1;
+            this.xInserer2 = param2 || this.xInserer2;
+            this.xInserer3 = param3 || +this.xInserer3;
+            this.resInserer = this.xInserer2.substring(0, this.xInserer3 - 1) + this.xInserer1 + this.xInserer2.substring(this.xInserer3 - 1);
+          } else if (fnName == 'valeur') {
+            this.xValeur = param1 || this.xValeur;
+            this.resValeurX = 0;
+            this.resValeurE = isRealInt(this.xValeur) + 1;
+            if (this.resValeurE == 0) {
+              this.resValeurX = this.xValeur;
+            }
+          } else if (fnName == 'convch') {
+            this.xConvCh = param1 || +this.xConvCh;
+            this.resConvCh = this.xConvCh + "";
+          }
+        },
+        onModify: function (fnName) {
+          this['mode' + fnName[0].toUpperCase() + fnName.substr(1)] = 'modify';
+          this.$forceUpdate();
+        },
+        onCalc: function (fnName) {
+          this['mode' + fnName[0].toUpperCase() + fnName.substr(1)] = 'display';
+          this.actualiser(fnName);
+          this.$forceUpdate();
+        }
+      }
+    });
+  </script>
+  <script>
+    const strfunc2 = new Vue({
+      el: '#str_func2',
+      data: {
+        modeLong: "display",
+        xLong: "",
+        resLong: 0,
+        modePos: "display",
+        xPos1: "",
+        xPos2: "",
+        resPos: 0,
+        modeSousChaine: "display",
+        xSousChaine1: "",
+        xSousChaine2: 0,
+        xSousChaine3: 0,
+        resSousChaine: 0,
+        modeEfface: "display",
+        xEfface1: "",
+        xEfface2: 0,
+        xEfface3: 0,
+        resEfface: "",
+        modeInserer: "display",
+        xInserer1: "",
+        xInserer2: 0,
+        xInserer3: 0,
+        resInserer: "",
+        modeValeur: "display",
+        xValeur: "12",
+        resValeurX: 0,
+        resValeurE: 0,
+        modeConvCh: "display",
+        xConvCh: 0,
+        resConvCh: "0"
+      },
+      mounted: function () {
+        this.actualiser('long', "Bac 2022");
+        this.actualiser('pos', "02", "Bac 2022");
+        this.actualiser('sousChaine', "Baccar", 3, 6);
+        this.actualiser('Efface', "Baccar", 3, 6);
+        this.actualiser('Inserer', "Ka", "Libraiaie rim", 10);
+        this.actualiser('Valeur', "18.5");
+        this.actualiser('convCh', 15);
+      },
+      methods: {
+        actualiser: function (fnName, param1, param2, param3) {
+          fnName = fnName.toLowerCase();
+          if (fnName == 'long') {
+            this.xLong = param1 || this.xLong;
+            this.resLong = this.xLong.length;
+          } else if (fnName == 'pos') {
+            this.xPos1 = param1 || this.xPos1;
+            this.xPos2 = param2 || this.xPos2;
+            this.resPos = this.xPos2.indexOf(this.xPos1);
+          } else if (fnName == 'souschaine') {
+            this.xSousChaine1 = param1 || this.xSousChaine1;
+            this.xSousChaine2 = param2 || this.xSousChaine2;
+            this.xSousChaine3 = param3 || this.xSousChaine3;
+            this.resSousChaine = this.xSousChaine1.substring(this.xSousChaine2, this.xSousChaine3);
+          } else if (fnName == 'efface') {
+            this.xEfface1 = param1 || this.xEfface1;
+            this.xEfface2 = param2 || +this.xEfface2;
+            this.xEfface3 = param3 || +this.xEfface3;
+            this.resEfface = this.xEfface1.substring(0, this.xEfface2) + this.xEfface1.substring(this.xEfface3);
+          } else if (fnName == 'inserer') {
+            this.xInserer1 = param1 || this.xInserer1;
+            this.xInserer2 = param2 || this.xInserer2;
+            this.xInserer3 = param3 || +this.xInserer3;
+            this.resInserer = this.xInserer2.substring(0, this.xInserer3) + this.xInserer1 + this.xInserer2.substring(this.xInserer3);
+          } else if (fnName == 'valeur') {
+            this.xValeur = param1 || this.xValeur;
+            this.resValeurX = +this.xValeur;
+          } else if (fnName == 'convch') {
+            this.xConvCh = param1 || +this.xConvCh;
+            this.resConvCh = this.xConvCh + "";
+          }
+        },
+        onModify: function (fnName) {
+          this['mode' + fnName[0].toUpperCase() + fnName.substr(1)] = 'modify';
+          this.$forceUpdate();
+        },
+        onCalc: function (fnName) {
+          this['mode' + fnName[0].toUpperCase() + fnName.substr(1)] = 'display';
+          this.actualiser(fnName);
+          this.$forceUpdate();
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
