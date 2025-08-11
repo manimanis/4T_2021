@@ -24,16 +24,20 @@
   cursor: pointer;
 }
 
+.algo span.box {
+  display: in;
+}
+
 .algo .box::after {
-	content: attr(data-index);
-	display: block;
-	width: 100%;
-	text-align: center;
-	font-size: 10pt;
-	position: absolute;
-	bottom: -28px;
-	color: initial;
-	font-weight: initial;
+  content: attr(data-index);
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 10pt;
+  position: absolute;
+  bottom: -28px;
+  color: initial;
+  font-weight: initial;
 }
 
 .algo .box.opened::before {
@@ -49,17 +53,59 @@
 }
 
 .algo .box[data-open="trié"] {
-	background-color: #c0c0ff;
+  background-color: #c0c0ff;
 }
 
 .algo .box.box-i {
-	background-color: blue;
-	color: yellow;
-	font-weight: bold;
+  background-color: blue;
+  color: yellow;
+  font-weight: bold;
 }
 
 .algo .box.box-j {
-	background-color: aqua;
-	color: black;
-	font-weight: bold;
+  background-color: aqua;
+  color: black;
+  font-weight: bold;
+}
+
+.algo .table-boxes {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 2px;
+}
+
+.algo .table-boxes .box {
+  width: 10%;
+  border: 5px solid black;
+  border-top: 1px solid black;
+  margin: 5px 2px;
+  position: relative;
+  text-align: center;
+  padding: 18px 0 5px;
+  font-size: 13pt;
+  cursor: pointer;
+}
+
+.algo .table-boxes .box::before {
+  content: attr(data-annotation);
+  display: block;
+  font-size: 8pt;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #333;
+  color: #fff;
+  width: 100%;
+}
+
+.algo .table-boxes .index {
+  text-align: center;
+  font-size: 10pt;
+  color: initial;
+  font-weight: initial;
+  text-align: center;
+}
+
+.algo .table-boxes .box.sorted {
+  background-color: #c0c0ff;
 }

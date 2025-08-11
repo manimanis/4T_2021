@@ -586,39 +586,46 @@ Fin</code></pre>
           </div>
 
           <div id="tri-insert" class="algo">
-            <div class="my-2" v-if="!sorted">
-              <p v-if="step >= 0">On veut placer l'élément <span class="text-danger">{{arr[i]}}</span> dans la partie
-                triée.</p>
-              <div v-if="step >= 1">
-                <p v-if="i == j"><span class="box box-i opened" data-open="t[i]">{{arr[i]}}</span> >= <span
-                    class="box box-j opened" data-open="t[i-1]">{{arr[i-1]}}</span> : L'élément <strong>t[{{i}}] =
-                    {{arr[i]}}</strong> est déjà
-                  trié.
-                </p>
-                <p v-else></p>
-              </div>
-            </div>
-            <div class="boxes">
-              <div class="box" v-for="elem, idx in arr" v-bind:data-index="idx" v-bind:data-open="getDataOpen(idx)"
-                v-bind:class="{'box-i': idx == i, 'bg-dark': !isOpen(idx), 'opened': isOpen(idx)}">
-                <span v-if="isOpen(idx)">{{elem}}</span>
-                <span v-else>&nbsp;</span>
-              </div>
+            <p>Step : {{step}}</p>
+            <div v-if="step == -1">
+              <p>Le tableau <code>t</code> à trier.</p>
+              <table class="table-boxes">
+                <tr>
+                  <td v-for="elem, idx in arr0" class="box">{{elem}}</td>
+                </tr>
+                <tr>
+                  <td v-for="elem, idx in arr0" class="index">{{idx}}</td>
+                </tr>
+              </table>
             </div>
 
-            <div class="boxes">
-              <div class="box opened" v-for="elem, idx in copyArr" v-bind:data-index="idx" v-bind:data-open="getDataOpenCopy(idx)"
-              v-bind:class="{'box-j': idx == j, 'bg-dark': idx > i}">
-                <span>{{elem}}</span>
-              </div>
+            <div v-if="step >= 0 && step <= 2">
+              <p>On veut placer l'élément <code>t[i] = {{arr[i]}}</code> dans la partie triée.</p>
+              <p v-if="step >= 1">
+                Vérifier si l'élémet
+                <span class="box opened box-i" data-open="t[i]">{{arr[i]}}</span> &lt;
+                <span class="box opened box-j" data-open="t[i-1]">{{arr[i-1]}}</span> ?
+                {{arr[i] < arr[i-1]}} &rArr;
+                <strong>{{arr[i] < arr[i-1] ? "non trié" : "trié" }}</strong>
+              </p>
+              <p v-if="step >= 2">Chercher</p>
+              <table class="table-boxes">
+                <tr>
+                  <td v-for="elem, idx in arr0" class="box"
+                    v-bind:class="{'sorted': idx < i, 'box-i': idx == i, 'bg-dark': idx > i}"
+                    v-bind:data-annotation="getAnnotation(idx)">
+                    <span v-if="idx <= i">{{elem}}</span>
+                    <span v-else>&nbsp;</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td v-for="elem, idx in arr0" class="index">{{idx}}</td>
+                </tr>
+              </table>
             </div>
 
-            <div class="my-2" v-if="!sorted">
-
-              <button v-on:click="nextStep()">Continuer</button>
-            </div>
+            <div class="my-2"><button class="btn btn-secondary" v-on:click="nextStep()">Continuer...</button></div>
           </div>
-
 
           <h4>Travail demandé</h4>
           <p>Ecrire l'algorithme de la procédure <code>TriInsertion(n, t)</code> qui ordonne les éléments de

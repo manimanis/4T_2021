@@ -391,13 +391,14 @@ const app6 = new Vue({
   el: "#tri-insert",
   data: {
     copyArr: [],
+    arr0: [],
     arr: [],
     sortedIdx: [],
     i: 0,
     j: -1,
     k: -1,
     sorted: false,
-    step: 0
+    step: -1
   },
   mounted: function () {
     this.resetSort();
@@ -405,13 +406,16 @@ const app6 = new Vue({
   methods: {
     initArray: function () {
       this.arr = [];
+      this.arr0 = [];
       this.copyArr = [];
       for (let i = 0; i < 10; i++) {
-        this.arr.push(randint(100, 999));
+        const v = randint(100, 999);
+        this.arr0.push(v);
+        this.arr.push(v);
         this.sortedIdx.push(false);
       }
       this.sortedIdx[0] = true;
-      this.step = 0;
+      this.step = -1;
     },
     resetSort: function () {
       this.initArray();
@@ -422,41 +426,61 @@ const app6 = new Vue({
     },
     makeCopy: function () {
       this.copyArr = [];
-      for (let i = 0; i < this.j; i++) {
+      for (let i = 0; i <= this.j; i++) {
         this.copyArr[i] = this.arr[i];
       }
       for (let i = this.j, k = i + 1; i < this.i; i++, k++) {
         this.copyArr[i + 1] = this.arr[i];
       }
-      for (let i = this.i+1; i < this.arr.length; i++) {
+      for (let i = this.i + 1; i < this.arr.length; i++) {
         this.copyArr[i] = this.arr[i];
       }
     },
     nextStep: function () {
-      if (this.step == 0) {
+      if (this.step < 2) {
+        this.step++;
+      }
+      // 0: On veut placer l'élément t[i] (491) dans la partie triée du tableau
+      // 1: t[i] < t[i-1] ? t[i] < t[i-1] == true --> 2 sinon --> 5
+      // 2: k = t[i]
+      // 3: p = position d'insertion
+      // 4: décaler les éléments du tableau
+      // 5: placer t[i] --> t[p], incrémenter i, si i < arr.length --> 0
+
+      /*
+      if (this.step < 3) {
+        this.step++;
+      } else if (this.step == 3) {
         this.j = this.i - 1;
         while (this.j >= 0 && this.arr[this.j] > this.arr[this.i]) {
           this.j--;
         }
         this.j++;
-        this.step = (this.j != this.i) ? 1 : 2;
+        this.step = (this.j != this.i) ? 4 : 100;
         if (this.j != this.i) {
           this.makeCopy();
         }
-      } else if (this.step == 1) {
-        this.copyArr[this.j] = this.arr[this.i];
-        this.arr = this.copyArr;
-        this.step = 2;
-      } else if (this.step == 2) {
+      } else if (this.step == 100) {
         this.sortedIdx[this.i] = true;
         this.i++;
         this.step = 0;
       }
+      
+      if (this.step == 0) {
+        
+      } else if (this.step == 1) {
+        this.copyArr[this.j] = this.arr[this.i];
+        this.arr = this.copyArr;
+        this.step = 2;
+      }
+        */
+      console.log(this.step);
+      this.$forceUpdate();
     },
     isOpen: function (idx) {
       return this.sortedIdx[idx] || idx == this.i || idx == this.j;
     },
-    getDataOpen: function (idx) {
+    getAnnotation: function (idx) {
       if (this.sortedIdx[idx]) {
         return 'trié';
       } else if (idx == this.i) {
@@ -465,7 +489,7 @@ const app6 = new Vue({
         return 'j';
       }
     },
-    getDataOpenCopy: function (idx) {
+    getCopyAnnotation: function (idx) {
       if (idx == this.j) {
         return 't[p]';
       } else if (idx <= this.i) {
