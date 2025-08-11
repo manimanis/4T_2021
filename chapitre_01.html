@@ -56,39 +56,6 @@
       </section>
 
       <section>
-        <h3>Solution Pascal</h3>
-
-        <pre id="activite1" class="solution"><code class="language-delphi">program prog01;
-{ Déclarations }
-const
-  PI = 3.14159265;
-  QPM2 = 6; { 6 m²/Kg }
-var
-  n : integer;
-  l, h : real;
-  sp, qp : real;
-begin
-  { Entrée des données }
-  Write('Largeur de la porte : ');
-  Readln(l);
-
-  Write('Hauteur de la porte : ');
-  Readln(h);
-
-  Write('Donner le nbre de portes : ');
-  Readln(n);
-
-  { Traitements }
-  sp := (l * (h - l/2)) + PI * L * L / 8;
-  qp := (n * 2 * sp) / QPM2;
-
-  { Affichage }
-  Writeln('Quantité de peinture requise : ', qp:5:1, 'Kg');
-  Readln;
-end.</code></pre>
-      </section>
-
-      <section>
         <h3 class="p-break">Solution Python</h3>
 
         <pre id="activite1" class="solution"><code class="language-python">PI = 3.14159265
@@ -154,32 +121,7 @@ print('Quantité de peinture requise :', qp, 'Kg')
         <h3>Activité 4</h3>
         <p>Relever les types de données utilisés dans le programme suivant :</p>
 
-        <div class="row">
-          <div class="col-sm-6">
-            <pre><code class="language-delphi">program prog02.pas;
-{Décalarations}
-var
-  ...
-{P.P}
-begin
-  nom := 'Sahar';
-  age := 18;
-  genre := 'F';
-  p := 60.0;
-  h := 1.60;
-
-  imc := p / (h * h);
-  ok := (imc >= 18) and (imc &lt;= 23);
-
-  if genre in ['G', 'g'] then sal := 'Mr'
-  else if genre in ['F', 'f'] then sal := 'Mlle/Mme'
-  else sal := '';
-
-  ...
-end.</code></pre>
-          </div>
-          <div class="col-sm-6">
-            <pre><code class="language-python">nom = 'Sahar'
+        <pre><code class="language-python">nom = 'Sahar'
 age = 18
 genre = 'F'
 p = 60.0
@@ -197,9 +139,6 @@ else:
 
 ...
 </code></pre>
-          </div>
-        </div>
-
       </section>
 
       <section>
@@ -222,46 +161,6 @@ else:
         <h3>Le type Entier</h3>
         <p>En algorithme, le type entier représente un sous ensemble du corps des entiers relatifs &Zopf;.</p>
 
-        <h4>En Pascal</h4>
-        <p>Le langage Pascal définit cinq types entiers. Chaque type a un domaine de définition spécifique qui dépend de
-          sa taille.</p>
-        <table class="table table-sm table-bordered border-dark table-striped table-hover">
-          <thead>
-            <tr>
-              <th>Type</th>
-              <th>Domaine de définition</th>
-              <th>Taille (bits)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>SHORTINT</td>
-              <td>&nbsp;-128..127</td>
-              <td>8 bits</td>
-            </tr>
-            <tr>
-              <td>INTEGER</td>
-              <td>-32768..32767</td>
-              <td>16 bits</td>
-            </tr>
-            <tr>
-              <td>LONGINT</td>
-              <td>-2147483648..2147483647</td>
-              <td>32 bits</td>
-            </tr>
-            <tr>
-              <td>BYTE</td>
-              <td>0..255</td>
-              <td>8 bits</td>
-            </tr>
-            <tr>
-              <td>WORD</td>
-              <td>0..65535</td>
-              <td>16 bits</td>
-            </tr>
-          </tbody>
-        </table>
-
         <h4>En Python</h4>
         <p>Python définit un seul type entier <code>int</code> et sa taille est illimitée.</p>
       </section>
@@ -280,7 +179,6 @@ else:
             <tr>
               <th>Algorithme</th>
               <th>Signification</th>
-              <th>Exemple Pascal</th>
               <th>Exemple Python</th>
             </tr>
           </thead>
@@ -289,18 +187,12 @@ else:
               <td>+</td>
               <td>Addition</td>
               <td>
-                <pre><code class="nohighlight">c := a + b; // c = 8</code></pre>
-              </td>
-              <td>
                 <pre><code class="nohighlight">c = a + b # c = 8</code></pre>
               </td>
             </tr>
             <tr>
               <td>-</td>
               <td>Soustraction</td>
-              <td>
-                <pre><code class="nohighlight">d := a - b; // d = 2</code></pre>
-              </td>
               <td>
                 <pre><code class="nohighlight">d = a - b # d = 2</code></pre>
               </td>
@@ -309,18 +201,12 @@ else:
               <td>*</td>
               <td>Multiplication</td>
               <td>
-                <pre><code class="nohighlight">e := a * b; // e = 15</code></pre>
-              </td>
-              <td>
                 <pre><code class="nohighlight">e = a * b # e = 15</code></pre>
               </td>
             </tr>
             <tr>
               <td>/</td>
               <td>Division réelle</td>
-              <td>
-                <pre><code class="nohighlight">f := a / b; // f = 1.666666</code></pre>
-              </td>
               <td>
                 <pre><code class="nohighlight">f = a / b # f = 1.666666</code></pre>
               </td>
@@ -329,9 +215,6 @@ else:
               <td>div</td>
               <td>Quotient de la division entière</td>
               <td>
-                <pre><code class="nohighlight">g := a div b; // g = 1</code></pre>
-              </td>
-              <td>
                 <pre><code class="nohighlight">g = a // b # g = 1</code></pre>
               </td>
             </tr>
@@ -339,19 +222,12 @@ else:
               <td>mod</td>
               <td>Reste de la division entière</td>
               <td>
-                <pre><code class="nohighlight">h := a mod b; // h = 2</code></pre>
-              </td>
-              <td>
                 <pre><code class="nohighlight">h = a % b # h = 2</code></pre>
               </td>
             </tr>
             <tr>
               <td>&nbsp;</td>
               <td>Exponentiation</td>
-              <td>
-                <pre><code class="nohighlight">// Pas d'opérateur d'exponentiation
-i := a * a * a; // i = 125</code></pre>
-              </td>
               <td>
                 <pre><code class="nohighlight">i = a ** b # i = 125</code></pre>
               </td>
@@ -376,9 +252,6 @@ i := a * a * a; // i = 125</code></pre>
 
         <p>Le type réel représente les valeurs à virgule flottantes, exemple : 1.5, 170.5, etc.</p>
 
-        <h4>En Pascal</h4>
-        <p>Le langage Pascal définit plusieurs types pour les réels le plus utilisé est : <code>real</code>.</p>
-
         <h4>En Python</h4>
         <p>Le langage Python définit le type <code>float</code> pour représenter les nombres décimaux.</p>
       </section>
@@ -390,7 +263,6 @@ i := a * a * a; // i = 125</code></pre>
           <thead>
             <tr>
               <th width="10%">Nom Fonction</th>
-              <th width="10%">Pascal</th>
               <th width="30%">Python</th>
               <th width="30%">Rôle</th>
               <th width="20%">Test</th>
@@ -398,7 +270,6 @@ i := a * a * a; // i = 125</code></pre>
           </thead>
           <tbody>
             <tr>
-              <td>abs(x)</td>
               <td>abs(x)</td>
               <td>abs(x)</td>
               <td>Valeur Absolue de x</td>
@@ -411,7 +282,6 @@ i := a * a * a; // i = 125</code></pre>
             <tr>
               <td>racine(x)</td>
               <td>sqrt(x)</td>
-              <td>x ** 0.5</td>
               <td>La racine carré de x</td>
               <td>racine({{xSqrt}}) = {{resSqrt}}
                 <div class="d-print-none">
@@ -420,20 +290,8 @@ i := a * a * a; // i = 125</code></pre>
               </td>
             </tr>
             <tr>
-              <td>carré(x)</td>
-              <td>sqr(x)</td>
-              <td>x ** 2</td>
-              <td>Le carré de x</td>
-              <td>carré({{xSqr}}) = {{resSqr}}
-                <div class="d-print-none">
-                  <button v-on:click="actualiser('sqr')">Actualiser</button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>tronc(x)</td>
-              <td>trunc(x)</td>
-              <td>trunc(x)</td>
+              <td>ent(x)</td>
+              <td>int(x)</td>
               <td>Supprime la partie fractionnaire de x et renvoie un entier</td>
               <td>tronc({{xTronc}}) = {{resTronc}}
                 <div class="d-print-none">
@@ -444,7 +302,6 @@ i := a * a * a; // i = 125</code></pre>
             <tr>
               <td>arrondi(x)</td>
               <td>round(x)</td>
-              <td>round(x)</td>
               <td>Retourne l'entier le plus proche de x</td>
               <td>arrondi({{xRound}}) = {{resRound}}
                 <div class="d-print-none">
@@ -453,34 +310,7 @@ i := a * a * a; // i = 125</code></pre>
               </td>
             </tr>
             <tr>
-              <td>alea</td>
-              <td>random</td>
-              <td>from random import random<br>
-                random()</td>
-              <td>Retourne un réel aléatoire dans l'intervalle [0, 1[</td>
-              <td>alea = {{resAlea}}
-                <div class="d-print-none">
-                  <button v-on:click="actualiser('alea')">Actualiser</button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>alea(x)</td>
-              <td>random(x)</td>
-              <td>from random import randint<br>
-                randint(0, x-1)
-              </td>
-              <td><span class="text-danger">Spécifique Pascal</span><br>Retourne un entier aléatoire dans l'intervalle
-                [0, x[</td>
-              <td>alea({{xAlea2}}) = {{resAlea2}}
-                <div class="d-print-none">
-                  <button v-on:click="actualiser('alea2')">Actualiser</button>
-                </div>
-              </td>
-            </tr>
-            <tr>
               <td>alea(a, b)</td>
-              <td>a + random(b - a + 1)</td>
               <td>from random import randint<br>
                 randint(a, b)
               </td>
@@ -489,17 +319,6 @@ i := a * a * a; // i = 125</code></pre>
               <td>alea({{xAlea3}}, {{yAlea3}}) = {{resAlea3}}
                 <div class="d-print-none">
                   <button v-on:click="actualiser('alea3')">Actualiser</button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>impair(x)</td>
-              <td>odd(x)</td>
-              <td>(x % 2 == 1)</td>
-              <td><span class="text-danger">Spécifique Pascal</span><br>Retourne si un entier x est impair</td>
-              <td>odd({{xOdd}}) = {{resOdd}}
-                <div class="d-print-none">
-                  <button v-on:click="actualiser('odd')">Actualiser</button>
                 </div>
               </td>
             </tr>
@@ -524,19 +343,7 @@ i := a * a * a; // i = 125</code></pre>
       </section>
       <section>
         <h3>Solution</h3>
-        <div class="row">
-          <div class="col-sm-6">
-            <pre class="solution" id="activite6"><code class="language-delphi">program prog03;
-begin
-  Writeln(0.0);    Writeln(-55.36);
-  Writeln(3.14);   Writeln(60E-9);
-  Writeln(1.23);   Writeln(-38.0);
-  Writeln(5.6E6);
-  Readln;
-end.</code></pre>
-          </div>
-          <div class="col-sm-6">
-            <pre class="solution" id="activite6"><code class="language-python"># program prog03
+        <pre class="solution" id="activite6"><code class="language-python"># program prog03
 print(0.0)
 print(-55.36)
 print(3.14)
@@ -545,49 +352,6 @@ print(1.23)
 print(-38.0)
 print(5.6E6)
 </code></pre>
-          </div>
-        </div>
-
-      </section>
-
-      <section>
-        <h3>Activité 7 - Pascal</h3>
-
-        <div class="row">
-          <div class="col-sm-6">
-            <p>Le programme précédent permet d'obtenir le résultat suivant :</p>
-            <p class="center">
-              <img class="h2cm" alt="Résultat du programme" src="resources/images/img03.png" />
-            </p>
-          </div>
-          <div class="col-sm-6">
-            <p>Rectifier votre programme pour obtenir l'affichage suivant :</p>
-            <p class="center">
-              <img class="h2cm" alt="Nouveau affichage après rectification" src="resources/images/img04.png" />
-            </p>
-          </div>
-        </div>
-
-        <pre class="solution" id="activite7"><code class="language-delphi">program prog04;
-begin
-  Writeln(0.0:3:1);    Writeln(-55.36:6:2);
-  Writeln(3.14:4:2);   Writeln(60E-9:10);
-  Writeln(1.23:4:2);   Writeln(-38.0:5:1);
-  Writeln(5.6E6:9);
-  Readln;
-end.</code></pre>
-      </section>
-
-      <section>
-        <h3 class="p-break">A retenir - Pascal</h3>
-
-        <p>La mise en forme des réels est effectuée de la façon suivante :</p>
-        <p class="center">
-          <img alt="Mise en forme des réels" src="resources/images/img05.png" />&nbsp;
-        </p>
-        <p>
-          3.2<strong><span class="surlignage">E</span></strong>-5 est équivalente à 3,2<strong><span
-              class="surlignage">&times;10</span></strong><sup>-5</sup></p>
       </section>
 
       <section>
@@ -596,9 +360,6 @@ end.</code></pre>
         <p>Une variable de type booléen prend uniquement deux valeurs différentes <strong>vrai</strong> ou
           <strong>faux</strong>.
         </p>
-
-        <h4>En Pascal</h4>
-        <p>Le type booléen correspond à <code>boolean</code> en Pascal.</p>
 
         <h4>En Python</h4>
         <p>Le type booléen correspond à <code>bool</code> en Python.</p>
@@ -612,7 +373,6 @@ end.</code></pre>
             <tr>
               <th>Opérateur</th>
               <th>Signification</th>
-              <th>Pascal</th>
               <th>Python</th>
             </tr>
           </thead>
@@ -623,16 +383,10 @@ end.</code></pre>
               <td>
                 <pre><code class="nohighlight">not a</code></pre>
               </td>
-              <td>
-                <pre><code class="nohighlight">not a</code></pre>
-              </td>
             </tr>
             <tr>
               <td>ET</td>
               <td>Fonction ET</td>
-              <td>
-                <pre><code class="nohighlight">a and b</code></pre>
-              </td>
               <td>
                 <pre><code class="nohighlight">a and b</code></pre>
               </td>
@@ -643,22 +397,10 @@ end.</code></pre>
               <td>
                 <pre><code class="nohighlight">a or b</code></pre>
               </td>
-              <td>
-                <pre><code class="nohighlight">a or b</code></pre>
-              </td>
-            </tr>
-            <tr>
-              <td>OUEX</td>
-              <td>Fonction OU Exclusif</td>
-              <td>
-                <pre><code class="nohighlight">a xor b</code></pre>
-              </td>
-              <td>
-                <pre><code class="nohighlight">a ^ b</code></pre>
-              </td>
             </tr>
           </tbody>
         </table>
+
         <p class="p-break">Compléter les tableaux de vérités suivants :</p>
         <div class="row">
           <div class="col-sm-6 col-xl-3">
@@ -815,10 +557,6 @@ end.</code></pre>
           <img alt="Table ASCII" height="224" src="resources/images/img11.png" width="517" />
         </p>
 
-        <h4>En Pascal</h4>
-
-        <p>Pascal définit le type <code>char</code> pour stocker un caractère.</p>
-
         <h4>En Python</h4>
         <p>Python <u>ne possède pas un type caractère</u> un <code>str</code> de longueur 1 est considéré comme étant un
           caractère.</p>
@@ -830,13 +568,11 @@ end.</code></pre>
         <table class="table table-sm table-bordered border-dark table-striped table-hover">
           <tr>
             <th>Fonction</th>
-            <th>Pascal</th>
             <th>Python</th>
             <th>Exemples</th>
           </tr>
           <tr>
             <td>Code ASCII d'un caractère</td>
-            <td>ORD(car)</td>
             <td>ORD(car)</td>
             <td>ORD("0") ➞ 48<br />
               ORD("A") ➞ 65<br />
@@ -845,27 +581,12 @@ end.</code></pre>
           <tr>
             <td>Caractère correpondant à un code ASCII</td>
             <td>CHR(code)</td>
-            <td>CHR(code)</td>
             <td>CHR(48) ➞ "0"<br />
               CHR(65) ➞ "A"<br />
               CHR(97) ➞ "a"</td>
           </tr>
           <tr>
-            <td>Successeur d'un caractère</td>
-            <td>SUCC(car)</td>
-            <td><span class="text-danger">Spécifique Pascal</span><br>
-              chr(ord(car) + 1)</td>
-            <td>SUCC("A") ➞ "B"</td>
-          </tr>
-          <tr>
-            <td>Prédécesseur d'un caractère</td>
-            <td>PRED(car)</td>
-            <td><span class="text-danger">Spécifique Pascal</span><br>chr(ord(car) - 1)</td>
-            <td>PRED("A") ➞ "@"</td>
-          </tr>
-          <tr>
             <td>Mettre un caractère en majuscules</td>
-            <td>UPCASE(car)</td>
             <td>car.upper()</td>
             <td>MAJUS("a") ➞ "A"<br />
               MAJUS("A") ➞ "A"<br />
@@ -925,22 +646,16 @@ Fin</code></pre>
           <tr>
             <th>Objet</th>
             <th>Type/Nature</th>
-            <th>Rôle</th>
           </tr>
           <tr>
             <td>Prénom</td>
-            <td>Chaîne [10]</td>
-            <td>Prénom d’un individu sur 10 caractères maximum</td>
+            <td>Chaîne</td>
           </tr>
           <tr>
             <td>Nom</td>
             <td>Chaîne</td>
-            <td>Chaîne pouvant contenir jusqu'à 255 caractères.</td>
           </tr>
         </table>
-
-        <h4>En Pascal</h4>
-        <p>Le type <code>string</code> correspond en Pascal à une chaîne de caractères.</p>
 
         <h4>En Python</h4>
         <p>Le type <code>str</code> correspond en Paython à une chaîne de caractères. En Python, on ne peut pas limiter
@@ -952,39 +667,16 @@ Fin</code></pre>
         <p>Décalrer deux variables <code>nom</code> et <code>prenom</code>. Puis, les initialiser avec votre nom et
           prénom.</p>
       </section>
+
       <section>
         <h3>Solution</h3>
-        <div class="row">
-          <div class="col-sm-6">
-            <pre id="activite11"><code class="language-delphi">var
-  Prenom: string[20];
-  Nom: string;
-begin
-  Nom := 'MANI';
-  Prenom := 'Mohamed Anis';
-end.</code></pre>
-          </div>
-          <div class="col-sm-6">
-            <pre id="activite11"><code class="language-python">nom = "MANI"
+
+        <pre id="activite11"><code class="language-python">nom = "MANI"
 prenom = "Mohamed Anis"</code></pre>
-          </div>
-        </div>
       </section>
 
       <section>
-        <h3>Accès aux caractères - Pascal</h3>
-
-        <p>En Pascal, les caractères d'une chaîne sont accessibles via leur indice qui commence de 1.</p>
-
-        <p>La figure suivante explique comment accéder aux caractères d'une chaîne et les modifier.</p>
-        <figure>
-          <img alt="Accès aux caractères d'une chaîne" src="resources/images/img12.png" class="h7cm" />
-          <figcaption>Indices dans une chaîne</figcaption>
-        </figure>
-      </section>
-
-      <section>
-        <h3 class="p-break">Accès aux caractères - Python</h3>
+        <h3 class="p-break">Accès aux caractères</h3>
 
         <p>En Python, les caractères d'une chaîne sont accessibles via leur indice qui commence de 0.</p>
 
@@ -1009,116 +701,6 @@ prenom = "Mohamed Anis"</code></pre>
           <li>2 en utilisant l'indexation positive</li>
           <li>-4 en utilisant l'indexation négative</li>
         </ul>
-      </section>
-
-      <section>
-        <h3>Fonctions sur les chaînes - Pascal</h3>
-
-        <p>Le tableau suivant résume l'ensemble des fonctions prédéfinies sur les chaînes en Pascal</p>
-        <table id="str_func" class="table table-sm table-bordered border-dark table-striped table-hover">
-          <thead>
-            <tr>
-              <th width="30%">Fonction</th>
-              <th>Algorithme</th>
-              <th>Pascal</th>
-              <th width="30%">Test</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Retourne la longueur d'une chaine de caractères</td>
-              <td>long(ch)</td>
-              <td>length(ch)</td>
-              <td>long("<span v-if="modeLong == 'display'" v-on:click="onModify('long')">{{xLong}}</span><span
-                  v-if="modeLong == 'modify'"><input type="text" name="fn_long" v-model="xLong"
-                    v-on:keydown.enter="onCalc('long')"></span>") &rarr;
-                {{resLong}}</td>
-            </tr>
-            <tr>
-              <td>Retourne la <strong>première position</strong> de <code>ch1</code> dans <code>ch2</code></td>
-              <td>pos(ch1, ch2)</td>
-              <td>pos(ch1, ch2)</td>
-              <td>pos("<span v-if="modePos == 'display'" v-on:click="onModify('pos')">{{xPos1}}</span><span
-                  v-if="modePos == 'modify'"><input type="text" name="fn_pos1" v-model="xPos1"
-                    v-on:keydown.enter="onCalc('pos')"></span>", "<span v-if="modePos == 'display'"
-                  v-on:click="onModify('pos')">{{xPos2}}</span><span v-if="modePos == 'modify'"><input type="text"
-                    name="fn_pos2" v-model="xPos2" v-on:keydown.enter="onCalc('pos')"></span>") &rarr;
-                {{resPos}}</td>
-            </tr>
-            <tr>
-              <td>Retourne une sous chaîne de <code>nbc</code> caractères à partir de la position <code>pos</code> de
-                <code>ch</code>
-              </td>
-              <td>sous_chaine(ch, pos, nbc)</td>
-              <td>copy(ch, pos, nbc)</td>
-              <td>sous_chaine("<span v-if="modeSousChaine == 'display'"
-                  v-on:click="onModify('sousChaine')">{{xSousChaine1}}</span><span
-                  v-if="modeSousChaine == 'modify'"><input type="text" name="fn_SousChaine1" v-model="xSousChaine1"
-                    v-on:keydown.enter="onCalc('sousChaine')"></span>", <span v-if="modeSousChaine == 'display'"
-                  v-on:click="onModify('sousChaine')">{{xSousChaine2}}</span><span
-                  v-if="modeSousChaine == 'modify'"><input type="text" name="fn_SousChaine2" v-model="xSousChaine2"
-                    v-on:keydown.enter="onCalc('sousChaine')"></span>, <span v-if="modeSousChaine == 'display'"
-                  v-on:click="onModify('sousChaine')">{{xSousChaine3}}</span><span
-                  v-if="modeSousChaine == 'modify'"><input type="text" name="fn_SousChaine3" v-model="xSousChaine3"
-                    v-on:keydown.enter="onCalc('sousChaine')"></span>) &rarr;
-                "{{resSousChaine}}"</td>
-            </tr>
-            <tr>
-              <td>Supprime <code>nbc</code> caractères de <code>ch</code> à partir de la position <code>pos</code>.</td>
-              <td>efface(ch, pos, nbc)</td>
-              <td>delete(ch, pos, nbc)</td>
-              <td>ch &larr; "<span v-if="modeEfface == 'display'"
-                  v-on:click="onModify('Efface')">{{xEfface1}}</span><span v-if="modeEfface == 'modify'"><input
-                    type="text" name="fn_Efface1" v-model="xEfface1" v-on:keydown.enter="onCalc('Efface')"></span>"<br>
-                efface(ch, <span v-if="modeEfface == 'display'" v-on:click="onModify('Efface')">{{xEfface2}}</span><span
-                  v-if="modeEfface == 'modify'"><input type="text" name="fn_Efface2" v-model="xEfface2"
-                    v-on:keydown.enter="onCalc('Efface')"></span>, <span v-if="modeEfface == 'display'"
-                  v-on:click="onModify('Efface')">{{xEfface3}}</span><span v-if="modeEfface == 'modify'"><input
-                    type="text" name="fn_Efface3" v-model="xEfface3" v-on:keydown.enter="onCalc('Efface')"></span>)<br>
-                ch contient "{{resEfface}}"</td>
-            </tr>
-            <tr>
-              <td>Insérer <code>ch1</code> dans <code>ch2</code> à la position <code>pos</code>.</td>
-              <td>Inserer(ch1, ch2, pos)</td>
-              <td>Insert(ch1, ch2, pos)</td>
-              <td>ch1 &larr; "<span v-if="modeInserer == 'display'"
-                  v-on:click="onModify('Inserer')">{{xInserer1}}</span><span v-if="modeInserer == 'modify'"><input
-                    type="text" name="fn_Inserer1" v-model="xInserer1"
-                    v-on:keydown.enter="onCalc('Inserer')"></span>"<br>
-                ch2 &larr; "<span v-if="modeInserer == 'display'"
-                  v-on:click="onModify('Inserer')">{{xInserer2}}</span><span v-if="modeInserer == 'modify'"><input
-                    type="text" name="fn_Inserer2" v-model="xInserer2"
-                    v-on:keydown.enter="onCalc('Inserer')"></span>"<br>
-                Inserer(ch1, ch2, <span v-if="modeInserer == 'display'"
-                  v-on:click="onModify('Inserer')">{{xInserer3}}</span><span v-if="modeInserer == 'modify'"><input
-                    type="text" name="fn_Inserer3" v-model="xInserer3"
-                    v-on:keydown.enter="onCalc('Inserer')"></span>)<br>
-                ch contient "{{resInserer}}"</td>
-            </tr>
-            <tr>
-              <td>Convertit une chaine <code>ch</code> en une valeur numérique <code>x</code>, si la chaîne n'est pas
-                une valeur numérique ou contient des erreurs renvoyer la position de l'erreur <code>e</code>.</td>
-              <td>Valeur(ch, x, e)</td>
-              <td>Val(ch, x, e)</td>
-              <td>val("<span v-if="modeValeur == 'display'" v-on:click="onModify('Valeur')">{{xValeur}}</span><span
-                  v-if="modeValeur == 'modify'"><input type="text" name="fn_Valeur" v-model="xValeur"
-                    v-on:keydown.enter="onCalc('Valeur')"></span>", x, e)
-                <br>x contient {{resValeurX}}<br>
-                e contient {{resValeurE}}
-              </td>
-            </tr>
-            <tr>
-              <td>Convertit une valeur numérique en chaine.</td>
-              <td>ConvCh(x, ch)</td>
-              <td>Str(x, ch)</td>
-              <td>ConvCh(<span v-if="modeConvCh == 'display'" v-on:click="onModify('ConvCh')">{{xConvCh}}</span><span
-                  v-if="modeConvCh == 'modify'"><input type="text" name="fn_ConvCh" v-model="xConvCh"
-                    v-on:keydown.enter="onCalc('ConvCh')"></span>, ch)
-                <br>ch contient "{{resConvCh}}"
-              </td>
-            </tr>
-          </tbody>
-        </table>
       </section>
 
       <section>
@@ -1192,28 +774,10 @@ prenom = "Mohamed Anis"</code></pre>
               </td>
             </tr>
             <tr>
-              <td>Insérer <code>ch1</code> dans <code>ch2</code> à la position <code>pos</code>.</td>
-              <td>Inserer(ch1, ch2, pos)</td>
-              <td>ch2[:pos] + ch1 + ch2[pos:]</td>
-              <td>ch1 &larr; "<span v-if="modeInserer == 'display'"
-                  v-on:click="onModify('Inserer')">{{xInserer1}}</span><span v-if="modeInserer == 'modify'"><input
-                    type="text" name="fn_Inserer1" v-model="xInserer1"
-                    v-on:keydown.enter="onCalc('Inserer')"></span>"<br>
-                ch2 &larr; "<span v-if="modeInserer == 'display'"
-                  v-on:click="onModify('Inserer')">{{xInserer2}}</span><span v-if="modeInserer == 'modify'"><input
-                    type="text" name="fn_Inserer2" v-model="xInserer2"
-                    v-on:keydown.enter="onCalc('Inserer')"></span>"<br>
-                Inserer(ch1, ch2, <span v-if="modeInserer == 'display'"
-                  v-on:click="onModify('Inserer')">{{xInserer3}}</span><span v-if="modeInserer == 'modify'"><input
-                    type="text" name="fn_Inserer3" v-model="xInserer3"
-                    v-on:keydown.enter="onCalc('Inserer')"></span>)<br>
-                ch contient "{{resInserer}}"</td>
-            </tr>
-            <tr>
               <td>Convertit une chaine <code>ch</code> en une valeur numérique.</td>
               <td>Valeur(ch)</td>
               <td>x = int(ch) # pour les entiers<br>x = float(ch) # pour les réels</td>
-              <td>x &larr; val("<span v-if="modeValeur == 'display'"
+              <td>x &larr; valeur("<span v-if="modeValeur == 'display'"
                   v-on:click="onModify('Valeur')">{{xValeur}}</span><span v-if="modeValeur == 'modify'"><input
                     type="text" name="fn_Valeur" v-model="xValeur" v-on:keydown.enter="onCalc('Valeur')"></span>")
                 <br>x contient {{resValeurX}}
@@ -1251,65 +815,11 @@ prenom = "Mohamed Anis"</code></pre>
       </section>
 
       <section>
-        <h3>Déclaration en Pascal</h3>
-
-        <p>Un tableau peut être déclaré de l'une des façons suivantes :</p>
-
-        <div class="row">
-          <div class="col-sm-6">
-            <h4>Méthode 1</h4>
-            <pre><code class="language-delphi">// Déclaration directe
-var 
-  t : array [1..15] of integer;</code></pre>
-          </div>
-          <div class="col-sm-6">
-            <h4>Méthode 2</h4>
-            <pre><code class="language-delphi">// Déclaration d'un nouveau type
-type 
-  tab = array [1..15] of integer;
-// Déclaration du tableau
-var 
-  t : tab;</code></pre>
-          </div>
-        </div>
-
-        <p>La <strong>deuxième méthode est la méthode conseillée</strong> en Pascal, car on en aura besoin lorsqu'on
-          abordera les sous-programmes.</p>
-
-        <table class="p-break table table-borderless col-16 w-75">
-          <tbody>
-            <tr>
-              <td>t</td>
-              <script>
-                for (var i = 1; i <= 15; i++) {
-                  document.writeln('<td class="text-center border border-dark">0</td>');
-                }
-              </script>
-            </tr>
-            <tr>
-              <td class="text-center border-0">&nbsp;</td>
-              <script>
-                for (var i = 1; i <= 15; i++) {
-                  document.writeln('<td class="text-center border border-0">' + i + '</td>');
-                }
-              </script>
-            </tr>
-          </tbody>
-        </table>
-
-        <h4>Indexation</h4>
-
-        <p>Lors de sa déclaration on indique l'intervalle d'indexation du tableau. Ainsi, dans l'exemple précédent, le
-          premier élément du tableau <code>t</code> possède l'indice <strong>1</strong> alors que le dernier possède
-          l'indice <strong>15</strong>.
-        </p>
-      </section>
-
-      <section>
         <h3>Déclaration en Python</h3>
 
         <p>En Python, on écrit tout simplement :</p>
-        <pre><code class="language-python">t = [int()] * 15</code></pre>
+        <pre><code class="language-python">from numpy import array
+t = array([int()] * 15)</code></pre>
 
         <p>Le code précédent crée un tableau pour stocker <strong>15</strong> entiers.</p>
 
@@ -1352,93 +862,7 @@ var
       </section>
 
       <section>
-        <h3>Activité 12 - Pascal</h3>
-
-        <p>Déclarer les tableaux suivants en Pascal : </p>
-
-        <table class="table table-sm table-borderless">
-          <tbody>
-            <tr>
-              <td width="80">te</td>
-              <script>
-                for (var i = 1; i <= 10; i++) {
-                  document.writeln('<td class="border border-dark" width="9%">' + Math.floor(Math.random() * 100) + '</td>');
-                }
-              </script>
-            </tr>
-            <tr>
-              <td>&nbsp;</td>
-              <script>
-                for (var i = 1; i <= 10; i++) {
-                  document.writeln('<td class="text-center">' + i + '</td>');
-                }
-              </script>
-            </tr>
-          </tbody>
-        </table>
-
-        <table class="table table-sm table-borderless">
-          <tbody>
-            <tr>
-              <td width="80">tr</td>
-              <script>
-                for (var i = -3; i <= 3; i++) {
-                  document.writeln('<td class="border border-dark" width="12.5%">' + Math.floor(Math.random() * 100) / 10.0 + '</td>');
-                }
-              </script>
-            </tr>
-            <tr>
-              <td>&nbsp;</td>
-              <script>
-                for (var i = -3; i <= 3; i++) {
-                  document.writeln('<td class="text-center">' + i + '</td>');
-                }
-              </script>
-            </tr>
-          </tbody>
-        </table>
-
-        <table class="table table-sm table-borderless">
-          <tbody>
-            <tr>
-              <td width="80">tb</td>
-              <script>
-                for (var i = 0; i < 6; i++) {
-                  document.writeln('<td class="text-center border border-dark" width="10%">' + (Math.random() >= 0.5 ? 'True' : 'False') + '</td>');
-                }
-                document.writeln('<td class="text-center border border-dark" width="10%">...</td>');
-                for (var i = 24; i < 26; i++) {
-                  document.writeln('<td class="text-center border border-dark" width="10%">' + (Math.random() >= 0.5 ? 'True' : 'False') + '</td>');
-                }
-              </script>
-            </tr>
-            <tr>
-              <td>&nbsp;</td>
-              <script>
-                for (var i = 0; i < 6; i++) {
-                  document.writeln('<td class="text-center">"' + String.fromCharCode(65 + i) + '"</td>');
-                }
-                document.writeln('<td class="text-center">...</td>');
-                for (var i = 24; i < 26; i++) {
-                  document.writeln('<td class="text-center">"' + String.fromCharCode(65 + i) + '"</td>');
-                }
-              </script>
-            </tr>
-          </tbody>
-        </table>
-
-        <pre id="activite12" class="solution"><code class="language-delphi">type
-  tab_e = array [1..10] of integer;
-  tab_r = array [-3..3] of real;
-  tab_b = array ['A'..'Z'] of boolean;
-var 
-  te : tab_e;
-  tr : tab_r;
-  tb : tab_b;</code></pre>
-      </section>
-
-      <section>
-        <h3 class="p-break">Activité 12 - Python</h3>
+        <h3 class="p-break">Activité 12</h3>
 
         <p>Déclarer les tableaux suivants en Python : </p>
 
@@ -1513,9 +937,10 @@ var
           </tbody>
         </table>
 
-        <pre id="activite12" class="solution"><code class="language-python">te = [int()] * 10
-tr = [float()] * 7
-tb = [bool()] * 26</code></pre>
+        <pre id="activite12" class="solution"><code class="language-python">from numpy import array
+te = array([int()] * 10)
+tr = array([float()] * 7)
+tb = array([bool()] * 26)</code></pre>
       </section>
     </article>
   </main>
