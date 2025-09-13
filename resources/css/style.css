@@ -385,13 +385,13 @@ table.col-20 td {
   img.h15cm {
     max-height: 15cm !important;
   }
-  @page {
+  /* @page {
     counter-increment: page;
     counter-reset: page 1;
     @top-right {
       content: "Page " counter(page) " of " counter(pages);
     }
-  }
+  } */
   /*
   table th, table td {
     border: thin solid #000;
