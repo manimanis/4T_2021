@@ -217,17 +217,12 @@ Fin</code></pre>
         <h4>Forme 1</h4>
         <p>Compter de <strong>0</strong> à <strong>n-1</strong> par <strong>pas de 1</strong>, n &gt; 0.</p>
         <div class="row">
-          <div class="col-sm-4">
+          <div class="col-sm-6">
             <pre><code class="language-algorithm">Pour cpt de 0 à n-1 Faire
   // Traitements
 Fin Pour</code></pre>
           </div>
-          <div class="col-sm-4">
-            <pre><code class="language-delphi">for cpt:=0 to n-1 do begin
-  // Traitements
-end;</code></pre>
-          </div>
-          <div class="col-sm-4">
+          <div class="col-sm-6">
             <pre><code class="language-python">for cpt in range(n):
   # Traitements
   </code></pre>
@@ -236,17 +231,12 @@ end;</code></pre>
         <h4>Forme 2</h4>
         <p>Compter de <strong>d</strong> à <strong>f</strong> par <strong>pas de 1</strong>, f &gt; d.</p>
         <div class="row">
-          <div class="col-sm-4">
+          <div class="col-sm-6">
             <pre><code class="language-algorithm">Pour cpt de d à f Faire
   // Traitements
 Fin Pour</code></pre>
           </div>
-          <div class="col-sm-4">
-            <pre><code class="language-delphi">for cpt:=d to f do begin
-  // Traitements
-end;</code></pre>
-          </div>
-          <div class="col-sm-4">
+          <div class="col-sm-6">
             <pre><code class="language-python">for cpt in range(d, f+1):
   # Traitements
   </code></pre>
@@ -256,17 +246,12 @@ end;</code></pre>
         <h4>Forme 3</h4>
         <p>Décompter de <strong>d</strong> à <strong>f</strong> par <strong>pas de -1</strong>, f &lt; d.</p>
         <div class="row">
-          <div class="col-sm-4">
+          <div class="col-sm-6">
             <pre><code class="language-algorithm">Pour cpt de d à f [pas=-1] Faire
   // Traitements
 Fin Pour</code></pre>
           </div>
-          <div class="col-sm-4">
-            <pre><code class="language-delphi">for cpt:=d downto f do begin
-  // Traitements
-end;</code></pre>
-          </div>
-          <div class="col-sm-4">
+          <div class="col-sm-6">
             <pre><code class="language-python">for cpt in range(d, f-1, -1):
   # Traitements
   </code></pre>
@@ -472,29 +457,22 @@ Fin</code></pre>
       </section>
 
       <section>
-        <h3 class="p-break">Structure itérative à condition d'arrêt</h3>
+        <h3 class="p-break">Structure itérative à condition d'arrêt (Répéter)</h3>
 
         <p>Une <b>structure à condition d'arrêt</b> est utilisée pour répéter une suite d'actions <u><b>jusqu'à</b></u>
           ce qu'une <u><b>condition</b></u> soit vraie.</p>
 
         <div class="row">
-          <div class="col-sm-4">
+          <div class="col-sm-6">
             <pre><code class="language-algorithm">Répéter
   // Traitements
 
 Jusqu'à condition</code></pre>
           </div>
-          <div class="col-sm-4">
-            <pre><code class="language-delphi">repeat
-  // Traitements
-
-until condition;</code></pre>
-          </div>
-          <div class="col-sm-4">
-            <pre><code class="language-python">while True:
-  # Traitements
-  if condition:
-    break</code></pre>
+          <div class="col-sm-6">
+            <pre><code class="language-python"># Traitements
+while not condition:
+  # Traitements</code></pre>
           </div>
         </div>
 
@@ -523,28 +501,23 @@ while True:
     break</code></pre>
           </div>
         </div>
-        <p class="text-danger"><strong>Utilisez la méthode qui vous convient le plus.</strong></p>
+        <p class="text-danger"><strong>Utilisez de préférence la 2<sup>e</sup> méthode.</strong></p>
       </section>
 
       <section>
-        <h3>Structure itérative à condition de marche</h3>
+        <h3>Structure itérative à condition d'arrêt (Tant Que)</h3>
 
-        <p>Une <b>structure itérative à condition de marche</b> est utilisée pour répéter une suite d'actions <u><b>tant
-              que</b></u>
-          une <u><b>condition</b></u> est vraie.</p>
+        <p>Une <b>structure itérative à condition d'arrêt</b> est, aussi, utilisée pour répéter une suite d'actions
+          <u><b>tant que</b></u> une <u><b>condition</b></u> est vraie.
+        </p>
 
         <div class="row">
-          <div class="col-sm-4">
+          <div class="col-sm-6">
             <pre><code class="language-algorithm">TantQue condition Faire
   // Traitements
 Fin TantQue</code></pre>
           </div>
-          <div class="col-sm-4">
-            <pre><code class="language-delphi">while condition do begin
-  // Traitements
-end;</code></pre>
-          </div>
-          <div class="col-sm-4">
+          <div class="col-sm-6">
             <pre><code class="language-python">while condition:
   # Traitements
   </code></pre>
@@ -1477,7 +1450,6 @@ Fin</code></pre>
       <section>
         <h3>Solution</h3>
 
-        <h4>Nouveau régime</h4>
         <div class="row">
           <div class="col-sm-8">
             <pre><code class="language-algorithm">Algorithme Palindrome
@@ -1489,56 +1461,6 @@ Début
   
   i &larr; 0
   j &larr; long(mot) - 1
-  pal &larr; Vrai
-  TantQue (j > i) et pal Faire
-    pal &larr; mot[j] = mot[i]
-    i &larr; i + 1
-    j &larr; j - 1
-  Fin TantQue
-  Si pal Alors
-    Ecrire(mot, "est palindrome")
-  Sinon
-    Ecrire(mot, "n'est pas palindrome")
-  Fin Si
-Fin</code></pre>
-          </div>
-          <div class="col-sm-4">
-            <table class="table table-sm table-bordered border-dark table-striped table-hover">
-              <thead>
-                <tr>
-                  <th>Objet</th>
-                  <th>Type/Nature</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>mot</td>
-                  <td>chaine</td>
-                </tr>
-                <tr>
-                  <td>i, j</td>
-                  <td>entier</td>
-                </tr>
-                <tr>
-                  <td>pal</td>
-                  <td>booléen</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <h4>Ancien régime</h4>
-        <div class="row">
-          <div class="col-sm-8">
-            <pre><code class="language-algorithm">Début Palindrome
-  Répéter
-    Ecrire("Donner un mot non vide ? ")
-    Lire(mot)
-  Jusqu'à (mot &ne; "")
-  
-  i &larr; 1
-  j &larr; long(mot)
   pal &larr; Vrai
   TantQue (j > i) et pal Faire
     pal &larr; mot[j] = mot[i]
@@ -1600,7 +1522,6 @@ Fin</code></pre>
       <section>
         <h3>Solution</h3>
 
-        <h4>Nouveau régime</h4>
         <div class="row">
           <div class="col-sm-8">
             <pre><code class="language-algorithm">Algorithme Palindrome

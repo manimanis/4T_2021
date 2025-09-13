@@ -59,17 +59,12 @@
 
         <h4>Forme simple réduite</h4>
         <div class="row">
-          <div class="col-sm-4">
+          <div class="col-sm-6">
             <pre><code class="language-algorithm">Si condition Alors
   // Traitements
 Fin Si</code></pre>
           </div>
-          <div class="col-sm-4">
-            <pre><code class="language-delphi">if condition then begin
-  // Traitements
-end;</code></pre>
-          </div>
-          <div class="col-sm-4">
+          <div class="col-sm-6">
             <pre><code class="language-python">if condition:
   # Traitements
   </code></pre>
@@ -162,7 +157,7 @@ Donner b ? 17
 
         <h4>Forme simple alternative</h4>
         <div class="row">
-          <div class="col-4">
+          <div class="col-6">
             <pre><code class="language-algorithm">Si condition Alors
   // Traitement
   // si condition = vrai
@@ -171,16 +166,7 @@ Sinon
   // si condition = faux
 Fin Si</code></pre>
           </div>
-          <div class="col-4">
-            <pre><code class="language-delphi">if condition then begin
-  // Traitement
-  // if condition = true
-end else begin
-  // Traitement
-  // if condition = false
-end;</code></pre>
-          </div>
-          <div class="col-4">
+          <div class="col-6">
             <pre><code class="language-python">if condition:
   # Traitement
   # if condition = True
@@ -292,7 +278,7 @@ else:
 
         <h4 class="p-break">Forme simple généralisée</h4>
         <div class="row">
-          <div class="col-sm-4">
+          <div class="col-sm-6">
             <pre><code class="language-algorithm">Si condition1 Alors
   // Traitement 1
   // si condition1 = vrai
@@ -307,22 +293,7 @@ Sinon
   // si les conditions sont fausses
 Fin Si</code></pre>
           </div>
-          <div class="col-sm-4">
-            <pre><code class="language-delphi">if condition1 then begin
-  // Traitement 1
-  // if condition1 = true
-end else if condition2 then begin
-// Traitement 2
-// if condition2 = true
-end else if condition3 then begin
-// Traitement 3
-// if condition = true
-end else begin
-  // Traitement 4
-  // if conditions are False
-end;</code></pre>
-          </div>
-          <div class="col-sm-4">
+          <div class="col-sm-6">
             <pre><code class="language-python">if condition1:
   # Traitement 1
   # if condition1 = True
@@ -416,7 +387,7 @@ else:
 
         <h4>Forme simple généralisée</h4>
         <div class="row">
-          <div class="col-sm-4">
+          <div class="col-sm-6">
             <pre><code class="language-algorithm">Selon var Faire
   valeur1, valeur2:
     // Traitement 1
@@ -429,20 +400,7 @@ Sinon
   // si les conditions sont fausses
 Fin Si</code></pre>
           </div>
-          <div class="col-sm-4">
-            <pre><code class="language-delphi">Case var of
-  valeur1, valeur2:
-    // Traitement 1
-    // si condition1 = vrai
-  valeur3..valeur4:
-    // Traitement 2
-    // si condition2 = vrai
-else
-  // Traitement 3
-  // si les conditions sont fausses
-end;</code></pre>
-          </div>
-          <div class="col-sm-4">
+          <div class="col-sm-6">
             <pre><code class="language-python"># Pas d'équivalence
 if var in [valeur1, valeur2]:
   # Traitement 1
