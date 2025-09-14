@@ -56,7 +56,7 @@
       </section>
 
       <section>
-        <h3 class="p-break">Solution Python</h3>
+        <h3>Solution Python</h3>
 
         <pre id="activite1" class="solution"><code class="language-python">PI = 3.14159265
 QPM2 = 6 # 6 m²/Kg
@@ -98,7 +98,7 @@ print('Quantité de peinture requise :', qp, 'Kg')
       </section>
 
       <section>
-        <h3>A Retenir</h3>
+        <h3 class="p-break">A Retenir</h3>
 
         <p>Une <strong>constante</strong> est un objet ayant une valeur fixe tout le long de l'exécution d'un
           algorithme ou d'un programme.</p>
@@ -115,7 +115,7 @@ print('Quantité de peinture requise :', qp, 'Kg')
     </article>
 
     <article>
-      <h2 class="p-break">Types de données</h2>
+      <h2>Types de données</h2>
 
       <section>
         <h3>Activité 4</h3>
@@ -166,7 +166,7 @@ else:
       </section>
 
       <section>
-        <h3 class="p-break">Opérations sur les entiers</h3>
+        <h3>Opérations sur les entiers</h3>
 
         <p>Le tableau suivant définit les opérations sur les entiers.</p>
 
@@ -237,7 +237,7 @@ else:
       </section>
 
       <section>
-        <h3>Activité 5</h3>
+        <h3 class="p-break">Activité 5</h3>
         <p>Evaluer les expressions arithmétiques, algorithmiques, suivantes :</p>
         <ol type="a">
           <li>17 DIV 5</li>
@@ -361,7 +361,7 @@ print(5.6E6)
           <strong>faux</strong>.
         </p>
 
-        <h4>En Python</h4>
+        <h4 class="p-break">En Python</h4>
         <p>Le type booléen correspond à <code>bool</code> en Python.</p>
       </section>
 
@@ -401,7 +401,7 @@ print(5.6E6)
           </tbody>
         </table>
 
-        <p class="p-break">Compléter les tableaux de vérités suivants :</p>
+        <p>Compléter les tableaux de vérités suivants :</p>
         <div class="row">
           <div class="col-sm-6 col-xl-3">
             <p class="text-center"><b>Fonction NON</b></p>
@@ -545,7 +545,7 @@ print(5.6E6)
       <h2 class="d-print-none">Types de données (suite)</h2>
 
       <section>
-        <h3>Le type caractère</h3>
+        <h3 class="p-break">Le type caractère</h3>
         <p>Il s'agit du domaine constitué des&nbsp;<strong>caractères alphabétiques</strong>
           et <strong>numériques</strong>&nbsp;. Une variable de ce type ne peut contenir
           qu'un&nbsp;seul et unique caractère.&nbsp; </p>
@@ -676,35 +676,25 @@ prenom = "Mohamed Anis"</code></pre>
       </section>
 
       <section>
-        <h3 class="p-break">Accès aux caractères</h3>
+        <h3>Accès aux caractères</h3>
 
-        <p>En Python, les caractères d'une chaîne sont accessibles via leur indice qui commence de 0.</p>
-
-        <p>Python supporte deux types d'indexation :</p>
-        <ul>
-          <li>Positive : qui commence de 0 jusqu'à <code>len(ch)-1</code></li>
-          <li>Négative : qui comment de -1 jusqu'à <code>-len(ch)</code></li>
-        </ul>
+        <p>Les caractères d'une chaîne sont accessibles via leur indice qui commence toujours à partir de 0.</p>
 
         <p>La fonction <code>len(ch)</code> indique le nombre de caractères dans la chaîne, <u>en comptant aussi les
             espaces vides</u>.</p>
 
         <figure>
-          <img src="resources/images/string-indexing.png" alt="Indices dans une chaîne" class="h3cm">
+          <img src="resources/images/string-indexing.png" alt="Indices dans une chaîne" class="h2cm">
           <figcaption>Indices dans une chaîne</figcaption>
         </figure>
 
+        <p><strong>Exemple :</strong></p>
         <p>Le caractère <code>"t"</code> dans la chaîne <code>"Py<span class="text-success">t</span>hon"</code> se
-          trouve
-          à la position :</p>
-        <ul>
-          <li>2 en utilisant l'indexation positive</li>
-          <li>-4 en utilisant l'indexation négative</li>
-        </ul>
+          trouve à la position : 2</p>
       </section>
 
       <section>
-        <h3 class="p-break">Fonctions sur les chaînes - Python</h3>
+        <h3>Fonctions sur les chaînes - Python</h3>
 
         <p>Le tableau suivant résume l'ensemble des fonctions prédéfinies sur les chaînes en Pascal</p>
         <table id="str_func2" class="table table-sm table-bordered border-dark table-striped table-hover">
@@ -720,7 +710,7 @@ prenom = "Mohamed Anis"</code></pre>
             <tr>
               <td>Retourne la longueur d'une chaine de caractères</td>
               <td>long(ch)</td>
-              <td>length(ch)</td>
+              <td>len(ch)</td>
               <td>long("<span v-if="modeLong == 'display'" v-on:click="onModify('long')">{{xLong}}</span><span
                   v-if="modeLong == 'modify'"><input type="text" name="fn_long" v-model="xLong"
                     v-on:keydown.enter="onCalc('long')"></span>") &rarr;
@@ -729,7 +719,7 @@ prenom = "Mohamed Anis"</code></pre>
             <tr>
               <td>Retourne la <strong>première position</strong> de <code>ch1</code> dans <code>ch2</code></td>
               <td>pos(ch1, ch2)</td>
-              <td>ch2.find(ch1))</td>
+              <td>ch2.find(ch1)</td>
               <td>pos("<span v-if="modePos == 'display'" v-on:click="onModify('pos')">{{xPos1}}</span><span
                   v-if="modePos == 'modify'"><input type="text" name="fn_pos1" v-model="xPos1"
                     v-on:keydown.enter="onCalc('pos')"></span>", "<span v-if="modePos == 'display'"
@@ -738,11 +728,11 @@ prenom = "Mohamed Anis"</code></pre>
                 {{resPos}}</td>
             </tr>
             <tr>
-              <td>Retourne une sous chaîne de caractères de <code>ch</code> de la position <code>pos1</code> jusqu'à
-                <code>pos2</code> non incluse.<code>ch</code>
+              <td>Retourne une sous chaîne de caractères de <code>ch</code> de la position <code>p1</code> jusqu'à
+                <code>p2</code> non incluse.
               </td>
-              <td>sous_chaine(ch, pos1, pos2)</td>
-              <td>ch[pos1:pos2]</td>
+              <td>sous_chaine(ch, p1, p2)</td>
+              <td>ch[p1:p2]</td>
               <td>sous_chaine("<span v-if="modeSousChaine == 'display'"
                   v-on:click="onModify('sousChaine')">{{xSousChaine1}}</span><span
                   v-if="modeSousChaine == 'modify'"><input type="text" name="fn_SousChaine1" v-model="xSousChaine1"
@@ -756,11 +746,11 @@ prenom = "Mohamed Anis"</code></pre>
                 "{{resSousChaine}}"</td>
             </tr>
             <tr>
-              <td>Supprime les caractères de <code>ch</code> à partir de la position <code>pos1</code> à la position
-                <code>pos2</code>.
+              <td>Supprime les caractères de <code>ch</code> à partir de la position <code>p1</code> à la position
+                <code>p2</code> non incluse.
               </td>
-              <td>efface(ch, pos1, pos2)</td>
-              <td>ch &larr; ch[:pos1] + ch[pos2:]</td>
+              <td>efface(ch, p1, p2)</td>
+              <td>ch[:p1] + ch[p2:]</td>
               <td>ch &larr; "<span v-if="modeEfface == 'display'"
                   v-on:click="onModify('Efface')">{{xEfface1}}</span><span v-if="modeEfface == 'modify'"><input
                     type="text" name="fn_Efface1" v-model="xEfface1" v-on:keydown.enter="onCalc('Efface')"></span>"<br>
@@ -776,7 +766,7 @@ prenom = "Mohamed Anis"</code></pre>
             <tr>
               <td>Convertit une chaine <code>ch</code> en une valeur numérique.</td>
               <td>Valeur(ch)</td>
-              <td>x = int(ch) # pour les entiers<br>x = float(ch) # pour les réels</td>
+              <td># pour les entiers<br>x = int(ch)<br># pour les réels<br>x = float(ch)</td>
               <td>x &larr; valeur("<span v-if="modeValeur == 'display'"
                   v-on:click="onModify('Valeur')">{{xValeur}}</span><span v-if="modeValeur == 'modify'"><input
                     type="text" name="fn_Valeur" v-model="xValeur" v-on:keydown.enter="onCalc('Valeur')"></span>")
@@ -786,7 +776,7 @@ prenom = "Mohamed Anis"</code></pre>
             <tr>
               <td>Convertit une valeur numérique en chaine.</td>
               <td>ch &larr; ConvCh(x)</td>
-              <td>ch = str(x) # pour x réel ou entier</td>
+              <td># x réel ou entier<br>ch = str(x) </td>
               <td>ch &larr; ConvCh(<span v-if="modeConvCh == 'display'"
                   v-on:click="onModify('ConvCh')">{{xConvCh}}</span><span v-if="modeConvCh == 'modify'"><input
                     type="text" name="fn_ConvCh" v-model="xConvCh" v-on:keydown.enter="onCalc('ConvCh')"></span>)
@@ -800,10 +790,10 @@ prenom = "Mohamed Anis"</code></pre>
       <section>
         <h3>Le type tableau</h3>
 
-        <p>Le type tableau permet de stocker un ensemble de valeurs de même type.</p>
-        <p>Les éléments du tableau sont accessibles via le nom du tableau suivi par l'indice de l'élément. Exemple :
-          <strong>t[3]</strong> : Permet d'accéder à la case d'indice 3 dans le tableau t.
-        </p>
+        <p>Le type tableau permet de stocker un ensemble de valeurs de même type. Les éléments du tableau sont
+          accessibles via le nom du tableau suivi par l'indice de l'élément.</p>
+        <p><strong>Exemple :</strong></p>
+        <p><strong>t[3]</strong> : Permet d'accéder à la case d'indice 3 dans le tableau t. </p>
         <p>Un tableau est déclaré de la façon suivante :</p>
         <p class="text-center fs-3"><span class="text-danger">nom_type</span> = tableau de <span
             class="text-success">nbre_éléments</span> <span class="text-danger">type</span></p>
@@ -826,14 +816,6 @@ t = array([int()] * 15)</code></pre>
         <table class="table table-borderless border-dark col-16 w-75">
           <tbody>
             <tr>
-              <td class="text-center border-0">&nbsp;</td>
-              <script>
-                for (var i = -15; i < 0; i++) {
-                  document.writeln('<td class="text-center text-danger">' + i + '</td>');
-                }
-              </script>
-            </tr>
-            <tr>
               <td>t</td>
               <script>
                 for (var i = 0; i < 15; i++) {
@@ -853,26 +835,22 @@ t = array([int()] * 15)</code></pre>
         </table>
 
         <h4>Indexation</h4>
-
         <p>En Python, l'indexation se fait toujours à partir de l'indice <strong>0</strong>, qui est l'indice du premier
           élément. L'indice du dernier élément étant <strong>14</strong>.</p>
-
-        <p>En Python, on peut aussi utiliser <strong>l'indexation négative</strong> marquée en <span
-            class="text-danger">rouge</span>.</p>
       </section>
 
       <section>
-        <h3 class="p-break">Activité 12</h3>
+        <h3>Activité 12</h3>
 
         <p>Déclarer les tableaux suivants en Python : </p>
 
-        <table class="table table-sm table-borderless">
+        <table class="table table-sm table-borderless col-11">
           <tbody>
             <tr>
-              <td width="80">te</td>
+              <td>te</td>
               <script>
                 for (var i = 0; i < 10; i++) {
-                  document.writeln('<td class="border border-dark" width="9%">' + Math.floor(Math.random() * 100) + '</td>');
+                  document.writeln('<td class="border border-dark text-center">' + Math.floor(Math.random() * 100) + '</td>');
                 }
               </script>
             </tr>
@@ -880,20 +858,23 @@ t = array([int()] * 15)</code></pre>
               <td>&nbsp;</td>
               <script>
                 for (var i = 0; i < 10; i++) {
-                  document.writeln('<td class="text-center">' + i + '</td>');
+                  document.writeln('<td class="text-center"><small>' + i + '</small></td>');
                 }
               </script>
             </tr>
           </tbody>
         </table>
 
-        <table class="table table-sm table-borderless">
+        <table class="table table-sm table-borderless col-11">
           <tbody>
             <tr>
-              <td width="80">tr</td>
+              <td>tr</td>
               <script>
                 for (var i = 0; i <= 7; i++) {
-                  document.writeln('<td class="border border-dark" width="12.5%">' + Math.floor(Math.random() * 100) / 10.0 + '</td>');
+                  document.writeln('<td class="border border-dark text-center">' + Math.floor(Math.random() * 100) / 10.0 + '</td>');
+                }
+                for (var i = 8; i < 10; i++) {
+                  document.writeln('<td>&nbsp;</td>');
                 }
               </script>
             </tr>
@@ -901,24 +882,27 @@ t = array([int()] * 15)</code></pre>
               <td>&nbsp;</td>
               <script>
                 for (var i = 0; i <= 7; i++) {
-                  document.writeln('<td class="text-center">' + i + '</td>');
+                  document.writeln('<td class="text-center"><small>' + i + '</small></td>');
                 }
               </script>
             </tr>
           </tbody>
         </table>
 
-        <table class="table table-sm table-borderless">
+        <table class="table table-sm table-borderless col-11">
           <tbody>
             <tr>
-              <td width="80">tb</td>
+              <td>tb</td>
               <script>
                 for (var i = 0; i < 6; i++) {
-                  document.writeln('<td class="text-center border border-dark" width="10%">' + (Math.random() >= 0.5 ? 'True' : 'False') + '</td>');
+                  document.writeln('<td class="text-center border border-dark">' + (Math.random() >= 0.5 ? 'True' : 'False') + '</td>');
                 }
-                document.writeln('<td class="text-center border border-dark" width="10%">...</td>');
+                document.writeln('<td class="text-center border border-dark">...</td>');
                 for (var i = 24; i < 26; i++) {
-                  document.writeln('<td class="text-center border border-dark" width="10%">' + (Math.random() >= 0.5 ? 'True' : 'False') + '</td>');
+                  document.writeln('<td class="text-center border border-dark">' + (Math.random() >= 0.5 ? 'True' : 'False') + '</td>');
+                }
+                for (var i = 0; i < 1; i++) {
+                  document.writeln('<td>&nbsp;</td>');
                 }
               </script>
             </tr>
@@ -926,11 +910,11 @@ t = array([int()] * 15)</code></pre>
               <td>&nbsp;</td>
               <script>
                 for (var i = 0; i < 6; i++) {
-                  document.writeln('<td class="text-center">"' + i + '"</td>');
+                  document.writeln('<td class="text-center"><small>' + i + '</small></td>');
                 }
                 document.writeln('<td class="text-center">...</td>');
                 for (var i = 24; i < 26; i++) {
-                  document.writeln('<td class="text-center">' + i + '</td>');
+                  document.writeln('<td class="text-center"><small>' + i + '</small></td>');
                 }
               </script>
             </tr>
@@ -946,7 +930,7 @@ tb = array([bool()] * 26)</code></pre>
   </main>
   <footer class="d-print-none bg-dark text-white p-2">
     <div class="text-center">Page créée avec ♥ par Mohamed Anis MANI</div>
-    <div class="text-center small">Année scolaire : 2021/2022</div>
+    <div class="text-center small">Année scolaire : 2025/2026</div>
   </footer>
 
   <script src="resources/js/jquery.min.js"></script>

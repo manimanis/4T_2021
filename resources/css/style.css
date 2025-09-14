@@ -334,6 +334,9 @@ table.col-20 td {
   figure {
     page-break-inside: avoid;
   }
+  pre {
+    margin-bottom: 5px;
+  }
   img.h0_5cm {
     max-height: 0.5cm !important;
   }
