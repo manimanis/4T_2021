@@ -388,30 +388,26 @@ else:
         <h4>Forme simple généralisée</h4>
         <div class="row">
           <div class="col-sm-6">
-            <pre><code class="language-algorithm">Selon var Faire
+            <pre><code class="language-algorithm">Selon var
   valeur1, valeur2:
     // Traitement 1
-    // si condition1 = vrai
   valeur3..valeur4:
     // Traitement 2
-    // si condition2 = vrai
 Sinon
-  // Traitement 3
-  // si les conditions sont fausses
+    // Traitement 3
+    // si les conditions sont fausses
 Fin Si</code></pre>
           </div>
           <div class="col-sm-6">
-            <pre><code class="language-python"># Pas d'équivalence
-if var in [valeur1, valeur2]:
-  # Traitement 1
-  # if condition1 = True
-elif var in range(valeur3..valeur4):
-  # Traitement 2
-  # if condition2 = True
-else:
-  # Traitement 3
-  # if condition3 = True
-
+            <pre><code class="language-python">match var:
+  case valeur1|valeur2:
+    // Traitement 1
+  case var if valeur3 &lt;= var &lt;= valeur4:
+    // Traitement 2
+  case _:
+    // Traitement 3
+    // si les conditions sont fausses
+    
 </code></pre>
           </div>
         </div>
