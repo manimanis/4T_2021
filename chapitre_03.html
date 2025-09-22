@@ -719,66 +719,6 @@ Fin</code></pre>
             </table>
           </div>
         </div>
-
-        <h4 class="p-break">Ancien régime</h4>
-        <div class="row">
-          <div class="col-sm-8">
-            <pre><code class="language-algorithm">Début Promotion
-  Ecrire("Nombre d'employés ? ")
-  Lire(n)
-  Pour i de 1 à n faire
-    Ecrire("Nom employé n° ", i, " ?")
-    Lire(noms[i])
-    Ecrire("Anciennté ", noms[i], " ? ")
-    Lire(anc[i])
-  Fin Pour
-  Ecrire("Les employés qui méritent une promotion sont :")
-  Pour i de 1 à n faire
-    Si anc[i] >= 6 Alors
-      Ecrire(noms[i], " pour ", anc[i], " ans de services")
-    Fin Si
-  Fin Pour
-Fin</code></pre>
-          </div>
-          <div class="col-sm-4">
-            <table class="table table-sm table-bordered border-dark table-striped table-hover">
-              <thead>
-                <tr>
-                  <th>TDNT</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>tab_ch = tableau de 20 chaîne<br>
-                    tab_en = tableau de 20 entier</td>
-                </tr>
-              </tbody>
-            </table>
-
-            <table class="table table-sm table-bordered border-dark table-striped table-hover">
-              <thead>
-                <tr>
-                  <th>Objet</th>
-                  <th>Type/Nature</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>n, i</td>
-                  <td>entier</td>
-                </tr>
-                <tr>
-                  <td>noms</td>
-                  <td>tab_ch</td>
-                </tr>
-                <tr>
-                  <td>anc</td>
-                  <td>tab_en</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
       </section>
     </article>
 
@@ -864,7 +804,7 @@ Fin</code></pre>
         </div>
 
         <div class="d-none d-print-block">
-          <div class="p-break row">
+          <div class="row">
             <div class="col-sm-8">
               <h4>Solution</h4>
               <pre><code class="language-algorithm">Algorithme Echelle
@@ -903,7 +843,7 @@ Fin</code></pre>
       </section>
 
       <section>
-        <h3>Exemple 4 - Devine mon nombre</h3>
+        <h3 class="p-break">Exemple 4 - Devine mon nombre</h3>
 
         <p>Dans le jeu devine mon nombre l'ordinateur <strong>choisit un nombre</strong> dans l'intervalle [0, 99] et
           l'utilisateur <strong>doit le retrouver</strong>.</p>
@@ -1015,7 +955,7 @@ Fin</code></pre>
         </div>
 
         <div class="d-none d-print-block">
-          <div class="p-break row">
+          <div class="row">
             <div class="col-sm-8">
               <h4>Solution</h4>
               <pre><code class="language-algorithm">Algorithme devinette
@@ -1058,10 +998,10 @@ Fin</code></pre>
       </section>
 
       <section>
-        <h3>Activité 4 - Les 4 saisons</h3>
+        <h3 class="p-break">Activité 4 - Les 4 saisons</h3>
 
-        <figure class="d-print-none">
-          <img class="h5cm" src="resources/images/roue-saisons.png" alt="Roue des saisons">
+        <figure>
+          <img class="h4cm" src="resources/images/roue-saisons.png" alt="Roue des saisons">
           <figcaption>Roue des saisons</figcaption>
         </figure>
 
@@ -1120,7 +1060,7 @@ Fin</code></pre>
         <h3>Activité 5 - Les Youyou</h3>
 
         <figure>
-          <img class="h3cm" src="resources/images/you-you.jpg" alt="YouYou">
+          <img class="h2cm" src="resources/images/you-you.jpg" alt="YouYou">
           <figcaption>YouYou</figcaption>
         </figure>
 
@@ -1152,9 +1092,7 @@ Fin</code></pre>
       </section>
 
       <section>
-        <h3>Solution</h3>
-
-        <h4>Nouveau régime</h4>
+        <h3 class="p-break">Solution</h3>
         <div class="row">
           <div class="col-sm-8">
             <pre><code class="language-algorithm">Algorithme Youyou
@@ -1167,50 +1105,6 @@ Début
   ny &larr; 0 // nbre youyou
   Répéter
     py &larr; aléa(60, 90) // poids youyou
-    Si qp &lt; py Alors
-      py &larr; qp
-    Fin si
-    Si py &ge; 60 Alors
-      ny &larr; ny + 1
-      Ecrire("Youyou", ny, ",", py, "gr")
-    Sinon
-      Ecrire("Reste ", py, "gr\n")
-    Fin Si
-    qp &larr; qp - py
-  Jusqu'à qp = 0
-  Ecrire("Nombre de Youyou :", ny)
-Fin</code></pre>
-          </div>
-          <div class="col-sm-4">
-            <table class="table table-sm table-bordered border-dark table-striped table-hover">
-              <thead>
-                <tr>
-                  <th>Objet</th>
-                  <th>Type/Nature</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>qp, ny, py</td>
-                  <td>entier</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <h4>Ancien régime</h4>
-        <div class="row">
-          <div class="col-sm-8">
-            <pre><code class="language-algorithm">Début Youyou
-  Répéter
-    Ecrire("Quantité de pâte en grammes ? ")
-    Lire(qp) // qté de pâte
-  Jusqu'à qp > 100
-
-  ny &larr; 0 // nbre youyou
-  Répéter
-    py &larr; aléa(31) + 60 // poids youyou
     Si qp &lt; py Alors
       py &larr; qp
     Fin si
@@ -1263,7 +1157,7 @@ Fin</code></pre>
     </article>
 
     <article>
-      <h2 class="p-break">Structure itérative à condition de marche</h2>
+      <h2>Structure itérative à condition de marche</h2>
 
       <section>
         <h3>Exemple 5 - Remplissage de bouteilles</h3>
@@ -1290,7 +1184,7 @@ Fin</code></pre>
         <p><b>On veut écrire un programme pour simuler le processus de remplissage.</b></p>
 
         <div id="unite-remplissage">
-          <h4>Travail demandé</h4>
+          <h4 class="p-break">Travail demandé</h4>
           <p>Un ingénieur a écrit cet algorithme.</p>
           <pre><code class="language-algorithm">Répéter
   Activer(E1)
@@ -1328,7 +1222,7 @@ Fin TantQue</code></pre>
             calcule et affiche après combien de temps ils se rencontrent de nouveau au point de départ.</strong></p>
 
         <div id="ex-entrainement">
-          <h4 class="p-break">Travail demandé</h4>
+          <h4>Travail demandé</h4>
           <p>On donne l'algorithme suivant, et on demande de le terminer :</p>
           <div class="row">
             <div class="col-sm-8">
@@ -1380,7 +1274,7 @@ Fin</code></pre>
           </div>
         </div>
         <div class="d-none d-print-block">
-          <div class="row">
+          <div class="row p-break">
             <div class="col-sm-8">
               <h4>Solution</h4>
               <pre><code class="language-algorithm">Algorithme entrainement
@@ -1436,12 +1330,9 @@ Fin</code></pre>
         </ul>
 
         <figure>
-          <img class="h3cm" src="resources/images/palindrome.png" alt="Vérifier si un mot est palindrome">
+          <img class="h2cm" src="resources/images/palindrome.png" alt="Vérifier si un mot est palindrome">
           <figcaption>Vérifier si un mot est palindrome</figcaption>
         </figure>
-
-        <p><strong class="text-danger">Attention ancien régime :</strong> La numérotation commence à partir de 1 pour
-          les chaînes de caractères.</p>
 
         <p>Ecrire un programme qui saisit un mot non vide <strong>mot</strong>, puis vérifie et affiche s'il est
           palindrome.</p>
