@@ -174,15 +174,15 @@ input:checked+.slider:before {
 }
 
 .language-algorithm::before {
-  content: "Algorithme";
+  content: "Algorithme" attr(data-text);
 }
 
 .language-python::before {
-  content: "Python";
+  content: "Python" attr(data-text);
 }
 
 .language-delphi::before {
-  content: "Pascal";
+  content: "Pascal" attr(data-text);
 }
 
 pre>code.shell.python.nohighlight {

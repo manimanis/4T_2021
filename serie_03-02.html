@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Structures Itératives n°2</title>
+  <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+  <link rel="stylesheet" href="resources/css/default.css">
+  <link rel="stylesheet" href="resources/css/style.css">
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="aside_navbar"></div>
+    </nav>
+  </aside>
+
+  <main class="container my-3">
+    <h1>Les structures itératives n°2</h1>
+
+    <article>
+      <h2>Exercices</h2>
+
+      <section>
+        <h3>Exercice 1 - Boucles Répéter et Tant Que</h3>
+        <p>Pour chacune des séquences suivantes, déterminer la valeur finale de chaque variable ainsi que le nombre
+          d'itérations.</p>
+        <div class="row">
+          <div class="col-lg-6">
+            <pre><code class="algorithm" data-text=" 1">x ← 8
+Répéter
+  x ← x + 2
+  y ← x * 2
+Jusqu'à y > 25</code></pre>
+            <p>x= …… - y = ……</p>
+            <p>Nb. d'itérations : ………</p>
+          </div>
+          <div class="col-lg-6">
+            <pre><code class="algorithm" data-text=" 2">x ← 5
+Répéter
+  x ← x + 2
+  y ← x * 2
+Jusqu'à y < 30
+</code></pre>
+            <p>x= …… - y = ……</p>
+            <p>Nb. d'itérations : ………</p>
+          </div>
+          <div class="col-lg-6">
+            <pre><code class="algorithm" data-text=" 3">p ← 0
+Tant Que p > 5 Faire
+  p ← p + 5
+Fin Tant Que</code></pre>
+            <p>p = ……</p>
+            <p>Nb. d'itérations : ………</p>
+          </div>
+          <div class="col-lg-6">
+            <pre><code class="algorithm" data-text=" 4">p ← 0
+Tant Que p < 5 Faire
+  p ← p + 2
+Fin Tant Que</code></pre>
+            <p>p = ……</p>
+            <p>Nb. d'itérations : ………</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <pre><code class="algorithm" data-text=" 5">x ← 16
+pas ← 1
+Répéter
+  x ← x + pas
+  pas ← pas + 1
+Jusqu'à x > 25</code></pre>
+            <p>x= …… - pas = ……</p>
+            <p>Nb. d'itérations : ………</p>
+          </div>
+          <div class="col-lg-6">
+            <pre><code class="algorithm" data-text=" 6">x ← 15
+Répéter
+  x ← x - 2
+Jusqu'à x > 20</code></pre>
+            <p>x= …… </p>
+            <p>Nb. d'itérations : ………</p>
+          </div>
+          <div class="col-lg-6">
+            <pre><code class="algorithm" data-text=" 7">x ← 13
+p ← 0
+Tant Que x ≠ 0 Faire
+  p ← p + (x mod 2 ≠ 1)
+  x ← x div 2
+Fin Tant Que</code></pre>
+            <p>x= …… - p = ……</p>
+            <p>Nb. d'itérations : ………</p>
+          </div>
+          <div class="col-lg-6">
+            <pre><code class="algorithm" data-text=" 8">ch ← "1100"
+i ← 0
+p ← 0
+Tant Que i < Long(ch) Faire
+  p ← p * 2 + valeur(ch[i])
+  i ← i + 2
+Fin Tant Que</code></pre>
+            <p>p = …… - i = ……</p>
+            <p>Nb. d'itérations : ………</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Exercice 2 - Boucle Pour</h3>
+
+        <p>Traduire les algorithmes du tableau ci-dessous en Python tout en indiquant leurs affichages.</p>
+
+        <div class="row">
+          <div class="col-lg-3">
+            <pre><code class="algorithm" data-text=" 1">Pour i de 1 à 5 faire
+  Ecrire_nl(i)
+Fin Pour</code></pre>
+            <p><strong>Affichage : </strong>…………………………</p>
+          </div>
+          <div class="col-lg-3">
+            <pre><code class="algorithm" data-text=" 2">Pour i de 1 à 5 faire
+  Ecrire(i*i,' ')
+Fin Pour</code></pre>
+            <p><strong>Affichage : </strong>…………………………</p>
+          </div>
+          <div class="col-lg-3">
+            <pre><code class="algorithm" data-text=" 3">Pour i de 1 à 7 (pas=2) faire
+  Ecrire_nl(i)
+Fin Pour</code></pre>
+            <p><strong>Affichage : </strong>…………………………</p>
+          </div>
+          <div class="col-lg-3">
+            <pre><code class="algorithm" data-text=" 4">Pour i de 5 à 1 (pas=-1) faire
+  Ecrire_nl(i)
+Fin pour</code></pre>
+            <p><strong>Affichage : </strong>…………………………</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Exercice 3 - Tournage à la main</h3>
+
+        <p>Pour chacune des séquences algorithmiques, ci-après, effectuer une exécution manuelle en fonction des valeurs
+          données. Puis, en déduire le rôle.</p>
+        <p><strong>N.B : a et b deux entiers non nuls</strong>
+        <div class="row">
+          <div class="col-lg-6">
+            <pre><code class="algorithm" data-text=" inconnu 1">p ← 1
+Pour i de 1 à b Faire
+  p ← p * a
+Fin pour
+Ecrire(p)</code></pre>
+            <p>Quel est l'affichage du code pour : a=2, b=5 ?</p>
+            <p>Déterminer son rôle.</p>
+          </div>
+          <div class="col-lg-6">
+            <pre><code class="algorithm" data-text=" inconnu 2">p ← 1
+Pour i de 1 à a Faire
+  p ← p * i
+Fin Pour
+Ecrire(p)</code></pre>
+            <p>Quel est l'affichage du code pour : a=5 ?</p>
+            <p>Déterminer son rôle.</p>
+          </div>
+          <div class="col-lg-6">
+            <pre><code class="algorithm" data-text=" inconnu 3">Tant Que a≠b Faire
+  Si a>b alors
+    a ← a - b
+  Sinon
+    b ← b - a
+  Fin Si
+Fin Tant Que
+Ecrire(a)</code></pre>
+            <p>Quel est l'affichage du code pour : a=54, b = 10 ?</p>
+            <p>Déterminer son rôle.</p>
+          </div>
+          <div class="col-lg-6">
+            <pre><code class="algorithm" data-text=" inconnu 4">x ← a
+y ← b
+Tant Que a≠b Faire
+  Si a &lt; b Alors
+    a ← a + x
+  Sinon
+    b ← b + y
+  Fin Si
+Fin Tant Que
+Ecrire(a)</code></pre>
+            <p>Quel est l'affichage du code pour : a=5, b = 6 ?</p>
+            <p>Déterminer son rôle.</p>
+          </div>
+          <div class="col-lg-6">
+            <pre><code class="algorithm" data-text=" inconnu 5">C ← ""
+Pour i de 0 à long(ch)-1 faire
+  C ← ch[i] + C
+Fin Pour
+Ecrire(C)</code></pre>
+            <p>Quel est l'affichage du code pour : ch = "BAC" ?</p>
+            <p>Déterminer son rôle.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Exercice 4 - Algorithmes incomplets</h3>
+        <p>Compléter les algorithmes suivants ainsi que leurs TDOs respectifs :</p>
+
+        <p><em>Algorithme 1 :</em> Calculer la somme des chiffres pairs dans une chaine numérique.</p>
+        <pre><code class="algorithm" data-text=" Somme_chiffres">Algorithme Somme_Chiffres
+Début
+  Ecrire("Donner une chaîne numérique ? ") ; Lire(ch)
+  S ← …………………………
+  Pour i de …………………………………………………………………… Faire
+    Si ………………………………………………… Alors
+      ……………………………………………………
+    Fin Si
+  Fin Pour
+  Ecrire(s)
+Fin</code></pre>
+
+        <p><em>Algorithme 2 :</em> Calculer le produit des diviseurs d'un entier sauf lui-même.</p>
+        <pre><code class="algorithm" data-text=" Produit_Div">Algorithme Produit_Div
+Début
+  Ecrire("Donner n > 0 ? ") ; Lire(n)
+  P ← …………………………
+  Pour i de …………………………………………………………………… Faire
+    Si ………………………………………………… Alors
+      ……………………………………………………
+    Fin Si
+  Fin Pour
+  Ecrire(p)
+Fin</code></pre>
+      </section>
+
+      <section>
+        <h3>Exercice 5 - Devinette</h3>
+
+        <p>Ecrire un programme en Python qui devine le nombre choisit par l'utilisateur.</p>
+        <ul>
+          <li>L'utilisateur choisit un nombre secret entre 0 et 127.</li>
+          <li>L'ordinateur propose un nombre prop dans cet intervalle.</li>
+          <li>L'utilisateur répond par le signe :
+            <ul>
+              <li>+ : si prop < secret</li>
+              <li>- : si prop > secret</li>
+              <li>= : Si prop = secret</li>
+            </ul>
+          </li>
+        </ul>
+        <p>L'ordinateur doit faire 7 essais au plus.</p>
+      </section>
+    </article>
+  </main>
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée avec ♥ par Mohamed Anis MANI</div>
+    <div class="text-center small">Année scolaire : 2025/2026</div>
+  </footer>
+
+  <script src="resources/js/jquery.min.js"></script>
+  <script src="resources/js/bootstrap.bundle.min.js"></script>
+  <script src="resources/js/highlight.min.js"></script>
+  <script src="resources/js/hljs.algorithm.js"></script>
+  <script src="resources/js/clipboard.min.js"></script>
+  <script src="resources/js/pages.js"></script>
+  <script src="resources/js/draggable.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+
+    document.querySelectorAll('.language-algorithm,.language-python,.language-delphi')
+      .forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'bd-clipboard d-print-none';
+        const btn = document.createElement('button');
+        btn.className = 'btn-clipboard';
+        btn.textContent = "📋";
+        btn.title = "Copier";
+        div.appendChild(btn);
+        item.parentElement.insertBefore(div, item);
+      });
+    new ClipboardJS('.btn-clipboard', {
+      target: (trigger) => {
+        return trigger.parentElement.nextElementSibling;
+      }
+    });
+  </script>
+  <script src="resources/js/vue.min.js"></script>
+  <script src="resources/apps/serie03.js"></script>
+</body>
+
+</html>
