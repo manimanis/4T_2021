@@ -305,89 +305,125 @@ table.col-20 td {
   margin: initial;
 }
 
+.draw-table {
+  border-collapse: collapse;
+  margin: auto;
+  width: fit-content;
+}
+
+.draw-table th {
+  text-align: center;
+}
+
 @media print {
   body {
     font-size: 10pt;
   }
+
   h1,
   h2,
   h3,
   h4 {
     font-size: initial !important;
   }
+
   .row .col-sm-6 {
     width: 50%;
   }
+
   p {
     margin: initial;
   }
+
   .p-break {
     page-break-before: always;
   }
+
   aside {
     display: none !important;
   }
+
   .container {
     max-width: initial !important;
     width: initial !important;
   }
+
   figure {
     page-break-inside: avoid;
   }
+
   pre {
     margin-bottom: 5px;
   }
+
   img.h0_5cm {
     max-height: 0.5cm !important;
   }
+
   img.h1cm {
     max-height: 1cm !important;
   }
+
   img.h1_5cm {
     max-height: 1.5cm !important;
   }
+
   img.h2cm {
     max-height: 2cm !important;
   }
+
   img.h3cm {
     max-height: 3cm !important;
   }
+
   img.h4cm {
     max-height: 4cm !important;
   }
+
   img.h5cm {
     max-height: 5cm !important;
   }
+
   img.h6cm {
     max-height: 6cm !important;
   }
+
   img.h7cm {
     max-height: 7cm !important;
   }
+
   img.h8cm {
     max-height: 8cm !important;
   }
+
   img.h9cm {
     max-height: 9cm !important;
   }
+
   img.h10cm {
     max-height: 10cm !important;
   }
+
   img.h11cm {
     max-height: 11cm !important;
   }
+
   img.h12cm {
     max-height: 12cm !important;
   }
+
   img.h13cm {
     max-height: 13cm !important;
   }
+
   img.h14cm {
     max-height: 14cm !important;
   }
+
   img.h15cm {
     max-height: 15cm !important;
   }
+
   /* @page {
     counter-increment: page;
     counter-reset: page 1;
@@ -403,7 +439,10 @@ table.col-20 td {
     padding: initial;
     border: initial;
   }
+
   .list-group-item label.p-2 {
     padding: 0 0.5em !important;
   }
+
+
 }
