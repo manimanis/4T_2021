@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Les sous-programmes</title>
+  <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+  <link rel="stylesheet" href="resources/css/default.css">
+  <link rel="stylesheet" href="resources/css/style.css">
+  <script src="resources/js/utilities.js"></script>
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="aside_navbar"></div>
+    </nav>
+  </aside>
+
+  <main class="container my-3">
+    <h1>Les sous-programmes</h1>
+
+    <article>
+      <h2>Exercices</h2>
+
+      <section>
+        <h3>QCM 1</h3>
+
+        <p><b>Cocher les bonnes réponses.</b></p>
+
+        <div class="row">
+          <div class="col-4">
+            <div class="qcm-exercise no-page-break-inside" data-correct="3" data-scrambled="false" data-tries="2">
+              <h5 class="question-title">Question 1</h5>
+              <div class="question">
+                <p>On considère la fonction suivante :</p>
+                <pre><code class="language-python">def comparaison(a, b):
+    if (a < b):
+        return a
+    else:
+        return b</code></pre>
+                <p><strong>Quel est le type de la valeur renvoyée par l'appel <code>comparaison(5, 6)</code> et quelle
+                    est sa valeur ?</strong></p>
+              </div>
+              <ul class="propositions">
+                <li><strong>Type :</strong> booléen - <strong>Valeur :</strong> True</li>
+                <li><strong>Type :</strong> booléen - <strong>Valeur :</strong> False</li>
+                <li><strong>Type :</strong> entier - <strong>Valeur :</strong> 5</li>
+                <li><strong>Type :</strong> entier - <strong>Valeur :</strong> 6</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="qcm-exercise no-page-break-inside" data-correct="2" data-scrambled="false" data-tries="2">
+              <h5 class="question-title">Question 2</h5>
+              <div class="question">
+                <p>Qu'affiche le programme suivant :</p>
+                <pre><code class="language-python">def incrementer(nb, a):
+        return nb + a
+print(incrementer(10, -2))</code></pre>
+              </div>
+              <ul class="propositions">
+                <li>-2</li>
+                <li>8</li>
+                <li>10</li>
+                <li>12</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="qcm-exercise no-page-break-inside" data-correct="4" data-scrambled="false" data-tries="2">
+              <h5 class="question-title">Question 3</h5>
+              <div class="question">
+                <p>Qu'affiche le programme suivant :</p>
+                <pre><code class="language-python">def incrementer(nb, a):
+    a = 1
+    return nb + a
+print(incrementer(10, -2))</code></pre>
+              </div>
+              <ul class="propositions">
+                <li>-2</li>
+                <li>8</li>
+                <li>10</li>
+                <li>11</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="qcm-exercise no-page-break-inside" data-correct="2" data-scrambled="false" data-tries="2">
+              <h5 class="question-title">Question 4</h5>
+              <div class="question">
+                <p>Qu'affiche le programme suivant :</p>
+                <pre><code class="language-python">def incrementer(nb):
+    a = nb
+a = 10
+incrementer(-2)
+print(a)</code></pre>
+              </div>
+              <ul class="propositions">
+                <li>-2</li>
+                <li>10</li>
+                <li>Erreur</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="qcm-exercise no-page-break-inside" data-correct="4" data-scrambled="false" data-tries="2">
+              <h5 class="question-title">Question 5</h5>
+              <div class="question">
+                <p>Qu'affiche le programme suivant :</p>
+                <pre><code class="language-python">def incrementer(nb):
+    a = a + nb
+a = 10
+incrementer(-2)
+print(a)</code></pre>
+              </div>
+              <ul class="propositions">
+                <li>-2</li>
+                <li>8</li>
+                <li>10</li>
+                <li>Erreur</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="qcm-exercise no-page-break-inside" data-correct="2" data-scrambled="false" data-tries="2">
+              <h5 class="question-title">Question 6</h5>
+              <div class="question">
+                <p>Que vaut le couple (a, b) après l'exécution du code suivant ?</p>
+                <pre><code class="language-python">def cube(a):
+    a = a * a * a
+    return a
+a = 2
+b = cube(a)
+print(a, b)</code></pre>
+              </div>
+              <ul class="propositions">
+                <li>(2, 2)</li>
+                <li>(2, 8)</li>
+                <li>(8, 2)</li>
+                <li>(8, 8)</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="qcm-exercise no-page-break-inside" data-correct="3" data-scrambled="false" data-tries="2">
+              <h5 class="question-title">Question 7</h5>
+              <div class="question">
+                <p>On considère la fonction ci-dessous :</p>
+                <pre><code class="language-python">def prix(nbp):
+    if nbp &lt;= 50:
+        p = 150
+    elif nbp &lt;= 100:
+        p = 125
+    elif nbp &lt;= 400:
+        p = 100
+    else:
+        p = 90
+    return p</code></pre>
+                <p><strong>Quel est l'appel qui renvoie un prix égal à 100 ?</strong></p>
+              </div>
+              <ul class="propositions">
+                <li>prix(30)</li>
+                <li>prix(80)</li>
+                <li>prix(150)</li>
+                <li>prix(420)</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="qcm-exercise no-page-break-inside" data-correct="2" data-scrambled="false" data-tries="2">
+              <h5 class="question-title">Question 8</h5>
+              <div class="question">
+                <p>Qu'affiche le programme suivant ?</p>
+                <pre><code class="language-python">def inc(step):
+    global a
+    a = a + step
+a = 8
+for i in range(1, 3):
+    inc(3)
+print(a)</code></pre>
+
+              </div>
+              <ul class="propositions">
+                <li>8</li>
+                <li>14</li>
+                <li>17</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="qcm-exercise no-page-break-inside" data-correct="3" data-scrambled="false" data-tries="2">
+              <h5 class="question-title">Question 9</h5>
+              <div class="question">
+                <p>Qu'affiche le programme suivant ?</p>
+                <pre><code class="language-python">def fonc(n):
+    cpt = 0
+    while n != 0:
+        cpt = cpt + 1
+        n = n // 2
+    return cpt
+print(fonc(26))</code></pre>
+
+              </div>
+              <ul class="propositions">
+                <li>0</li>
+                <li>4</li>
+                <li>5</li>
+                <li>26</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="qcm-exercise no-page-break-inside" data-correct="1" data-scrambled="false" data-tries="2">
+              <h5 class="question-title">Question 10</h5>
+              <div class="question">
+                <p>Qu'affiche le programme suivant, l'utilisateur a saisi la valeur <code>10</code> ?</p>
+                <pre><code class="language-python">def saisie():
+    n = int(input("Donner n ? "))
+    while n &lt;= 0:
+        n = int(input("Donner n ? "))
+n = 5
+saisie()
+print(n)</code></pre>
+              </div>
+              <ul class="propositions">
+                <li>5</li>
+                <li>10</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="qcm-exercise no-page-break-inside" data-correct="2" data-scrambled="false" data-tries="2">
+              <h5 class="question-title">Question 11</h5>
+              <div class="question">
+                <p>Qu'affiche le programme suivant, l'utilisateur a saisi la valeur <code>10</code> ?</p>
+                <pre><code class="language-python">def saisie():
+    global n
+    n = int(input("Donner n ? "))
+    while n &lt;= 0:
+        n = int(input("Donner n ? "))
+saisie()
+print(n)</code></pre>
+              </div>
+              <ul class="propositions">
+                <li>5</li>
+                <li>10</li>
+                <li>Erreur</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </section>
+
+      <section>
+        <h3>Appel d'un module (Bac Théorique 2022)</h3>
+
+        <p>Soient le <strong>tableau de déclaration des objets globaux</strong> et l'entête de la procédure
+          <strong>Traitement</strong> suivants :
+        </p>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <p class="text-center">TDOG</p>
+            <table class="table table-sm table-bordered border-dark table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>Objet</th>
+                  <th>Type/Nature</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>n</td>
+                  <td>entier</td>
+                </tr>
+                <tr>
+                  <td>y</td>
+                  <td>réel</td>
+                </tr>
+                <tr>
+                  <td>Traitement</td>
+                  <td>procédure</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-sm-6">
+            <p class="text-center">Entête de la procédure</p>
+            <pre><code class="algorithm">Procédure traitement(@x: réel, a: entier)</code></pre>
+          </div>
+        </div>
+        <p>Compléter le tableau ci-dessous en mettant une croix (&times;) dans la case correspondante
+          (<strong><ins>Valide</ins></strong> ou <strong><ins>Invalide</ins></strong>) pour chacun des appels de la
+          procédure <strong>Traitement</strong>. Justifier votre réponse pour les appels invalides.</p>
+        <table class="table table-sm table-bordered border-dark table-striped table-hover">
+          <thead>
+            <tr>
+              <th>Appel</th>
+              <th width="15%">Valide</th>
+              <th width="15%">Invalide</th>
+              <th width="50%">Justification</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Traitement(y, n)</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>Traitement(y, n, 2)</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>Traitement(5.5, n)</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>Traitement(y, 3)</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h3>Maximum / Compteur (Bac Théorique 2023)</h3>
+
+        <p>Soient le TDNT et les deux algorithmes des fonctions <code>f1</code> et <code>f2</code> ci-dessous :</p>
+        <table class="table table-sm table-bordered border-dark table-striped table-hover w-25">
+          <thead>
+            <tr>
+              <th>TDNT</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>tab = tableau de 50 entier</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <p><strong>Algorithme de la fonction f1</strong></p>
+            <pre><code class="algorithm">Fonction f1(t: tab, n: entier, x: entier):entier
+Début
+  cpt &larr; 0
+  Pour i de 1 à n Faire
+    Si t[i] = x Alors
+      cpt &larr; cpt + 1
+    Fin Si
+  Fin pour
+  Retourner cpt
+Fin</code></pre>
+            <p><strong>TDOL</strong></p>
+            <table class="table table-sm table-bordered border-dark table-striped table-hover w-25">
+              <thead>
+                <tr>
+                  <th>Objet</th>
+                  <th>Type</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>cpt, i</td>
+                  <td>entier</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-sm-6">
+            <p><strong>Algorithme de la fonction f2</strong></p>
+            <pre><code class="algorithm">Fonction f2(t: tab, n: entier):entier
+Début
+  m &larr; t[1]
+  Pour i de 2 à n Faire
+    Si t[i] > m Alors
+      m &larr; t[i]
+    Fin Si
+  Fin pour
+  Retourner m
+Fin</code></pre>
+            <p><strong>TDOL</strong></p>
+            <table class="table table-sm table-bordered border-dark table-striped table-hover w-25">
+              <thead>
+                <tr>
+                  <th>Objet</th>
+                  <th>Type</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>m, i</td>
+                  <td>entier</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <ol>
+          <li>
+            <p>Pour le tableau T suivant :</p>
+            <script>draw_table('T', [5, 6, 3, 3, 2, 8, 6, 2, 6, 3], 1);</script>
+            <ol type="a">
+              <li>Donner le résultat de chacun des appels ci-dessous de la fonction <strong>f1</strong>.
+                <ul type="square">
+                  <li>f1(T, 10, 6) = ?</li>
+                  <li>f1(T, 6, 3) = ?</li>
+                </ul>
+              </li>
+              <li>Déduire le rôle de la fonction <strong>f1</strong>.</li>
+              <li>Donner le résultat de chacun des appels ci-dessous de la fonction <strong>f2</strong>.
+                <ul type="square">
+                  <li>f2(T, 10 = ?</li>
+                  <li>f2(T, 5) = ?</li>
+                </ul>
+              </li>
+              <li>Déduire le rôle de la fonction <strong>f2</strong>.</li>
+            </ol>
+          </li>
+          <li>
+            <p>Compléter la colonne <strong>"Réponse"</strong> du tableau ci-après par <strong>Valide</strong> si
+              l'algorithme de la procédure <strong>Remplir</strong> permet le remplissage <strong>aléatoire</strong> de
+              <strong>n</strong> cases d'un tableau <strong>T</strong> par des chiffres de <strong>1</strong> à
+              <strong>9</strong> ou par <strong>Invalide</strong> dans le cas contraire.
+            </p>
+            <table class="table table-sm table-bordered border-dark table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>Définition de la procédure Remplir</th>
+                  <th>Réponse (Valide / Invalide)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <pre><code class="algorithm">Procédure Remplir(@T: tab, n: entier)
+Début
+  Pour i de 1 à n Faire
+    T[i] &larr; Aléa(1, 9)
+  Fin Pour
+Fin</code></pre>
+                  </td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>
+                    <pre><code class="algorithm">Procédure Remplir(@T: tab, n: entier)
+Début
+  Pour i de 1 à n Faire
+    T[i] &larr; Aléa(1, 10)
+  Fin Pour
+Fin</code></pre>
+                  </td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>
+                    <pre><code class="algorithm">Procédure Remplir(@T: tab, n: entier)
+Début
+  Pour i de 1 à n Faire
+    T[i] &larr; Aléa(0, 9)
+  Fin Pour
+Fin</code></pre>
+                  </td>
+                  <td>&nbsp;</td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li>Soient <strong>T</strong> un tableau de <strong>n</strong> entiers (<code>5 &le; n &le; 50</code>) rempli
+            par des chiffres compris entre <strong>1</strong> et <strong>9</strong> et <strong>V</strong> un tableau de
+            <strong>9</strong> cases de type entier et dont les indices sont de <strong>1</strong> à <strong>9</strong>.
+            <ol type="a">
+              <li>
+                <p>Ecrire un algorithme d'un module intitulé <strong>Remplissage</strong> qui permet de remplir le
+                  tableau <strong>V</strong> par le nombre d'occurences de chaque chiffre de <strong>1</strong> à
+                  <strong>9</strong> dans le tableau <strong>T</strong>.
+                </p>
+                <p><strong><ins>Exemple :</ins></strong></p>
+                <p>Pour <strong>n = 10</strong> et le tableau <strong>T</strong> suivant :</p>
+                <script>draw_table('T', [5, 6, 3, 3, 2, 8, 6, 2, 6, 3], 1)</script>
+                <p>Suite à l'appel du module <strong>remplissage</strong>, on obtient le tableau <strong>V</strong>
+                  suivant :</p>
+                <script>draw_table('V', [0, 2, 3, 0, 1, 3, 0, 1, 0], 1)</script>
+                <ul type="square">
+                  <li><strong>V[3] = 3</strong>, car le chiffre 3 apparait 3 fois dans le tableau T</li>
+                  <li><strong>V[6] = 3</strong>, car le chiffre 6 apparait 3 fois dans le tableau T</li>
+                  <li><strong>V[7] = 0</strong>, car le chiffre 7 n'apparait pas dans le tableau T</li>
+                </ul>
+              </li>
+              <li>
+                <p>Ecrire l'algorithme d'un module intitulé <strong>Afficher</strong> qui permet d'afficher, à partir du
+                  tableau V, les chiffres ayant le plus grand nombre d'occurences dans le tableau <strong>T</strong>.
+                </p>
+                <p><strong><ins>Exemple :</ins></strong></p>
+                <p>Pour le tableau <strong>V</strong> suivant :</p>
+                <script>draw_table('V', [0, 2, 3, 0, 1, 3, 0, 1, 0], 1)</script>
+                <p>Suite à l'appel du module <strong>Afficher</strong>, on obtient l'affichage ci-dessous :</p>
+                <p><em>Les chiffres les plus fréquents dans le tableau sont : 3 - 6</em></p>
+              </li>
+            </ol>
+          </li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>Fonction Inconnue (Bac Théorique 2023)</h3>
+        <p>Soit l'algorithme suivant de la fonction <strong>Inconnue</strong> :</p>
+        <div class="row">
+          <div class="col-9">
+            <pre><code class="algorithm">Fonction Inconnue(x: entier):.............
+Début
+  r &larr; ""
+  ch &larr; ConvCh(x)
+  Pour i de 0 à Long(ch) - 1 faire
+    Si Valeur(ch[i]) mod 2 = 1 Alors
+      r &larr; r + ch[i]
+    Fin Si
+  Fin Pour
+  Si Long(r) > 0 Alors
+    Retourner Valeur(r)
+  Sinon
+    Retourner -1
+  Fin Si
+Fin</code></pre>
+          </div>
+          <div class="col-3">
+            <table class="table table-sm table-bordered border-dark table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>Objet</th>
+                  <th>Type/Nature</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <ol>
+          <li>Compléter la fonction <strong>Inconnue</strong>.</li>
+          <li>Compléter le TDOL de la fonction <strong>Inconnue</strong></li>
+          <li>Remplir le tableau suivant par le résultat retourné suite à l'appel de la fonction
+            <strong>Inconnue</strong> pour chacune des valeurs de <code>x</code> :
+            <table class="table table-sm table-bordered border-dark table-striped table-hover w-50">
+              <thead>
+                <tr>
+                  <th>x</th>
+                  <th>Inconnue(x)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>15472</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>9931</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>2462</td>
+                  <td>&nbsp;</td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li>Déduire le rôle de la fonction <strong>Inconnue</strong>.</li>
+          <li>Ecrire l'algorithme d'une procédure <strong>Affiche</strong> qui permet d'afficher le résultat de l'appel
+            de la fonction <strong>Inconnue</strong> pour chaque élément d'un tableau <code>T</code> de <code>n</code>
+            entiers.
+            <p><strong><ins>NB :</ins></strong> Dresser le tableau de déclaration des objets locaux.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>WiFi Hacker</h3>
+
+        <p>L’ordinateur de Souhaib capte les signaux WiFi des points d’accès de ses voisins. La puissance du signal reçu
+          varie entre 0% et 100%.</p>
+        <img src="resources/serie_04/hacker.png" alt="WiFi Hacker" align="right">
+        <p>On distingue cinq catégories de connexions :</p>
+        <ul>
+          <li>Catégorie A : puissance ≥ 85%</li>
+          <li>Catégorie B : 85% > puissance ≥ 75%</li>
+          <li>Catégorie C : 75% > puissance ≥ 65%</li>
+          <li>Catégorie D : 65% > puissance ≥ 50%</li>
+          <li>Catégorie E : 50% > puissance</li>
+        </ul>
+
+        <p>Souhaib veut filtrer les réseaux en fonction de leurs catégories. Pour cela, il souhaite écrire l’algorithme
+          modulaire d’un programme qui :</p>
+        <ul>
+          <li>Saisit le nombre de connexions disponibles noté nc, avec 1 ≤ nc ≤ 10. </li>
+          <li>Saisit la puissance de chacun des signaux des connexions voisines : un entier compris entre 0 et 100. Ces
+            entiers seront stockés dans le tableau t.</li>
+          <li>Transforme les puissances des signaux en des lettres "A" → "E". Le résultat sera stocké dans une chaîne
+            notée cc (catégorie de connexion) qui contient des lettres correspondant aux puissances des signaux.</li>
+          <li>Saisit une ou plusieurs catégories dans une chaîne nommée rcc (recherche catégorie de connexion).</li>
+          <li>Affiche le nombre de connexions voisines noté ncv de cette catégorie.</li>
+        </ul>
+        <p><strong>Exemples :</strong></p>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <pre><code>Donner le nombre de connexions [1, 10] ? 5
+Puissance connexion 1 [0, 100] ? 98
+Puissance connexion 2 [0, 100] ? 76
+Puissance connexion 3 [0, 100] ? 60
+Puissance connexion 4 [0, 100] ? 88
+Puissance connexion 5 [0, 100] ? 38
+1. 98% -> Catégorie A
+2. 76% -> Catégorie B
+3. 60% -> Catégorie D
+4. 88% -> Catégorie A
+5. 38% -> Catégorie E
+Connexions voisine : ABDAE
+Quelles sont les catégories recherchées ? AB
+Il y a 3 connexions voisines de catégorie AB</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <pre><code>Donner le nombre de connexions [1, 10] ? 4
+Puissance connexion 1 [0, 100] ? 67
+Puissance connexion 2 [0, 100] ? 79
+Puissance connexion 3 [0, 100] ? 50
+Puissance connexion 4 [0, 100] ? 50
+1. 67% -> Catégorie C
+2. 79% -> Catégorie B
+3. 60% -> Catégorie D
+4. 88% -> Catégorie D
+Connexions voisine : CBDD
+Quelles sont les catégories recherchées ? A
+Il y a 0 connexions voisines de catégorie A</code></pre>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée avec ♥ par Mohamed Anis MANI</div>
+    <div class="text-center small">Année scolaire : 2025/2026</div>
+  </footer>
+
+  <script src="resources/js/jquery.min.js"></script>
+  <script src="resources/js/bootstrap.bundle.min.js"></script>
+  <script src="resources/js/highlight.min.js"></script>
+  <script src="resources/js/hljs.algorithm.js"></script>
+  <script src="resources/js/clipboard.min.js"></script>
+  <script src="resources/js/pages.js"></script>
+  <script src="resources/js/draggable.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+
+    document.querySelectorAll('.language-algorithm,.language-python,.language-delphi')
+      .forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'bd-clipboard d-print-none';
+        const btn = document.createElement('button');
+        btn.className = 'btn-clipboard';
+        btn.textContent = "📋";
+        btn.title = "Copier";
+        div.appendChild(btn);
+        item.parentElement.insertBefore(div, item);
+      });
+    new ClipboardJS('.btn-clipboard', {
+      target: (trigger) => {
+        return trigger.parentElement.nextElementSibling;
+      }
+    });
+  </script>
+  <script src="resources/js/vue.min.js"></script>
+  <script src="resources/apps/serie03.js"></script>
+</body>
+
+</html>
