@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Les sous-programmes</title>
+  <title>Série 6 - Les sous-programmes</title>
   <link rel="stylesheet" href="resources/css/bootstrap.min.css">
   <link rel="stylesheet" href="resources/css/default.css">
   <link rel="stylesheet" href="resources/css/style.css">
@@ -23,346 +23,502 @@
   </aside>
 
   <main class="container my-3">
-    <h1>Les sous-programmes</h1>
+    <h1>Série 6 - Les sous-programmes</h1>
 
     <article>
       <h2>Exercices</h2>
 
       <section>
-        <h3>Tir à l'arc - Bac TP 2019</h3>
+        <h3>QCM</h3>
 
-        <p>Le jeu de tir à l'arc consiste à tirer des flèches en utilisant un arc vers un endroit cible.</p>
-        <p>Un club de tir à l'arc organise une compétition entre ses joueurs. Cette compétition consiste à donner à
-          chaque joueur trois essais de tir.</p>
-        <p>A chaque tir, le joueur gagne de 0 à 10 points selon l'endroit touché par la flèche sur une cible composée de
-          10 cercles concentriques comme l'illustre la figure ci-contre.</p>
-        <figure><img src="resources/chapitre_05/images/cible.ong.PNG" alt="" class="h4cm"></figure>
-        <p>Après le 3ème essai, un score est calculé pour chaque joueur représentant la somme des résultats de ses trois
-          essais, et ce pour classer les joueurs.</p>
-        <p>On se propose d'écrire un programme permettant :</p>
-        <ul>
-          <li>de remplir un tableau A par N noms de joueurs participant à cette compétition (avec 2 ≤ N ≤ 20),</li>
-          <li>de calculer le score de chaque joueur sachant que le résultat d'un essai est un entier positif inférieur
-            ou égal à 10,</li>
-          <li>d'afficher la liste des joueurs ainsi que les scores correspondants en commençant par le meilleur.</li>
-        </ul>
-        <p><strong>Exemple :</strong> Pour N = 4 et le tableau A suivant : </p>
-        <figure><img src="resources/chapitre_05/images/exemple01.png" alt="" class="h1cm"></figure>
-        <p>En considérant que les résultats des trois essais ainsi que les scores calculés des quatre joueurs sont les
-          suivants :</p>
-        <figure><img src="resources/chapitre_05/images/exemple02.png" alt="" class="h3cm"></figure>
-        <p>La liste des joueurs affichée sera la suivante :</p>
-        <ul>
-          <li>Imen LOUIZ avec un score de 28 </li>
-          <li>Mohamed ABIDI avec un score de 27</li>
-          <li>Fatma AYADI avec un score de 27</li>
-          <li>Anis OMRI avec un score de 23</li>
-        </ul>
-        <p>Ci-après, un algorithme du programme principal dans lequel des modifications seront apportées pour répondre
-          aux besoins cités ci-dessus :</p>
+        <p><b>Cocher les bonnes réponses.</b></p>
 
-        <pre class="p-break"><code class="algorithm">Algorithme TirArc
-Début
-  // Séquence 1
-  Répéter
-    Ecrire ("Donner le nombre de joueurs : "); Lire (N)
-  Jusqu'à (N dans [2..20])
-  // Séquence 2
-  Pour i de 1 à N faire
-    Répéter 
-      Ecrire ("Donner le nom du joueur n°", i," : "), Lire (A[i])
-    Jusqu'à (alpha (A[i]))
-  Fin pour
-  // Séquence 3
-  Score (A, N)
-Fin</code></pre>
+        <div class="qcm-exercise no-page-break-inside" data-correct="2" data-scrambled="false" data-tries="1">
+          <h5 class="question-title">Question 1</h5>
+          <div class="question">
+            <p>Pour afficher les valeurs 2, 4, 6 et 8, on peut utiliser la boucle suivante :</p>
+            <div class="row">
+              <div class="col-4">
+                <strong>Proposition 1</strong>
+                <pre><code class="language-algorithm">i ← 0
+i ← i + 2
+Répéter
+  Ecrire(i)
+Jusqu'à (i mod 8 = 0)</code></pre>
+              </div>
+              <div class="col-4">
+                <strong>Proposition 2</strong>
+                <pre><code class="language-algorithm">i ← 0
+Répéter
+  i ← i + 2
+  Ecrire(i)
+Jusqu'à (i mod 8 = 0)</code></pre>
+              </div>
+              <div class="col-4">
+                <strong>Proposition 3</strong>
+                <pre><code class="language-algorithm">i ← 0
+Répéter
+  Ecrire(i)
+  i ← i + 2
+Jusqu'à (i mod 8 = 0)</code></pre>
+              </div>
+            </div>
+            <p><strong>Quelles sont les bonnes propositions ?</strong></p>
+          </div>
+          <ul class="propositions">
+            <li><strong>Proposition 1</strong></li>
+            <li><strong>Proposition 2</strong></li>
+            <li><strong>Proposition 3</strong></li>
+          </ul>
+        </div>
 
-        <p>Travail demandé :</p>
-        <ol>
-          <li>Implémenter l'algorithme TirArc en Python et ajouter les déclarations nécessaires puis enregistrer le
-            programme, dans votre dossier de travail, sous le nom "TirArc0".<br>
-            <strong>NB :</strong> Il est recommandé de limiter la taille des éléments du tableau A à 30 caractères.
-          </li>
-          <li>Dans votre dossier de travail, créer une deuxième copie de ce programme et l'enregistrer sous le
-            nom "TirArc1".<br>
-            Dans ce fichier :<br>
-            <ol type="a">
-              <li>Transformer la séquence 2 en un module et apporter les modifications nécessaires dans le
-                programme principal.</li>
-              <li>Développer la fonction Alpha qui permet de vérifier si le nom d'un joueur est une suite de
-                30 lettres au maximum et pouvant contenir des espaces.</li>
-              <li>Développer le module Score permettant :
-                <ul>
-                  <li>de saisir les résultats des trois essais de chaque joueur et de calculer son score,</li>
-                  <li>d'afficher la liste des joueurs ainsi que leurs scores selon un ordre décroissant des
-                    scores.</li>
-                </ul>
-              </li>
-            </ol>
-          </li>
-        </ol>
+        <div class="qcm-exercise no-page-break-inside" data-correct="3" data-scrambled="false" data-tries="1">
+          <h5 class="question-title">Question 2</h5>
+          <div class="question">
+            <p>Après l'exécution de la séquence, la valeur de K sera :</p>
+          </div>
+          <ul class="propositions">
+            <li><strong>2</strong></li>
+            <li><strong>3</strong></li>
+            <li><strong>4</strong></li>
+          </ul>
+        </div>
+
+        <div class="qcm-exercise no-page-break-inside" data-correct="4" data-scrambled="false" data-tries="1">
+          <h5 class="question-title">Question 3</h5>
+          <div class="question">
+            <p>La valeur finale de m affichée après l'exécution de la procédure <code>Affiche(5)</code> est :</p>
+          </div>
+          <ul class="propositions">
+            <li><strong>12</strong></li>
+            <li><strong>15</strong></li>
+            <li><strong>17</strong></li>
+            <li><strong>20</strong></li>
+          </ul>
+        </div>
+
+        <div class="qcm-exercise no-page-break-inside" data-correct="2,3,5,6" data-scrambled="false" data-tries="1">
+          <h5 class="question-title">Question 4</h5>
+          <div class="question">
+            <p>Etant donné l'entête du module chercher et le TDOG du programme principal :</p>
+            <pre><code class="language-algorithm">Fonction Chercher(n: entier, t: tab):entier</code></pre>
+            <table class="table table-sm table-bordered border-dark table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>Objet</th>
+                  <th>Type/Nature</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>nx, px, ny, py</td>
+                  <td>entier</td>
+                </tr>
+                <tr>
+                  <td>tx, ty</td>
+                  <td>tab</td>
+                </tr>
+              </tbody>
+            </table>
+            <p><strong>Un appel correct de cette fonction est :</strong></p>
+          </div>
+          <ul class="propositions">
+            <li><strong>Chercher(nx, tx)</strong></li>
+            <li><strong>Ecrire(Chercher(nx, ty))</strong></li>
+            <li><strong>py ← Chercher(nx, tx)</strong></li>
+            <li><strong>px ← Chercher(tx, ty)</strong></li>
+            <li><strong>Si Chercher(8, tx) ≠ 5 Alors</strong></li>
+            <li><strong>Tant Que Chercher(nx,ty)=-1 Faire</strong></li>
+          </ul>
+        </div>
+
+        <div class="qcm-exercise no-page-break-inside" data-correct="2,3" data-scrambled="false" data-tries="1">
+          <h5 class="question-title">Question 5</h5>
+          <div class="question">
+            <p>Soit Un la suite définie par :</p>
+            <p>U<sub>0</sub> = x, x ∈ ℝ+</p>
+            <p>U<sub>n</sub> = (U<sub>n-1</sub> + x/U<sub>n-1</sub>)/2, pour n > 0</p>
+            <p><strong>La séquence algorithmique qui permet de calculer puis d'afficher le n<sup>e</sup> terme de la
+                suite, est
+                :</strong></p>
+            <div class="row">
+              <div class="col-4">
+                <strong>Proposition 1</strong>
+                <pre><code class="language-algorithm">U0 ← x
+Pour i de 1 à n Faire
+  Un ← (U0 + x/U0)/2
+Fin Pour
+Ecrire(Un)</code></pre>
+              </div>
+              <div class="col-4">
+                <strong>Proposition 2</strong>
+                <pre><code class="language-algorithm">t[0] ← x
+Pour i de 1 à n Faire
+  t[i]←(t[i-1]+x/t[i-1])/2
+Fin Pour
+Ecrire(t[n])</code></pre>
+              </div>
+              <div class="col-4">
+                <strong>Proposition 3</strong>
+                <pre><code class="language-algorithm">Un ← x
+Pour i de 1 à n Faire
+  Un ←(Un+x/Un)/2
+Fin Pour
+Ecrire(Un)</code></pre>
+              </div>
+            </div>
+            <p><strong>Quelles sont les bonnes propositions ?</strong></p>
+          </div>
+          <ul class="propositions">
+            <li><strong>Proposition 1</strong></li>
+            <li><strong>Proposition 2</strong></li>
+            <li><strong>Proposition 3</strong></li>
+          </ul>
+        </div>
       </section>
 
       <section>
-        <h3 class="p-break">Plagiarisme - Bac TP 2019</h3>
+        <h3>Le bon choix</h3>
 
-        <p>Le plagiat est une mauvaise pratique qui consiste à copier ou s'inspirer fortement d'une œuvre sans citer son
-          auteur et en faisant passer cette œuvre pour la sienne.</p>
-        <p>On suppose qu'un texte est plagié lorsque le nombre de mots communs dépasse la moitié du nombre de mots du
-          texte d'origine.</p>
-        <h1>Exemple</h1>
-        <p><strong>Texte à tester :</strong> "ENTRE DEUX VERSIONS DU MEME DOCUMENT CE LOGICIEL PERMET DE CHERCHER LE
-          NOMBRE DE MOTS IDENTIQUES."</p>
-        <p><strong>Texte d'origine :</strong> "CE PROGRAMME PERMET DE TROUVER LE NOMBRE DE MOTS IDENTIQUES DANS DEUX
-          VERSIONS DU MEME TEXTE.""</p>
-        <p>Les mots communs aux deux textes sont : </p>
-        <p class="text-center">DEUX – VERSIONS – DU – MEME – CE – PERMET – DE – LE – NOMBRE – DE – MOTS – IDENTIQUES</p>
-        <p>Le texte testé est plagié. En effet, le nombre de mots communs aux deux textes est égal à 12, dépassant ainsi
-          la moitié du nombre de mots du texte d'origine qui est 16.</p>
-        <p>On se propose d'écrire un programme qui permet de saisir deux textes T1 et T2 ayant un même nombre de mots,
-          de vérifier si T2 est plagiat de T1 selon le principe décrit précédemment et d'afficher un message
-          correspondant.</p>
-        <p>Ci-après, un algorithme du programme principal dans lequel des modifications seront apportées pour répondre
-          aux besoins cités ci-dessus, avec Nbc désigne le nombre de mots communs à T1 et T2 :</p>
-        <pre><code class="algorithm">Algorithme Plagiat
-Début
-  // Séquence 1
-  Répéter
-    Lire (T1)
-    Lire (T2)
-  Jusqu'à (Nbmots (T1) = Nbmots (T2))
-  // Séquence 2
-  Nbc &larr; Commun (T1,T2)
-Fin</code></pre>
-        <h4>Travail demandé</h4>
-        <ol>
-          <li>Implémenter l'algorithme Plagiat en Python et ajouter les déclarations nécessaires
-            puis enregistrer le programme, dans votre dossier de travail, sous le nom "Plagiat0".</li>
-          <li>Dans votre dossier de travail, créer une deuxième copie de ce programme et l'enregistrer sous le
-            nom "Plagiat1".<br>
-            Dans ce fichier :<br>
-            <ol type="a">
-              <li>Développer un module intitulé Saisir qui permet de saisir une chaîne commençant
-                obligatoirement par une lettre, composée au maximum de 200 caractères, se terminant par
-                un point et ne pouvant contenir que des lettres majuscules et des espaces. Puis, apporter les
-                modifications nécessaires dans le programme principal.<br>
-                Ce module permet aussi d'enlever les espaces superflus (garder un seul espace entre deux
-                mots consécutifs et ne garder aucun espace avant le point de fin de texte).</li>
-              <li>Développer le module Nbmots qui permet de déterminer le nombre de mots dans un texte.</li>
-              <li> Développer le module Commun, qui permet de déterminer le nombre de mots communs
-                dans deux textes donnés.</li>
-              <li>Apporter les modifications nécessaires au programme afin de vérifier si le texte testé est
-                plagié et d'afficher le message correspondant.</li>
-            </ol>
-          </li>
-        </ol>
+        <p>Afin de réaliser les tâches décrites dans la première colonne du tableau suivant, un élève a fourni les
+          propositions suivantes. Toutefois, il n'a pas fait le choix adéquat de la structure itérative.</p>
+        <p><strong>Corriger le travail de cet élève.</strong></p>
+
+        <h5>Tâche 1</h5>
+        <p>Saisir un entier n strictement positif</p>
+        <pre><code class="language-algorithm">Ecrire("n ? ") ; Lire(n)
+Tant Que n <= 0 Faire
+  Ecrire("n ? ") ; Lire(n)
+Fin Tant Que</code></pre>
+
+        <h5>Tâche 2</h5>
+        <p>Chercher la valeur maximale dans un tableau de taille n, (n > 0)</p>
+        <pre><code class="language-algorithm">i ← 0 ; mx ← t[0]
+Répéter
+  i ← i + 1
+  Si t[i] > mx Alors
+    mx ← t[i]
+  Fin Si
+Jusqu'à (i = n-1)</code></pre>
+
+        <h5>Tâche 3</h5>
+        <p>Vérifier l'existence d'un mot dans un tableau de n chaînes</p>
+        <pre><code class="language-algorithm">trouve ← Faux 
+maj ← " "+Majus(mot)+" "
+Pour i de 0 à n-1 Faire
+ mt ← Majus(" "+t[i]+" ")
+ Si Pos(maj, mt) ≠ -1 Alors
+  trouve ← Vrai
+ Fin Si
+Fin Pour</code></pre>
       </section>
 
       <section>
-        <h3 class="p-break">Fildélité - Bac TP 2019</h3>
-        <p>Un gérant d'une salle de sport veut récompenser les adhérents fidèles en leur offrant un bonus sous
-          forme d'heures d'entraînement gratuites, calculé à partir de leurs numéros d'abonnement.</p>
-        <p>Le bonus est calculé en fonction de l'ancienneté de l'adhérent, exprimée en nombre de mois par rapport
-          à la date du jour. En effet, une heure supplémentaire est offerte pour chaque mois d'ancienneté, sachant
-          que le bonus ne sera pris en considération que si l'ancienneté dépasse 5 ans.</p>
-        <p>Un numéro d'abonnement est formé de 10 caractères dont le premier est une lettre majuscule indiquant
-          la catégorie de l'adhérent (A : Adulte, J : Junior, E : Enfant) suivi de 9 chiffres répartis comme suit :</p>
-        <ol>
-          <li>Les 4 premiers chiffres représentent l'année d'adhésion qui doit être comprise entre 2000 et 2019.</li>
-          <li>Les 2 suivants représentent le mois d'adhésion dont la valeur doit être comprise entre 1 et 12. </li>
-          <li>Les 3 derniers chiffres représentent le numéro d'adhésion qu'on suppose distinct pour tous les
-            adhérents.</li>
-        </ol>
-        <h4>Exemple</h4>
-        <p>Pour le numéro d'abonnement E201403080, l'adhérent est un enfant dont l'année d'adhésion est 2014,
-          le mois d'adhésion est 03 (mars) et son numéro d'adhésion est 080. Le bonus accordé à cet adhérent est
-          de 62 heures. En effet, son ancienneté est égale à cinq ans et deux mois par rapport à la date
-          d'aujourd'hui (28/05/2019), en nombre de mois elle est égale à 62 (12*5 + 2). </p>
-        <p>On se propose d'écrire un programme qui permet :</p>
-        <ul>
-          <li>de saisir un entier N représentant le nombre d'adhérents de cette salle (avec 5 ≤ N ≤ 30),</li>
-          <li>de remplir un tableau TA par les N numéros d'abonnements de ces adhérents en respectant le
-            format décrit précédemment,</li>
-          <li>d'afficher les numéros d'abonnements des adhérents ayant une ancienneté supérieure à 5 ans et
-            appartenant à une catégorie donnée ainsi que leurs bonus correspondants sachant que la date du
-            jour à considérer est 28/05/2019.</li>
-        </ul>
-        <p>Ci-après, un algorithme du programme principal dans lequel des modifications seront apportées pour
-          répondre aux besoins cités ci-dessus :</p>
-        <pre><code class="algorithm">Algorithme Fidelite
+        <h3>Rôle du module</h3>
+        <div class="row">
+          <div class="col-9">
+            <pre><code class="language-algorithm">………………………… Quoi(n: …………………………):…………………………
 Début
-  // Séquence 1
-  Répéter
-    Ecrire ("Donner le nombre des adhérents :"); Lire (N)
-  Jusqu'à (N dans [5..30])
-  // Séquence 2
-  Remplir (TA, N)
-  Bonus (TA, N)
-Fin</code></pre>
-        <h4>Travail demandé</h4>
-        <ol>
-          <li>Implémenter l'algorithme Fidelite en Python et ajouter les déclarations nécessaires
-            puis enregistrer le programme, dans votre dossier de travail, sous le nom "Fidele0".</li>
-          <li>Dans votre dossier de travail, créer une deuxième copie de ce programme et l'enregistrer sous le
-            nom "Fidele1".<br>
-            Dans ce fichier :<br>
-            <ol type="a">
-              <li>Transformer la séquence 1 en un module et apporter les modifications nécessaires dans le
-                programme principal.</li>
-              <li>Développer le module Remplir qui permet de remplir un tableau TA par les N numéros
-                d'abonnements en respectant la forme décrite précédemment.</li>
-              <li>Développer le module Bonus permettant :</li>
-              <ul>
-                <li>de saisir une catégorie d'adhérents, qui doit être une lettre majuscule parmi les
-                  suivantes : A, J ou E,</li>
-                <li>d'afficher les numéros ainsi que les bonus correspondants aux abonnements appartenant
-                  à la catégorie donnée et ayant une ancienneté supérieure à 5 ans.</li>
-              </ul>
-            </ol>
-          </li>
-        </ol>
-      </section>
-
-      <section>
-        <h3 class="p-break">Heure Miroir - BAC TP 2019</h3>
-        <p>Un spécialiste en psychologie analytique veut faire une étude sur les heures qui se disent heures miroirs
-          et ce, à partir des heures de naissances des nouveau-nés. Les heures miroirs sont classées selon trois
-          types à savoir les heures miroirs doublées, les heures miroirs triplées et les heures miroirs inversées.</p>
-        <p>Pour commencer cette étude, il a demandé auprès de l'administration d'un hôpital de lui fournir, pour
-          une journée donnée, la liste des noms et prénoms des nouveau-nés ainsi que les heures de leurs
-          naissances.</p>
-        <p>Selon la représentation horaire HH:MM, l'heure miroir est dite :</p>
-        <ul>
-          <li>doublée si le nombre qui représente l'heure est le même que celui qui représente les minutes
-            (exemples 13:13, 22:22, 15:15, ...)</li>
-          <li>triplée s'il existe une séquence de trois chiffres identiques et consécutifs
-            (exemples 22:22, 22:29, 10:00, ...)</li>
-          <li>inversée si les chiffres qui représentent les minutes sont l'inverse de ceux qui représentent l'heure
-            (exemples 13:31, 14:41, 22:22, ...)</li>
-        </ul>
-        <p>NB : Une heure miroir peut être à la fois doublée, triplée et inversée.</p>
-        <p>Pour faire cette étude, on se propose d'écrire un programme qui permet de remplir deux tableaux
-          NP et HN respectivement par :</p>
-        <ul>
-          <li>les noms et les prénoms des N nouveau-nés de la journée,</li>
-          <li>l'heure de naissance de chacun,</li>
-        </ul>
-        <p>puis d'afficher :</p>
-        <ul>
-          <li>la liste des nouveau-nés ayant une heure de naissance miroir, en précisant pour chacun le type de
-            l'heure miroir correspondant (doublée, triplée ou inversée),</li>
-          <li>le nombre des nouveau-nés ayant l'heure de naissance miroir doublée,</li>
-          <li>le nombre des nouveau-nés ayant l'heure de naissance miroir triplée,</li>
-          <li>le nombre des nouveau-nés ayant l'heure de naissance miroir inversée.</li>
-        </ul>
-        <h4>Exemple :</h4>
-        <p>Pour N = 10 et les tableaux NP et HN suivants :</p>
-        <figure><img src="resources/chapitre_05/images/exemple03.png" alt=""></figure>
-        <p>Le programme affiche :</p>
-        <pre>Les nouveau-nés ayant l'heure de naissance miroir sont :
-  Karim Salhi : heure miroir triplée
-  Sahar Feki : heure miroir doublée
-  Maha Sessi : heure miroir triplée
-  Fedi Krayem : heure miroir inversée
-  Dina Selmi : heure miroir triplée
-  Samir Siala : heure miroir doublée
-  Samir Siala : heure miroir triplée
-  Samir Siala : heure miroir inversée
-Le nombre des nouveau-nés ayant l'heure de naissance miroir doublée est 2.
-Le nombre des nouveau-nés ayant l'heure de naissance miroir triplée est 4.
-Le nombre des nouveau-nés ayant l'heure de naissance miroir inversée est 2.</pre>
-        <p class="p-break">Ci-après, un algorithme du programme principal dans lequel des modifications seront apportées
-          pour
-          répondre aux besoins cités ci-dessus :</p>
-        <pre><code class="algorithm">Algorithme HeureMiroir
-Début
-  // Séquence 1
-  Ecrire ("Donner le nombre de nouveau-nés : "); Lire (N)
-  // Séquence 2
-  Remplissage (NP, HN, N)
-  Affichage (NP, HN, N)
-Fin</code></pre>
-        <h4 class="p-break">Travail demandé</h4>
-        <ol>
-          <li>Implémenter l'algorithme HeureMiroir en Python et ajouter les déclarations nécessaires puis
-            enregistrer le programme, dans votre dossier de travail, sous le nom "HMiroir0".<br>
-            NB : Il est recommandé de limiter la taille des éléments des tableaux à 30 caractères.</li>
-          <li>Dans votre dossier de travail, créer une deuxième copie de ce programme et l'enregistrer sous le
-            nom "HMiroir1".<br>
-            Dans ce fichier :<br>
-            <ol type="a">
-              <li>Transformer la séquence 1 en un module en ajoutant les contrôles de saisie nécessaires pour
-                que N soit un entier de l'intervalle [3,20] et apporter les modifications adéquates dans le
-                programme principal.</li>
-              <li>Développer le module Remplissage permettant de remplir :
-                <ul>
-                  <li>le tableau NP par les noms et les prénoms des N nouveau-nés de la journée, sachant que
-                    le nom et le prénom est une seule chaîne commençant par une lettre majuscule et formée
-                    au maximum de 30 caractères,</li>
-                  <li>le tableau HN par l'heure de naissance de chaque nouveau-né, et ce en respectant le
-                    format horaire HH:MM, sachant que la valeur de HH est comprise entre 0 et 23 et celle
-                    de MM est comprise entre 0 et 59 représentée chacune sur deux chiffres.</li>
-                </ul>
-              </li>
-              <li>Développer le module Affichage permettant de faire les affichages nécessaires comme
-                indiqué précédemment.</li>
-            </ol>
-          </li>
-        </ol>
-        <p>NB : Le candidat n'est pas appelé à respecter l'ordre d'affichage de l'exemple.</p>
-      </section>
-
-      <section>
-        <h3 class="p-break">Collection - BAC TP 2018</h3>
-        <p>Un client collectionne les images qu'il trouve dans les paquets de ses biscuits préférés pour gagner des
-          passes d'entrées gratuites, à un parc d'attraction. La collection doit comporter 20 images différentes
-          relatives à des personnages distincts de bandes dessinées.</p>
-        <p>On suppose que les images ont été disposées au hasard dans les paquets et que :</p>
-        <ul>
-          <li>chaque paquet contient exactement une image de personnages de bandes dessinées,</li>
-          <li>un même personnage peut se retrouver dans plusieurs paquets.</li>
-        </ul>
-        <p>Pour gagner ce voyage, le client achète une boîte contenant 50 paquets.</p>
-        <p>On donne l'algorithme du programme principal suivant où P représente un tableau contenant la collection
-          des personnages distincts que le client a pu collectionner, suite à l'ouverture des 50 paquets achetés, et C,
-          le
-          nombre d'éléments de P.</p>
-        <pre><code class="algorithm">Algorithme Collection
-Début
-  Répéter // Séquence 1
-    Ecrire ("Donner le nom du personnage trouvé dans le paquet n° 1 :") ; Lire (P[1])
-  Jusqu'à (FN Valide (P[1]))
-  C &larr; 1 // Séquence 2 et 3
-  Pour i de 2 à 50 faire
-    Répéter
-      Ecrire ("Donner le nom du personnage trouvé dans le paquet n° ",i, ":") ; Lire (Pers)
-    Jusqu'à (FN Valide (Pers))
-    Si (Chercher (Pers, P,C)=faux) Alors
-      C &larr; C+1
-      P[C] &larr; Pers
+  ch ← ""
+  i ← 2
+  Tant Que n ≠ 1 Faire
+    Si n mod i = 0 Alors
+      ch ← ch + "*" + ConvCh(i)
+      n ← n div i
+    Sinon
+      i ← i +1
     Fin Si
-  Fin Pour
-  // Séquence 4
-  Si (C = 20) Alors Ecrire ("Vous avez gagné") Sinon Ecrire ("Vous avez perdu") Fin Si
+  Fin Tant Que
+  Retourner sous_chaine(ch, 1, Long(ch))
 Fin</code></pre>
-        <h4>Travail à faire :</h4>
+          </div>
+          <div class="col-3">
+            <p class="text-center">TDOL</p>
+            <table class="table table-sm table-bordered border-dark table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>Objet</th>
+                  <th>Type/Nature</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
         <ol>
-          <li>Implémenter l'algorithme Collection en Python et ajouter les déclarations nécessaires.</li>
-          <li>Développer la fonction Valide permettant de valider une chaîne qui doit être non vide, commencer
-            par une majuscule et être formée uniquement de lettres non accentuées.</li>
-          <li>Développer la fonction Chercher qui permet de vérifier l'existence d'un personnage Pers dans le
-            tableau P.</li>
-          <li>Mettre les séquences 2), 3) et 4) sous forme de commentaire et réécrire ces trois séquences en
-            apportant les modifications nécessaires de façon à ce que le programme :
-            <ul>
-              <li>prenne en considération la possibilité de trouver 20 personnages distincts avant même de
-                terminer l'ouverture des 50 paquets,</li>
-              <li>dans le cas, où le client n'a pas réussi à collectionner 20 personnages, affiche le nombre de
-                personnages manquants pour gagner le concours.</li>
-            </ul>
+          <li>Compléter la déclaration du module ainsi que le TDOL correspondant.</li>
+          <li>Faire l'exécution manuelle du module <code>Quoi</code> pour <code>n = 30</code>.
+            <table class="table table-sm table-bordered border-dark table-striped table-hover col-9">
+              <tbody>
+                <tr>
+                  <th>n</th>
+                  <td>30</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <th>n &ne; 2</th>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <th>n mod i = 0</th>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <th>ch</th>
+                  <td>""</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                </tr>
+              </tbody>
+            </table>
+            <p><strong>Résultat final :</strong> ..................</p>
           </li>
+          <li>Donner le résultat retourné par le module quoi dans les situations suivantes :
+            <table class="table table-sm table-bordered border-dark table-striped table-hover w-50 col-2">
+              <tr>
+                <th>Appel</th>
+                <th>Résultat</th>
+              </tr>
+              <tr>
+                <td>Quoi(18)</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>Quoi(22)</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>Quoi(36)</td>
+                <td>&nbsp;</td>
+              </tr>
+            </table>
+          </li>
+          <li>En déduire le rôle du module Quoi.</li>
         </ol>
       </section>
+
+      <section>
+        <h3>Nombre binaire palindrome</h3>
+
+        <style>
+          .rule {
+            font-weight: bold;
+            text-decoration: underline;
+            margin-top: 1em;
+          }
+
+          .output {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            margin-top: 1em;
+            font-family: monospace;
+          }
+
+          .output ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+          }
+        </style>
+
+
+        <h5>Règle 1</h5>
+        <p>Pour convertir un nombre entier <strong>n</strong> en binaire, on utilise la <strong>méthode de divisions
+            successives par 2</strong>.</p>
+        <ol>
+          <li>Diviser le nombre <strong>n</strong> par 2, noter le reste de la division (0 ou 1)</li>
+          <li>Répéter le processus avec le quotient de la division précédente.</li>
+          <li>Continuer jusqu'à obtenir un quotient égal à 0.</li>
+          <li>Le nombre binaire est obtenu à l'aide de la séquence des restes lue de bas en haut.</li>
+        </ol>
+
+        <table class="table table-borderless table-sm col-2">
+          <tr>
+            <td>
+              <figure>
+                <img src="resources/chapitre_04/images/binaire01.png" width="200" alt="12 en binaire">
+                <figcaption>Conversion de 12 en binaire</figcaption>
+              </figure>
+            </td>
+            <td>
+              <figure>
+                <img src="resources/chapitre_04/images/binaire02.png" width="279" alt="51 en binaire">
+                <figcaption>Conversion de 51 en binaire</figcaption>
+              </figure>
+            </td>
+          </tr>
+        </table>
+
+        <h5>Règle 2</h5>
+        <p>Un nombre est dit <strong class="text-danger">palindrome</strong> s'il se lit de la même manière de droite à
+          gauche ou
+          inversement.</p>
+        <p><strong>Exemples :</strong> 424, 8558, 6687866 sont des nombres palindromes.</p>
+
+        <h5>Règle 3</h5>
+        <p>Un nombre est dit <strong class="text-danger">binaire palindrome</strong> si sa représentation binaire est un
+          nombre
+          palindrome.
+        </p>
+        <p><strong>Exemples :</strong></p>
+        <ul>
+          <li>51 ⇒ "110011" donc 51 est binaire palindrome.</li>
+          <li>12 ⇒ "1100" d’où 12 n'est pas binaire palindrome.</li>
+        </ul>
+
+        <h5>Règle 4</h5>
+        <p>Un nombre est dit <strong class="text-danger">doublement palindrome</strong> s'il est à la fois <em
+            class="text-danger">palindrome</em> et
+          <em class="text-danger">binaire palindrome</em>.
+        </p>
+
+        <h5>Objectif du programme</h5>
+        <ol>
+          <li>Remplir un tableau <code>t</code> par <strong>n</strong> entiers <strong
+              class="text-primary">distincts</strong> <strong class="text-success">strictement positifs</strong> (5 ≤ n
+            ≤ 40).</li>
+          <li>Transférer les entiers <strong class="text-danger">binaires palindromes</strong> du tableau <code>t</code>
+            au début du tableau <code>tp</code>.
+          </li>
+          <li>Transférer les entiers <strong class="text-danger">palindromes</strong> à la fin du tableau
+            <code>tp</code>.
+          </li>
+          <li>Afficher le contenu du tableau <code>tp</code>, tout en indiquant s'il s'agit d'un entier
+            <strong class="text-danger">palindrome</strong>, <strong class="text-danger">binaire palindrome</strong> ou
+            <strong class="text-danger">doublement palindrome</strong>.
+          </li>
+        </ol>
+
+        <h5>Exemple</h5>
+        <p>Pour <strong>n = 11</strong> et le tableau <code>t</code> suivant :</p>
+        <script>
+          const styles = {
+            table: "margin: 0;",
+            firstCol: {
+              width: '60px',
+              'text-align': 'center',
+            },
+            col: {
+              width: '60px',
+              'text-align': 'center',
+              border: '#333 solid 1px'
+            },
+            styles: [
+              { 'background-color': '#fcefac' },
+              null,
+              { 'background-color': '#fae7e7' },
+              null,
+              { 'background-color': '#edfae7' },
+              null,
+              { 'background-color': '#edfae7' },
+              { 'background-color': '#fcefac' },
+              { 'background-color': '#edfae7' },
+              { 'background-color': '#edfae7' },
+              null
+            ]
+          };
+          const styles1 = {
+            table: "margin: 0;",
+            firstCol: {
+              width: '60px',
+              'text-align': 'center',
+            },
+            col: {
+              width: '60px',
+              'text-align': 'center',
+              border: '#333 solid 1px'
+            },
+            styles: [
+              { 'background-color': '#fae7e7' },
+              { 'background-color': '#edfae7' },
+              { 'background-color': '#edfae7' },
+              { 'background-color': '#edfae7' },
+              { 'background-color': '#edfae7' },
+              { 'background-color': '#fcefac' },
+              { 'background-color': '#fcefac' }
+            ]
+          };
+
+          draw_table("t", [303, 260, 51, 1313, 717, 1204, 33, 44, 9, 585, 312], 0, styles);
+          draw_table("tp", [51, 717, 33, 9, 585, 303, 44], 0, styles1);
+        </script>
+
+        <p>
+          <span
+            style="display: inline-block; width: 32px; height: 24px; border: #333 1px solid; vertical-align: middle; background-color: #fcefac;"></span>
+          <strong>palindrome</strong> : Le nombre décimal est palindrome.
+        </p>
+        <p>
+          <span
+            style="display: inline-block; width: 32px; height: 24px; border: #333 1px solid; vertical-align: middle; background-color: #fae7e7;"></span>
+          <strong>binaire palindrome</strong> : La représentation binaire du nombre est palindrome.
+        </p>
+        <p>
+          <span
+            style="display: inline-block; width: 32px; height: 24px; border: #333 1px solid; vertical-align: middle; background-color: #edfae7;"></span>
+          <strong>doublement palindrome</strong> : Le nombre décimal est palindrome et sa représentation binaire aussi.
+        </p>
+
+        <div class="output">
+          <p><strong>Résultats :</strong></p>
+          <ul>
+            <li>51 (10) = <strong style="background-color: #fae7e7; padding: 3px;">110011</strong> (2) → palindrome
+              binaire</li>
+            <li><strong style="background-color: #edfae7; padding: 3px;">717</strong> (10) = <strong
+                style="background-color: #edfae7; padding: 3px;">1011001101</strong> (2) → doublement palindrome</li>
+            <li><strong style="background-color: #edfae7; padding: 3px;">33</strong> (10) = <strong
+                style="background-color: #edfae7; padding: 3px;">100001</strong> (2) → doublement palindrome</li>
+            <li><strong style="background-color: #edfae7; padding: 3px;">9</strong> (10) = <strong
+                style="background-color: #edfae7; padding: 3px;">1001</strong> (2) → doublement palindrome</li>
+            <li><strong style="background-color: #edfae7; padding: 3px;">585</strong> (10) = <strong
+                style="background-color: #edfae7; padding: 3px;">1001001001</strong> (2) → doublement palindrome</li>
+            <li><strong style="background-color: #fcefac; padding: 3px;">303</strong> (10) = 100101111 (2) → palindrome
+            </li>
+            <li><strong style="background-color: #fcefac; padding: 3px;">44</strong> (10) = 101100 (2) → palindrome</li>
+          </ul>
+        </div>
+
+        <h4>Travail demandé</h4>
+        <ol>
+          <li>Écrire l'algorithme modulaire d'un programme qui permet de résoudre le problème posé.</li>
+          <li>Écrire l'algorithme correspondant pour chacun des modules envisagés.</li>
+        </ol>
+
+
+      </section>
+
     </article>
   </main>
   <footer class="d-print-none bg-dark text-white p-2">

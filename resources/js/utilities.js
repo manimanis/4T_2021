@@ -1,16 +1,23 @@
-function draw_table(tablename, values, startindex) {
-  document.writeln("<table class=\"draw-table\">");
+function draw_table(tablename, values, startindex, styles = {}) {
+  document.writeln("<table class=\"draw-table\"",
+    (styles.table) ? ("style=\"" + styles.table + "\"") : "", ">");
   document.writeln("<tr>");
-  document.writeln("<th width=\"30\">", tablename,"</th>");
+  document.writeln("<td style=\"", getStyle(styles.firstCol), "\">", tablename, "</td>");
+  let i = 0;
   for (let v of values) {
-    document.writeln("<th width=\"30\" style=\"border: solid 1px;\">", v, "</th>");
+    document.writeln("<td style=\"", getStyle(styles.col), getStyle((styles.styles && styles.styles[i]) ? styles.styles[i] : {}), "\">", v, "</td>");
+    i++;
   }
   document.writeln("</tr>");
   document.writeln("<tr>");
-  document.writeln("<th>&nbsp;</th>");
+  document.writeln("<td><small>&nbsp;</small></td>");
   for (let i = 0; i < values.length; i++) {
-    document.writeln("<th>", i +startindex, "</th>");
+    document.writeln("<td style=\"text-align: center;\"><small>", i + startindex, "</small></td>");
   }
   document.writeln("</tr>");
   document.writeln("</table>");
+}
+
+function getStyle(styleObj) {
+  return Object.keys(styleObj).map(key => key + ": " + styleObj[key] + ";").reduce((pv, cv) => pv + " " + cv, "").trim();
 }

@@ -51,7 +51,7 @@
     var tbody = table.getElementsByTagName('tbody')[0];
     var thead = table.getElementsByTagName('thead')[0];
     var tr = '<tr>';
-    for (var j = 0; j < 8; j++) {
+    for (var j = 2; j < 8; j++) {
       var codeDec = j * 16 + i;
       var car = String.fromCharCode(codeDec);
       tr += '<th>Code</td><th>Car.</th>';
@@ -61,7 +61,7 @@
     var body = '';
     for (var i = 0; i < 16; i++) {
       var tr = '<tr>';
-      for (var j = 0; j < 8; j++) {
+      for (var j = 2; j < 8; j++) {
         var codeDec = j * 16 + i;
         var car = String.fromCharCode(codeDec);
         tr += '<td>' + codeDec + '</td><td>' + car + '</td>';
