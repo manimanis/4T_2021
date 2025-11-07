@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Série 6 - Les sous-programmes</title>
+  <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+  <link rel="stylesheet" href="resources/css/default.css">
+  <link rel="stylesheet" href="resources/css/style.css">
+  <script src="resources/js/utilities.js"></script>
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="aside_navbar"></div>
+    </nav>
+  </aside>
+
+  <main class="container my-3">
+    <h1>Série 7 - Devoir de contrôle n°1 - Lycée Cité Riadh 2 Ksar Hélal - Par M Mohamed Zakhama</h1>
+
+    <article>
+      <h2>Exercices</h2>
+
+      <section>
+        <h3>Factorielle</h3>
+
+        <p>Soit l'algorithme suivant :</p>
+        <pre><code class="language-algorithm">Algorithme Factorielle
+Début
+  Répéter
+    Ecrire("Donner n ? ") ; Lire(n)
+  Jusqu'à (x > 0)
+  
+  // Partie 2 : Calcul de n!
+  F &larr; 1
+  Pour i de 1 à n faire
+    F &larr; F * i
+  Fin pour
+
+  Ecrire (n ,"! =" , F)
+Fin</code></pre>
+
+        <ol>
+          <li>Transformer la <strong>partie 2</strong> de l'algorithme Factorielle en une fonction nommée
+            <code>fact</code>.
+          </li>
+          <li>Développer la fonction <code>fort</code> permettant de vérifier si un entier est <strong>fort</strong> ou
+            non.<br>
+            Un <strong>nombre fort</strong> est un nombre dont la somme des factorielles de ses chiffres est égale au
+            nombre d'origine.<br>
+            Exploiter la fonction <code>fact</code>.
+            <div><strong>Exemple :</strong> 145 = 1! + 4! + 5! = 1 + 24 + 120 = 145</div>
+          </li>
+          <li>Implémenter la procédure <strong>afficher</strong> qui permet d'afficher tous les nombres forts dans un
+            intervalle donné [a, b] (avec b &ge; a).<br>
+            Utiliser la fonction <code>fort</code>.</li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>Nombre Sublime</h3>
+        <p>Un nombre est dit <strong class="text-danger">sublime</strong> s'il est multiple de 4, n'est par multiple de
+          5 et que le nombre de ses diviseurs est un nombre parfait.</p>
+        <p>Un nombre est dit <strong class="text-danger">parfait</strong> s'il est égal à la somme de ses diviseurs
+          propres (c-à-d la somme de ses diviseurs sauf lui même).</p>
+        <p><strong>Exemple :</strong> <strong class="text-primary">12</strong> est un <strong class="text-danger">nombre
+          sublime</strong> car il <strong>est multiple de 4</strong>, <strong>n'est pas multiple de 5</strong> et la
+        <strong>somme de ses diviseurs propres est un nombre parfait</strong>.</p>
+        <p>Les diviseurs de 12 sont : 1, 2, 3, 4, 6, 12</p>
+        <ul>
+          <li>Nombre de diviseurs de 12 est : 6</li>
+          <li>Et 6 est un nombre parfait car 1 + 2 + 3 = 6</li>
+        </ul>
+
+        <p>On se propose de développer l'algorithme d'un programme qui :</p>
+        <ul>
+          <li>remplit un tableau t par n entiers composés d'au moins 3 chiffres (5 ≤ N ≤ 30).</li>
+          <li>extrait les nombres sublimes dans un autre tableau nommé ts.</li>
+          <li>affiche le contenu du tableau ts.</li>
+        </ul>
+        <h4>Travail demandé</h4>
+        <ol>
+          <li>Ecrire un algorithme modulaire ainsi que le T.D.N.T et T.D.O.G de ce problème.</li>
+          <li>Déduire les algorithmes des modules envisagés ainsi que le T.D.O.L correspondant.</li>
+        </ol>
+      </section>
+    </article>
+  </main>
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée avec ♥ par Mohamed Anis MANI</div>
+    <div class="text-center small">Année scolaire : 2025/2026</div>
+  </footer>
+
+  <script src="resources/js/jquery.min.js"></script>
+  <script src="resources/js/bootstrap.bundle.min.js"></script>
+  <script src="resources/js/highlight.min.js"></script>
+  <script src="resources/js/hljs.algorithm.js"></script>
+  <script src="resources/js/clipboard.min.js"></script>
+  <script src="resources/js/pages.js"></script>
+  <script src="resources/js/draggable.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+
+    document.querySelectorAll('.language-algorithm,.language-python,.language-delphi')
+      .forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'bd-clipboard d-print-none';
+        const btn = document.createElement('button');
+        btn.className = 'btn-clipboard';
+        btn.textContent = "📋";
+        btn.title = "Copier";
+        div.appendChild(btn);
+        item.parentElement.insertBefore(div, item);
+      });
+    new ClipboardJS('.btn-clipboard', {
+      target: (trigger) => {
+        return trigger.parentElement.nextElementSibling;
+      }
+    });
+  </script>
+  <script src="resources/js/vue.min.js"></script>
+  <script src="resources/apps/serie03.js"></script>
+</body>
+
+</html>
