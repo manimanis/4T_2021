@@ -23,7 +23,7 @@
   </aside>
 
   <main class="container my-3">
-    <h1>Série 7 - Devoir de contrôle n°1 - Lycée Cité Riadh 2 Ksar Hélal - Par M Mohamed Zakhama</h1>
+    <h1>Série 7 - Devoir de contrôle n°1 - Lycée Cité Riadh 2 Ksar Hélal</h1>
 
     <article>
       <h2>Exercices</h2>
@@ -56,23 +56,34 @@ Fin</code></pre>
             Un <strong>nombre fort</strong> est un nombre dont la somme des factorielles de ses chiffres est égale au
             nombre d'origine.<br>
             Exploiter la fonction <code>fact</code>.
-            <div><strong>Exemple :</strong> 145 = 1! + 4! + 5! = 1 + 24 + 120 = 145</div>
+            <div>
+              <p><strong>Exemples de nombres forts :</strong></p>
+              <ul>
+                <li>2 = 2!</li>
+                <li>145 = 1! + 4! + 5! = 1 + 24 + 120</li>
+                <li>40568 = 4! + 0! + 5! + 8! + 5! = 24 + 1 + 120 + 40320 + 120</li>
+              </ul>
+            </div>
           </li>
           <li>Implémenter la procédure <strong>afficher</strong> qui permet d'afficher tous les nombres forts dans un
-            intervalle donné [a, b] (avec b &ge; a).<br>
+            intervalle donné [a, b] (avec 100000 &ge; b &ge; a &gt; 0). Afficher le message <strong
+              class="text-primary">"aucun nombre fort
+              trouvé"</strong> si l'intervalle ne contient aucun nombre fort.<br>
             Utiliser la fonction <code>fort</code>.</li>
         </ol>
       </section>
 
       <section>
         <h3>Nombre Sublime</h3>
-        <p>Un nombre est dit <strong class="text-danger">sublime</strong> s'il est multiple de 4, n'est par multiple de
-          5 et que le nombre de ses diviseurs est un nombre parfait.</p>
+        <p>Un nombre est dit <strong class="text-danger">sublime</strong> s'il est <strong class="text-success">multiple
+            de 4</strong>, <strong class="text-warning">n'est par multiple de 5</strong> et que le <strong><em>nombre de
+              ses diviseurs est un nombre parfait</em></strong>.</p>
         <p>Un nombre est dit <strong class="text-danger">parfait</strong> s'il est égal à la somme de ses diviseurs
           propres (c-à-d la somme de ses diviseurs sauf lui même).</p>
         <p><strong>Exemple :</strong> <strong class="text-primary">12</strong> est un <strong class="text-danger">nombre
-          sublime</strong> car il <strong>est multiple de 4</strong>, <strong>n'est pas multiple de 5</strong> et la
-        <strong>somme de ses diviseurs propres est un nombre parfait</strong>.</p>
+            sublime</strong> car il <strong>est multiple de 4</strong>, <strong>n'est pas multiple de 5</strong> et le
+          <strong>nombre de ses diviseurs propres est un nombre parfait</strong>.
+        </p>
         <p>Les diviseurs de 12 sont : 1, 2, 3, 4, 6, 12</p>
         <ul>
           <li>Nombre de diviseurs de 12 est : 6</li>
@@ -81,10 +92,112 @@ Fin</code></pre>
 
         <p>On se propose de développer l'algorithme d'un programme qui :</p>
         <ul>
-          <li>remplit un tableau t par n entiers composés d'au moins 3 chiffres (5 ≤ N ≤ 30).</li>
-          <li>extrait les nombres sublimes dans un autre tableau nommé ts.</li>
-          <li>affiche le contenu du tableau ts.</li>
+          <li>remplit un tableau <strong class="text-danger">t</strong> par <strong class="text-align">n</strong>
+            entiers <strong class="text-primary">composés d'au moins 3 chiffres</strong>, (5 ≤ N ≤ 30).</li>
+          <li>reclasse les <strong>nombres sublimes</strong> dans le tableau <strong class="text-danger">ts</strong>.
+          </li>
+          <li>reclasse les autres <strong>nombres non sublimes</strong> dans le tableau <strong
+              class="text-danger">tns</strong>.</li>
+          <li>affiche le contenu des deux tableaux <strong class="text-danger">ts</strong> et <strong
+              class="text-danger">tns</strong>.</li>
         </ul>
+
+        <h5>Exemple</h5>
+        <p>Pour <strong>n = 15</strong> et le tableau <code>t</code> suivant :</p>
+        <script>
+          const styles = {
+            table: "margin: 0;",
+            firstCol: {
+              width: '60px',
+              'text-align': 'center',
+            },
+            col: {
+              width: '60px',
+              'text-align': 'center',
+              border: '#333 solid 1px'
+            },
+            styles: []
+          };
+          const styles1 = {
+            table: "margin: 0;",
+            firstCol: {
+              width: '60px',
+              'text-align': 'center',
+            },
+            col: {
+              width: '60px',
+              'text-align': 'center',
+              border: '#333 solid 1px'
+            },
+            styles: []
+          };
+          const styles2 = { ...styles1 };
+
+          const t = [4032, 5288, 647, 707, 3716, 7556, 1821, 5996, 3525, 8044, 988, 3764, 6826, 5116, 1891];
+          //               0     1     2    3    4*    5*    6     7*    8     9*    10   11*   12    13*   14
+          const tns = [1891, 6826, 988, 3525, 1821, 707, 647, 5288, 4032];
+          const ts = [3716, 7556, 5996, 8044, 3764, 5116];
+          styles.styles = [];
+          for (let i = 0; i < t.length; i++) {
+            if (ts.includes(t[i]))
+              styles.styles.push({ 'background-color': '#fcefac' });
+            else
+              styles.styles.push({ 'background-color': '#fae7e7' });
+          }
+          styles1.styles = [];
+          for (let i = 0; i < ts.length; i++) {
+            styles1.styles.push({ 'background-color': '#fcefac' });
+          }
+          styles2.styles = [];
+          for (let i = 0; i < tns.length; i++) {
+            styles2.styles.push({ 'background-color': '#fae7e7' });
+          }
+          draw_table("t", t, 0, styles);
+          draw_table("ts", ts, 0, styles1);
+          draw_table("tns", tns, 0, styles2);
+        </script>
+
+        <p>
+          <span
+            style="display: inline-block; width: 32px; height: 24px; border: #333 1px solid; vertical-align: middle; background-color: #fcefac;"></span>
+          <strong>Nombre sublime</strong>
+        </p>
+        <p>
+          <span
+            style="display: inline-block; width: 32px; height: 24px; border: #333 1px solid; vertical-align: middle; background-color: #fae7e7;"></span>
+          <strong>Nombre non sublime</strong>
+        </p>
+
+        <style>
+          .rule {
+            font-weight: bold;
+            text-decoration: underline;
+            margin-top: 1em;
+          }
+
+          .output {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            margin-top: 1em;
+            font-family: monospace;
+          }
+
+          .output ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+          }
+        </style>
+
+        <div class="output">
+          <p><strong>Résultats :</strong></p>
+          <ul>
+            <li><strong>Nombres sublimes :</strong> 3716, 7556, 5996, 8044, 3764, 5116</li>
+            <li><strong>Nombres non sublimes :</strong> 1891, 6826, 988, 3525, 1821, 707, 647, 5288, 4032</li>
+          </ul>
+        </div>
+
         <h4>Travail demandé</h4>
         <ol>
           <li>Ecrire un algorithme modulaire ainsi que le T.D.N.T et T.D.O.G de ce problème.</li>

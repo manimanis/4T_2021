@@ -25,6 +25,26 @@ def est_sublime(n):
     nbd = nbre_div(n)
     return n % 4 == 0 and n % 5 != 0 and est_parfait(nbd)
 
-for i in range(1, 100):
-    if est_sublime(i):
-        print(i, 'est sublime', nbre_div(i))
+from random import randint, seed
+
+# mx = -1
+# mi = -1
+# tmx = None
+# for i in range(10000):
+#     seed(i)
+#     n = 15
+#     t = [randint(100, 9999) for _ in range(n)]
+#     ts1 = [v for v in t if est_sublime(v)]
+#     ts2 = [v for v in reversed(t) if not est_sublime(v)]
+#     if len(ts1) > 0:
+#         if len(ts1) > mx:
+#             mi = i
+
+seed(7030)
+n = 15
+t = [randint(100, 9999) for _ in range(n)]
+ts1 = [v for v in t if est_sublime(v)]
+ts2 = [v for v in reversed(t) if not est_sublime(v)]
+
+print(t)
+print(ts1, ts2)
