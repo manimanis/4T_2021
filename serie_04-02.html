@@ -63,7 +63,7 @@ Répéter
 Jusqu'à (i mod 8 = 0)</code></pre>
               </div>
             </div>
-            <p><strong>Quelles sont les bonnes propositions ?</strong></p>
+            <p><strong>Quelle est la bonne proposition ?</strong></p>
           </div>
           <ul class="propositions">
             <li><strong>Proposition 1</strong></li>
@@ -76,6 +76,11 @@ Jusqu'à (i mod 8 = 0)</code></pre>
           <h5 class="question-title">Question 2</h5>
           <div class="question">
             <p>Après l'exécution de la séquence, la valeur de K sera :</p>
+            <pre><code class="language-algorithm">n ← 10 ; k ← 1
+Tant Que (n div k ≠ 0) Faire
+  n ← n div k
+  k ← k + 1
+Fin Tant Que</code></pre>
           </div>
           <ul class="propositions">
             <li><strong>2</strong></li>
@@ -88,6 +93,16 @@ Jusqu'à (i mod 8 = 0)</code></pre>
           <h5 class="question-title">Question 3</h5>
           <div class="question">
             <p>La valeur finale de m affichée après l'exécution de la procédure <code>Affiche(5)</code> est :</p>
+            <pre><code class="language-algorithm">Procédure Affiche(m: entier)
+Début
+  Pour i de 0 à 2 Faire
+    Pour j de 2 à 5 Faire
+      m ← m + 2
+    Fin Pour
+    m ← m - 3
+  Fin Pour
+  Ecrire(m)
+Fin</code></pre>
           </div>
           <ul class="propositions">
             <li><strong>12</strong></li>
@@ -180,9 +195,9 @@ Ecrire(Un)</code></pre>
       <section>
         <h3>Le bon choix</h3>
 
-        <p>Afin de réaliser les tâches décrites dans la première colonne du tableau suivant, un élève a fourni les
-          propositions suivantes. Toutefois, il n'a pas fait le choix adéquat de la structure itérative.</p>
-        <p><strong>Corriger le travail de cet élève.</strong></p>
+        <p>Afin de réaliser les tâches suivantes, un élève a fourni les propositions ci-après. Toutefois, il n'a pas
+          fait le choix adéquat de la <strong>structure itérative</strong>.</p>
+        <p>Travail demandé : <strong>Corriger le travail de cet élève.</strong></p>
 
         <h5>Tâche 1</h5>
         <p>Saisir un entier n strictement positif</p>
@@ -279,7 +294,7 @@ Fin</code></pre>
                   <td>&nbsp;</td>
                 </tr>
                 <tr>
-                  <th>n &ne; 2</th>
+                  <th>n &ne; 1</th>
                   <td>&nbsp;</td>
                   <td>&nbsp;</td>
                   <td>&nbsp;</td>

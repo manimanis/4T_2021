@@ -47,10 +47,60 @@
           <li>d'afficher la liste des joueurs ainsi que les scores correspondants en commençant par le meilleur.</li>
         </ul>
         <p><strong>Exemple :</strong> Pour N = 4 et le tableau A suivant : </p>
-        <figure><img src="resources/chapitre_05/images/exemple01.png" alt="" class="h1cm"></figure>
+        <script>
+          const styles = {
+            table: "margin: 0;",
+            firstCol: {
+              width: '60px',
+              'text-align': 'center',
+            },
+            col: {
+              width: '150px',
+              'text-align': 'center',
+              border: '#333 solid 1px'
+            }
+          };
+          draw_table("A", ['"Mohamed ABIDI"', '"Fatma AYADI"', '"Anis OMRI"', '"Imen LOUIZ"'], 0, styles);
+        </script>
         <p>En considérant que les résultats des trois essais ainsi que les scores calculés des quatre joueurs sont les
           suivants :</p>
-        <figure><img src="resources/chapitre_05/images/exemple02.png" alt="" class="h3cm"></figure>
+        <table class="table table-sm table-bordered border-dark col-5">
+          <tr>
+            <th>Joueur</th>
+            <th>Essai n°1</th>
+            <th>Essai n°2</th>
+            <th>Essai n°3</th>
+            <th>Score</th>
+          </tr>
+          <tr>
+            <td>Mohamed ABIDI</td>
+            <td>8</td>
+            <td>10</td>
+            <td>9</td>
+            <td>27</td>
+          </tr>
+          <tr>
+            <td>Fatma AYADI</td>
+            <td>10</td>
+            <td>7</td>
+            <td>10</td>
+            <td>27</td>
+          </tr>
+          <tr>
+            <td>Anis OMRI</td>
+            <td>7</td>
+            <td>9</td>
+            <td>7</td>
+            <td>23</td>
+          </tr>
+          <tr>
+            <td>Imen LOUIZ</td>
+            <td>9</td>
+            <td>9</td>
+            <td>10</td>
+            <td>28</td>
+          </tr>
+        </table>
         <p>La liste des joueurs affichée sera la suivante :</p>
         <ul>
           <li>Imen LOUIZ avec un score de 28 </li>
@@ -66,38 +116,38 @@ Début
   // Séquence 1
   Répéter
     Ecrire ("Donner le nombre de joueurs : "); Lire (N)
-  Jusqu'à (N dans [2..20])
+  Jusqu'à (N &in; [2..20])
   // Séquence 2
-  Pour i de 1 à N faire
+  Pour i de 0 à N-1 faire
     Répéter 
       Ecrire ("Donner le nom du joueur n°", i," : "), Lire (A[i])
-    Jusqu'à (alpha (A[i]))
+    Jusqu'à (alpha(A[i]))
   Fin pour
   // Séquence 3
-  Score (A, N)
+  Score(SC, A, N)
+  Trier(SC, A, N)
+  Afficher(SC, A, N)
 Fin</code></pre>
 
-        <p>Travail demandé :</p>
+        <h5>Travail demandé :</h5>
         <ol>
-          <li>Implémenter l'algorithme TirArc en Python et ajouter les déclarations nécessaires puis enregistrer le
-            programme, dans votre dossier de travail, sous le nom "TirArc0".<br>
-            <strong>NB :</strong> Il est recommandé de limiter la taille des éléments du tableau A à 30 caractères.
+          <li>Implémenter l'algorithme <strong>TirArc en Python</strong> et ajouter les déclarations nécessaires puis
+            enregistrer le programme, dans votre dossier de travail, sous le nom <strong>"TirArc0"</strong>.<br>
           </li>
           <li>Dans votre dossier de travail, créer une deuxième copie de ce programme et l'enregistrer sous le
-            nom "TirArc1".<br>
+            nom <strong>"TirArc1"</strong>.<br>
             Dans ce fichier :<br>
             <ol type="a">
               <li>Transformer la séquence 2 en un module et apporter les modifications nécessaires dans le
                 programme principal.</li>
-              <li>Développer la fonction Alpha qui permet de vérifier si le nom d'un joueur est une suite de
-                30 lettres au maximum et pouvant contenir des espaces.</li>
-              <li>Développer le module Score permettant :
-                <ul>
-                  <li>de saisir les résultats des trois essais de chaque joueur et de calculer son score,</li>
-                  <li>d'afficher la liste des joueurs ainsi que leurs scores selon un ordre décroissant des
-                    scores.</li>
-                </ul>
-              </li>
+              <li>Développer la fonction <code>Alpha</code> qui permet de vérifier si le nom d'un joueur est une chaîne
+                alphabétique pouvant contenir des espaces.</li>
+              <li>Développer le module <code>Score</code> permettant de saisir les résultats des trois essais de chaque
+                joueur et de calculer son score. Les scores sont enregistrés dans le tableau <code>SC</code>.</li>
+              <li>Développer le module <code>Trier</code> qui permet d'ordonner les joueurs selon l'ordre décroissant de
+                leurs scores.</li>
+              <li>Développer le module <code>Afficher</code> dont le rôle est d'afficher la liste des joueurs ainsi que
+                leurs scores selon un ordre décroissant des scores. </li>
             </ol>
           </li>
         </ol>

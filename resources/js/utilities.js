@@ -2,7 +2,7 @@ function draw_table(tablename, values, startindex, styles = {}) {
   document.writeln("<table class=\"draw-table\"",
     (styles.table) ? ("style=\"" + styles.table + "\"") : "", ">");
   document.writeln("<tr>");
-  document.writeln("<td style=\"", getStyle(styles.firstCol), "\">", tablename, "</td>");
+  document.writeln("<td style=\"", getStyle((styles.firstCol != null) ? styles.firstCol : {}), "\">", tablename, "</td>");
   let i = 0;
   for (let v of values) {
     document.writeln("<td style=\"", getStyle(styles.col), getStyle((styles.styles && styles.styles[i]) ? styles.styles[i] : {}), "\">", v, "</td>");
@@ -19,5 +19,8 @@ function draw_table(tablename, values, startindex, styles = {}) {
 }
 
 function getStyle(styleObj) {
+  if (styleObj == null) {
+    styleObj = {};
+  }
   return Object.keys(styleObj).map(key => key + ": " + styleObj[key] + ";").reduce((pv, cv) => pv + " " + cv, "").trim();
 }
