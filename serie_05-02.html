@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Série 10 - Tri & Sous-Programmes</title>
+  <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+  <link rel="stylesheet" href="resources/css/default.css">
+  <link rel="stylesheet" href="resources/css/style.css">
+  <script src="resources/js/utilities.js"></script>
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="aside_navbar"></div>
+    </nav>
+  </aside>
+
+  <main class="container my-3">
+    <h1>Série Tri & Sous-Programmes n°10</h1>
+
+    <article>
+      <h2>Exercices</h2>
+
+      <section>
+        <h3>Fonction Inconnue</h3>
+
+        <p>Soit l'algorithme d'une fonction intitulée <strong>Inconnue</strong> :</p>
+        <pre><code class="language-algorithm">Fonction Inconnue(A, B : Entier):…………………………………………
+Début
+  Répéter
+    R ← A mod B
+    A ← B
+    B ← R
+  Jusqu'à B = 0
+  Retourner A
+Fin</code></pre>
+        <ol>
+          <li>Compléter l'entête du module.</li>
+          <li>Que retourne la fonction Inconnue pour <code>A=24</code> et <code>B=10</code> ? Donner une trace
+            d'exécution.
+            <table class="table table-sm table-bordered border-dark">
+              <tr>
+                <th>A</th>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <th>B</th>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <th>R</th>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+            </table>
+          </li>
+          <li>Pour chacune des propositions ci-dessous, mettre une croix (X) dans la case correspondante à la bonne
+            réponse.
+            <ol type="A">
+              <li>La fonction Inconnue permet de calculer :
+                <ol type="a">
+                  <li>la somme des diviseurs de A et B</li>
+                  <li>le PPCM des deux entiers A et B</li>
+                  <li>le PGCD des deux entiers A et B</li>
+                </ol>
+              </li>
+              <li>Les objets A et B utilisés dans l'entête de la fonction inconnue sont des :
+                <ol type="a">
+                  <li>Variables locales</li>
+                  <li>Paramètres formels</li>
+                  <li>Paramètres effectifs</li>
+                </ol>
+              </li>
+              <li>La variable R utilisée dans la fonction Inconnue est une variable :
+                <ol type="a">
+                  <li>Locale</li>
+                  <li>Globale</li>
+                  <li>Locale et globale</li>
+                </ol>
+              </li>
+              <li>Le mode de passage des paramètres utilisé dans la fonction est par :
+                <ol type="a">
+                  <li>Adresse</li>
+                  <li>Valeur</li>
+                  <li>Adresse & Valeur</li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>Poids des mots</h3>
+        <p>On définit le poids d'une chaîne comme étant la somme des produits de la position de chaque voyelle dans
+          cette chaîne par son rang dans l'alphabet.</p>
+        <p>Si la chaîne ne contient pas de voyelles alors son poids est égal à zéro.</p>
+        <p><strong>NB :</strong> le rang de "A" est 1, le rang de "B" est 2, etc.</p>
+        <script>
+          const styles1 = {
+            table: "margin: 10px auto;",
+            col: {
+              width: '35px',
+              'text-align': 'center',
+              border: '#333 solid 1px'
+            },
+            styles: []
+          };
+          const ch1 = 'A	B	C	D	E	F	G	H	I	J	K	L	M	N	O	P	Q	R	S	T	U	V	W	X	Y	Z';
+          const t1 = ch1.split("\t");
+          draw_table("", t1, 1, styles1);
+        </script>
+
+        <p><strong>Exemples :</strong></p>
+        <p>La chaîne "BONNE" contient 2 voyelles "O" et "E", son poids est égal à 1*15+4*5=35</p>
+        <script>
+          const styles2 = {
+            table: "margin: 10px;",
+            firstCol: {
+              width: '60px',
+              'text-align': 'center',
+            },
+            col: {
+              width: '80px',
+              'text-align': 'center',
+              border: '#333 solid 1px'
+            },
+            styles: []
+          };
+          const t2 = ['"B"', '"O"', '"N"', '"N"', '"E"'];
+          const t3 = ["", 15, "", "", 5];
+          const t4 = ["", "1 * 15", "", "", "4 * 5", 35];
+          draw_table(" ", t2, 0, styles2);
+          DrawTableNoIndices("Rang", t3, 0, styles2);
+          DrawTableNoIndices("Poids", t4, 0, styles2);
+        </script>
+
+        <p>La chaîne "CHANCE" contient 2 voyelles "A" et "E", son poids est égal à : 2*1+5*5=27 </p>
+        <script>
+          const t5 = ['"C"', '"H"', '"A"', '"N"', '"C"', '"E"'];
+          const t6 = ["", "", 1, "", "", 5];
+          const t7 = ["", "", "2 * 1", "", "", "5 * 5", 27];
+          draw_table(" ", t5, 0, styles2);
+          DrawTableNoIndices("Rang", t6, 0, styles2);
+          DrawTableNoIndices("Poids", t7, 0, styles2);
+        </script>
+
+        <p>On se propose d'écrire l'algorithme d'un programme qui : </p>
+        <ul>
+          <li>Remplit le tableau T par N mots alphabétiques majuscules de 3 caractères minimum (3 < N ≤ 20). </li>
+          <li>Calcule le poids de chaque mot, comme mentionné ci-dessus, dans le tableau V. </li>
+          <li>Affiche les mots par ordre décroissant de leurs poids (du plus grand au plus petit).</li>
+        </ul>
+
+        <p><strong>Exemple :</strong></p>
+        <p>Pour N = 6 et le tableau T suivant :</p>
+        <script>
+          const styles3 = {
+            table: "margin: 10px;",
+            firstCol: {
+              width: '60px',
+              'text-align': 'center',
+            },
+            col: {
+              width: '80px',
+              'text-align': 'center',
+              border: '#333 solid 1px'
+            },
+            styles: []
+          };
+          const T = ['"DEVOIR"', '"INFO"', '	"TUNISIE"', '"PYTHON"', '"SCIENCES"', '"OISEAU"'];
+          const V = [86, 45, 123, 85, 63, 133];
+          draw_table("T", T, 0, styles3);
+          draw_table("V", V, 0, styles3);
+        </script>
+        <p>Le programme affiche : </p>
+        <pre><code>Les mots ainsi que leurs poids :  
+• OISEAU : 133 
+• TUNISIE : 123  
+• DEVOIR : 86 
+• PYTHON : 85 
+• SCIENCES : 63  
+• INFO : 45</code></pre>
+        <h5>Travail demandé :</h5>
+        <ol>
+          <li>Ecrire un algorithme du programme principal, solution à ce problème, en le décomposant en modules.</li>
+          <li>Ecrire un algorithme pour chaque module envisagé.</li>
+        </ol>
+        <p><strong>N.B.</strong> Dresser les tableaux de déclaration des objets et des nouveaux type nécessaires.</p>
+
+      </section>
+    </article>
+  </main>
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée avec ♥ par Mohamed Anis MANI</div>
+    <div class="text-center small">Année scolaire : 2025/2026</div>
+  </footer>
+
+  <script src="resources/js/jquery.min.js"></script>
+  <script src="resources/js/bootstrap.bundle.min.js"></script>
+  <script src="resources/js/highlight.min.js"></script>
+  <script src="resources/js/hljs.algorithm.js"></script>
+  <script src="resources/js/clipboard.min.js"></script>
+  <script src="resources/js/pages.js"></script>
+  <script src="resources/js/draggable.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+
+    document.querySelectorAll('.language-algorithm,.language-python,.language-delphi')
+      .forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'bd-clipboard d-print-none';
+        const btn = document.createElement('button');
+        btn.className = 'btn-clipboard';
+        btn.textContent = "📋";
+        btn.title = "Copier";
+        div.appendChild(btn);
+        item.parentElement.insertBefore(div, item);
+      });
+    new ClipboardJS('.btn-clipboard', {
+      target: (trigger) => {
+        return trigger.parentElement.nextElementSibling;
+      }
+    });
+  </script>
+  <script src="resources/js/vue.min.js"></script>
+  <script src="resources/apps/serie03.js"></script>
+</body>
+
+</html>

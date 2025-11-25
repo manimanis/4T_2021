@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Série 8 - Les sous-programmes</title>
+  <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+  <link rel="stylesheet" href="resources/css/default.css">
+  <link rel="stylesheet" href="resources/css/style.css">
+  <script src="resources/js/utilities.js"></script>
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="aside_navbar"></div>
+    </nav>
+  </aside>
+
+  <main class="container my-3">
+    <h1>Série sous-programme n°8</h1>
+
+    <article>
+      <h2>Bac Théorique 20xx</h2>
+
+      <section>
+        <h3>Rôle des modules</h3>
+        <p>Soient les algorithmes suivants relatifs à des fonctions ayant pour paramètres deux entiers a et b
+          strictement
+          positifs donnés au niveau du programme principal :</p>
+
+        <div class="row">
+          <div class="col-6">
+            <pre><code class="language-algorithm">FONCTION F1 (a, b : Entier) : Entier 
+DEBUT  
+    R ← 0 
+    Pour i de 1 à b Faire  
+         R ← R + a 
+    Fin Pour 
+    Retourner R 
+FIN</code></pre>
+          </div>
+          <div class="col-6">
+            <pre><code class="language-algorithm">FONCTION F2 (a, b : Entier) : Entier 
+DEBUT  
+    R ← 1 
+    Pour i de 1 à b Faire  
+         R ← R * a 
+    Fin Pour 
+    Retourner R 
+FIN </code></pre>
+          </div>
+          <div class="col-6">
+            <pre><code class="language-algorithm">FONCTION F3 (a, b : Entier) : Entier 
+DEBUT  
+    R ← 0 
+    Pour i de a à b Faire  
+         R ← R + i 
+    Fin Pour 
+    Retourner R 
+FIN</code></pre>
+          </div>
+          <div class="col-6">
+            <pre><code class="language-algorithm">FONCTION F4 (a, b : Entier) : Entier 
+DEBUT  
+    R ← a 
+    Tant que (R Mod b ≠0) Faire  
+         R ← R + a 
+    Fin tant que 
+    Retourner R 
+FIN</code></pre>
+          </div>
+        </div>
+
+        <h4>Travail demandé</h4>
+        <p>Valider chacune des propositions suivantes en mettant dans la case correspondante la lettre « V » si la
+          réponse
+          est correcte ou la lettre « F » si elle est fausse.</p>
+        <ol type="a">
+          <li>Pour calculer le produit de a par b, on peut faire appel à la (aux) fonction(s) :
+            <script>
+              const styles = {
+                table: "margin: 10px;",
+                col: {
+                  width: '60px',
+                  'text-align': 'center'
+                },
+                styles: [
+                  "", { border: "#333 solid 1px" },
+                  "", { border: "#333 solid 1px" },
+                  "", { border: "#333 solid 1px" },
+                  "", { border: "#333 solid 1px" }
+                ]
+              };
+              DrawTableNoIndices("", ["F1", "", "F2", "", "F3", "", "F4", ""], 0, styles);
+            </script>
+          </li>
+          <li>Pour calculer ab, on peut faire appel à la (aux) fonction(s) :
+            <script>
+              DrawTableNoIndices("", ["F1", "", "F2", "", "F3", "", "F4", ""], 0, styles);
+            </script>
+          </li>
+          <li>Pour calculer le PPCM de deux entiers a et b, on peut faire appel à la (aux) fonction(s) :
+            <script>
+              DrawTableNoIndices("", ["F1", "", "F2", "", "F3", "", "F4", ""], 0, styles);
+            </script>
+          </li>
+          <li>Pour calculer la somme des entiers de l'intervalle [a .. b], on peut faire appel à la (aux) fonction(s) :
+            <script>
+              DrawTableNoIndices("", ["F1", "", "F2", "", "F3", "", "F4", ""], 0, styles);
+            </script>
+          </li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>Captcha</h3>
+        <p>Le <strong>CAPTCHA</strong> est une mesure de sécurité sur le Web de type authentification par
+          question-réponse. Cette mesure de sécurité sert à vérifier que l'utilisateur est bien un être humain et non
+          pas un programme malveillant. Dans ce problème, on considère les <strong>CAPTCHAS</strong> basés sur les
+          opérations de calcul.</p>
+
+        <figure>
+          <img src="resources/chapitre_04/images/captcha.png" alt="Captcha">
+          <figcaption>Captcha</figcaption>
+        </figure>
+
+        <p>Afin de simplifier la programmation de ce type d'authentification, on utilisera deux tableaux <strong
+            class="text-danger">T1</strong> et <strong class="text-danger">T2</strong> où <strong
+            class="text-danger">T1</strong> contiendra des opérations de calcul et <strong
+            class="text-danger">T2</strong> contiendra leurs résultats correspondants.</p>
+        <p>A chaque authentification : </p>
+        <ul>
+          <li>Une opération est affichée aléatoirement.</li>
+          <li>L'utilisateur saisit sa réponse à cette opération.</li>
+          <li>Un message de validation est affiché :
+            <ul>
+              <li>"<strong class="text-info">Authentification valide</strong>" dans le cas où la <strong
+                  class="text-success">réponse est correcte</strong>.</li>
+              <li>"<strong class="text-info">Authentification invalide</strong>" dans <strong class="text-warning">le
+                  cas contraire</strong>.</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p>On se propose d'écrire un programme permettant de/d' :</p>
+        <ol>
+          <li>Remplir deux tableaux <strong class="text-danger">T1</strong> et <strong class="text-danger">T2</strong>
+            de même taille <strong class="text-danger">N</strong> (4 ≤ <strong class="text-danger">N</strong> ≤ 20).
+            Sachant que chaque élément <strong class="text-danger">T1[i]</strong> contient une opération de la forme
+            <strong class="text-info">"Nbre1 Op Nbre2 = ?"</strong>, avec :
+            <ol>
+              <li><strong class="text-info">Nbre1</strong> et <strong class="text-info">Nbre2</strong> sont deux nombres
+                compris entre 0 et 20 générés au hasard.</li>
+              <li><strong class="text-info">op</strong> est un opérateur arithmétique de la liste (+, - ou *) obtenu en
+                générant aléatoirement un entier (0, 1 ou 2) pour désigner respectivement un opérateur (+, - ou *).</li>
+              <li><strong class="text-danger">T2[i]</strong> contient le résultat de l'opération contenue dans <strong
+                  class="text-danger">T1[i]</strong>.</li>
+            </ol>
+          </li>
+          <li>Afficher aléatoirement un élément (une opération) de <strong class="text-danger">T1</strong>.</li>
+          <li>Afficher le message de validation correspondant à la suite de la réponse saisie par l'utilisateur.</li>
+        </ol>
+
+        <p><strong>Exemple :</strong></p>
+        <p>Pour <strong class="text-danger">N</strong> = <strong class="text-info">6</strong> et les deux tableaux
+          <strong class="text-danger">T1</strong> et <strong class="text-danger">T2</strong> suivants :
+        </p>
+        <script>
+          const styles1 = {
+            table: "margin: 10px;",
+            firstCol: {
+              width: '60px',
+              'text-align': 'center',
+            },
+            col: {
+              width: '100px',
+              'text-align': 'center',
+              border: '#333 solid 1px'
+            },
+            styles: []
+          };
+          const t1 = ['"3 + 18 = ?"', '"4 * 22 = ?"', '"25 - 8 = ?"', '"11 - 6 = ?"', '"8 - 20 = ?"', '"12 * 6 = ?"'];
+          const t2 = [21, 88, 17, 5, -12, 72];
+          draw_table("t1", t1, 1, styles1);
+          draw_table("t2", t2, 1, styles1);
+        </script>
+        <p>Si le programme choisi aléatoirement <strong class="text-danger">T1[4]</strong>, l'opération "<strong
+            class="text-info">11 - 6 = ?</strong>" sera affichée.</p>
+        <p>Si l'utilisateur saisit <strong class="text-info">5</strong>, le message "<strong
+            class="text-info">Authentification valide</strong>" sera affiché. Le message "<strong
+            class="text-info">Authentification invalide</strong>" sera affiché pour toute autre réponse.</p>
+        <h4>Travail demandé :</h4>
+        <ol>
+          <li>Ecrire un algorithme du programme principal, solution à ce problème, en le décomposant en modules.</li>
+          <li>Ecrire un algorithme pour chaque module envisagé.</li>
+        </ol>
+      </section>
+    </article>
+  </main>
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée avec ♥ par Mohamed Anis MANI</div>
+    <div class="text-center small">Année scolaire : 2025/2026</div>
+  </footer>
+
+  <script src="resources/js/jquery.min.js"></script>
+  <script src="resources/js/bootstrap.bundle.min.js"></script>
+  <script src="resources/js/highlight.min.js"></script>
+  <script src="resources/js/hljs.algorithm.js"></script>
+  <script src="resources/js/clipboard.min.js"></script>
+  <script src="resources/js/pages.js"></script>
+  <script src="resources/js/draggable.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+
+    document.querySelectorAll('.language-algorithm,.language-python,.language-delphi')
+      .forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'bd-clipboard d-print-none';
+        const btn = document.createElement('button');
+        btn.className = 'btn-clipboard';
+        btn.textContent = "📋";
+        btn.title = "Copier";
+        div.appendChild(btn);
+        item.parentElement.insertBefore(div, item);
+      });
+    new ClipboardJS('.btn-clipboard', {
+      target: (trigger) => {
+        return trigger.parentElement.nextElementSibling;
+      }
+    });
+  </script>
+  <script src="resources/js/vue.min.js"></script>
+  <script src="resources/apps/serie03.js"></script>
+</body>
+
+</html>

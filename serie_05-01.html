@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Les sous-programmes</title>
+  <title>Série 9 - Tri & Sous-Programmes</title>
   <link rel="stylesheet" href="resources/css/bootstrap.min.css">
   <link rel="stylesheet" href="resources/css/default.css">
   <link rel="stylesheet" href="resources/css/style.css">
@@ -23,395 +23,212 @@
   </aside>
 
   <main class="container my-3">
-    <h1>Les sous-programmes</h1>
+    <h1>Série Tri & Sous-Programmes n°9</h1>
 
     <article>
       <h2>Exercices</h2>
 
       <section>
-        <h3>Tir à l'arc - Bac TP 2019</h3>
+        <h3>Tri à bulles</h3>
 
-        <p>Le jeu de tir à l'arc consiste à tirer des flèches en utilisant un arc vers un endroit cible.</p>
-        <p>Un club de tir à l'arc organise une compétition entre ses joueurs. Cette compétition consiste à donner à
-          chaque joueur trois essais de tir.</p>
-        <p>A chaque tir, le joueur gagne de 0 à 10 points selon l'endroit touché par la flèche sur une cible composée de
-          10 cercles concentriques comme l'illustre la figure ci-contre.</p>
-        <figure><img src="resources/chapitre_05/images/cible.ong.PNG" alt="" class="h4cm"></figure>
-        <p>Après le 3ème essai, un score est calculé pour chaque joueur représentant la somme des résultats de ses trois
-          essais, et ce pour classer les joueurs.</p>
-        <p>On se propose d'écrire un programme permettant :</p>
+        <h4>I. Introduction :</h4>
+        <p>On désigne par « tri » l'opération consistant à ordonner un ensemble d'éléments en fonction de clés sur
+          lesquelles est définie une relation d'ordre. Dans ce qui suit on va présenter une méthode pour trier les
+          éléments d'un tableau selon l'ordre croissant.</p>
+        <h4>II. Le tri à bulles (ordre croissant)</h4>
+        <p>Cette méthode consiste à répéter le traitement suivant :</p>
         <ul>
-          <li>de remplir un tableau A par N noms de joueurs participant à cette compétition (avec 2 ≤ N ≤ 20),</li>
-          <li>de calculer le score de chaque joueur sachant que le résultat d'un essai est un entier positif inférieur
-            ou égal à 10,</li>
-          <li>d'afficher la liste des joueurs ainsi que les scores correspondants en commençant par le meilleur.</li>
+          <li>Parcourir les éléments du tableau de 0 à (n-2).</li>
+          <li>Si l'élément d'indice i est supérieur à l'élément d'indice (i+1), alors on les permute.</li>
+          <li>Le programme s'arrête lorsqu'aucune permutation n'est réalisable après un parcours complet du tableau.
+          </li>
         </ul>
-        <p><strong>Exemple :</strong> Pour N = 4 et le tableau A suivant : </p>
+        <p><strong>Trace d'exécution :</strong></p>
         <script>
-          const styles = {
-            table: "margin: 0;",
+          const styles1 = {
+            table: "margin: 10px;",
             firstCol: {
-              width: '60px',
+              width: '160px',
               'text-align': 'center',
             },
             col: {
-              width: '150px',
+              width: '100px',
               'text-align': 'center',
               border: '#333 solid 1px'
-            }
+            },
+            styles: []
           };
-          draw_table("A", ['"Mohamed ABIDI"', '"Fatma AYADI"', '"Anis OMRI"', '"Imen LOUIZ"'], 0, styles);
+          const t1 = [6, 4, 2, 1, 4];
+          const t2 = [4, 2, 1, 4, 6];
+          const t3 = [2, 1, 4, 4, 6];
+          const t4 = [1, 2, 4, 4, 6];
+          const t5 = [1, 2, 4, 4, 6];
+          draw_table("tableau initial", t1, 0, styles1);
+          draw_table("Après la 1e itération", t2, 0, styles1);
+          draw_table("Après la 2e itération", t3, 0, styles1);
+          draw_table("Après la 3e itération", t4, 0, styles1);
+          draw_table("Après la 4e itération", t5, 0, styles1);
         </script>
-        <p>En considérant que les résultats des trois essais ainsi que les scores calculés des quatre joueurs sont les
-          suivants :</p>
-        <table class="table table-sm table-bordered border-dark col-5">
-          <tr>
-            <th>Joueur</th>
-            <th>Essai n°1</th>
-            <th>Essai n°2</th>
-            <th>Essai n°3</th>
-            <th>Score</th>
-          </tr>
-          <tr>
-            <td>Mohamed ABIDI</td>
-            <td>8</td>
-            <td>10</td>
-            <td>9</td>
-            <td>27</td>
-          </tr>
-          <tr>
-            <td>Fatma AYADI</td>
-            <td>10</td>
-            <td>7</td>
-            <td>10</td>
-            <td>27</td>
-          </tr>
-          <tr>
-            <td>Anis OMRI</td>
-            <td>7</td>
-            <td>9</td>
-            <td>7</td>
-            <td>23</td>
-          </tr>
-          <tr>
-            <td>Imen LOUIZ</td>
-            <td>9</td>
-            <td>9</td>
-            <td>10</td>
-            <td>28</td>
-          </tr>
-        </table>
-        <p>La liste des joueurs affichée sera la suivante :</p>
-        <ul>
-          <li>Imen LOUIZ avec un score de 28 </li>
-          <li>Mohamed ABIDI avec un score de 27</li>
-          <li>Fatma AYADI avec un score de 27</li>
-          <li>Anis OMRI avec un score de 23</li>
-        </ul>
-        <p>Ci-après, un algorithme du programme principal dans lequel des modifications seront apportées pour répondre
-          aux besoins cités ci-dessus :</p>
 
-        <pre class="p-break"><code class="algorithm">Algorithme TirArc
+        <h5>Algorithme du programme principal</h5>
+        <div class="row">
+          <div class="col-9">
+            <pre><code class="language-algorithm">Algorithme Tri_Bulles
 Début
-  // Séquence 1
+    SaisieN(n)
+    RemplirT(n, t)
+    TriBull(n, t)
+    Afficher(n, t)
+Fin</code></pre>
+          </div>
+          <div class="col-3">
+            <table class="table table-sm table-bordered border-dark">
+              <tr>
+                <th>TDNT</th>
+              </tr>
+              <tr>
+                <td>Tab = Tableau de 100 entiers</td>
+              </tr>
+
+            </table>
+            <p class="text-center"><strong>TDOG</strong></p>
+            <table class="table table-sm table-bordered border-dark">
+              <tr>
+                <th>Objet</th>
+                <th>Type</th>
+              </tr>
+              <tr>
+                <td>n</td>
+                <td>entier</td>
+              </tr>
+              <tr>
+                <td>t</td>
+                <td>tab</td>
+              </tr>
+              <tr>
+                <td>SaisieN<br>
+                  RemplirT<br>
+                  TriBull<br>
+                  Affiche</td>
+                <td>Procédure</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <h5>Algorithme de la procédure SaisieN</h5>
+        <div class="row">
+          <div class="col-9">
+            <pre><code class="language-algorithm">PROCÉDURE SaisieN(@n: entier)
+Début
   Répéter
-    Ecrire ("Donner le nombre de joueurs : "); Lire (N)
-  Jusqu'à (N &in; [2..20])
-  // Séquence 2
-  Pour i de 0 à N-1 faire
-    Répéter 
-      Ecrire ("Donner le nom du joueur n°", i," : "), Lire (A[i])
-    Jusqu'à (alpha(A[i]))
-  Fin pour
-  // Séquence 3
-  Score(SC, A, N)
-  Trier(SC, A, N)
-  Afficher(SC, A, N)
+    Écrire("Donner la taille du tableau :")
+    Lire (n)
+  Jusqu'à (n ∈ [5..20])
 Fin</code></pre>
+          </div>
+          <div class="col-3">
+            <p class="text-center"><strong>TDOL</strong></p>
+            <table class="table table-sm table-bordered border-dark">
+              <tr>
+                <th>Objet</th>
+                <th>Type</th>
+              </tr>
+              <tr>
+                <td>-</td>
+                <td>-</td>
+              </tr>
+            </table>
+          </div>
+        </div>
 
-        <h5>Travail demandé :</h5>
-        <ol>
-          <li>Implémenter l'algorithme <strong>TirArc en Python</strong> et ajouter les déclarations nécessaires puis
-            enregistrer le programme, dans votre dossier de travail, sous le nom <strong>"TirArc0"</strong>.<br>
-          </li>
-          <li>Dans votre dossier de travail, créer une deuxième copie de ce programme et l'enregistrer sous le
-            nom <strong>"TirArc1"</strong>.<br>
-            Dans ce fichier :<br>
-            <ol type="a">
-              <li>Transformer la séquence 2 en un module et apporter les modifications nécessaires dans le
-                programme principal.</li>
-              <li>Développer la fonction <code>Alpha</code> qui permet de vérifier si le nom d'un joueur est une chaîne
-                alphabétique pouvant contenir des espaces.</li>
-              <li>Développer le module <code>Score</code> permettant de saisir les résultats des trois essais de chaque
-                joueur et de calculer son score. Les scores sont enregistrés dans le tableau <code>SC</code>.</li>
-              <li>Développer le module <code>Trier</code> qui permet d'ordonner les joueurs selon l'ordre décroissant de
-                leurs scores.</li>
-              <li>Développer le module <code>Afficher</code> dont le rôle est d'afficher la liste des joueurs ainsi que
-                leurs scores selon un ordre décroissant des scores. </li>
-            </ol>
-          </li>
-        </ol>
-      </section>
-
-      <section>
-        <h3 class="p-break">Plagiarisme - Bac TP 2019</h3>
-
-        <p>Le plagiat est une mauvaise pratique qui consiste à copier ou s'inspirer fortement d'une œuvre sans citer son
-          auteur et en faisant passer cette œuvre pour la sienne.</p>
-        <p>On suppose qu'un texte est plagié lorsque le nombre de mots communs dépasse la moitié du nombre de mots du
-          texte d'origine.</p>
-        <h1>Exemple</h1>
-        <p><strong>Texte à tester :</strong> "ENTRE DEUX VERSIONS DU MEME DOCUMENT CE LOGICIEL PERMET DE CHERCHER LE
-          NOMBRE DE MOTS IDENTIQUES."</p>
-        <p><strong>Texte d'origine :</strong> "CE PROGRAMME PERMET DE TROUVER LE NOMBRE DE MOTS IDENTIQUES DANS DEUX
-          VERSIONS DU MEME TEXTE.""</p>
-        <p>Les mots communs aux deux textes sont : </p>
-        <p class="text-center">DEUX – VERSIONS – DU – MEME – CE – PERMET – DE – LE – NOMBRE – DE – MOTS – IDENTIQUES</p>
-        <p>Le texte testé est plagié. En effet, le nombre de mots communs aux deux textes est égal à 12, dépassant ainsi
-          la moitié du nombre de mots du texte d'origine qui est 16.</p>
-        <p>On se propose d'écrire un programme qui permet de saisir deux textes T1 et T2 ayant un même nombre de mots,
-          de vérifier si T2 est plagiat de T1 selon le principe décrit précédemment et d'afficher un message
-          correspondant.</p>
-        <p>Ci-après, un algorithme du programme principal dans lequel des modifications seront apportées pour répondre
-          aux besoins cités ci-dessus, avec Nbc désigne le nombre de mots communs à T1 et T2 :</p>
-        <pre><code class="algorithm">Algorithme Plagiat
+        <h5>Algorithme de la procédure RemplirT</h5>
+        <div class="row">
+          <div class="col-9">
+            <pre><code class="language-algorithm">PROCÉDURE RemplirT(n: entier, @t: Tab)
 Début
-  // Séquence 1
+    Pour i de 0 à n-1 Faire
+        Écrire ("T[", i, "] = ")
+        Lire (t[i])
+    Fin Pour
+Fin</code></pre>
+          </div>
+          <div class="col-3">
+            <p class="text-center"><strong>TDOL</strong></p>
+            <table class="table table-sm table-bordered border-dark">
+              <tr>
+                <th>Objet</th>
+                <th>Type</th>
+              </tr>
+              <tr>
+                <td>i</td>
+                <td>entier</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <h5>Algorithme de la procédure TriBul</h5>
+        <div class="row">
+          <div class="col-9">
+            <pre><code class="language-algorithm">PROCÉDURE TriBul(n: entier, @t: Tab)
+Début
   Répéter
-    Lire (T1)
-    Lire (T2)
-  Jusqu'à (Nbmots (T1) = Nbmots (T2))
-  // Séquence 2
-  Nbc &larr; Commun (T1,T2)
-Fin</code></pre>
-        <h4>Travail demandé</h4>
-        <ol>
-          <li>Implémenter l'algorithme Plagiat en Python et ajouter les déclarations nécessaires
-            puis enregistrer le programme, dans votre dossier de travail, sous le nom "Plagiat0".</li>
-          <li>Dans votre dossier de travail, créer une deuxième copie de ce programme et l'enregistrer sous le
-            nom "Plagiat1".<br>
-            Dans ce fichier :<br>
-            <ol type="a">
-              <li>Développer un module intitulé Saisir qui permet de saisir une chaîne commençant
-                obligatoirement par une lettre, composée au maximum de 200 caractères, se terminant par
-                un point et ne pouvant contenir que des lettres majuscules et des espaces. Puis, apporter les
-                modifications nécessaires dans le programme principal.<br>
-                Ce module permet aussi d'enlever les espaces superflus (garder un seul espace entre deux
-                mots consécutifs et ne garder aucun espace avant le point de fin de texte).</li>
-              <li>Développer le module Nbmots qui permet de déterminer le nombre de mots dans un texte.</li>
-              <li> Développer le module Commun, qui permet de déterminer le nombre de mots communs
-                dans deux textes donnés.</li>
-              <li>Apporter les modifications nécessaires au programme afin de vérifier si le texte testé est
-                plagié et d'afficher le message correspondant.</li>
-            </ol>
-          </li>
-        </ol>
-      </section>
-
-      <section>
-        <h3 class="p-break">Fildélité - Bac TP 2019</h3>
-        <p>Un gérant d'une salle de sport veut récompenser les adhérents fidèles en leur offrant un bonus sous
-          forme d'heures d'entraînement gratuites, calculé à partir de leurs numéros d'abonnement.</p>
-        <p>Le bonus est calculé en fonction de l'ancienneté de l'adhérent, exprimée en nombre de mois par rapport
-          à la date du jour. En effet, une heure supplémentaire est offerte pour chaque mois d'ancienneté, sachant
-          que le bonus ne sera pris en considération que si l'ancienneté dépasse 5 ans.</p>
-        <p>Un numéro d'abonnement est formé de 10 caractères dont le premier est une lettre majuscule indiquant
-          la catégorie de l'adhérent (A : Adulte, J : Junior, E : Enfant) suivi de 9 chiffres répartis comme suit :</p>
-        <ol>
-          <li>Les 4 premiers chiffres représentent l'année d'adhésion qui doit être comprise entre 2000 et 2019.</li>
-          <li>Les 2 suivants représentent le mois d'adhésion dont la valeur doit être comprise entre 1 et 12. </li>
-          <li>Les 3 derniers chiffres représentent le numéro d'adhésion qu'on suppose distinct pour tous les
-            adhérents.</li>
-        </ol>
-        <h4>Exemple</h4>
-        <p>Pour le numéro d'abonnement E201403080, l'adhérent est un enfant dont l'année d'adhésion est 2014,
-          le mois d'adhésion est 03 (mars) et son numéro d'adhésion est 080. Le bonus accordé à cet adhérent est
-          de 62 heures. En effet, son ancienneté est égale à cinq ans et deux mois par rapport à la date
-          d'aujourd'hui (28/05/2019), en nombre de mois elle est égale à 62 (12*5 + 2). </p>
-        <p>On se propose d'écrire un programme qui permet :</p>
-        <ul>
-          <li>de saisir un entier N représentant le nombre d'adhérents de cette salle (avec 5 ≤ N ≤ 30),</li>
-          <li>de remplir un tableau TA par les N numéros d'abonnements de ces adhérents en respectant le
-            format décrit précédemment,</li>
-          <li>d'afficher les numéros d'abonnements des adhérents ayant une ancienneté supérieure à 5 ans et
-            appartenant à une catégorie donnée ainsi que leurs bonus correspondants sachant que la date du
-            jour à considérer est 28/05/2019.</li>
-        </ul>
-        <p>Ci-après, un algorithme du programme principal dans lequel des modifications seront apportées pour
-          répondre aux besoins cités ci-dessus :</p>
-        <pre><code class="algorithm">Algorithme Fidelite
-Début
-  // Séquence 1
-  Répéter
-    Ecrire ("Donner le nombre des adhérents :"); Lire (N)
-  Jusqu'à (N dans [5..30])
-  // Séquence 2
-  Remplir (TA, N)
-  Bonus (TA, N)
-Fin</code></pre>
-        <h4>Travail demandé</h4>
-        <ol>
-          <li>Implémenter l'algorithme Fidelite en Python et ajouter les déclarations nécessaires
-            puis enregistrer le programme, dans votre dossier de travail, sous le nom "Fidele0".</li>
-          <li>Dans votre dossier de travail, créer une deuxième copie de ce programme et l'enregistrer sous le
-            nom "Fidele1".<br>
-            Dans ce fichier :<br>
-            <ol type="a">
-              <li>Transformer la séquence 1 en un module et apporter les modifications nécessaires dans le
-                programme principal.</li>
-              <li>Développer le module Remplir qui permet de remplir un tableau TA par les N numéros
-                d'abonnements en respectant la forme décrite précédemment.</li>
-              <li>Développer le module Bonus permettant :</li>
-              <ul>
-                <li>de saisir une catégorie d'adhérents, qui doit être une lettre majuscule parmi les
-                  suivantes : A, J ou E,</li>
-                <li>d'afficher les numéros ainsi que les bonus correspondants aux abonnements appartenant
-                  à la catégorie donnée et ayant une ancienneté supérieure à 5 ans.</li>
-              </ul>
-            </ol>
-          </li>
-        </ol>
-      </section>
-
-      <section>
-        <h3 class="p-break">Heure Miroir - BAC TP 2019</h3>
-        <p>Un spécialiste en psychologie analytique veut faire une étude sur les heures qui se disent heures miroirs
-          et ce, à partir des heures de naissances des nouveau-nés. Les heures miroirs sont classées selon trois
-          types à savoir les heures miroirs doublées, les heures miroirs triplées et les heures miroirs inversées.</p>
-        <p>Pour commencer cette étude, il a demandé auprès de l'administration d'un hôpital de lui fournir, pour
-          une journée donnée, la liste des noms et prénoms des nouveau-nés ainsi que les heures de leurs
-          naissances.</p>
-        <p>Selon la représentation horaire HH:MM, l'heure miroir est dite :</p>
-        <ul>
-          <li>doublée si le nombre qui représente l'heure est le même que celui qui représente les minutes
-            (exemples 13:13, 22:22, 15:15, ...)</li>
-          <li>triplée s'il existe une séquence de trois chiffres identiques et consécutifs
-            (exemples 22:22, 22:29, 10:00, ...)</li>
-          <li>inversée si les chiffres qui représentent les minutes sont l'inverse de ceux qui représentent l'heure
-            (exemples 13:31, 14:41, 22:22, ...)</li>
-        </ul>
-        <p>NB : Une heure miroir peut être à la fois doublée, triplée et inversée.</p>
-        <p>Pour faire cette étude, on se propose d'écrire un programme qui permet de remplir deux tableaux
-          NP et HN respectivement par :</p>
-        <ul>
-          <li>les noms et les prénoms des N nouveau-nés de la journée,</li>
-          <li>l'heure de naissance de chacun,</li>
-        </ul>
-        <p>puis d'afficher :</p>
-        <ul>
-          <li>la liste des nouveau-nés ayant une heure de naissance miroir, en précisant pour chacun le type de
-            l'heure miroir correspondant (doublée, triplée ou inversée),</li>
-          <li>le nombre des nouveau-nés ayant l'heure de naissance miroir doublée,</li>
-          <li>le nombre des nouveau-nés ayant l'heure de naissance miroir triplée,</li>
-          <li>le nombre des nouveau-nés ayant l'heure de naissance miroir inversée.</li>
-        </ul>
-        <h4>Exemple :</h4>
-        <p>Pour N = 10 et les tableaux NP et HN suivants :</p>
-        <figure><img src="resources/chapitre_05/images/exemple03.png" alt=""></figure>
-        <p>Le programme affiche :</p>
-        <pre>Les nouveau-nés ayant l'heure de naissance miroir sont :
-  Karim Salhi : heure miroir triplée
-  Sahar Feki : heure miroir doublée
-  Maha Sessi : heure miroir triplée
-  Fedi Krayem : heure miroir inversée
-  Dina Selmi : heure miroir triplée
-  Samir Siala : heure miroir doublée
-  Samir Siala : heure miroir triplée
-  Samir Siala : heure miroir inversée
-Le nombre des nouveau-nés ayant l'heure de naissance miroir doublée est 2.
-Le nombre des nouveau-nés ayant l'heure de naissance miroir triplée est 4.
-Le nombre des nouveau-nés ayant l'heure de naissance miroir inversée est 2.</pre>
-        <p class="p-break">Ci-après, un algorithme du programme principal dans lequel des modifications seront apportées
-          pour
-          répondre aux besoins cités ci-dessus :</p>
-        <pre><code class="algorithm">Algorithme HeureMiroir
-Début
-  // Séquence 1
-  Ecrire ("Donner le nombre de nouveau-nés : "); Lire (N)
-  // Séquence 2
-  Remplissage (NP, HN, N)
-  Affichage (NP, HN, N)
-Fin</code></pre>
-        <h4 class="p-break">Travail demandé</h4>
-        <ol>
-          <li>Implémenter l'algorithme HeureMiroir en Python et ajouter les déclarations nécessaires puis
-            enregistrer le programme, dans votre dossier de travail, sous le nom "HMiroir0".<br>
-            NB : Il est recommandé de limiter la taille des éléments des tableaux à 30 caractères.</li>
-          <li>Dans votre dossier de travail, créer une deuxième copie de ce programme et l'enregistrer sous le
-            nom "HMiroir1".<br>
-            Dans ce fichier :<br>
-            <ol type="a">
-              <li>Transformer la séquence 1 en un module en ajoutant les contrôles de saisie nécessaires pour
-                que N soit un entier de l'intervalle [3,20] et apporter les modifications adéquates dans le
-                programme principal.</li>
-              <li>Développer le module Remplissage permettant de remplir :
-                <ul>
-                  <li>le tableau NP par les noms et les prénoms des N nouveau-nés de la journée, sachant que
-                    le nom et le prénom est une seule chaîne commençant par une lettre majuscule et formée
-                    au maximum de 30 caractères,</li>
-                  <li>le tableau HN par l'heure de naissance de chaque nouveau-né, et ce en respectant le
-                    format horaire HH:MM, sachant que la valeur de HH est comprise entre 0 et 23 et celle
-                    de MM est comprise entre 0 et 59 représentée chacune sur deux chiffres.</li>
-                </ul>
-              </li>
-              <li>Développer le module Affichage permettant de faire les affichages nécessaires comme
-                indiqué précédemment.</li>
-            </ol>
-          </li>
-        </ol>
-        <p>NB : Le candidat n'est pas appelé à respecter l'ordre d'affichage de l'exemple.</p>
-      </section>
-
-      <section>
-        <h3 class="p-break">Collection - BAC TP 2018</h3>
-        <p>Un client collectionne les images qu'il trouve dans les paquets de ses biscuits préférés pour gagner des
-          passes d'entrées gratuites, à un parc d'attraction. La collection doit comporter 20 images différentes
-          relatives à des personnages distincts de bandes dessinées.</p>
-        <p>On suppose que les images ont été disposées au hasard dans les paquets et que :</p>
-        <ul>
-          <li>chaque paquet contient exactement une image de personnages de bandes dessinées,</li>
-          <li>un même personnage peut se retrouver dans plusieurs paquets.</li>
-        </ul>
-        <p>Pour gagner ce voyage, le client achète une boîte contenant 50 paquets.</p>
-        <p>On donne l'algorithme du programme principal suivant où P représente un tableau contenant la collection
-          des personnages distincts que le client a pu collectionner, suite à l'ouverture des 50 paquets achetés, et C,
-          le
-          nombre d'éléments de P.</p>
-        <pre><code class="algorithm">Algorithme Collection
-Début
-  Répéter // Séquence 1
-    Ecrire ("Donner le nom du personnage trouvé dans le paquet n° 1 :") ; Lire (P[1])
-  Jusqu'à (FN Valide (P[1]))
-  C &larr; 1 // Séquence 2 et 3
-  Pour i de 2 à 50 faire
-    Répéter
-      Ecrire ("Donner le nom du personnage trouvé dans le paquet n° ",i, ":") ; Lire (Pers)
-    Jusqu'à (FN Valide (Pers))
-    Si (Chercher (Pers, P,C)=faux) Alors
-      C &larr; C+1
-      P[C] &larr; Pers
+    Trié ← Vrai
+    Pour i de 0 à n-2 Faire
+      Si (t[i] > t[i+1]) Alors
+        aux ← t[i]
+        t[i] ← t[i+1]
+        t[i+1] ← aux
+        Trié ← Faux
     Fin Si
-  Fin Pour
-  // Séquence 4
-  Si (C = 20) Alors Ecrire ("Vous avez gagné") Sinon Ecrire ("Vous avez perdu") Fin Si
+    Fin Pour
+  Jusqu'à Trié
 Fin</code></pre>
-        <h4>Travail à faire :</h4>
-        <ol>
-          <li>Implémenter l'algorithme Collection en Python et ajouter les déclarations nécessaires.</li>
-          <li>Développer la fonction Valide permettant de valider une chaîne qui doit être non vide, commencer
-            par une majuscule et être formée uniquement de lettres non accentuées.</li>
-          <li>Développer la fonction Chercher qui permet de vérifier l'existence d'un personnage Pers dans le
-            tableau P.</li>
-          <li>Mettre les séquences 2), 3) et 4) sous forme de commentaire et réécrire ces trois séquences en
-            apportant les modifications nécessaires de façon à ce que le programme :
-            <ul>
-              <li>prenne en considération la possibilité de trouver 20 personnages distincts avant même de
-                terminer l'ouverture des 50 paquets,</li>
-              <li>dans le cas, où le client n'a pas réussi à collectionner 20 personnages, affiche le nombre de
-                personnages manquants pour gagner le concours.</li>
-            </ul>
-          </li>
-        </ol>
+          </div>
+          <div class="col-3">
+            <p class="text-center"><strong>TDOL</strong></p>
+            <table class="table table-sm table-bordered border-dark">
+              <tr>
+                <th>Objet</th>
+                <th>Type</th>
+              </tr>
+              <tr>
+                <td>i, aux</td>
+                <td>entier</td>
+              </tr>
+              <tr>
+                <td>trié</td>
+                <td>booléen</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <h5>Algorithme de la procédure Afficher</h5>
+        <div class="row">
+          <div class="col-9">
+            <pre><code class="language-algorithm">PROCÉDURE Afficher(n: entier, t: Tab)
+Début
+  Pour i de 0 à n-1 Faire
+    Écrire("T[", i, "] = ", t[i])
+  Fin Pour
+Fin</code></pre>
+          </div>
+          <div class="col-3">
+            <p class="text-center"><strong>TDOL</strong></p>
+            <table class="table table-sm table-bordered border-dark">
+              <tr>
+                <th>Objet</th>
+                <th>Type</th>
+              </tr>
+              <tr>
+                <td>i</td>
+                <td>entier</td>
+              </tr>
+            </table>
+          </div>
+        </div>
       </section>
     </article>
   </main>
