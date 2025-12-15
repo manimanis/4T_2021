@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interfaces Graphiques</title>
+  <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+  <link rel="stylesheet" href="resources/css/default.css">
+  <link rel="stylesheet" href="resources/css/style.css">
+  <link rel="stylesheet" href="resources/css/chapitre05.css">
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="aside_navbar"></div>
+    </nav>
+  </aside>
+
+  <main class="container my-3">
+    <h1>Interfaces Graphiques</h1>
+
+    <article>
+      <h2>Présentation</h2>
+
+      <section>
+        <h3>Introduction</h3>
+        <figure>
+          <img src="resources/images/pyqt_sigle.png" alt="Sigle PyQt">
+          <figcaption>Sigle de la bibliothèque PyQt</figcaption>
+        </figure>
+        <p>Qt est une bibliothèque <strong>GUI</strong> <strong>multiplateformes</strong> :</p>
+        <ul>
+          <li><strong>GUI</strong> (Graphic User Interface) : outil de création d'interfaces graphiques</li>
+          <li><strong>Multiplateformes</strong> : fonctionne sous Windows, Linux et MacOS</li>
+        </ul>
+        <p><strong>Qt</strong> est écrit à l'origine en C++. Puis, Qt a été portée en langage Python grâce aux bindings
+          et
+          il existe sous deux déclinaisons : <strong>PySide</strong> et <strong>PyQt</strong>.</p>
+        <p>Dans la suite de ce cours nous allons utiliser <strong>PyQt</strong> comme outil pour créer des interfaces
+          graphiques pour nos programmes écrits en Python.</p>
+
+      </section>
+
+      <section>
+        <h3>Pourquoi PyQt ?</h3>
+        <p>PyQt possède l'avantage d'offrir <strong>deux modes</strong> de création des interfaces graphiques :</p>
+        <ul>
+          <li>L'interface est créée, codée et programmée intégralement en Python : très difficile et non convenable pour
+            les débutants,</li>
+          <li>L'interface est créée et codée à l'aide d'un outil graphique. Elle est programmée ensuite en Python : plus
+            facile pour les débutants,</li>
+        </ul>
+        <p>Nous adopterons cette deuxième méthode dans la suite de ce cours. L'interface sera créée à l'aide de
+          <strong>QtDesigner</strong>, cette interface sera exploitée en Python à l'aide de la bibliothèque PyQt.
+        </p>
+
+        <figure>
+          <img src="resources/images/interface_qtdesigner.png" alt="Interface QtDesigner">
+          <figcaption>Interface de l'outil QtDesigner</figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h3>Présentation des Widgets</h3>
+
+        <p><strong>QtDesigner</strong> inclut un large choix de <strong>widgets</strong> (contrôles dans la terminologie
+          Windows) qui assurent les fonctionnalités standard de l'interface graphique.</p>
+
+        <figure>
+          <a href="resources/chapitre_06/widgets_toolbar.png" target="_blank"><img
+              src="resources/chapitre_06/widgets_toolbar.png" height="150" title="Cliquer pour agrandir"
+              alt="Boîte d'outils Widgets"></a>
+          <figcaption>La barre d'outils Widgets disponible en QtDesigner. Cliquer pour agrandir l'image.</figcaption>
+        </figure>
+
+        <p><strong>QtDesigner</strong> propose une approche basée sur les formulaires pour le développement
+          d'applications. Un formulaire est représenté par un fichier d'interface utilisateur (.ui)</p>
+
+        <figure>
+          <img src="resources/chapitre_06/qt_form.png" alt="Formulaire Qt">
+          <figcaption>Formulaire QtDesigner</figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h3>Eléments d'un formulaire</h3>
+
+        <p>La figure ci-dessous présente <ins>uniquement</ins> les <strong>Widgets</strong> qui sont inclus dans le
+          programme des sections scientifiques :</p>
+        <ul>
+          <li>Le composant <strong>Label</strong> ou étiquette</li>
+          <li>Le composant <strong>Line Edit</strong> ou champ de texte</li>
+          <li>Le composant <strong>Push Button</strong> ou bouton</li>
+        </ul>
+
+        <figure>
+          <img src="resources/chapitre_06/composants_principaux.png" alt="Composants Principaux">
+          <figcaption>Composants Principaux qui sont au programme des sections scientifiques</figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h3>Application Somme</h3>
+
+        <p>On demande de créer une application PyQt qui calcule et affiche la somme de deux entiers saisis dans des
+          champs de texte appropriés. L'interface graphique de l'application est preséntée dans la figure suivante.</p>
+
+        <figure>
+          <img src="resources/chapitre_06/interface_somme.png" alt="Interface Application Somme">
+          <figcaption>Interface graphique de l'application Somme</figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h3>Interface Application Somme</h3>
+
+        <p>La vidéo suivante présente les étapes de création de l'interface à l'aide QtDesigner.</p>
+
+        <video src="resources/chapitre_06/InterfaceQtDesignerSomme.mp4" controls></video>
+      </section>
+
+      <section>
+        <h3>Code Python Application Somme</h3>
+
+        <p>Les composants du formulaire sont accessibles grâce à leurs noms affectés lors de la conception de
+          l'interface :</p>
+
+        <figure>
+          <img src="resources/chapitre_06/composants_interface_somme.png"
+            alt="Composants de l'interface de l'application">
+          <figcaption>Composants de l'interface de l'application</figcaption>
+        </figure>
+
+        <p>Le programme final complet est comme suit. Ce programme devra être enregistré dans le même dossier que le
+          fichier d'interface <code>somme.ui</code>.</p>
+
+        <pre><code class="language-python">from PyQt5.uic import loadUi
+from PyQt5.QtWidgets import QApplication
+
+def play():
+    chva = form.va.text() # type str
+    chvb = form.vb.text() # type str
+    if chvb != "" and chva != "" and chva.isdecimal() and chvb.isdecimal():
+        s = int(chva) + int(chvb)
+        form.res.setText(chva + " + " + chvb + " = " + str(s))
+    else:
+        form.res.setText("Donner a et b deux entiers !")
+
+app = QApplication([])
+form = loadUi("somme.ui")
+form.show()
+form.btncalc.clicked.connect (play)
+app.exec_()</code></pre>
+      </section>
+    </article>
+
+    <article>
+      <h2>Sujets Pratiques</h2>
+
+      <section>
+        <h3>Année 2022-2025</h3>
+
+        <h4>Année 2022</h4>
+        <div class="row">
+          <div class="col-sm-4 my-2">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Le nombre ondulant</h5>
+                <p><a class="btn btn-primary" href="docs/sujets_pratiques/2022/bac-pratique-24052022-sc-8h.pdf"
+                    target="_blank">Sujet 8h</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4 my-2">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Le nombre super-pairplus</h5>
+                <p><a href="docs/sujets_pratiques/2022/bac-pratique-24052022-sc-9h30.pdf" target="_blank"
+                    class="btn btn-primary">Sujet 9h30</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4 my-2">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Le nombre semi-premier</h5>
+                <p><a href="docs/sujets_pratiques/2022/bac-pratique-24052022-sc-11h.pdf" target="_blank"
+                    class="btn btn-primary">Sujet 11h</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 my-2">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Le nombre lisse</h5>
+                <p><a href="docs/sujets_pratiques/2022/bac-pratique-24052022-sc-13h.pdf" target="_blank"
+                    class="btn btn-primary">Sujet 13h</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h4>Année 2023</h4>
+
+        <div class="row">
+          <div class="col-sm-4 my-2">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Succession parfaite</h5>
+                <p><a href="docs/sujets_pratiques/2023/bac-pratique-23052023-sc-8h.pdf" target="_blank"
+                    class="btn btn-primary">Sujet 8h</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4 my-2">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Rotation - Miroir</h5>
+                <p><a href="docs/sujets_pratiques/2023/bac-pratique-23052023-sc-9h30.pdf" target="_blank"
+                    class="btn btn-primary">Sujet 9h30</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4 my-2">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Miroirs de mots</h5>
+                <p><a href="docs/sujets_pratiques/2023/bac-pratique-23052023-sc-11h.pdf" target="_blank"
+                    class="btn btn-primary">Sujet 11h</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4 my-2">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Triage de mots</h5>
+                <p><a href="docs/sujets_pratiques/2023/bac-pratique-23052023-sc-13h.pdf" target="_blank"
+                    class="btn btn-primary">Sujet 13h</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4 my-2">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Intersection de deux chaînes</h5>
+                <p><a href="docs/sujets_pratiques/2023/bac-pratique-23052023-sc-14h30.pdf" target="_blank"
+                    class="btn btn-primary">Sujet 14h30</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h4>Année 2024</h4>
+
+        <div class="row">
+          <div class="col-sm-4 my-2">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Divisibilité par 7 (Méthode de Horner)</h5>
+                <p><a href="docs/sujets_pratiques/2024/bac-pratique-21052024-sc-8h.pdf" target="_blank"
+                    class="btn btn-primary">Sujet 8h</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4 my-2">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Autonombres</h5>
+                <p><a href="docs/sujets_pratiques/2024/bac-pratique-21052024-sc-9h30.pdf" target="_blank" class="btn btn-primary">Sujet 9h30</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4 my-2">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Transformation Powertrain</h5>
+                <p><a href="docs/sujets_pratiques/2024/bac-pratique-21052024-sc-11h.pdf" target="_blank" class="btn btn-primary">Sujet 11h</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4 my-2">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Nombres Primaires</h5>
+                <p><a href="docs/sujets_pratiques/2024/bac-pratique-21052024-sc-13h.pdf" target="_blank" class="btn btn-primary">Sujet 13h</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4 my-2">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Suite arithmétique</h5>
+                <p><a href="docs/sujets_pratiques/2024/bac-pratique-21052024-sc-14h30.pdf" target="_blank" class="btn btn-primary">Sujet 14h30</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h4>Année 2025</h4>
+
+        <div class="row">
+          <div class="col-sm-4 my-2">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Premier Palindrome</h5>
+                <p><a href="docs/sujets_pratiques/2025/bac-pratique-21052025-sc-8h.pdf" target="_blank" class="btn btn-primary">Sujet 8h</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4 my-2">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Diviseurs Unitaires</h5>
+                <p><a href="docs/sujets_pratiques/2025/bac-pratique-21052025-sc-9h30.pdf" target="_blank" class="btn btn-primary">Sujet 9h30</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4 my-2">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Nombres ronds</h5>
+                <p><a href="docs/sujets_pratiques/2025/bac-pratique-21052025-sc-11h.pdf" target="_blank" class="btn btn-primary">Sujet 11h</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4 my-2">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Nombres d'Armstrong</h5>
+                <p><a href="docs/sujets_pratiques/2025/bac-pratique-21052025-sc-13h.pdf" target="_blank" class="btn btn-primary">Sujet 13h</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4 my-2">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Mots ordonnés</h5>
+                <p><a href="docs/sujets_pratiques/2025/bac-pratique-21052025-sc-14h30.pdf" target="_blank" class="btn btn-primary">Sujet 14h30</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée avec ♥ par Mohamed Anis MANI</div>
+    <div class="text-center small">Année scolaire : 2025/2026</div>
+  </footer>
+
+  <script src="resources/js/jquery.min.js"></script>
+  <script src="resources/js/bootstrap.bundle.min.js"></script>
+  <script src="resources/js/highlight.min.js"></script>
+  <script src="resources/js/hljs.algorithm.js"></script>
+  <script src="resources/js/clipboard.min.js"></script>
+  <script src="resources/js/pages.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+
+    // document.querySelectorAll('.language-algorithm,.language-python,.language-delphi')
+    //   .forEach(item => {
+    //     const div = document.createElement('div');
+    //     div.className = 'bd-clipboard d-print-none';
+    //     const btn = document.createElement('button');
+    //     btn.className = 'btn-clipboard';
+    //     btn.textContent = "📋";
+    //     btn.title = "Copier";
+    //     div.appendChild(btn);
+    //     item.parentElement.insertBefore(div, item);
+    //   });
+    // new ClipboardJS('.btn-clipboard', {
+    //   target: (trigger) => {
+    //     return trigger.parentElement.nextElementSibling;
+    //   }
+    // });
+  </script>
+  <script src="resources/js/funcs.js"></script>
+  <script src="resources/js/vue.min.js"></script>
+  <script src="resources/apps/chapitre05.js"></script>
+</body>
+
+</html>

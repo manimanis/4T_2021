@@ -29,13 +29,15 @@
       <h2>Exercices</h2>
 
       <section>
-        <h3>Tri à bulles</h3>
-
-        <h4>I. Introduction :</h4>
+        <h3>Introduction</h3>
         <p>On désigne par « tri » l'opération consistant à ordonner un ensemble d'éléments en fonction de clés sur
           lesquelles est définie une relation d'ordre. Dans ce qui suit on va présenter une méthode pour trier les
           éléments d'un tableau selon l'ordre croissant.</p>
-        <h4>II. Le tri à bulles (ordre croissant)</h4>
+      </section>
+
+      <section>
+        <h3>Tri à bulles</h3>
+
         <p>Cette méthode consiste à répéter le traitement suivant :</p>
         <ul>
           <li>Parcourir les éléments du tableau de 0 à (n-2).</li>
@@ -43,32 +45,96 @@
           <li>Le programme s'arrête lorsqu'aucune permutation n'est réalisable après un parcours complet du tableau.
           </li>
         </ul>
-        <p><strong>Trace d'exécution :</strong></p>
-        <script>
-          const styles1 = {
-            table: "margin: 10px;",
-            firstCol: {
-              width: '160px',
-              'text-align': 'center',
-            },
-            col: {
-              width: '100px',
-              'text-align': 'center',
-              border: '#333 solid 1px'
-            },
-            styles: []
-          };
-          const t1 = [6, 4, 2, 1, 4];
-          const t2 = [4, 2, 1, 4, 6];
-          const t3 = [2, 1, 4, 4, 6];
-          const t4 = [1, 2, 4, 4, 6];
-          const t5 = [1, 2, 4, 4, 6];
-          draw_table("tableau initial", t1, 0, styles1);
-          draw_table("Après la 1e itération", t2, 0, styles1);
-          draw_table("Après la 2e itération", t3, 0, styles1);
-          draw_table("Après la 3e itération", t4, 0, styles1);
-          draw_table("Après la 4e itération", t5, 0, styles1);
-        </script>
+
+        <div class="row">
+          <div class="col-9">
+            <pre><code class="language-algorithm">Procédure TriBulles(n: entier, @t: Tab)
+Début
+  Répéter
+    Trié ← Vrai
+    Pour i de 0 à n-2 Faire
+      Si (t[i] > t[i+1]) Alors
+        aux ← t[i]
+        t[i] ← t[i+1]
+        t[i+1] ← aux
+        Trié ← Faux
+    Fin Si
+    Fin Pour
+  Jusqu'à Trié
+Fin</code></pre>
+          </div>
+          <div class="col-3">
+            <p class="text-center"><strong>TDOL</strong></p>
+            <table class="table table-sm table-bordered border-dark col-2">
+              <tr>
+                <th>Objet</th>
+                <th>Type</th>
+              </tr>
+              <tr>
+                <td>i, aux</td>
+                <td>entier</td>
+              </tr>
+              <tr>
+                <td>trié</td>
+                <td>booléen</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+      </section>
+
+      <section>
+        <h3>Tri par Sélection</h3>
+
+        <p>Le principe de cette méthode consiste à :</p>
+        <ul>
+          <li>Chercher l'indice du plus petit élément <code>indmin</code>à partir de l'indice <code>i</code> = 0</li>
+          <li>Permuter les éléments d'indices <code>indmin</code> et celui d'indice <code>i</code> ;</li>
+          <li>Refaire les opérations précédents pour tout i &in; [1, n-2]</li>
+
+        </ul>
+
+        <div class="row">
+          <div class="col-9">
+            <pre><code class="language-algorithm">Procédure TriSélection(n: entier, @t: Tab)
+Début
+  Pour i de 0 à n-2 Faire
+    // Chercher l'indice du plus petit élément dans 
+    // la portion du tableau d'indices i à n-1
+    indmin &larr; i
+    Pour j de i+1 à n-1 Faire
+      Si t[indmin] > t[j] Alors
+        indmin &larr; j
+      Fin Si
+    Fin Pour
+    // Permuter les éléments d'indices indmin et i
+    Si (indmin &ne; i) Alors
+      aux &larr; t[indmin]
+      t[indmin] &larr; t[i]
+      t[i] &larr; aux
+    Fin Si
+  Fin Pour
+Fin</code></pre>
+          </div>
+          <div class="col-3">
+            <p class="text-center"><strong>TDOL</strong></p>
+            <table class="table table-sm table-bordered border-dark col-2">
+              <tr>
+                <th>Objet</th>
+                <th>Type</th>
+              </tr>
+              <tr>
+                <td>i, aux, indmin, j</td>
+                <td>entier</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Implémentation</h3>
 
         <h5>Algorithme du programme principal</h5>
         <div class="row">
@@ -77,7 +143,7 @@
 Début
     SaisieN(n)
     RemplirT(n, t)
-    TriBull(n, t)
+    Tri(n, t)
     Afficher(n, t)
 Fin</code></pre>
           </div>
@@ -108,7 +174,7 @@ Fin</code></pre>
               <tr>
                 <td>SaisieN<br>
                   RemplirT<br>
-                  TriBull<br>
+                  Tri<br>
                   Affiche</td>
                 <td>Procédure</td>
               </tr>
@@ -119,7 +185,7 @@ Fin</code></pre>
         <h5>Algorithme de la procédure SaisieN</h5>
         <div class="row">
           <div class="col-9">
-            <pre><code class="language-algorithm">PROCÉDURE SaisieN(@n: entier)
+            <pre><code class="language-algorithm">Procédure SaisieN(@n: entier)
 Début
   Répéter
     Écrire("Donner la taille du tableau :")
@@ -145,7 +211,7 @@ Fin</code></pre>
         <h5>Algorithme de la procédure RemplirT</h5>
         <div class="row">
           <div class="col-9">
-            <pre><code class="language-algorithm">PROCÉDURE RemplirT(n: entier, @t: Tab)
+            <pre><code class="language-algorithm">Procédure RemplirT(n: entier, @t: Tab)
 Début
     Pour i de 0 à n-1 Faire
         Écrire ("T[", i, "] = ")
@@ -168,22 +234,12 @@ Fin</code></pre>
           </div>
         </div>
 
-        <h5>Algorithme de la procédure TriBul</h5>
+        <h5>Algorithme de la procédure Tri</h5>
         <div class="row">
           <div class="col-9">
-            <pre><code class="language-algorithm">PROCÉDURE TriBul(n: entier, @t: Tab)
+            <pre><code class="language-algorithm">Procédure Tri(n: entier, @t: Tab)
 Début
-  Répéter
-    Trié ← Vrai
-    Pour i de 0 à n-2 Faire
-      Si (t[i] > t[i+1]) Alors
-        aux ← t[i]
-        t[i] ← t[i+1]
-        t[i+1] ← aux
-        Trié ← Faux
-    Fin Si
-    Fin Pour
-  Jusqu'à Trié
+  // Implémenter l'un des algorithmes déjà vus
 Fin</code></pre>
           </div>
           <div class="col-3">
@@ -208,7 +264,7 @@ Fin</code></pre>
         <h5>Algorithme de la procédure Afficher</h5>
         <div class="row">
           <div class="col-9">
-            <pre><code class="language-algorithm">PROCÉDURE Afficher(n: entier, t: Tab)
+            <pre><code class="language-algorithm">Procédure Afficher(n: entier, t: Tab)
 Début
   Pour i de 0 à n-1 Faire
     Écrire("T[", i, "] = ", t[i])
